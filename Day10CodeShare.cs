@@ -146,5 +146,116 @@ namespace SecurityDemo
         }
     }
 }
+To untienticate the user means checking username and password and is role from the role of admin and user 
+add this class after user class only but dot put it inside another class above button click only it should be there 
 
+public class AuthService
+{
+    private List<User> _users = new List<User>();
 
+    public AuthService()
+    {
+        //Add some sample users with roles 
+
+        _users.Add(new User("ravi", "RaviPassword", "Admin"));
+        _users.Add(new User("mahesh", "MaheshPassword", "User"));
+
+    }
+
+    public User Authenticate(string username, string password)
+    {
+        User userfound = null;
+        foreach (User  user1 in _users)
+        {
+            if(user1.Username == username && user1.Password == password)
+            {
+                userfound = user1;
+                break;
+            }
+        }
+        return userfound;
+    }
+
+    public bool Authorize(User user,string role)
+    {
+        //checking whether user role matches with required role
+        return user.Role == role;
+    }
+}
+
+complete code 
+---------------
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SecurityDemo
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        public class User
+        {
+            public string Username { get; set; }
+            public string Password { get; set; }
+            public string Role { set; get; }
+
+            public User(string username1,string password1,string role1)
+            {
+                Username = username1;
+                Password = password1;
+                Role = role1;
+            }
+        }
+
+        public class AuthService
+        {
+            private List<User> _users = new List<User>();
+
+            public AuthService()
+            {
+                //Add some sample users with roles 
+
+                _users.Add(new User("ravi", "RaviPassword", "Admin"));
+                _users.Add(new User("mahesh", "MaheshPassword", "User"));
+
+            }
+
+            public User Authenticate(string username, string password)
+            {
+                User userfound = null;
+                foreach (User  user1 in _users)
+                {
+                    if(user1.Username == username && user1.Password == password)
+                    {
+                        userfound = user1;
+                        break;
+                    }
+                }
+                return userfound;
+            }
+
+            public bool Authorize(User user,string role)
+            {
+                //checking whether user role matches with required role
+                return user.Role == role;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
