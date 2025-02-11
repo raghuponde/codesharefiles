@@ -686,3 +686,162 @@ namespace EncryptDecryptDemo
     }
 }
 
+Logging demo
+-------------
+some more secuirty code 
+--------------------------
+
+Example: Using log4net in a C# Console Application
+
+log4net is a logging framework for .NET that allows developers to log messages to various outputs, such as the console, files, databases, etc. This example will guide you through setting up log4net in a simple C# console application and show how to log messages of different levels (info, debug, error).
+
+Steps:
+Create a new Console Application in Visual Studio or your preferred IDE.
+Install log4net via NuGet.
+Configure log4net using an App.config file.
+Initialize log4net in the Program.cs.
+Log messages using log4net.
+
+Step 1: Create a Console Application
+
+Create a new Console App in Visual Studio.
+
+
+Step 2: Install log4net via NuGet
+
+You need to install the log4net library using NuGet.
+
+In Solution Explorer, right-click on your project and select Manage NuGet Packages.
+
+Search for log4net, select it, and click Install.
+
+or through terminal from package manager console 
+
+Install-Package log4net
+
+
+Step 3: Configure log4net in App.config
+
+Create an App.config file if it doesn't exist already:
+
+Right-click on the project, select Add > New Item....
+
+Choose Application Configuration File and name it App.config.
+
+Now, configure log4net inside App.config as follows:
+
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+	<section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
+  </configSections>
+
+  <log4net>
+	<!-- Log to the console -->
+	<appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender">
+	  <layout type="log4net.Layout.PatternLayout">
+		<conversionPattern value="%date %-5level %logger - %message%newline" />
+	  </layout>
+	</appender>
+
+	<!-- Log to a file -->
+	<appender name="FileAppender" type="log4net.Appender.RollingFileAppender">
+	  <file value="C:\logs\application.txt" />
+	  <appendToFile value="true" />
+	  <rollingStyle value="Size" />
+	  <maxSizeRollBackups value="5" />
+	  <maximumFileSize value="10MB" />
+	  <staticLogFileName value="true" />
+	  <layout type="log4net.Layout.PatternLayout">
+		<conversionPattern value="%date %-5level %logger - %message%newline" />
+	  </layout>
+	</appender>
+
+	<root>
+	  <level value="DEBUG" />
+	  <appender-ref ref="ConsoleAppender" />
+	  <appender-ref ref="FileAppender" />
+	</root>
+  </log4net>
+</configuration>
+
+
+Explanation:
+
+ConsoleAppender: Logs messages to the console.
+FileAppender: Logs messages to a file (in this case, logs/application.log). The log file will roll over when it reaches 10 MB, keeping up to 5 backups.
+Layout: Defines the format of the log messages.
+%date: The timestamp of the log entry.
+%level: The logging level (DEBUG, INFO, ERROR, etc.).
+%logger: The name of the logger.
+%message: The actual log message.
+
+
+Step 4: Initialize log4net in Program.cs
+To use log4net, you need to initialize it at the start of the application. This is usually done in the Main method.
+
+Open Program.cs and modify it as follows:
+
+using log4net;
+using System.Reflection;
+using System;
+
+namespace Log4NetDemo
+{
+    internal class Program
+    { // Create a static logger instance for the class
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+        static void Main(string[] args)
+        {
+
+            log4net.Config.XmlConfigurator.Configure();
+            // Log application start
+            log.Info("Application is starting...");
+
+            try
+            {
+                Console.WriteLine("Enter a number:");
+                string input = Console.ReadLine();
+                int number = int.Parse(input);
+
+                // Log user input
+                log.Debug($"User entered: {number}");
+
+                // Simulate a division operation
+                int result = 100 / number;
+                Console.WriteLine($"Result: 100 / {number} = {result}");
+
+                // Log success
+                log.Info($"Division successful. Result: {result}");
+            }
+            catch (FormatException ex)
+            {
+                // Log format error
+                log.Error("Invalid input format.", ex);
+                Console.WriteLine("Please enter a valid number.");
+            }
+            catch (DivideByZeroException ex)
+            {
+                // Log divide by zero error
+                log.Error("Attempted to divide by zero.", ex);
+                Console.WriteLine("Cannot divide by zero.");
+            }
+            catch (Exception ex)
+            {
+                // Log any other errors
+                log.Fatal("An unexpected error occurred.", ex);
+                Console.WriteLine("An unexpected error occurred.");
+            }
+            finally
+            {
+                // Log application end
+                log.Info("Application is closing.");
+            }
+
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
+        }
+    }
+}
+
