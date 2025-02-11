@@ -512,4 +512,91 @@ namespace EncrcyptDecryptdemo
     }
 }
 
+explanation :
+--------------
+  Create AES instance:
+
+
+using (Aes aes = Aes.Create())
+This initializes an AES object that allows encryption using the AES algorithm.
+Set Key and IV (Initialization Vector):
+
+
+aes.Key = _key;
+aes.IV = _iv;
+The key (_key) is a 32-byte secret key (used for AES-256).
+The IV (_iv) is a 16-byte Initialization Vector (used to add randomness to encryption).
+
+Create an encryptor:
+
+
+ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+This creates an encryption transformer that will encrypt the input data.
+Perform encryption using a CryptoStream:
+
+
+using (MemoryStream msEncrypt = new MemoryStream())
+{
+    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+    {
+        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+        {
+            // Write the plain text to the stream
+            swEncrypt.Write(plainText);
+        }
+        return Convert.ToBase64String(msEncrypt.ToArray());
+    }
+}
+A MemoryStream is used to temporarily store the encrypted data.
+A CryptoStream applies the encryption transformation.
+A StreamWriter writes the plain text into the CryptoStream, which encrypts it.
+The encrypted data is then converted to a Base64 string (so it can be easily stored or transmitted).
+Example Output:
+
+Enter the message to encrypt:
+HelloWorld
+Encrypted Message: q0m7hLtjbCdT9tECiYY5rA==
+
+2. Decryption Function (Decrypt)
+Purpose:
+This function takes an encrypted Base64 string and returns the original decrypted text.
+
+Steps:
+Create AES instance:
+
+
+using (Aes aes = Aes.Create())
+Just like in encryption, it initializes an AES object.
+Set Key and IV:
+
+
+aes.Key = _key;
+aes.IV = _iv;
+Uses the same secret key and IV as encryption (must match for successful decryption).
+Create a decryptor:
+
+ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+Creates a decryption transformer.
+Perform decryption using CryptoStream:
+
+
+using (MemoryStream msDecrypt = new MemoryStream(Convert.FromBase64String(cipherText)))
+{
+    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+    {
+        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+        {
+            return srDecrypt.ReadToEnd();
+        }
+    }
+}
+Converts the Base64-encoded encrypted text back into bytes.
+A MemoryStream holds the encrypted data.
+A CryptoStream applies the decryption transformation.
+A StreamReader reads the decrypted output and returns it as a string.
+Example Output:
+
+Encrypted Message: q0m7hLtjbCdT9tECiYY5rA==
+Decrypted Message: HelloWorld
 
