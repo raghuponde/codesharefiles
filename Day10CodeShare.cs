@@ -347,12 +347,75 @@ namespace SecurityDemo
             }
             // if autneticated then a open home page like that or main form
 
-            MainForm mainform = new MainForm();
+            MainForm mainform = new MainForm(user);
             mainform.Show();
+            this.Hide();
 
         }
     }
 }
 
+Now add two buttons and one label on the top in MainForm 
+
+and do the following coding provided below 
+
+here in the above code u can see means line 350 and 352 above done chnages do that chnage also 
+and write this code also below 
+
+//code of form1 
+
+  MainForm mainform = new MainForm(user);
+            mainform.Show();
+            this.Hide();
+
+
+and complete code of MainForm 
+-------------------------------
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static SecurityDemo.Form1;   // add this thing in form 
+
+namespace SecurityDemo
+{
+    public partial class MainForm : Form
+    {
+        private User _user;
+        public MainForm(User user)
+        {
+            InitializeComponent();
+            _user = user;
+            label1.Text = $" Welcome ,{user.Username} ({user.Role})";
+
+            // Enable/Disable buttons based on role
+            if (_user.Role == "Admin")
+            {
+                button1.Enabled = true;
+            }
+            else
+            {
+                button1.Enabled = false;
+            }
+
+            button2.Enabled = true; // All users can access User actions
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("admin action has permformed");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("user  action has permformed");
+        }
+    }
+}
 
 
