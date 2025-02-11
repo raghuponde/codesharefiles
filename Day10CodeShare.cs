@@ -98,10 +98,53 @@ Integration Testing: Test how different components and services interact.
 Automated Testing in CI/CD: Integrate testing into CI pipelines using services like Azure DevOps to catch errors before deployment.
 
 
-
+create a new windows project of .net fraamework and provide the controls in this manner 
 
 [ Username: ] [ TextBox ]   
 [ Password: ] [ TextBox ]  
 [      Login Button      ]  
 [ Error Message Label   ] 
+
+  so after desinging as per above rough diagram 
+
+  using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SecurityDemo
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        public class User
+        {
+            public string Username { get; set; }
+            public string Password { get; set; }
+            public string Role { set; get; }
+
+            public User(string username1,string password1,string role1)
+            {
+                Username = username1;
+                Password = password1;
+                Role = role1;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
 
