@@ -599,4 +599,90 @@ Example Output:
 
 Encrypted Message: q0m7hLtjbCdT9tECiYY5rA==
 Decrypted Message: HelloWorld
+without using 
+--------------
+  using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace EncryptDecryptDemo
+{
+    internal class Program
+    {
+        public class EncryptionService
+        {
+            private readonly byte[] _key = Encoding.UTF8.GetBytes("b14ca5898a4e4133bbce2ea2315a1916"); // 32 bytes for AES-256
+            private readonly byte[] _iv = Encoding.UTF8.GetBytes("ThisIsAnIV123456"); // 16 bytes IV
+
+            // Encrypt function
+            public string Encrypt(string plainText)
+            {
+                Aes aes = Aes.Create();
+                aes.Key = _key;
+                aes.IV = _iv;
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+                MemoryStream msEncrypt = new MemoryStream();
+                CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write);
+                StreamWriter swEncrypt = new StreamWriter(csEncrypt);
+
+                swEncrypt.Write(plainText);
+                swEncrypt.Flush();
+                csEncrypt.FlushFinalBlock();
+
+                string encryptedText = Convert.ToBase64String(msEncrypt.ToArray());
+
+                // Close and dispose streams explicitly
+                swEncrypt.Close();
+                csEncrypt.Close();
+                msEncrypt.Close();
+                encryptor.Dispose();
+                aes.Dispose();
+
+                return encryptedText;
+            }
+
+            // Decrypt function
+            public string Decrypt(string cipherText)
+            {
+                Aes aes = Aes.Create();
+                aes.Key = _key;
+                aes.IV = _iv;
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                MemoryStream msDecrypt = new MemoryStream(Convert.FromBase64String(cipherText));
+                CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read);
+                StreamReader srDecrypt = new StreamReader(csDecrypt);
+
+                string decryptedText = srDecrypt.ReadToEnd();
+
+                // Close and dispose streams explicitly
+                srDecrypt.Close();
+                csDecrypt.Close();
+                msDecrypt.Close();
+                decryptor.Dispose();
+                aes.Dispose();
+
+                return decryptedText;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            EncryptionService encryptionService = new EncryptionService();
+
+            Console.WriteLine("Enter the message to encrypt:");
+            string plainText = Console.ReadLine();
+
+            string encryptedText = encryptionService.Encrypt(plainText);
+            Console.WriteLine("Encrypted Message: " + encryptedText);
+
+            string decryptedText = encryptionService.Decrypt(encryptedText);
+            Console.WriteLine("Decrypted Message: " + decryptedText);
+
+            Console.ReadLine();
+        }
+    }
+}
 
