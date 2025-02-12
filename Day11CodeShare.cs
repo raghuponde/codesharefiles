@@ -237,3 +237,6 @@ class Program
     }
 }
 
+so imagine this you are doing it for one person suppose 100 persons are there in it will be very much cubersome to make a note of 100 students in the main method only okay .
+
+The Open/Closed Principle (OCP), one of the SOLID principles, states that a class should be open for extension but closed for modification. This means that the behavior of a class should be extendable without modifying its source code. In real-world applications, this is achieved by using abstraction, inheritance, and interfaces.
