@@ -250,7 +250,8 @@ dotnet new console -o ocp --use-program-main
 
 and paste the follwing code in main program 
 
-
+version 1 of ocp 
+-----------------
   namespace ocp;
 class Employee
 {
@@ -288,4 +289,11 @@ class Program
     }
 }
 
-  
+
+
+new requiremnt has come which based on emptype provide the employee bonus if he is contract employee 
+provide 10% bonus and if he is temperory employee provide 5% bonus 
+
+
+
+
