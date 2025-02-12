@@ -731,4 +731,201 @@ class Program
     }
 }
 
-  
+
+Interface Segregation Principle 
+-----------------------------------
+
+The Interface Segregation Principle (ISP), the fourth of the SOLID principles, states that clients should not be forced to depend on interfaces they do not use. In other words, it's better to have smaller, specific interfaces rather than a large, general-purpose interface that tries to cover too many unrelated functionalities.
+
+Real-World Scenario: Printer System
+Let's consider a Printer System where we have different types of printers. Some printers can print, scan, and fax (multi-function printers), while others might only print. If we create a single interface that defines all three functionalities (print, scan, and fax), we would be violating the Interface Segregation Principle (ISP) because simple printers, which can only print, would be forced to implement methods for scanning and faxing, even though they don't need them.
+
+
+Step 1: Violating the Interface Segregation Principle (ISP)
+In the following example, we have a single IPrinter interface that defines methods for printing, scanning, and faxing. Even though not all printers support scanning or faxing, they are forced to implement these methods, which violates ISP.
+
+Example of ISP Violation:
+
+open a new project using  the command--> dotnet new console -o ISP --use-program-main from the folder Day11Projects 
+
+
+and paste the following code below 
+
+
+using System;
+
+public interface IPrinter
+{
+    void Print(string content);
+    void Scan(string content);
+    void Fax(string content);
+}
+
+public class MultiFunctionPrinter : IPrinter
+{
+    public void Print(string content)
+    {
+        Console.WriteLine("Printing content: " + content);
+    }
+
+    public void Scan(string content)
+    {
+        Console.WriteLine("Scanning content: " + content);
+    }
+
+    public void Fax(string content)
+    {
+        Console.WriteLine("Faxing content: " + content);
+    }
+}
+
+public class SimplePrinter : IPrinter
+{
+    public void Print(string content)
+    {
+        Console.WriteLine("Printing content: " + content);
+    }
+
+    public void Scan(string content)
+    {
+        // This printer doesn't support scanning, but we are forced to implement it.
+        throw new NotImplementedException("SimplePrinter cannot scan.");
+    }
+
+    public void Fax(string content)
+    {
+        // This printer doesn't support faxing, but we are forced to implement it.
+        throw new NotImplementedException("SimplePrinter cannot fax.");
+    }
+}
+
+
+Problems:
+The SimplePrinter class is forced to implement methods like Scan() and Fax(), even though it doesn’t support these functionalities. This violates the Interface Segregation Principle.
+If the interface changes (e.g., adding a new method for color printing), all classes implementing the interface must be updated, even if they don't use that feature.
+
+
+Step 2: Refactor Using the Interface Segregation Principle (ISP)
+To adhere to ISP, we will:
+
+Break down the IPrinter interface into smaller, more specific interfaces that represent distinct functionalities like printing, scanning, and faxing.
+Have each class implement only the interfaces that are relevant to their capabilities.
+
+
+1. ISpecific Interfaces
+We will define three separate interfaces: IPrinter, IScanner, and IFax. Each interface will represent a single responsibility.
+
+IPrinter Interface (For Printing Only):
+
+public interface IPrinter
+{
+    void Print(string content);
+}
+
+
+IScanner Interface (For Scanning Only):
+
+public interface IScanner
+{
+    void Scan(string content);
+}
+
+
+IFax Interface (For Faxing Only):
+
+public interface IFax
+{
+    void Fax(string content);
+}
+
+
+2. MultiFunctionPrinter Class (Implements All Interfaces)
+The MultiFunctionPrinter can print, scan, and fax, so it will implement all three interfaces.
+
+public class MultiFunctionPrinter : IPrinter, IScanner, IFax
+{
+    public void Print(string content)
+    {
+        Console.WriteLine("Printing content: " + content);
+    }
+
+    public void Scan(string content)
+    {
+        Console.WriteLine("Scanning content: " + content);
+    }
+
+    public void Fax(string content)
+    {
+        Console.WriteLine("Faxing content: " + content);
+    }
+}
+
+
+3. SimplePrinter Class (Implements Only IPrinter)
+The SimplePrinter class can only print, so it will implement only the IPrinter interface, adhering to the Interface Segregation Principle.
+
+
+public class SimplePrinter : IPrinter
+{
+    public void Print(string content)
+    {
+        Console.WriteLine("Printing content: " + content);
+    }
+}
+
+4. Main Program (Testing the ISP-Compliant Code)
+Now we can use the different types of printers based on their specific functionality.
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Using MultiFunctionPrinter, which supports printing, scanning, and faxing
+        MultiFunctionPrinter multiFunctionPrinter = new MultiFunctionPrinter();
+        multiFunctionPrinter.Print("MultiFunctionPrinter: Document 1");
+        multiFunctionPrinter.Scan("MultiFunctionPrinter: Document 1");
+        multiFunctionPrinter.Fax("MultiFunctionPrinter: Document 1");
+
+        // Using SimplePrinter, which only supports printing
+        SimplePrinter simplePrinter = new SimplePrinter();
+        simplePrinter.Print("SimplePrinter: Document 2");
+
+        Console.ReadLine();
+    }
+}
+
+
+sample output 
+--------------
+Printing content: MultiFunctionPrinter: Document 1
+Scanning content: MultiFunctionPrinter: Document 1
+Faxing content: MultiFunctionPrinter: Document 1
+Printing content: SimplePrinter: Document 2
+
+
+Explanation of Changes:
+Interface Segregation: Instead of having one large interface (IPrinter) that covers all functionalities (printing, scanning, faxing), we broke it down into smaller interfaces (IPrinter, IScanner, IFax), ensuring that each class implements only the functionalities it supports.
+MultiFunctionPrinter Class: Implements all three interfaces (IPrinter, IScanner, IFax) because it supports all functionalities.
+SimplePrinter Class: Implements only the IPrinter interface because it can only print. It no longer has to implement Scan() and Fax(), which are irrelevant to its functionality.
+Benefits of Applying the Interface Segregation Principle (ISP):
+Flexibility:
+
+Classes implement only the interfaces that are relevant to them. They are not forced to implement methods they don’t need.
+Maintainability:
+
+If a change is made to one interface, only the classes that use that interface are affected. Other classes that don’t use it remain untouched.
+Separation of Concerns:
+
+Each interface is focused on a specific responsibility. This keeps the design clean and focused, making the system easier to extend and maintain.
+Avoiding Unnecessary Dependencies:
+
+Classes like SimplePrinter are not dependent on functionalities like scanning or faxing, which they don’t support. This avoids unnecessary complexity and potential errors.
+Conclusion:
+In this Printer System example, we applied the Interface Segregation Principle (ISP) by creating smaller, more focused interfaces (IPrinter, IScanner, IFax), rather than one large, general interface. This allows each class (e.g., MultiFunctionPrinter, SimplePrinter) to implement only the functionalities it needs, making the system more modular, maintainable, and flexible. By adhering to ISP, we avoid bloated interfaces and ensure that classes are not forced to depend on methods they don't use.
+
+
+
+
+
+
