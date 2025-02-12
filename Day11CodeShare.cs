@@ -1057,34 +1057,41 @@ This ensures that the high-level modules are not tightly coupled to the specific
 
 First example my own which is violating DIP
 ----------------------------------------------
+First from the main terminal means main folder write this command -->dotnet new console -o DIP --use-program-main
+
+ a project will be created and then 
+Here first addd one class using right click the project of DIP  C# and then class give name as Employee say enter 
+and add prperties like below 
+
+Employee.cs 
+-------------
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp9
+namespace DIP
 {
     public class Employee
     {
         public int Id { get; set; }
         public string Name { get; set; }
 
-       
     }
 }
+Now add another class like above EmpRespo and add below code 
 
+  EmpRespo.cs
+  ------------
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp9
+namespace DIP
 {
-    class EmpRespo
+    public class EmpRespo
     {
-
         // In-memory list to store employees
         private readonly List<Employee> _employees = new List<Employee>();
 
@@ -1096,42 +1103,37 @@ namespace ConsoleApp9
         }
 
         // Method to list all employees
-        public  IEnumerable<Employee> GetAllEmployees()
+        public IEnumerable<Employee> GetAllEmployees()
         {
             return _employees;
         }
     }
 }
+main program.cs 
+----------------
+namespace DIP;
 
-
-namespace ConsoleApp9
+class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
+        EmpRespo employeeRepository = new EmpRespo();
 
+        // Add employees directly via EmployeeRepository
+        employeeRepository.AddEmployee(new Employee { Id = 1, Name = "John Doe" });
+        employeeRepository.AddEmployee(new Employee { Id = 2, Name = "Jane Smith" });
 
-        static void Main(string[] args)
+        // List employees directly via EmployeeRepository
+        Console.WriteLine("Employee List:");
+        foreach (var employee in employeeRepository.GetAllEmployees())
         {
-            EmpRespo employeeRepository = new EmpRespo();
-
-            // Add employees directly via EmployeeRepository
-            employeeRepository.AddEmployee(new Employee { Id = 1, Name = "John Doe" });
-            employeeRepository.AddEmployee(new Employee { Id = 2, Name = "Jane Smith" });
-
-            // List employees directly via EmployeeRepository
-            Console.WriteLine("Employee List:");
-            foreach (var employee in employeeRepository.GetAllEmployees())
-            {
-                Console.WriteLine($"ID: {employee.Id}, Name: {employee.Name}");
-            }
-
-            Console.ReadLine();
-
-
-
-
-            Console.ReadLine();
+            Console.WriteLine($"ID: {employee.Id}, Name: {employee.Name}");
         }
+
+        Console.ReadLine();
+
+
+
     }
 }
 
