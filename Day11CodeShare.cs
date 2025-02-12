@@ -251,5 +251,41 @@ dotnet new console -o ocp --use-program-main
 and paste the follwing code in main program 
 
 
-  
+  namespace ocp;
+class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+
+
+    public Employee()
+    {
+
+    }
+
+    public Employee(int id, string name)
+    {
+        this.Id = id;
+        this.Name = name;
+
+    }
+
+    public override string ToString()
+    {
+        return string.Format($"Employee Id is : {Id} and Name : {Name}");
+    }
+
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        Employee e1 = new Employee(101, "ravi");
+        Employee e2 = new Employee(102, "mahesh");
+        Console.WriteLine(e1);
+        Console.WriteLine(e2);
+    }
+}
+
   
