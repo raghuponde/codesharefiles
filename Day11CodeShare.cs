@@ -437,4 +437,20 @@ class Program
 }
 
 
+Liskov Sustitution Principle
+-----------------------------
+The Liskov Substitution Principle (LSP), one of the SOLID principles, states that subtypes must be substitutable for their base types without affecting the correctness of the program. In other words, objects of a derived class should be able to replace objects of the base class without altering the desirable properties of the program.
 
+Real-Time Scenario: Vehicle and Transportation System
+Imagine a transportation system where we have different types of vehicles, such as cars and bicycles. Both vehicles can perform operations like starting the engine or driving, but some vehicles (e.g., bicycles) do not have an engine.
+
+In this case, violating the Liskov Substitution Principle (LSP) might involve creating a base Vehicle class with an engine-related method and forcing all vehicles (even those without an engine, like bicycles) to implement it. The correct approach is to ensure that subclasses only inherit functionality that makes sense for them.
+
+
+Step 1: Violating the Liskov Substitution Principle (LSP)
+In this example, let's see what happens when we force all vehicle types (including bicycles) to implement engine-related methods, even though not all vehicles have engines.
+
+
+
+
+From the above program if any new employee who is contract employee  is coming and he dont want bonus then i am changing the program like this 
