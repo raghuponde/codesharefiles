@@ -27,7 +27,7 @@ Single Responsibility Principle (SRP) - Real-Time Example in C#
 The Single Responsibility Principle (SRP) is one of the SOLID principles, which states that a class should have only one reason to change, meaning it should only have one job or responsibility. If a class has more than one responsibility, it can lead to code that is difficult to maintain and modify.
 
 
-create one folder Day11Projects 
+create one folder Day11Projects opem the folder in vs code ..
 
 
 and write the first commnd like this 
@@ -97,3 +97,114 @@ class Program
 
 Now i am dividing the responsiblities like this into seperate classes means i am adding some classes like how i added Person class
 
+StandardMessages.cs 
+-----------------------
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace srpdemo
+{
+    public class StandardMessages
+    {
+        public static void WelcomeMessage()
+        {
+            Console.WriteLine("Welcome to my application!");
+        }
+
+        public static void EndApplication()
+        {
+            Console.Write("Press enter to close...");
+            Console.ReadLine();
+        }
+
+        public static void DisplayValidationError(string fieldName)
+        {
+            Console.WriteLine($"You did not give us a valid {fieldName}!");
+        }
+    }
+}
+
+PersonDataCapture.cs
+---------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace srpdemo
+{
+    public class PersonDataCapture
+    {
+        public static Person Capture()
+        {
+            // Ask for user information
+            Person output = new Person();
+
+            Console.Write("What is your first name: ");
+            output.FirstName = Console.ReadLine();
+
+            Console.Write("What is your last name: ");
+            output.LastName = Console.ReadLine();
+
+            return output;
+        }
+    }
+}
+
+
+AccountGenerator.cs
+----------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace srpdemo
+{
+    public class AccountGenerator
+    {
+        public static void CreateAccount(Person user)
+        {
+            // Create a username for the person
+            Console.WriteLine($"Your username is {user.FirstName.Substring(0, 1)} {user.LastName}");
+        }
+    }
+}
+
+
+PersonValidator.cs
+------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace srpdemo
+{
+    public class PersonValidator
+    {
+        public static bool Validate(Person person)
+        {
+            // Checks to be sure the first and last names are valid
+            if (string.IsNullOrWhiteSpace(person.FirstName))
+            {
+                StandardMessages.DisplayValidationError("first name");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(person.LastName))
+            {
+                StandardMessages.DisplayValidationError("last name");
+                return false;
+            }
+
+            return true;
+        }
+    }
+}
