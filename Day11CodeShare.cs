@@ -1170,6 +1170,81 @@ Now in main program you cannot access the features
 
 means dotnet build will give me errrors 
 
+now the methds  which i had made private first put them in some interface and let EmpReespo class implement that interface 
+  so main method will not be knowing from where methods are coming 
+so add one interface IEMP using right click c# interface and give name as IEMP press enter and 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace DIP
+{
+    public interface IEMP
+    {
+        void AddEmployee(Employee employee);
+        IEnumerable<Employee> GetAllEmployees();
+    }
+}
+
+now go to EmpRespo code 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace DIP
+{
+    public class EmpRespo :IEMP
+    {
+        // In-memory list to store employees
+        private readonly List<Employee> _employees = new List<Employee>();
+
+        // Method to add an employee to the collection
+        public void AddEmployee(Employee employee)
+        {
+            _employees.Add(employee);
+            Console.WriteLine($"Employee {employee.Name} added.");
+        }
+
+        // Method to list all employees
+        public  IEnumerable<Employee> GetAllEmployees()
+        {
+            return _employees;
+        }
+    }
+}
+
+
+and the main progrsm will be like this 
+
+  namespace DIP;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        IEMP employeeRepository = new EmpRespo();
+
+        // Add employees directly via EmployeeRepository
+        employeeRepository.AddEmployee(new Employee { Id = 1, Name = "John Doe" });
+        employeeRepository.AddEmployee(new Employee { Id = 2, Name = "Jane Smith" });
+
+        // List employees directly via EmployeeRepository
+        Console.WriteLine("Employee List:");
+        foreach (var employee in employeeRepository.GetAllEmployees())
+        {
+            Console.WriteLine($"ID: {employee.Id}, Name: {employee.Name}");
+        }
+
+        Console.ReadLine();
+
+
+
+    }
+}
 
 
 
