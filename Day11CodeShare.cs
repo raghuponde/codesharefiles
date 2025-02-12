@@ -1266,9 +1266,13 @@ singleton design patterns
 
 The Singleton Pattern ensures that a class has only one instance and provides a global point of access to that instance. This is commonly used for managing global configuration settings, logging, or shared resources.
 
-using System;
-using System.Collections.Generic;
+go to main folder Day11Projects and write the command like this 
 
+  dotnet new console -o singletondemo --use-program-main
+
+  i am having a program like this 
+
+  namespace singletondemo;
 public class Employee
 {
     public int Id { get; set; }
@@ -1277,8 +1281,66 @@ public class Employee
 
 public class EmployeeManager
 {
+
+    private List<Employee> _employees;
+
+    // Private constructor to prevent direct instantiation
+    private EmployeeManager()
+    {
+        _employees = new List<Employee>();
+        Console.WriteLine("EmployeeManager initialized.");
+    }
+
+
+
+    public void AddEmployee(Employee employee)
+    {
+        _employees.Add(employee);
+        Console.WriteLine($"Employee {employee.Name} added.");
+    }
+
+    public void ListEmployees()
+    {
+        Console.WriteLine("List of employees:");
+        foreach (var emp in _employees)
+        {
+            Console.WriteLine($"ID: {emp.Id}, Name: {emp.Name}");
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        EmployeeManager obj = new EmployeeManager();
+        Console.ReadLine();
+    }
+}
+
+in the above program u can see that i cannot create object of the class EmployeeManager even one 
+  object i cannot create why because constrcuotr is private 
+
+  so now in the same class i will create one get proeperty which will allwo me to create 
+  only one object of the classs and if it is created already it will just return that object 
+  Instance is the preprty 
+
+  
+
+namespace singletondemo;
+public class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+
+public class EmployeeManager
+{
+
     // Static variable to hold the single instance of EmployeeManager
     private static EmployeeManager _instance;
+
 
     private List<Employee> _employees;
 
@@ -1322,6 +1384,7 @@ class Program
 {
     static void Main(string[] args)
     {
+
         // Access the Singleton instance of EmployeeManager
         EmployeeManager manager1 = EmployeeManager.Instance;
         manager1.AddEmployee(new Employee { Id = 1, Name = "John Doe" });
@@ -1336,10 +1399,9 @@ class Program
         // Confirm that manager1 and manager2 are referencing the same instance
         Console.WriteLine(ReferenceEquals(manager1, manager2));  // This will print: True
 
+
+        //  EmployeeManager obj = new EmployeeManager(); // this will givve error because constrcuotr is private 
+      // if u dont want to get error here make constrcuotr public then it will work 
         Console.ReadLine();
     }
 }
-
-
-
-
