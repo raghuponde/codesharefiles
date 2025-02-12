@@ -1405,3 +1405,194 @@ class Program
         Console.ReadLine();
     }
 }
+
+2. Factory Method Pattern - Real-World Demo: Document Creator
+The Factory Method Pattern defines an interface for creating objects but lets subclasses decide which class to instantiate. It’s useful when the exact type of object to be created depends on a specific condition.
+
+Example: Document Creator (Factory Method Pattern)
+In this example, we will implement a document creation system that generates different types of documents like PDFDocument and WordDocument depending on the user's input.
+
+using System;
+
+// Product Interface
+public interface IDocument
+{
+    void Open();
+    void Save();
+}
+
+// Concrete Product 1: PDF Document
+public class PDFDocument : IDocument
+{
+    public void Open()
+    {
+        Console.WriteLine("Opening PDF document.");
+    }
+
+    public void Save()
+    {
+        Console.WriteLine("Saving PDF document.");
+    }
+}
+
+// Concrete Product 2: Word Document
+public class WordDocument : IDocument
+{
+    public void Open()
+    {
+        Console.WriteLine("Opening Word document.");
+    }
+
+    public void Save()
+    {
+        Console.WriteLine("Saving Word document.");
+    }
+}
+
+// Abstract Factory Class
+public abstract class DocumentFactory
+{
+    // Factory Method
+    public abstract IDocument CreateDocument();
+}
+
+// Concrete Factory 1: PDF Document Factory
+public class PDFDocumentFactory : DocumentFactory
+{
+    public override IDocument CreateDocument()
+    {
+        return new PDFDocument();
+    }
+}
+
+// Concrete Factory 2: Word Document Factory
+public class WordDocumentFactory : DocumentFactory
+{
+    public override IDocument CreateDocument()
+    {
+        return new WordDocument();
+    }
+}
+
+// Client Code
+class Program
+{
+    static void Main(string[] args)
+    {
+        // PDF Document Creation
+        DocumentFactory pdfFactory = new PDFDocumentFactory();
+        IDocument pdfDocument = pdfFactory.CreateDocument();
+        pdfDocument.Open();
+        pdfDocument.Save();
+
+        // Word Document Creation
+        DocumentFactory wordFactory = new WordDocumentFactory();
+        IDocument wordDocument = wordFactory.CreateDocument();
+        wordDocument.Open();
+        wordDocument.Save();
+
+        Console.ReadLine();
+    }
+}
+
+
+
+Explanation:
+The DocumentFactory defines the Factory Method CreateDocument() for creating documents.
+PDFDocumentFactory and WordDocumentFactory are concrete factories that return specific document types (PDFDocument, WordDocument).
+The client code doesn’t need to know the specifics of which document type is created—it relies on the factory.
+
+
+another example just like this 
+
+using System;
+
+// Product Interface
+public interface IEmployee
+{
+    void DisplayEmployeeDetails();
+    void CalculateSalary();
+}
+
+// Concrete Product 1: Full-Time Employee
+public class FullTimeEmployee : IEmployee
+{
+    public void DisplayEmployeeDetails()
+    {
+        Console.WriteLine("Displaying Full-Time Employee details.");
+    }
+
+    public void CalculateSalary()
+    {
+        Console.WriteLine("Calculating Full-Time Employee salary.");
+    }
+}
+
+// Concrete Product 2: Part-Time Employee
+public class PartTimeEmployee : IEmployee
+{
+    public void DisplayEmployeeDetails()
+    {
+        Console.WriteLine("Displaying Part-Time Employee details.");
+    }
+
+    public void CalculateSalary()
+    {
+        Console.WriteLine("Calculating Part-Time Employee salary.");
+    }
+}
+
+// Abstract Factory Class
+public abstract class EmployeeFactory
+{
+    // Factory Method
+    public abstract IEmployee CreateEmployee();
+}
+
+// Concrete Factory 1: Full-Time Employee Factory
+public class FullTimeEmployeeFactory : EmployeeFactory
+{
+    public override IEmployee CreateEmployee()
+    {
+        return new FullTimeEmployee();
+    }
+}
+
+// Concrete Factory 2: Part-Time Employee Factory
+public class PartTimeEmployeeFactory : EmployeeFactory
+{
+    public override IEmployee CreateEmployee()
+    {
+        return new PartTimeEmployee();
+    }
+}
+
+// Client Code
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Full-Time Employee Creation
+        EmployeeFactory fullTimeFactory = new FullTimeEmployeeFactory();
+        IEmployee fullTimeEmployee = fullTimeFactory.CreateEmployee();
+        fullTimeEmployee.DisplayEmployeeDetails();
+        fullTimeEmployee.CalculateSalary();
+
+        // Part-Time Employee Creation
+        EmployeeFactory partTimeFactory = new PartTimeEmployeeFactory();
+        IEmployee partTimeEmployee = partTimeFactory.CreateEmployee();
+        partTimeEmployee.DisplayEmployeeDetails();
+        partTimeEmployee.CalculateSalary();
+
+        Console.ReadLine();
+    }
+}
+
+
+
+
+
+
+
+
+
