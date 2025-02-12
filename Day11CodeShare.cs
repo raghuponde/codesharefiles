@@ -1406,6 +1406,12 @@ class Program
     }
 }
 
+Factory Desing Pattern 
+--------------------------
+from the main fodler Day11Projects write this command 
+
+dotnet new console -o factorydemo --use-program-main
+
 2. Factory Method Pattern - Real-World Demo: Document Creator
 The Factory Method Pattern defines an interface for creating objects but lets subclasses decide which class to instantiate. It’s useful when the exact type of object to be created depends on a specific condition.
 
@@ -1502,6 +1508,91 @@ The DocumentFactory defines the Factory Method CreateDocument() for creating doc
 PDFDocumentFactory and WordDocumentFactory are concrete factories that return specific document types (PDFDocument, WordDocument).
 The client code doesn’t need to know the specifics of which document type is created—it relies on the factory.
 
+final code  of first code 
+-----------------------------
+namespace factorydemo;
+// Product Interface
+public interface IDocument
+{
+    void Open();
+    void Save();
+}
+
+// Concrete Product 1: PDF Document
+public class PDFDocument : IDocument
+{
+    public void Open()
+    {
+        Console.WriteLine("Opening PDF document.");
+    }
+
+    public void Save()
+    {
+        Console.WriteLine("Saving PDF document.");
+    }
+}
+
+// Concrete Product 2: Word Document
+public class WordDocument : IDocument
+{
+    public void Open()
+    {
+        Console.WriteLine("Opening Word document.");
+    }
+
+    public void Save()
+    {
+        Console.WriteLine("Saving Word document.");
+    }
+}
+
+// Abstract Factory Class
+public abstract class DocumentFactory
+{
+    // Factory Method
+    public abstract IDocument CreateDocument();
+}
+
+// Concrete Factory 1: PDF Document Factory
+public class PDFDocumentFactory : DocumentFactory
+{
+    public override IDocument CreateDocument()
+    {
+        return new PDFDocument();
+    }
+}
+
+// Concrete Factory 2: Word Document Factory
+public class WordDocumentFactory : DocumentFactory
+{
+    public override IDocument CreateDocument()
+    {
+        return new WordDocument();
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+      //  PDF Document Creation first way 
+        IDocument obj=new PDFDocument();
+        obj.Open();
+        obj.Save();
+        obj=new WordDocument();
+        obj.Open();
+        obj.Save();
+
+        // scond way of using factory method 
+
+        DocumentFactory obj2 = new PDFDocumentFactory();
+       IDocument pdffile= obj2.CreateDocument();
+       pdffile.Save();
+        pdffile.Open();
+
+        Console.ReadLine();
+    }
+}
 
 another example just like this 
 
