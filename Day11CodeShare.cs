@@ -291,9 +291,67 @@ class Program
 
 
 
-new requiremnt has come which based on emptype provide the employee bonus if he is contract employee 
+new requiremnt has come which based on emptype provide the employee bonus if he is permenant  employee 
 provide 10% bonus and if he is temperory employee provide 5% bonus 
 
+Now i will try to mdifify the above code like this for the requiemnt 
 
 
+namespace ocp;
+
+public enum EmpType
+{
+    permenant,
+    temperory
+}
+class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public EmpType EmployeeType { get; set; }
+
+    public Employee()
+    {
+
+    }
+
+    public Employee(int id, string name, EmpType empType)
+    {
+        this.Id = id;
+        this.Name = name;
+        this.EmployeeType = empType;
+    }
+
+    public decimal CalculateBonus(decimal salary)
+    {
+        if (this.EmployeeType == EmpType.permenant)
+        {
+            return salary * 0.1M;
+        }
+        else
+        {
+            return salary * 0.05M;
+        }
+    }
+
+    public override string ToString()
+    {
+        return string.Format($"Employee Id is : {Id} and Name : {Name}");
+    }
+
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        Employee e1 = new Employee(101, "ravi",EmpType.permenant);
+        Employee e2 = new Employee(102, "mahesh",EmpType.temperory);
+        Console.WriteLine($"{e1} and bonus:{e1.CalculateBonus(30000)}");
+        Console.WriteLine($"{e2} and bonus:{e2.CalculateBonus(30000)}");
+    }
+}
+
+
+But above i am violating ocp princile i am modifyng my code my class for new change of request 
 
