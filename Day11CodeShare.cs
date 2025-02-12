@@ -799,6 +799,66 @@ public class SimplePrinter : IPrinter
     }
 }
 
+and final code which will run tie error is 
+---------------------------------------------
+  namespace ISP;
+public interface IPrinter
+{
+    void Print(string content);
+    void Scan(string content);
+    void Fax(string content);
+}
+public class MultiFunctionPrinter : IPrinter
+{
+    public void Print(string content)
+    {
+        Console.WriteLine("Printing content: " + content);
+    }
+
+    public void Scan(string content)
+    {
+        Console.WriteLine("Scanning content: " + content);
+    }
+
+    public void Fax(string content)
+    {
+        Console.WriteLine("Faxing content: " + content);
+    }
+}
+
+public class SimplePrinter : IPrinter
+{
+    public void Print(string content)
+    {
+        Console.WriteLine("Printing content: " + content);
+    }
+
+    public void Scan(string content)
+    {
+        // This printer doesn't support scanning, but we are forced to implement it.
+        throw new NotImplementedException("SimplePrinter cannot scan.");
+    }
+
+    public void Fax(string content)
+    {
+        // This printer doesn't support faxing, but we are forced to implement it.
+        throw new NotImplementedException("SimplePrinter cannot fax.");
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        IPrinter generalobj = new MultiFunctionPrinter();
+        generalobj.Print("multifunctiondocuemnt1 for printing");
+        generalobj.Fax("multi function printer faxing");
+        generalobj.Scan("multi function printinscaning");
+
+        generalobj = new SimplePrinter();
+        generalobj.Print("simple priter printing");
+        generalobj.Fax("faxin using simple printer") ;// for this i am getting unhandled exception 
+    }
+}
 
 Problems:
 The SimplePrinter class is forced to implement methods like Scan() and Fax(), even though it doesn’t support these functionalities. This violates the Interface Segregation Principle.
