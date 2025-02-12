@@ -1143,14 +1143,12 @@ Now make the methods private both to them in EmpRespo
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp9
+namespace DIP
 {
-    class EmpRespo
+    public class EmpRespo
     {
-
         // In-memory list to store employees
         private readonly List<Employee> _employees = new List<Employee>();
 
@@ -1168,9 +1166,10 @@ namespace ConsoleApp9
         }
     }
 }
-
-
 Now in main program you cannot access the features 
+
+means dotnet build will give me errrors 
+
 
 
 
