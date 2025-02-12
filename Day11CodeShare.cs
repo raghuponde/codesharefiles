@@ -354,4 +354,87 @@ class Program
 
 
 But above i am violating ocp princile i am modifyng my code my class for new change of request 
+follwing OCP
+--------------
+namespace ocp;
+
+public enum EmpType
+{
+    permenant,
+    temperory
+}
+public abstract class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+
+    public Employee()
+    {
+
+    }
+
+    public Employee(int id, string name)
+    {
+        this.Id = id;
+        this.Name = name;
+
+    }
+
+    public abstract decimal CalculateBonus(decimal salary);
+
+
+    public override string ToString()
+    {
+        return string.Format($"Employee Id is : {Id} and Name : {Name}");
+    }
+
+}
+
+class temperaoryemp : Employee
+{
+
+
+    public temperaoryemp()
+    {
+
+    }
+    public temperaoryemp(int id, string name) : base(id, name)
+    {
+
+    }
+    public override decimal CalculateBonus(decimal salary)
+    {
+        return salary * 0.05M;
+    }
+}
+
+class Permenantemp : Employee
+{
+    public Permenantemp()
+    {
+
+    }
+    public Permenantemp(int id, string name) : base(id, name)
+    {
+
+    }
+    public override decimal CalculateBonus(decimal salary)
+    {
+        return salary * 0.1M;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Employee e1 = new Permenantemp(101, "ravi");
+        Employee e2 = new temperaoryemp(102, "mahesh");
+        Console.WriteLine($"{e1} and bonus:{e1.CalculateBonus(30000)}");
+        Console.WriteLine($"{e2} and bonus:{e2.CalculateBonus(30000)}");
+    }
+}
+
+
 
