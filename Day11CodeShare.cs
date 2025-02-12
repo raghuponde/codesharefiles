@@ -1044,7 +1044,131 @@ Classes like SimplePrinter are not dependent on functionalities like scanning or
 Conclusion:
 In this Printer System example, we applied the Interface Segregation Principle (ISP) by creating smaller, more focused interfaces (IPrinter, IScanner, IFax), rather than one large, general interface. This allows each class (e.g., MultiFunctionPrinter, SimplePrinter) to implement only the functionalities it needs, making the system more modular, maintainable, and flexible. By adhering to ISP, we avoid bloated interfaces and ensure that classes are not forced to depend on methods they don't use.
 
+The Dependency Inversion Principle (DIP) 
+------------------------------------------
+is the last principle in the SOLID principles of object-oriented design. It states that high-level modules should not depend on low-level modules; both should depend on abstractions. Additionally, abstractions should not depend on details; details should depend on abstractions.
 
+In simple terms:
+
+High-level modules (e.g., business logic) should not directly depend on low-level modules (e.g., specific classes that implement certain functionality). Instead, both should depend on interfaces or abstract classes (i.e., abstractions).
+This ensures that the high-level modules are not tightly coupled to the specific implementations, making the system more flexible, maintainable, and easier to extend.
+
+
+
+First example my own which is violating DIP
+----------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+       
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+    class EmpRespo
+    {
+
+        // In-memory list to store employees
+        private readonly List<Employee> _employees = new List<Employee>();
+
+        // Method to add an employee to the collection
+        public void AddEmployee(Employee employee)
+        {
+            _employees.Add(employee);
+            Console.WriteLine($"Employee {employee.Name} added.");
+        }
+
+        // Method to list all employees
+        public  IEnumerable<Employee> GetAllEmployees()
+        {
+            return _employees;
+        }
+    }
+}
+
+
+namespace ConsoleApp9
+{
+    internal class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            EmpRespo employeeRepository = new EmpRespo();
+
+            // Add employees directly via EmployeeRepository
+            employeeRepository.AddEmployee(new Employee { Id = 1, Name = "John Doe" });
+            employeeRepository.AddEmployee(new Employee { Id = 2, Name = "Jane Smith" });
+
+            // List employees directly via EmployeeRepository
+            Console.WriteLine("Employee List:");
+            foreach (var employee in employeeRepository.GetAllEmployees())
+            {
+                Console.WriteLine($"ID: {employee.Id}, Name: {employee.Name}");
+            }
+
+            Console.ReadLine();
+
+
+
+
+            Console.ReadLine();
+        }
+    }
+}
+
+
+Now make the methods private both to them in EmpRespo
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+    class EmpRespo
+    {
+
+        // In-memory list to store employees
+        private readonly List<Employee> _employees = new List<Employee>();
+
+        // Method to add an employee to the collection
+        private void AddEmployee(Employee employee)
+        {
+            _employees.Add(employee);
+            Console.WriteLine($"Employee {employee.Name} added.");
+        }
+
+        // Method to list all employees
+        private IEnumerable<Employee> GetAllEmployees()
+        {
+            return _employees;
+        }
+    }
+}
+
+
+Now in main program you cannot access the features 
 
 
 
