@@ -454,3 +454,281 @@ In this example, let's see what happens when we force all vehicle types (includi
 
 
 From the above program if any new employee who is contract employee  is coming and he dont want bonus then i am changing the program like this 
+
+  class contractemp : Employee
+    {
+
+        public contractemp()
+        {
+                
+        }
+        public contractemp(int id, string name) : base(id, name)
+        {
+
+        }
+        public override decimal caluclateBonus(decimal salary)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
+Then at run time only i will know that he dont want bonus i will excute the code as usual here in main also 
+so above code i take and will execute like this below 
+
+namespace ocp;
+
+public enum EmpType
+{
+    permenant,
+    temperory
+}
+public abstract class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+
+    public Employee()
+    {
+
+    }
+
+    public Employee(int id, string name)
+    {
+        this.Id = id;
+        this.Name = name;
+
+    }
+
+    public abstract decimal CalculateBonus(decimal salary);
+
+
+    public override string ToString()
+    {
+        return string.Format($"Employee Id is : {Id} and Name : {Name}");
+    }
+
+}
+
+class temperaoryemp : Employee
+{
+
+
+    public temperaoryemp()
+    {
+
+    }
+    public temperaoryemp(int id, string name) : base(id, name)
+    {
+
+    }
+    public override decimal CalculateBonus(decimal salary)
+    {
+        return salary * 0.05M;
+    }
+}
+
+class Permenantemp : Employee
+{
+    public Permenantemp()
+    {
+
+    }
+    public Permenantemp(int id, string name) : base(id, name)
+    {
+
+    }
+    public override decimal CalculateBonus(decimal salary)
+    {
+        return salary * 0.1M;
+    }
+}
+// dont want bonus 
+class contractemp : Employee
+{
+
+    public contractemp()
+    {
+
+    }
+    public contractemp(int id, string name) : base(id, name)
+    {
+
+    }
+    public override decimal CaluclateBonus(decimal salary)
+    {
+        throw new NotImplementedException();
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        Employee e1 = new Permenantemp(101, "ravi");
+        Employee e2 = new temperaoryemp(102, "mahesh");
+        Employee e3 = new contractemp(103, "kiran");
+        Console.WriteLine($"{e1} and bonus:{e1.CalculateBonus(30000)}");
+        Console.WriteLine($"{e2} and bonus:{e2.CalculateBonus(30000)}");
+        Console.WriteLine($"{e3} and bonus:{e3.CalculateBonus(30000)}");
+    }
+}
+so when i build the applicaiton i am getting error at run time i am getting it not showing any compile time error 
+but why run time i am getting beasue code is not implemnted and i will know at run time so here 
+class e3 object is not proeprly substituted in base class employee so what to do in code change 
+
+add one interface like this 
+
+    interface  EmpBonus
+    {
+         decimal caluclateBonus(decimal salary);
+         void displayemp();
+    }
+
+and implemnt this for contract employee 
+
+ class contractemp : EmpBonus
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public contractemp()
+        {
+
+        }
+        public contractemp(int id, string name)
+        {
+            Id = id;
+            Name = name;
+
+        }
+        public decimal caluclateBonus(decimal salary)
+        {
+            return 0;
+
+        }
+      public void displayemp()
+    {
+        Console.WriteLine($"Employee Id is :{this.Id}  and Name : {this.Name}");
+    }
+    }
+
+
+
+so final code is like here i am making the e3 object to be substiutitateble into employee using interface 
+
+namespace ocp;
+
+public enum EmpType
+{
+    permenant,
+    temperory
+}
+public abstract class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+
+    public Employee()
+    {
+
+    }
+
+    public Employee(int id, string name)
+    {
+        this.Id = id;
+        this.Name = name;
+
+    }
+
+    public abstract decimal CalculateBonus(decimal salary);
+
+
+    public override string ToString()
+    {
+        return string.Format($"Employee Id is : {Id} and Name : {Name}");
+    }
+
+}
+
+class temperaoryemp : Employee
+{
+
+
+    public temperaoryemp()
+    {
+
+    }
+    public temperaoryemp(int id, string name) : base(id, name)
+    {
+
+    }
+    public override decimal CalculateBonus(decimal salary)
+    {
+        return salary * 0.05M;
+    }
+}
+
+class Permenantemp : Employee
+{
+    public Permenantemp()
+    {
+
+    }
+    public Permenantemp(int id, string name) : base(id, name)
+    {
+
+    }
+    public override decimal CalculateBonus(decimal salary)
+    {
+        return salary * 0.1M;
+    }
+}
+interface EmpBonus
+{
+    decimal caluclateBonus(decimal salary);
+    void displayemp();
+}
+class contractemp : EmpBonus
+{
+
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public contractemp()
+    {
+
+    }
+    public contractemp(int id, string name)
+    {
+        Id = id;
+        Name = name;
+
+    }
+    public decimal caluclateBonus(decimal salary)
+    {
+        return 0;
+
+    }
+
+    public void displayemp()
+    {
+        Console.WriteLine($"Employee Id is :{this.Id}  and Name : {this.Name}");
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        Employee e1 = new Permenantemp(101, "ravi");
+        Employee e2 = new temperaoryemp(102, "mahesh");
+        EmpBonus e3 = new contractemp(103, "kiran");
+        Console.WriteLine($"{e1} and bonus:{e1.CalculateBonus(30000)}");
+        Console.WriteLine($"{e2} and bonus:{e2.CalculateBonus(30000)}");
+        e3.displayemp();
+        Console.WriteLine($" bonus: {e3.caluclateBonus(30000)} ");
+    }
+}
+
+  
