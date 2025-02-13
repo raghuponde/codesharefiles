@@ -165,7 +165,6 @@ insert into bankdemo1 values (101,'BOI',1000) -- here also eror as more than 100
 
 insert into bankdemo1 values(101,'BOB',2000);-- okay will run 
 
-
 --6)Foreign key constraint : also called as referencial integrity constraint .
 -- two tables are said to be related to each other if they have a common column between them and that common column should act 
 -- as primary key in master table so what is master table the table which we create first is a master table and the table which we 
@@ -192,6 +191,9 @@ deptid int foreign key references dept(deptid));-- column level
 insert into emp values (1001,'ravi',20);
 insert into emp values (1002,'kiran',20);
 insert into emp values (1003,'sita',null);-- null can be put in foreign key 
+insert into emp values(1004,'kkk',null)-- second and many times also null is allwoed it is one time only for that employee 
+
+
 
 -- like this also u can create child table for dept table 
 --and here i am using column name different and table level foreign key i am using it here 
