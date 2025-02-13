@@ -25,7 +25,7 @@ insert into student(studname,studid) values('shanthi',103);--forgetting error
 insert into Student values(104,'sunitha','delhi'),(105,'rajesh','patna'),(106,'junaid','hyderabad')
 
 --updating single column in a single row (cant update prmary key )
-
+ 
 
   select * from Student where location=null;-- error because is null is unknown value 
 
