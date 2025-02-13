@@ -120,3 +120,30 @@ lname varchar(30) not null,constraint uk11 unique(id) );
 
 create table demo4(id int ,fname varchar(30) not null ,mname varchar(40) null,constraint uk88 unique(fname),
 lname varchar(30) not null,constraint uk141 unique(id,lname) );
+
+--3)Primary key constraint
+-- a combination of not null and unique constrraint is nothing but primary key 
+
+
+create table demo5(id int primary key ,fname varchar(30) not null ,mname varchar(40) null,
+lname varchar(30) not null);-- primary key as column level 
+
+create table demo6(id int ,fname varchar(30) not null ,mname varchar(40) null,
+lname varchar(30) not null,constraint pk23 primary key(id));-- used as table level 
+
+
+create table demo7(id int ,fname varchar(30) not null ,mname varchar(40) null,
+lname varchar(30) not null,constraint pk24 primary key(id,lname))-- composite primary key table level
+
+create table demo8(id int ,fname varchar(30) not null ,mname varchar(40) null,
+lname varchar(30) not null,constraint pk25 primary key(id,lname,fname))--compsotie primary key with 3 columns 
+
+create table demo9(id int primary key  ,fname varchar(30) not null ,mname varchar(40) null,
+lname varchar(30) not null,constraint pk28 primary key(lname)) --error one time only keyword primary key is used 
+
+create table demo10(id int primary key  ,fname varchar(30) not null ,mname varchar(40) null,
+lname varchar(30) not null primary key )--error as multiple times i am using primary key one time only use but put many cols in that  
+
+
+
+
