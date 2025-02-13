@@ -157,10 +157,14 @@ select * from employee;
 --5)check constraint :to check some table values based on condtion then check constraint this also can be applied as col and table level
 
 create table bankdemo(bankid int primary key ,bankname varchar(50),balance int check(balance>1000));-- as column level 
-create table bankdemo1(bankid int primary key ,bankname varchar(50),balance int,constraint ck34 check(balance>1000));-- as column level 
+create table bankdemo1(bankid int primary key ,bankname varchar(50),balance int,constraint ck34 check(balance>1000));-- as table  level 
 
 
 insert into bankdemo values (101,'BOI',300); -- will get erroro as 300 is less than 1000
 insert into bankdemo1 values (101,'BOI',1000) -- here also eror as more than 1000 only u need to enter 
 
 insert into bankdemo1 values(101,'BOB',2000);-- okay will run 
+
+
+
+
