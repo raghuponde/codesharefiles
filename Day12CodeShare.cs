@@ -4,7 +4,7 @@ Real-World Example: Adapter Pattern
 Let’s assume we are building an application for a media player that can play audio files. Initially, it only supports MP3 files, but now we need to extend it to support other formats like MP4 and VLC files without changing the existing code. We can use the Adapter Pattern to adapt the interface of new file formats into a format that our media player understands.
 
 create one folder with the name Day12Projects and in that write the command
-
+   
 dotnet new console -o adapterdemo --use-program-main
 
 one by one check the codes and above main method class only add interfaces and other classes 
