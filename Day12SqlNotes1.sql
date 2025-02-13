@@ -56,3 +56,45 @@ delete from Student ;
 
 -- if u want to destry the table 
 drop table Student ;
+
+Constraints : while creating the tables rules or restriction which we apply on them are called constraints while creating the table only 
+we apply them 
+
+1)null or not null
+
+2) unique 
+
+3) primary key constraint
+
+4) default constraint
+
+5)check constraint 
+
+6)referential integrity constraint (foreign key constraint)
+
+Among all the constraints all can be applied both at column level and at the table but null or not null and default constraint are applied 
+only at the column level 
+what is column level : means just beside the column i will apply 
+what is table level : it is applied after declaring all columns seperately or in between any where in not with the columns but sperately it applied 
+
+syntax for table level constraint 
+----------------------------------
+-constraint <contraint_name> typeofconstraint(col list)
+
+-- not null ot null this cann be applied only as column level dont leave the column blank
+-- duplicate are allowed 
+create table demo1(id int not null,fname varchar(30),mname varchar(40),
+lname varchar(30));
+
+
+
+
+
+
+
+
+
+
+
+
+
