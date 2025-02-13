@@ -24,4 +24,20 @@ insert into student(studname,studid) values('shanthi',103);--forgetting error
 ---multiple insert 
 insert into Student values(104,'sunitha','delhi'),(105,'rajesh','patna'),(106,'junaid','hyderabad')
 
+--updating single column in a single row (cant update prmary key )
+
+update Student set studname='kiran' where studid=103;
+
+--updating multiple columns in a single row (cant update prmary key )
+update Student set studname='suresh',location='Pune' where studid=101;
+
+-- updating multiples rows of a single column supoose  i want send some employees to in bangalore only location 
+
+update Student set location='Bangalore' where studid in (101,104,105);
+
+-- I cannot do update for rows and columns at a time okay 
+
+--
+
+
 
