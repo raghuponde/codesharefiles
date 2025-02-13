@@ -145,5 +145,13 @@ create table demo10(id int primary key  ,fname varchar(30) not null ,mname varch
 lname varchar(30) not null primary key )--error as multiple times i am using primary key one time only use but put many cols in that  
 
 
+--4)Default constraint : here if u forget any column system will put null to that column but i want my default value there so 
+-- default constraint is used 
+
+create table employee(empid int primary key ,empname varchar(30) default 'Mr.X',salary int);
+
+insert into employee(empid,salary) values(101,23000);
+
+select * from employee;
 
 
