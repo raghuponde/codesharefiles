@@ -490,7 +490,7 @@ total final code is here
 
 ----------------------------
 
-    namespace observerdemo;
+ namespace observerdemo;
 public interface IInvestor
 {
     void Update(Stock stock);
@@ -504,7 +504,9 @@ public interface IStock
 
 public class Stock : IStock
 {
-    private List<IInvestor> _investors = new List<IInvestor>();
+    //here this list is not the list of investors  it is list of contracts taken by investor on stock
+    private List<IInvestor> _investors = new List<IInvestor>(); // here i had taken IInvestor which is like a contract
+
     private string _symbol;
     private double _price;
 
@@ -580,17 +582,10 @@ class Program
         appleStock.Price = 121.00;
         appleStock.Price = 123.50;
 
-        // Remove one investor and change the price again
+        //  Remove one investor and change the price again
         appleStock.RemoveObserver(investor1);
         appleStock.Price = 125.75;
 
 
     }
-
-
-
-
-
-
-
-
+}
