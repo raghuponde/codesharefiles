@@ -26,6 +26,13 @@ insert into Student values(104,'sunitha','delhi'),(105,'rajesh','patna'),(106,'j
 
 --updating single column in a single row (cant update prmary key )
 
+
+  select * from Student where location=null;-- error because is null is unknown value 
+
+select * from Student where location is null;--correct way of writing 
+
+
+
 update Student set studname='kiran' where studid=103;
 
 --updating multiple columns in a single row (cant update prmary key )
@@ -79,16 +86,24 @@ what is table level : it is applied after declaring all columns seperately or in
 
 syntax for table level constraint 
 ----------------------------------
--constraint <contraint_name> typeofconstraint(col list)
+--consraints 
+constraint <contraint_name> typeofconstraint(col list)
 
--- not null ot null this cann be applied only as column level dont leave the column blank
--- duplicate are allowed 
+-- not null ot null this cann be applied only as column level dont leave the column blank if it is not null
+-- duplicate are allowed for not null column but dont leave the column as blank something has to be written there 
 create table demo1(id int not null,fname varchar(30),mname varchar(40),
 lname varchar(30));
 
+insert into demo1 values(null,null,null,null);--error because null is not allowed 
+insert into demo1 values(101,null,null,null)-- okay this is as null is not there 
+insert into demo1 values(101,null,null,null)-- okay as 101 duplicate is allowed 
+
+insert into demo1 values(101,null,null,'janaki')--okay 
 
 
-
+--unique constraint means you cannot enter duplicate values but u can enter null values but how many times null let us check 
+create table demo2(id int unique,fname varchar(30) not null ,mname varchar(40) null,
+lname varchar(30) not null);
 
 
 
