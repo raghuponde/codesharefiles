@@ -3,6 +3,14 @@ The Adapter Design Pattern allows incompatible interfaces to work together. It a
 Real-World Example: Adapter Pattern
 Let’s assume we are building an application for a media player that can play audio files. Initially, it only supports MP3 files, but now we need to extend it to support other formats like MP4 and VLC files without changing the existing code. We can use the Adapter Pattern to adapt the interface of new file formats into a format that our media player understands.
 
+create one folder with the name Day12Projects and in that write the command
+
+dotnet new console -o adapterdemo --use-program-main
+
+one by one check the codes and fill it i will not tell u again how to add class or interface it is same if u have added extesnion of C# extensions 
+then automatically namespaces it will add 
+    
+    
 Code Example: Adapter Pattern in C#
 Step 1: Define the Target Interface (Existing Interface)
 This interface defines the common operation for playing audio files.
