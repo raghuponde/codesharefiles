@@ -105,8 +105,18 @@ insert into demo1 values(101,null,null,'janaki')--okay
 create table demo2(id int unique,fname varchar(30) not null ,mname varchar(40) null,
 lname varchar(30) not null);
 
+insert into demo2 values(null,'kiran',null,'kumar');-- one time null is allowed again not try this command 2nd time it will not work 
+insert into demo2 values(101,'suresh','kumar','singh')--okay will run but again 101 if u give it will not run as it is unique
+insert into demo2 values(102,'suresh','kumar','singh')--okay as 102  is given 
 
+--with table level defining unique constraint 
+create table demo3(id int ,fname varchar(30) not null ,mname varchar(40) null,
+lname varchar(30) not null,constraint uk11 unique(id) );
 
+-- it can have multiple columns also and many times also i can apply unique constraint 
+
+create table demo4(id int ,fname varchar(30) not null ,mname varchar(40) null,constraint uk88 unique(fname),
+lname varchar(30) not null,constraint uk141 unique(id,lname) );
 
 
 
