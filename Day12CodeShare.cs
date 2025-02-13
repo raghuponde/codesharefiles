@@ -7,9 +7,7 @@ create one folder with the name Day12Projects and in that write the command
 
 dotnet new console -o adapterdemo --use-program-main
 
-one by one check the codes and fill it i will not tell u again how to add class or interface it is same if u have added extesnion of C# extensions 
-then automatically namespaces it will add 
-    
+one by one check the codes and above main method class only add interfaces and other classes 
     
 Code Example: Adapter Pattern in C#
 Step 1: Define the Target Interface (Existing Interface)
@@ -64,61 +62,65 @@ public class MP4Player
     }
 }
 
+here i can implement IMediaPlayer
+    
+    public class VLCPlayer  : IMediaPlayer
+{
+    public void Play(string audioType, string fileName)
+    {
+        throw new NotImplementedException();
+    }
 
-Step 4: Create the Adapter Class
-The adapter will implement the IMediaPlayer interface and internally call the appropriate methods of the adaptee classes (VLCPlayer, MP4Player).
+    public void PlayVLC(string fileName)
+    {
+        Console.WriteLine("Playing VLC file: " + fileName);
+    }
+}
+    
+    
+    
+    but it will create extra play method to me so that i am not implmenting because direct comtable method is not there 
+here through its individual method only i want to overrride 
+then what i am doing here is creating a media adapter here class which will implement IMediaPlayer only and include VLc and MP4 objects like this 
 
-// Adapter Class that adapts VLCPlayer and MP4Player to the IMediaPlayer interface
-public class MediaAdapter : IMediaPlayer
+    public class MediaAdapter : IMediaPlayer
 {
     private VLCPlayer _vlcPlayer;
     private MP4Player _mp4Player;
 
-    public MediaAdapter(string audioType)
-    {
-        if (audioType.ToLower() == "vlc")
-        {
-            _vlcPlayer = new VLCPlayer();
-        }
-        else if (audioType.ToLower() == "mp4")
-        {
-            _mp4Player = new MP4Player();
-        }
-    }
+
 
     public void Play(string audioType, string fileName)
     {
         if (audioType.ToLower() == "vlc")
         {
+            _vlcPlayer = new VLCPlayer();
             _vlcPlayer?.PlayVLC(fileName);
         }
         else if (audioType.ToLower() == "mp4")
         {
+            _mp4Player = new MP4Player();
             _mp4Player?.PlayMP4(fileName);
         }
     }
 }
 
+so the above method i will use in earlier AudioPlayer so that i can make it compatible to call vlc and mp4 play methods 
+so above method is modified 
 
-Step 5: Modify the Existing Class to Use the Adapter
-Now, we modify the AudioPlayer to use the adapter when it encounters a media type other than MP3.
-
-// Updated AudioPlayer class that can now play VLC and MP4 files using the adapter
-public class AudioPlayerWithAdapter : IMediaPlayer
+public class AudioPlayer : IMediaPlayer
 {
     private MediaAdapter _mediaAdapter;
-
+  
     public void Play(string audioType, string fileName)
     {
-        // Play mp3 file directly
         if (audioType.ToLower() == "mp3")
         {
             Console.WriteLine("Playing mp3 file: " + fileName);
         }
-        // Use adapter for other file formats
         else if (audioType.ToLower() == "vlc" || audioType.ToLower() == "mp4")
         {
-            _mediaAdapter = new MediaAdapter(audioType);
+            _mediaAdapter = new MediaAdapter();
             _mediaAdapter.Play(audioType, fileName);
         }
         else
@@ -128,35 +130,116 @@ public class AudioPlayerWithAdapter : IMediaPlayer
     }
 }
 
+Step 4: Create the Adapter Class
+The adapter will implement the IMediaPlayer interface and internally call the appropriate methods of the adaptee classes (VLCPlayer, MP4Player).
+
+
+Step 5: Modify the Existing Class to Use the Adapter
+
 
 Step 6: Client Code
 Here’s how the client can use the updated AudioPlayerWithAdapter to play various media formats.
+
 
 class Program
 {
     static void Main(string[] args)
     {
-        IMediaPlayer player = new AudioPlayerWithAdapter();
-
+        IMediaPlayer mediaPlayer = new AudioPlayer();
         // Playing various formats
-        player.Play("mp3", "song.mp3");
-        player.Play("mp4", "video.mp4");
-        player.Play("vlc", "movie.vlc");
-        player.Play("avi", "unsupported.avi");
+        mediaPlayer.Play("mp3", "song.mp3");
+        mediaPlayer.Play("mp4", "video.mp4");
+        mediaPlayer.Play("vlc", "movie.vlc");
+        mediaPlayer.Play("avi", "unsupported.avi");
 
         Console.ReadLine();
     }
 }
 
+final code 
+-------------
+namespace adapterdemo;
+public interface IMediaPlayer
+{
+    void Play(string audioType, string fileName);
+}
+public class AudioPlayer : IMediaPlayer
+{
+    private MediaAdapter _mediaAdapter;
+  
+    public void Play(string audioType, string fileName)
+    {
+        if (audioType.ToLower() == "mp3")
+        {
+            Console.WriteLine("Playing mp3 file: " + fileName);
+        }
+        else if (audioType.ToLower() == "vlc" || audioType.ToLower() == "mp4")
+        {
+            _mediaAdapter = new MediaAdapter();
+            _mediaAdapter.Play(audioType, fileName);
+        }
+        else
+        {
+            Console.WriteLine($"Invalid media: {audioType} format not supported.");
+        }
+    }
+}
+public class VLCPlayer 
+{
 
-outputs 
------------
+    public void PlayVLC(string fileName)
+    {
+        Console.WriteLine("Playing VLC file: " + fileName);
+    }
+}
+// Class for playing MP4 files
+public class MP4Player
+{
+    public void PlayMP4(string fileName)
+    {
+        Console.WriteLine("Playing MP4 file: " + fileName);
+    }
+}
+public class MediaAdapter : IMediaPlayer
+{
+    private VLCPlayer _vlcPlayer;
+    private MP4Player _mp4Player;
 
-Playing mp3 file: song.mp3
-Playing MP4 file: video.mp4
 
-Playing VLC file: movie.vlc
-Invalid media: avi format not supported.
+
+    public void Play(string audioType, string fileName)
+    {
+        if (audioType.ToLower() == "vlc")
+        {
+            _vlcPlayer = new VLCPlayer();
+            _vlcPlayer?.PlayVLC(fileName);
+        }
+        else if (audioType.ToLower() == "mp4")
+        {
+            _mp4Player = new MP4Player();
+            _mp4Player?.PlayMP4(fileName);
+        }
+    }
+}
+
+
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        IMediaPlayer mediaPlayer = new AudioPlayer();
+        // Playing various formats
+        mediaPlayer.Play("mp3", "song.mp3");
+        mediaPlayer.Play("mp4", "video.mp4");
+        mediaPlayer.Play("vlc", "movie.vlc");
+        mediaPlayer.Play("avi", "unsupported.avi");
+
+        Console.ReadLine();
+    }
+}
+
 
 
 Explanation:
