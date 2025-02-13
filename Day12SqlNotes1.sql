@@ -37,7 +37,22 @@ update Student set location='Bangalore' where studid in (101,104,105);
 
 -- I cannot do update for rows and columns at a time okay 
 
---
+--deleting commands 
+-- here i can delete rows only ether single or multile or all 
+
+-- single row delete 
+
+delete from Student where studid=102;
 
 
+-- deleting multiple rows 
 
+delete from Student where studid in (105,104)
+
+
+-- deleting all rows dont provide condition 
+
+delete from Student ;
+
+-- if u want to destry the table 
+drop table Student ;
