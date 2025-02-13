@@ -176,6 +176,31 @@ insert into bankdemo1 values(101,'BOB',2000);-- okay will run
 
 -- let us create a table now 
 
+create table dept(deptid int primary key ,deptname varchar(40));--master table 
+
+insert into dept values (10,'HR');
+insert into dept values (20,'Software');
+insert into dept values (30,'Sales');
+
+select * from dept ;
+
+-- child table emp 
+
+create table emp(empid int primary key ,empname varchar(40) ,
+deptid int foreign key references dept(deptid));-- column level 
+
+insert into emp values (1001,'ravi',20);
+insert into emp values (1002,'kiran',20);
+insert into emp values (1003,'sita',null);-- null can be put in foreign key 
+
+-- like this also u can create child table for dept table 
+--and here i am using column name different and table level foreign key i am using it here 
 
 
+create table empinfo(empid int primary key ,empname varchar(40) ,
+worksin  int,constraint fk120  foreign key(worksin) references dept(deptid));-- 
 
+insert into empinfo values (1001,'ravi',20);
+insert into empinfo values (1002,'kiran',30);
+insert into empinfo values (1003,'sita',null);-- null can be put in foreign key 
+insert into empinfo values(1004,'suresh',50) --error because 50 dept is not there 
