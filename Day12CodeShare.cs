@@ -256,3 +256,149 @@ Client (AudioPlayerWithAdapter):
 
 The AudioPlayerWithAdapter class can now handle new file formats by delegating to the MediaAdapter when it encounters a file format other than MP3. The client code remains unchanged.
 
+Observer pattern 
+-------------------
+The Observer Pattern is a behavioral design pattern that defines a one-to-many relationship between objects so that when one object (the subject) changes state, all its dependents (called observers) are notified and updated automatically.
+
+In C#, you can implement the Observer pattern by defining a subject (which holds a list of observers) and the observers themselves, which are notified when the subject changes.
+
+Components of the Observer Pattern:
+Subject: The entity that holds the state and notifies observers of state changes.
+Observers: These are interested entities that get notified when the subject's state changes.
+ConcreteSubject: A specific implementation of the subject that changes state and notifies observers.
+ConcreteObserver: A specific implementation of an observer that reacts to state changes.
+Example: Stock Market Application
+In this example, a Stock class acts as the subject, and multiple Investors act as observers. When the stock price changes, all registered investors are notified.
+
+Step-by-Step Implementation:
+
+1.Define the Subject Interface:
+
+
+public interface IStock
+{
+    void RegisterObserver(IInvestor investor);
+    void RemoveObserver(IInvestor investor);
+    void NotifyObservers();
+}
+
+
+2)Define the Observer Interface:
+
+public interface IInvestor
+{
+    void Update(Stock stock);
+}
+
+
+3.Create the ConcreteSubject (Stock):
+
+public class Stock : IStock
+{
+    private List<IInvestor> _investors = new List<IInvestor>();
+    private string _symbol;
+    private double _price;
+
+    public Stock(string symbol, double price)
+    {
+        _symbol = symbol;
+        _price = price;
+    }
+
+    public string Symbol => _symbol;
+
+    public double Price
+    {
+        get => _price;
+        set
+        {
+            if (_price != value)
+            {
+                _price = value;
+                NotifyObservers();
+            }
+        }
+    }
+
+    public void RegisterObserver(IInvestor investor)
+    {
+        _investors.Add(investor);
+    }
+
+    public void RemoveObserver(IInvestor investor)
+    {
+        _investors.Remove(investor);
+    }
+
+    public void NotifyObservers()
+    {
+        foreach (var investor in _investors)
+        {
+            investor.Update(this);
+        }
+    }
+}
+
+
+4.Create the ConcreteObserver (Investor):
+
+public class Investor : IInvestor
+{
+    private string _name;
+
+    public Investor(string name)
+    {
+        _name = name;
+    }
+
+    public void Update(Stock stock)
+    {
+        Console.WriteLine($"Notified {_name} of {stock.Symbol}'s price change to {stock.Price:C}");
+    }
+}
+
+
+Use the Observer Pattern:
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create a stock and investors
+        Stock appleStock = new Stock("AAPL", 120.00);
+        Investor investor1 = new Investor("John Doe");
+        Investor investor2 = new Investor("Jane Smith");
+
+        // Register the investors (observers) with the stock (subject)
+        appleStock.RegisterObserver(investor1);
+        appleStock.RegisterObserver(investor2);
+
+        // Change the stock price (this will notify the observers)
+        appleStock.Price = 121.00;
+        appleStock.Price = 123.50;
+
+        // Remove one investor and change the price again
+        appleStock.RemoveObserver(investor1);
+        appleStock.Price = 125.75;
+    }
+}
+
+
+Explanation:
+The Stock class acts as the subject, and it notifies all registered investors when its price changes.
+The Investor class acts as an observer and is updated with the new stock price whenever it changes.
+The Price property of the Stock class triggers the NotifyObservers method when the price is set to a new value, which updates all the observers.
+
+output 
+---------
+
+Notified John Doe of AAPL's price change to $121.00
+Notified Jane Smith of AAPL's price change to $121.00
+Notified John Doe of AAPL's price change to $123.50
+Notified Jane Smith of AAPL's price change to $123.50
+Notified Jane Smith of AAPL's price change to $125.75
+
+
+
+
+
