@@ -166,5 +166,16 @@ insert into bankdemo1 values (101,'BOI',1000) -- here also eror as more than 100
 insert into bankdemo1 values(101,'BOB',2000);-- okay will run 
 
 
+--6)Foreign key constraint : also called as referencial integrity constraint .
+-- two tables are said to be related to each other if they have a common column between them and that common column should act 
+-- as primary key in master table so what is master table the table which we create first is a master table and the table which we 
+-- create after wards is child table always in child table only i will see this foreign key ..
+-- when i am saying common column it means that that common column should have common value mean column name can be different 
+-- and remember that both master and child tables will have their primary keys defined 
+-- child table will take in foreign key those values only which are there in master table primary key in foreing key i can enter null 
+
+-- let us create a table now 
+
+
 
 
