@@ -269,29 +269,122 @@ ConcreteSubject: A specific implementation of the subject that changes state and
 ConcreteObserver: A specific implementation of an observer that reacts to state changes.
 Example: Stock Market Application
 In this example, a Stock class acts as the subject, and multiple Investors act as observers. When the stock price changes, all registered investors are notified.
+first from the main folder Day12Projects write the follwing command
 
-Step-by-Step Implementation:
+dotnet new console -o observerdemo --use-program-main
+Imagine one class stock class is there like this 
 
-1.Define the Subject Interface:
-
-
-public interface IStock
+    namespace observerdemo;
+public class Stock
 {
-    void RegisterObserver(IInvestor investor);
-    void RemoveObserver(IInvestor investor);
-    void NotifyObservers();
+
+    private string _symbol;
+    private double _price;
+
+    public Stock(string symbol, double price)
+    {
+        _symbol = symbol;
+        _price = price;
+    }
+
+    public string Symbol => _symbol;
+
+
+
+
 }
 
 
-2)Define the Observer Interface:
+class Program
+{
+    static void Main(string[] args)
+    {
+        Stock appleStock = new Stock("AAPL", 120.00);
+    }
+}
+
+Next thing to crreate is investor who will buy the stocks means above class any update i do will do though IInvestor 
 
 public interface IInvestor
 {
     void Update(Stock stock);
 }
 
+after adding this interface still build and run are done proeprly 
+another inerface i will create now which will take above inestor interface so this also i will add it now 
 
-3.Create the ConcreteSubject (Stock):
+    public interface IStock
+{
+    void RegisterObserver(IInvestor investor);
+    void RemoveObserver(IInvestor investor);
+    void NotifyObservers();
+}
+after adding again build and run i will do 
+    so till now it if fine now now Stock class will implment IStock interface which is having another interface IInvestor which throgh 
+        IStock interface only i will use it and i declare list of inversors also here like this so change in Stock class is like this 
+and new stock class will be like this 
+
+    public class Stock: IStock
+{
+    private List<IInvestor> _investors = new List<IInvestor>();
+    private string _symbol;
+    private double _price;
+
+    public Stock(string symbol, double price)
+    {
+        _symbol = symbol;
+        _price = price;
+    }
+
+    public string Symbol => _symbol;
+
+    public double Price
+    {
+        get => _price;
+        set
+        {
+            if (_price != value)
+            {
+                _price = value;
+                NotifyObservers();
+            }
+        }
+    }
+    public void NotifyObservers()
+    {
+        foreach (var investor in _investors)
+        {
+            investor.Update(this);
+        }
+    }
+    public void RegisterObserver(IInvestor investor)
+    {
+        _investors.Add(investor);
+    }
+
+    public void RemoveObserver(IInvestor investor)
+    {
+        _investors.Remove(investor);
+    }
+
+
+
+}
+
+finally herei do build and run again working fine 
+and till now full code is like this
+
+    namespace observerdemo;
+public interface IInvestor
+{
+    void Update(Stock stock);
+}
+public interface IStock
+{
+    void RegisterObserver(IInvestor investor);
+    void RemoveObserver(IInvestor investor);
+    void NotifyObservers();
+}
 
 public class Stock : IStock
 {
@@ -319,7 +412,13 @@ public class Stock : IStock
             }
         }
     }
-
+    public void NotifyObservers()
+    {
+        foreach (var investor in _investors)
+        {
+            investor.Update(this);
+        }
+    }
     public void RegisterObserver(IInvestor investor)
     {
         _investors.Add(investor);
@@ -330,6 +429,105 @@ public class Stock : IStock
         _investors.Remove(investor);
     }
 
+
+
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Stock appleStock = new Stock("AAPL", 120.00);
+    }
+}
+
+Now i will create investor concrete class which will implement IInvestor 
+
+    public class Investor : IInvestor
+{
+    private string _name;
+
+    public Investor(string name)
+    {
+        _name = name;
+    }
+
+    public void Update(Stock stock)
+    {
+        Console.WriteLine($"Notified {_name} of {stock.Symbol}'s price change to {stock.Price:C}");
+    }
+}
+
+Now again i will build and run no erros till now 
+
+
+now in main method i will do like this 
+
+    static void Main(string[] args)
+    {
+        // Create a stock and investors
+        Stock appleStock = new Stock("AAPL", 120.00);
+        Investor investor1 = new Investor("John Doe");
+        Investor investor2 = new Investor("Jane Smith");
+        // Register the investors (observers) with the stock (subject)
+        appleStock.RegisterObserver(investor1);
+        appleStock.RegisterObserver(investor2);
+
+        // Change the stock price (this will notify the observers)
+        appleStock.Price = 121.00;
+        appleStock.Price = 123.50;
+
+        // Remove one investor and change the price again
+        appleStock.RemoveObserver(investor1);
+        appleStock.Price = 125.75;
+
+
+    }
+
+
+total final code is here 
+
+----------------------------
+
+    namespace observerdemo;
+public interface IInvestor
+{
+    void Update(Stock stock);
+}
+public interface IStock
+{
+    void RegisterObserver(IInvestor investor);
+    void RemoveObserver(IInvestor investor);
+    void NotifyObservers();
+}
+
+public class Stock : IStock
+{
+    private List<IInvestor> _investors = new List<IInvestor>();
+    private string _symbol;
+    private double _price;
+
+    public Stock(string symbol, double price)
+    {
+        _symbol = symbol;
+        _price = price;
+    }
+
+    public string Symbol => _symbol;
+
+    public double Price
+    {
+        get => _price;
+        set
+        {
+            if (_price != value)
+            {
+                _price = value;
+                NotifyObservers();
+            }
+        }
+    }
     public void NotifyObservers()
     {
         foreach (var investor in _investors)
@@ -337,10 +535,19 @@ public class Stock : IStock
             investor.Update(this);
         }
     }
+    public void RegisterObserver(IInvestor investor)
+    {
+        _investors.Add(investor);
+    }
+
+    public void RemoveObserver(IInvestor investor)
+    {
+        _investors.Remove(investor);
+    }
+
+
+
 }
-
-
-4.Create the ConcreteObserver (Investor):
 
 public class Investor : IInvestor
 {
@@ -357,9 +564,6 @@ public class Investor : IInvestor
     }
 }
 
-
-Use the Observer Pattern:
-
 class Program
 {
     static void Main(string[] args)
@@ -368,7 +572,6 @@ class Program
         Stock appleStock = new Stock("AAPL", 120.00);
         Investor investor1 = new Investor("John Doe");
         Investor investor2 = new Investor("Jane Smith");
-
         // Register the investors (observers) with the stock (subject)
         appleStock.RegisterObserver(investor1);
         appleStock.RegisterObserver(investor2);
@@ -380,23 +583,12 @@ class Program
         // Remove one investor and change the price again
         appleStock.RemoveObserver(investor1);
         appleStock.Price = 125.75;
+
+
     }
-}
 
 
-Explanation:
-The Stock class acts as the subject, and it notifies all registered investors when its price changes.
-The Investor class acts as an observer and is updated with the new stock price whenever it changes.
-The Price property of the Stock class triggers the NotifyObservers method when the price is set to a new value, which updates all the observers.
 
-output 
----------
-
-Notified John Doe of AAPL's price change to $121.00
-Notified Jane Smith of AAPL's price change to $121.00
-Notified John Doe of AAPL's price change to $123.50
-Notified Jane Smith of AAPL's price change to $123.50
-Notified Jane Smith of AAPL's price change to $125.75
 
 
 
