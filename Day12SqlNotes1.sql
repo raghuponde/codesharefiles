@@ -89,6 +89,9 @@ syntax for table level constraint
 --consraints 
 constraint <contraint_name> typeofconstraint(col list)
 
+--consraints 
+--constraint <contraint_name> typeofconstraint(col list)
+--1)not null or null constraint 
 -- not null ot null this cann be applied only as column level dont leave the column blank if it is not null
 -- duplicate are allowed for not null column but dont leave the column as blank something has to be written there 
 create table demo1(id int not null,fname varchar(30),mname varchar(40),
@@ -100,7 +103,7 @@ insert into demo1 values(101,null,null,null)-- okay as 101 duplicate is allowed
 
 insert into demo1 values(101,null,null,'janaki')--okay 
 
-
+--2)unique constraint 
 --unique constraint means you cannot enter duplicate values but u can enter null values but how many times null let us check 
 create table demo2(id int unique,fname varchar(30) not null ,mname varchar(40) null,
 lname varchar(30) not null);
@@ -117,9 +120,3 @@ lname varchar(30) not null,constraint uk11 unique(id) );
 
 create table demo4(id int ,fname varchar(30) not null ,mname varchar(40) null,constraint uk88 unique(fname),
 lname varchar(30) not null,constraint uk141 unique(id,lname) );
-
-
-
-
-
-
