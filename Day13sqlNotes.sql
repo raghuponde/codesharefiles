@@ -207,7 +207,31 @@ when one to many is there put foreign key in the child table and which table u c
 
 when many to many relationship is there the table is splitted into two one to many relationships .slide 33 refere 
 
+alter command check in seperate page :
+--------------------------------------
+--Alter command 
+-------------------
+
+--it is used to modify the structure of exsisting table using which u can perform any of the following tasks 
+
+--1)change the datatype of the column 
+--2)Increase or Decrese the width of the columnm
+--3)change  null to not null and not null to null 
+--4)add a new column 
+--5)drop an exsisting column 
+--6)add a new constraint
+--7)drop an exisiting constraint .
+
+--for 1,2,3 
+-- alter table <Tname> alter col <colname><dtype>[width][notnull/null]
+
+create table students (sno int,sname varchar(50),class int)
+
+insert into students values (101,'ravi',12)
+insert into students values(102,'kumar',4)
+insert into students values (103,'senthil',8)
+
+select * from students;
 
 
 
-/*
