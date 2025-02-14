@@ -576,5 +576,18 @@ based on id value u provide to the function ?
 
 
 
+create function copies_sold(@title_id varchar(10))
+returns int
+as
+begin 
+declare @quantity int;
+select @quantity=0;
+select @quantity=qty_sold from Books where title_id=@title_id
+return @quantity;
+end 
+
+select dbo.copies_sold('bo101')
+
+
 
 
