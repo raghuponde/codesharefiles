@@ -808,29 +808,21 @@ date as integer.
 -------------------------
 --when we want to convert one data type to another we go for 
 --conversion functions they  are of two types
-a)convert(<dtype>,<expression>):
+a)conversion functions :
 _______________________________
- local variable in sql server 2005 is preceded by @symbol
--- to declare a local variable 
-  declare @variable_name <data_type>
---  to assign value to local variable 
-   set @variable_name= value;
---  to display output we go for 
-select or print
- statements in sql server 2005
 
-declare @x varchar(30)
-set @x='africa is great'
-print @x
+convert(varchar,@x) --here @x is converted to varchar type 
+cast(@x as varchar) -- here again @x is converted into varchar type @x can be of any type 
 
-declare @x int
-set @x=100
-print  'The value is ' +Convert(varchar(20),@x)
+declare @age int ;
+declare @name varchar(30)
+set @name='ravi'
+set @age=23;
+print 'The person with the name '+Convert(varchar(30),@name)+' is having '+Convert(varchar(30),@age) +' years of age ';
+print 'The person with the name '+@name+' is having '+Convert(varchar(30),@age) +' years of age '; 
+print 'The person with the name '+cast(@name as varchar)+' is having '+cast(@age as varchar) +' years of age ';
 
-b)cast (<expression> as <dtype>):This will work same as convert
- but it is more descriptive
-select getdate( )
-select cast(getdate( ) as varchar) 
+
 
 
 
