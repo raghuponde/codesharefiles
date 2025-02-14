@@ -423,6 +423,34 @@ END
 select * from Employeedata
 
 
+---code for savepoint ------
 
+BEGIN TRANSACTION;
+DECLARE @EmpID3 INT;
+
+-- Insert a new employee and get the generated EmployeeID
+INSERT INTO Employeedata (FirstName, LastName, Department) 
+VALUES ('ravi3', 'kumar3', 'software3');
+save transaction savepoint1;
+SET @EmpID3 = SCOPE_IDENTITY(); -- Get the last inserted ID
+-- Update the inserted employee
+UPDATE Employeedata SET Department='Testing6' WHERE EmployeeID = @EmpID3;
+
+-- Check if the employee exists
+IF NOT EXISTS (SELECT * FROM Employeedata WHERE EmployeeID = 999)
+BEGIN
+   PRINT 'An error occurred, rolling back only part of the transaction';
+    ROLLBACK TRANSACTION savepoint1; -- Rollback to before Employee 2 insert
+    PRINT 'Rolled back the error, but Employee is only inserted but that is not updated ';
+END
+ELSE
+BEGIN
+    PRINT 'No errors, committing transaction';
+    COMMIT TRANSACTION;
+END
+
+-- chekcing whether save point is applied or not 
+
+select * from Employeedata ;
 
 
