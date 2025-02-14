@@ -246,7 +246,19 @@ sp_help students-- to check type has been chnaged or not
 
 -- 
 
+
 --adding a new column 
 
 --alter table <Tname> add <colname> <dtype><width>[not null]
 --[constraint <cname>] 
+
+alter table students add city varchar(40) not null -- this command is giving error 
+
+-- above command will not work with not null both creation of new column and  filling 
+-- the values at a time is not possible 
+
+-- so i will write like ths 
+
+alter table students add city varchar(40)
+
+
