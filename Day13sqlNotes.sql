@@ -288,6 +288,14 @@ alter table students drop column city
 
 select * from students
 
+-- adding a new constraint 
+
+--alter table <Tname> add [constraint<const_name>]
+--typeofconstraint(<collist>)
+-- adding  a constraint on class column 
+alter table students add constraint ck12 check(class <=12);
+
+insert into students values(104,'sohan',14);--error
 
 
 
