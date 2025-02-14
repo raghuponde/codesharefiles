@@ -136,3 +136,65 @@ VALUES
 ('Jane', 'Smith', 'Engineering'),
 ('Mark', 'Brown', 'Sales');
 
+DELETE FROM Employees WHERE Department = 'Engineering';
+
+What happens?
+Only the rows where Department = 'Engineering' will be deleted.
+This action is fully logged, meaning each deletion is recorded in the transaction log.
+The identity column does not reset.
+This action can be rolled back if it’s part of a transaction.
+
+SELECT * FROM Employees;(run the query and see what is the result ) 
+
+3. TRUNCATE Command
+If you want to remove all the rows from the Employees table without logging each row deletion, 
+you would use the TRUNCATE command:
+
+TRUNCATE TABLE Employees;
+
+What happens?
+All rows in the Employees table are removed immediately.
+The action is minimally logged; it does not log each row deletion, only the deallocation of the data pages.
+The identity seed is reset to its original value (if the table has an identity column).
+Triggers do not fire, and constraints are not checked.
+This action cannot be used with a WHERE clause.
+
+Key Use Cases:
+DELETE: Use DELETE when you want to selectively remove rows or need to maintain transaction control and use a WHERE clause.
+TRUNCATE: Use TRUNCATE when you want to quickly remove all rows in a table and reset the identity seed, without needing to log individual deletions.
+
+
+--difference between truncate and delete 
+
+--first diff where clause cannot be used in truncate 
+
+create table EmpInfo(empid int identity(1,1) primary key ,empname varchar(40),
+salary int )
+
+insert into EmpInfo values('ravi',34000);
+insert into EmpInfo values('suresh',45000)
+insert into EmpInfo values('sita',39000)
+select * from EmpInfo
+
+delete from EmpInfo where empname='suresh'
+
+delete from Empinfo
+
+insert into EmpInfo values('jyothi',59000)
+
+---again inserting values fresh 
+insert into EmpInfo values('satish',34000);
+insert into EmpInfo values('monika',45000)
+insert into EmpInfo values('madhu',39000)
+
+--now trunate command 
+--truncate table EmpInfo where empname='monika' not allowing 
+
+truncate table EmpInfo 
+
+---again inserting values fresh after truncate command 
+insert into EmpInfo values('satish1',34000);
+insert into EmpInfo values('monika1',45000)
+insert into EmpInfo values('madhu1',39000)
+
+-- check the values it will reset to 1 like that ...
