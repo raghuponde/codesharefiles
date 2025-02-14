@@ -711,11 +711,7 @@ select * from listempmultiline('Z')
 
 INBUILT FUNCTIONS IN SQL SERVER
 ---------------------------------
---Single row functions in sql server 2005:
-----------------------------------------------
---single row functions are predefined functionalities  which are 
---provided for retriving the information in various scenarios.
-
+-
 --1)Mathematical functions:
 --_______________________
 
