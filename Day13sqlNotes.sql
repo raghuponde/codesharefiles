@@ -280,3 +280,16 @@ update students set city ='Hyderabad' where sno in (101,102,103)
 
 alter table students alter column city varchar(40) not null -- now it will work 
 
+
+-- drop an exisiting column 
+--alter table <Tname> drop column <colname>
+
+alter table students drop column city 
+
+select * from students
+
+
+
+
+
+
