@@ -246,7 +246,7 @@ sp_help students-- to check type has been chnaged or not
 
 -- 
 
-
+ 
 --adding a new column 
 
 --alter table <Tname> add <colname> <dtype><width>[not null]
