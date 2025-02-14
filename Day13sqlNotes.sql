@@ -354,6 +354,73 @@ CREATE TABLE Employeedata (
     Department VARCHAR(50)
 );
 
+--Transaction Demo 
+
+CREATE TABLE Employeedata (
+    EmployeeID INT IDENTITY(1,1) PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Department VARCHAR(50)
+);
+--code for rollback transaction 
+-----------------------------------
+
+BEGIN TRANSACTION;
+DECLARE @EmpID INT;
+-- Insert a new employee and get the generated EmployeeID
+INSERT INTO Employeedata (FirstName, LastName, Department) 
+VALUES ('ravi1', 'kumar1', 'software1');
+
+SET @EmpID = SCOPE_IDENTITY(); -- Get the last inserted ID
+
+-- Update the inserted employee
+UPDATE Employeedata SET Department='Testing' WHERE EmployeeID = @EmpID;
+
+-- Force rollback by checking for an ID that does not exist
+IF NOT EXISTS (SELECT * FROM Employeedata WHERE EmployeeID = 9999) -- EmployeeID 9999 does not exist
+BEGIN
+    PRINT 'Error: Employee not found, rolling back the transaction';
+    ROLLBACK TRANSACTION;
+END
+ELSE
+BEGIN
+    PRINT 'No errors, committing transaction';
+    COMMIT TRANSACTION;
+END
+--checking ---
+
+select * from Employeedata
+
+-------code for commit transaction ----
+BEGIN TRANSACTION;
+
+DECLARE @EmpID1 INT;
+
+-- Insert a new employee and get the generated EmployeeID
+INSERT INTO Employeedata (FirstName, LastName, Department) 
+VALUES ('ravi1', 'kumar1', 'software1');
+
+SET @EmpID1 = SCOPE_IDENTITY(); -- Get the last inserted ID
+
+-- Update the inserted employee
+UPDATE Employeedata SET Department='Testing' WHERE EmployeeID = @EmpID1;
+
+-- Check if the employee exists
+IF NOT EXISTS (SELECT * FROM Employeedata WHERE EmployeeID = @EmpID1)
+BEGIN
+    PRINT 'Error: Employee not found, rolling back the transaction';
+    ROLLBACK TRANSACTION;
+END
+ELSE
+BEGIN
+    PRINT 'No errors, committing transaction';
+    COMMIT TRANSACTION;
+END
+
+
+--chekcing transaction 
+
+select * from Employeedata
 
 
 
