@@ -198,3 +198,16 @@ insert into EmpInfo values('monika1',45000)
 insert into EmpInfo values('madhu1',39000)
 
 -- check the values it will reset to 1 like that ...
+
+where to keep foreign key 
+-----------------------
+when one to one realtinship is there you can keep foreign key anywhere in the tables here no master and no child table will be there 
+
+when one to many is there put foreign key in the child table and which table u create after master is nothing but child table only 
+
+when many to many relationship is there the table is splitted into two one to many relationships .slide 33 refere 
+
+
+
+
+/*
