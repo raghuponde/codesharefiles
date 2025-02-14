@@ -233,5 +233,15 @@ insert into students values (103,'senthil',8)
 
 select * from students;
 
+--for 1,2,3 
+-- alter table <Tname> alter column <colname><dtype>[width][notnull/null]
+
+-- always change data type in compatible manner only mean  string to string or number to number 
+
+-- change varchar to char or int to decimal like that 
+
+alter table students alter column sname char(60) not null;
+
+sp_help students-- to check type has been chnaged or not 
 
 
