@@ -708,3 +708,136 @@ return;
 end
 
 select * from listempmultiline('Z')
+
+INBUILT FUNCTIONS IN SQL SERVER
+---------------------------------
+--Single row functions in sql server 2005:
+----------------------------------------------
+--single row functions are predefined functionalities  which are 
+--provided for retriving the information in various scenarios.
+
+--1)Mathematical functions:
+--_______________________
+
+--a) abs(n) : it returns a absolute value of given number n
+   eg: select abs(-12)=12
+--b)square(n) : It return the square of n
+eg: select square(25)=9
+--c)sqrt(n) :it will give u square root of n
+eg: select sqrt(4)=2
+--d)power(n,m) :it will give u n to the power of m value
+eg:select power(2,3) =8
+--e)round(n,size):it will round a value n is the value 
+--and size is how many values to round
+eg:select round(156.6789,2)=156.68
+     select round(156.6789,0)=157
+      select round(156.6789,-1)=160
+--f)ceiling(n) :it returns an least integer greater than n
+  eg: select ceiling(15.6)=16
+         select ceiling (-15.6)=-15
+--g)floor(n) :it returns the highest integer less than given n
+eg: select floor(15.6)=15
+select floor(-15.6)=-16
+
+
+
+--2)String functions :strings are nothing but set of chracters so these
+--string functions can also be applied to columns having string values.
+--_________________________________________________
+a) Ascii(s): it returns ascii value of first character in the given string 
+eg: select ascii('D')=65
+select ascii('def')=100
+b)char(n):This is reverse of ascii it takes ascii value 
+and returns the character represented by it
+eg: select char(65)=A
+c)Len(s) : it returns length of given string
+eg:select len('Tanzania')=8
+select len(Title) from HumanResources.Employee
+d)lower(s):it return given string converted into lower case
+eg: select left(Title,3) from HumanResources.Employee
+e)upper(s):it retuen the given string converted in upper case
+eg: select upper('apple')=APPLE
+f)  left(s,n) it returns the selected n no of  characters from left
+   side of given string
+  eg: select  left('Hello',3)=Hel
+g)right(s,n) : same as above but from right 
+h)substring (s,start,length) :it returns part of string from a given string
+    s 
+eg: select substring('Hello',1,3)=Hel
+
+g) reverse(n): it returns the given string in reverse order.
+eg:select reverse('Hello')=0lleH
+h)Ltrim(s) : it eilimates empty character that are present in left side 
+of given string s
+select Rtrim('hello             ')
+eg: select Ltrim('       hello')=hello
+i)Rtrim (s) : is is ame as left but at right side we eliminate spaces 
+from the given string
+eg: select Rtrim('heloo     ')=heloo
+j)replace (s,searchstr,replacestr): it replaces each occurence of 
+searchstr with replacestr in the given string s
+select replace('Hello world','o','x')=Hellx wxrld
+k)stuff(s,start,length,replacestr):
+it repalces specified no of characters with replace string in the 
+given string s
+eg: select stuff('abxxcdxx',3,2,'yy')=abyycdxx
+select stuff('abxxcdxx',3,2,'yy')
+
+3) Date functions ; 
+a)getdate( ) : To get todays date we use getdate( ) function 
+ eg: select getdate() as Todaysdate
+
+b) datediff: calculates the no of  date parts between two dates.
+
+   select datediff(mm,'01/01/1990',getdate( ) ) as Age
+   select datediff(yy,'7/8/1982' ,getdate( )) as Age
+   select datediff(hh,'7/8/1982',getdate() ) as Age
+  select datediff(dd,'7/8/1982',getdate( )) as Age
+  select datediff(mi,'7/8/1982',getdate( )) as Age
+  select datediff(yy,HireDate,getdate( )) from HumanResources.Employee
+ c) dateadd: It returns the datepart listed from the listed 
+date as integer.
+
+    select dateadd(mm,30,getdate( ) )
+
+  d) datename(datepart,d) :it is used for picking any specified 
+     date part value from the given date d
+
+   Note: seconds=ss,year =yy,quarter=q,month =mm,
+             day =dd,day of the year =dy,weak of the year=wk,
+             milliseconds=ms,weekday=dw,hours=hh,minutes=mi
+
+  eg:   select datename(dw,getdate( ))=monday
+4) Conversion functions :
+-------------------------
+--when we want to convert one data type to another we go for 
+--conversion functions they  are of two types
+a)convert(<dtype>,<expression>):
+_______________________________
+ local variable in sql server 2005 is preceded by @symbol
+-- to declare a local variable 
+  declare @variable_name <data_type>
+--  to assign value to local variable 
+   set @variable_name= value;
+--  to display output we go for 
+select or print
+ statements in sql server 2005
+
+declare @x varchar(30)
+set @x='africa is great'
+print @x
+
+declare @x int
+set @x=100
+print  'The value is ' +Convert(varchar(20),@x)
+
+b)cast (<expression> as <dtype>):This will work same as convert
+ but it is more descriptive
+select getdate( )
+select cast(getdate( ) as varchar) 
+
+
+
+
+
+
