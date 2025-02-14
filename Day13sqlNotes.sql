@@ -1,5 +1,5 @@
 Introduction to SQL:
-____________________
+____________________ 
 SQl means structured query language okay some people say sequel and some people say sql .it was developed in 1970 and still it has not changed much if u see front end programming languages they will  be keep on changing.check slide 58 what is is actulally so in procedural and impartive languages we write algortithms and etc things to get things done .we can do four things with sql as per the slide 59 so when  are working with oracle u will use pl-sql and if u are working with sql server it is called transact sql so almost same but sytax wise the things will differ thats all .
 
 
