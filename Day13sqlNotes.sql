@@ -588,6 +588,56 @@ end
 
 select dbo.copies_sold('bo101')
 
+Table valued functions:
+-------------------------
+A table valued function returns a table
+ as an output,which can be derived as a part of 
+select statement.Table valued function return 
+the output as a table data  datatype.
+The Table data type is special data type used to store 
+set of rows,which returns the result set of the table valued function
+
+Inline table valued function:
+-------------------------------
+In-line UDFs return a single row or multiple 
+rows and can contain a single SELECT statement. 
+Because in-line UDFs are limited to a single SELECT,
+ They cant contain much logic.An inline function does not contain function body within begin and end statement
+
+syntax:
+--------
+create function <function_name>(parameters_list)
+returns table as
+return (<any select command which will give me resultset>)
+
+procedure of execution(to call inline table function) :
+-------------------------------------------------------
+select * from <function_name>(parameters_list)
+
+ MultiLine Table valued function:
+------------------------------------
+A multiLine table valued function uses multiple statements
+to build the table that is returned to the calling statement.
+The function body contains Begin and end block
+which hold a series of Transact-SQl statements to build and
+ insert rows into a temperory table.The temperory table is returned in resultset and is created based on specification mentioned  in function.The major difference in the way that you define a multi-statement, table-valued function from the previous example is that you must declare the table that you will be 
+returning.
+syntax:
+create function <function_name> (parameters-list)
+returns @table Table (list_of_column_names)
+as
+begin 
+insert @table 
+--------
+-----
+end 
+
+-- multiline table valued function means here begin and end will come 
+-- means it will return a table only but how many columns i will decide to 
+-- project ..how many columns i have to project that i will decide and 
+-- i will only not just retun table but i can return some extra code also 
+-- or i can display some exta code also so begin and end is ther in 
+-- multi line table valued function 
 
 
 
