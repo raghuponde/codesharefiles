@@ -732,7 +732,7 @@ eg:select round(156.6789,2)=156.68
   eg: select ceiling(15.6)=16
          select ceiling (-15.6)=-15
 --g)floor(n) :it returns the highest integer less than given n
-eg: select floor(15.6)=15
+eg: select floor(15.6)=15 
 select floor(-15.6)=-16
 
 
