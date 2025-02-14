@@ -244,4 +244,9 @@ alter table students alter column sname char(60) not null;
 
 sp_help students-- to check type has been chnaged or not 
 
+-- 
 
+--adding a new column 
+
+--alter table <Tname> add <colname> <dtype><width>[not null]
+--[constraint <cname>] 
