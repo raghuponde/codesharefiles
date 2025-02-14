@@ -559,7 +559,20 @@ declare @recentorder1 datetime;
 select @recentorder1= max(orderdate) from orders where whichcustomer=@custid;
 return @recentorder1;
 end 
+Example 3 on scalar function 
+__________________________________
+create table Books(
+title_id varchar(10),
+pages int,
+qty_sold int)
+insert into Books values('bo101',200,89)
+insert into Books values('b0102',300,79)
+insert into Books values('b0103',700,85)
+select * from Books
 
+
+Q) write a function on this table which will give me no of books sold
+based on id value u provide to the function ?
 
 
 
