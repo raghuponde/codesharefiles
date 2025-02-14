@@ -662,7 +662,7 @@ insert @table
 --------
 -----
 end 
-
+--
 -- multiline table valued function means here begin and end will come 
 -- means it will return a table only but how many columns i will decide to 
 -- project ..how many columns i have to project that i will decide and 
@@ -670,5 +670,41 @@ end
 -- or i can display some exta code also so begin and end is ther in 
 -- multi line table valued function 
 
+-- write a multiline table value function to find employees in the region 
 
+--create function <function_name> (parameters-list)
+--returns @table Table (list_of_column_names)
+--as
+--begin 
+--insert @table 
+----------
+-------
+--end 
 
+create function listempmultiline(@region char(1))
+returns @table Table 
+(
+ ID  int not null,
+ name  varchar (50),
+ city       varchar (40),
+ message varchar(100)
+)
+as 
+begin
+if exists(select ID,name,city from employee_info where region=@region)
+
+begin
+insert into @table(ID,name,city,message)
+select ID,name,city,'present in that region' from employee_info where region=@region;
+end
+
+else
+
+begin
+insert into @table(ID,name,city,message) values(0,'Nodata','Nodata','No values are there in the table for that region');
+
+end
+return;
+end
+
+select * from listempmultiline('Z')
