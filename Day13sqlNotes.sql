@@ -298,6 +298,14 @@ alter table students add constraint ck12 check(class <=12);
 insert into students values(104,'sohan',14);--error
 
 
+--dropping a constraint
+--alter table <table_name> drop constraint <constraint_name>
+alter table students drop constraint ck12
+
+
+insert into students values(104,'sohan',14) -- now no error as constraint is removed
+
+
 
 
 
