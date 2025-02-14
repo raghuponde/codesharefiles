@@ -520,7 +520,19 @@ select * from students
 
 select dbo.multiply(sno,class) from students;
 
+example 2 on scalar function 
+____________________________
+create table orders(orderid int primary key ,orderdate datetime,
+whichcustomer varchar(10))
 
+insert into orders values(101,'1996-08-01','c01')
+insert into orders values(102,'1997-04-02','c01')
+insert into orders values(103,'2012-08-01','c01')
+insert into orders values(104,'2013-08-05','c02')
+insert into orders values(105,'2014-08-01','c02')
+
+select * from orders;
+--write a function to find last or latest  order ordered by the given customer ..
 
 
 
