@@ -437,10 +437,10 @@ SET @EmpID3 = SCOPE_IDENTITY(); -- Get the last inserted ID
 UPDATE Employeedata SET Department='Testing6' WHERE EmployeeID = @EmpID3;
 
 -- Check if the employee exists
-IF NOT EXISTS (SELECT * FROM Employeedata WHERE EmployeeID = 999)
+IF NOT EXISTS (SELECT * FROM Employeedata WHERE EmployeeID = 999) -- again rolling back but till save point1
 BEGIN
    PRINT 'An error occurred, rolling back only part of the transaction';
-    ROLLBACK TRANSACTION savepoint1; -- Rollback to before Employee 2 insert
+    ROLLBACK TRANSACTION savepoint1; 
     PRINT 'Rolled back the error, but Employee is only inserted but that is not updated ';
 END
 ELSE
