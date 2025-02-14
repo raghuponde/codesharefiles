@@ -635,7 +635,15 @@ select * from employee_info
 -- write a inline table value function to find employees in the region 
 
 
-    
+    --create function <function_name>(parameters_list)
+--returns table as
+--return (<any select command which will give me resultset>)
+
+create function listemp (@region char(1))
+returns table as 
+return select * from employee_info where region=@region;
+
+select * from listemp('W')
 
  MultiLine Table valued function:
 ------------------------------------
