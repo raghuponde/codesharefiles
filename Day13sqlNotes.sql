@@ -520,8 +520,8 @@ select * from students
 
 select dbo.multiply(sno,class) from students;
 
-example 2 on scalar function 
-____________________________
+--example 2 on scalar function 
+--____________________________
 create table orders(orderid int primary key ,orderdate datetime,
 whichcustomer varchar(10))
 
@@ -533,6 +533,32 @@ insert into orders values(105,'2014-08-01','c02')
 
 select * from orders;
 --write a function to find last or latest  order ordered by the given customer ..
+-- having two customers i will give customer id which is whichcustomer you have to 
+-- tell me his latest order usingn a function
+
+create function findlatestorder(@custid varchar(10))
+returns datetime
+as begin
+declare @recentorder datetime;
+
+select @recentorder= max(orderdate) from orders where whichcustomer=@custid;
+return @recentorder;
+end 
+
+select dbo.findlatestorder('c01')
+
+--suppose u want to alter the fucntion like u didint like the variable name 
+-- @recentorder1 u can do it so for available functions only  u can alter 
+-- dont alter the function which is not there 
+
+alter function findlatestorder(@custid varchar(10))
+returns datetime
+as begin
+declare @recentorder1 datetime;
+
+select @recentorder1= max(orderdate) from orders where whichcustomer=@custid;
+return @recentorder1;
+end 
 
 
 
