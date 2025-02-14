@@ -331,3 +331,31 @@ sp_help students
 alter table students drop constraint pk34;
 
 --yes i can remove 
+
+--so this is all about alter command usage in sql server 
+
+
+
+Transaction demo 
+------------------
+In SQL Server, COMMIT and ROLLBACK are used to manage transactions. A transaction is a unit of work that is either completely applied to the database or completely rolled back, ensuring consistency and integrity.
+
+Key Concepts:
+COMMIT: Saves all changes made during the transaction to the database.
+ROLLBACK: Undoes all changes made during the transaction.
+Example Scenario:
+Let’s walk through a practical example where you insert, update, and delete records in a transaction, and either commit or rollback the changes.
+
+-- Create a sample table
+CREATE TABLE Employeedata (
+    EmployeeID INT IDENTITY(1,1) PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Department VARCHAR(50)
+);
+
+
+
+
+
+
