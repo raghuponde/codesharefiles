@@ -306,6 +306,28 @@ alter table students drop constraint ck12
 insert into students values(104,'sohan',14) -- now no error as constraint is removed
 
 
+-- can i add primary key for the above which is one type of constraint same formuala
 
+--alter table <Tname> add [constraint<const_name>]
+--typeofconstraint(<collist>)
 
+alter table students add constraint pk34 primary key(sno);-- error 
 
+--why because column is nulllable first make the column not null using first formuaa
+
+--alter table <Tname> alter column <colname><dtype>[width][notnull/null]
+alter table students alter column sno int not null
+
+-- after making not null now apply that formuals of adding constraint 
+
+alter table students add constraint pk34 primary key(sno) -- now no error 
+
+--now primary key is applied 
+
+sp_help students
+
+-- can  i remove primay key constraint 
+
+alter table students drop constraint pk34;
+
+--yes i can remove 
