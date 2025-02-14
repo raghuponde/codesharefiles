@@ -506,6 +506,19 @@ BEGIN
 END
 
 select <function_name>
+--demo1
+create function multiply(@x int ,@y int)
+returns int
+as
+begin
+return @x*@y;
+end 
+
+select dbo.multiply(12,3);
+
+select * from students
+
+select dbo.multiply(sno,class) from students;
 
 
 
