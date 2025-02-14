@@ -261,4 +261,22 @@ alter table students add city varchar(40) not null -- this command is giving err
 
 alter table students add city varchar(40)
 
+select * from Students;
+
+--now run select u can see a column added wit null values 
+
+--101	ravi                                                        	12	NULL
+--102	kumar                                                       	4	NULL
+--103	senthil                                                     	8	NULL
+
+--so a I am getting values like this but u know i want to put not null also along with adding column 
+--so updae nulll values then u add frist command which is adding null with change of type which i will not do 
+
+update students set city ='Hyderabad' where sno in (101,102,103)
+
+-- go to first command see above formula 
+
+--alter table <Tname> alter column <colname><dtype>[width][notnull/null]
+
+alter table students alter column city varchar(40) not null -- now it will work 
 
