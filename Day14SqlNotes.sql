@@ -535,3 +535,19 @@ Q2)-- give me the name of the employee also in the list who is not having manage
 -- have to perfom self join and instead null display temperorlay some value means use ifnull okay 
 
  select e1.name as employeename ,isnull(e2.name,'CEO') as manager from  Employee e1 left join Employee e2 on e1.managerid=e2.id;
+
+
+--cross join 
+
+ select * from dept3 
+select * from emp3;
+
+select * from dept3 cross join emp3 ;
+
+
+
+
+
+
+
+ 
