@@ -168,4 +168,11 @@ insert into id values(1),(2),(1),(1),(1),(2),(3)
 
 -- give me count of 1,2,3 in the table 
 select * from id
+ select id from id group by id ;-- it will give me the no of groups 
+
+-- i want the count of group then 
+
+select id,count(id) as 'count' from id group by id -- here one columnis there so used as per requirmnt 
  
+
+
