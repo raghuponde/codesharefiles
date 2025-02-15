@@ -270,5 +270,23 @@ select * from emp3;
 select e1.empname,d1.deptname from emp3 e1 inner join dept3 d1
 on e1.worksin=d1.deptid;
 
+-- give me the employees who have not got the dept 
+
+--version 1 coomand and see where null is coming 
+select e1.empname,d1.deptname from emp3 e1 left join dept3 d1
+on e1.worksin=d1.deptid;
+
+--version 2 
+
+select e1.empname,d1.deptname from emp3 e1 left join dept3 d1
+on e1.worksin=d1.deptid where d1.deptname is null
+
+-- version 3 only name he has asked 
+
+select e1.empname from emp3 e1 left join dept3 d1
+on e1.worksin=d1.deptid where d1.deptname is null
+
+
+
 
 
