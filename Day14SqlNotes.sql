@@ -366,5 +366,102 @@ select e1.empname,d1.deptname,l1.locname from emp3 e1 left join dept3 d1 on e1.w
 select e1.empname from emp3 e1 left join dept3 d1 on e1.worksin=d1.deptid
  join location l1 on e1.empid=l1.empid where d1.deptname is null
 
+SET OPERATORS
+-------------
+In SQL Server, set operators like UNION, INTERSECT, and EXCEPT or Minus (the SQL Server equivalent of MINUS in other databases like Oracle) are used to combine the results of two or more queries. These set operators return distinct results from the queries involved.
+
+1. UNION
+Combines the result sets of two or more queries and removes duplicates.
+Returns distinct values from both result sets.
+2. INTERSECT
+Returns only the rows that are common in both result sets.
+3. EXCEPT (Equivalent to MINUS in other databases)
+Returns the rows from the first query that are not present in the second query.
+
+Rules for Using Set Operators:
+
+The number of columns and their data types must be the same in both queries.
+The order of the columns must be the same.
+Example Scenario:
+Let's work with two tables, Employees_A and Employees_B, which contain some employee records.
+
+-- Table: Employees_A
+CREATE TABLE Employees_A (
+    employee_id INT,
+    first_name NVARCHAR(50),
+    last_name NVARCHAR(50)
+);
+
+INSERT INTO Employees_A (employee_id, first_name, last_name)
+VALUES (1, 'John', 'Doe'),
+       (2, 'Jane', 'Smith'),
+       (3, 'Alice', 'Johnson');
+
+-- Table: Employees_B
+CREATE TABLE Employees_B (
+    employee_id INT,
+    first_name NVARCHAR(50),
+    last_name NVARCHAR(50)
+);
+
+INSERT INTO Employees_B (employee_id, first_name, last_name)
+VALUES (2, 'Jane', 'Smith'),
+       (3, 'Alice', 'Johnson'),
+       (4, 'Bob', 'Brown');
+
+
+-- Get all distinct employees from both tables
+SELECT employee_id, first_name, last_name FROM Employees_A
+UNION
+SELECT employee_id, first_name, last_name FROM Employees_B;
+
+
+-- Get the employees that are present in both tables
+SELECT employee_id, first_name, last_name FROM Employees_A
+INTERSECT
+SELECT employee_id, first_name, last_name FROM Employees_B;
+
+
+
+-- Get employees that are present in Employees_A but not in Employees_B
+SELECT employee_id, first_name, last_name FROM Employees_A
+EXCEPT
+SELECT employee_id, first_name, last_name FROM Employees_B;
+
+
+-- Combine UNION, INTERSECT, and EXCEPT in one query
+-- Step 1: Find all employees from both tables using UNION
+-- Step 2: Find common employees using INTERSECT
+-- Step 3: Find employees that are only in Employees_A but not in Employees_B using EXCEPT
+SELECT employee_id, first_name, last_name FROM Employees_A
+UNION
+SELECT employee_id, first_name, last_name FROM Employees_B
+INTERSECT
+SELECT employee_id, first_name, last_name FROM Employees_A
+EXCEPT
+SELECT employee_id, first_name, last_name FROM Employees_B;
+
+
+
+-- using joins along with set operators 
+--------------------------------------------
+-- let us take emp1 and dept1 
+select * from dept1;
+select * from emp1 ;
+
+-- give me all the employees who are working as clerk job or working in dept sales 
+
+select e1.ename from emp1 e1 join dept1 d1 on e1.deptno=d1.deptno where e1.job='CLERK'
+union
+select e1.ename from emp1 e1 join dept1 d1 on e1.deptno=d1.deptno where d1.dname='SALES'
+-- give me all the employees who are working as clerk job and working in dept sales 
+select e1.ename from emp1 e1 join dept1 d1 on e1.deptno=d1.deptno where e1.job='CLERK'
+intersect 
+select e1.ename from emp1 e1 join dept1 d1 on e1.deptno=d1.deptno where d1.dname='SALES'
+
+-- give me all the  employees who are working as clerk job but not in  working in dept sales 
+select e1.ename from emp1 e1 join dept1 d1 on e1.deptno=d1.deptno where e1.job='CLERK'
+except
+select e1.ename from emp1 e1 join dept1 d1 on e1.deptno=d1.deptno where d1.dname='SALES'
 
 
