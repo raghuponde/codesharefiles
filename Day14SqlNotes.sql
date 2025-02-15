@@ -526,8 +526,7 @@ select * from employee;
 Q1) give me all the employees with names and their coresspnding manager means display 
 -- employee name and manager name as well 
 
-
-
+select e1.name as employeename ,e2.name as manager from  Employee e1 join Employee e2 on e1.managerid=e2.id;
 
 Q2)-- give me the name of the employee also in the list who is not having manager 
 -- and if he is top manager of the company tell it as top manager like that okay 
@@ -535,4 +534,4 @@ Q2)-- give me the name of the employee also in the list who is not having manage
 -- like this u can do it for any column by joining any no of tables eventhough u dont 
 -- have to perfom self join and instead null display temperorlay some value means use ifnull okay 
 
- 
+ select e1.name as employeename ,isnull(e2.name,'CEO') as manager from  Employee e1 left join Employee e2 on e1.managerid=e2.id;
