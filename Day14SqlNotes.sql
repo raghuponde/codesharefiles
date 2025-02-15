@@ -229,4 +229,6 @@ select deptno from emp1  group by deptno  -- this will give me no of groups
 
 select deptno ,count(ename) as 'noofemployees' from emp1  group by deptno --follow my stament now 
 
+ --give me count of employyes working in each job and also calulate min and max and sum of salary in 
+-- in each job category 
 
