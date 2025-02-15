@@ -219,3 +219,14 @@ insert into emp1 values( 7934, 'MILLER', 'CLERK', 7782, '1982-01-23', 1300, null
 
 select * from dept1;
 select * from emp1;
+
+
+-- give me count of employees in each dept 
+
+-- use child table emp only
+
+select deptno from emp1  group by deptno  -- this will give me no of groups 
+
+select deptno ,count(ename) as 'noofemployees' from emp1  group by deptno --follow my stament now 
+
+
