@@ -261,6 +261,14 @@ insert into emp3 values(101,'ravi',10),
 select * from dept3;
 select * from emp3;
 
+-- wnever i am saying i want something or give me  then apply inner join 
+-- but when i say not no then apply left or right join 
+
+-- give me number of employees working in each dept
+---empname --deptname 
+
+select e1.empname,d1.deptname from emp3 e1 inner join dept3 d1
+on e1.worksin=d1.deptid;
 
 
 
