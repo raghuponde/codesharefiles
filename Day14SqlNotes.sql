@@ -12,7 +12,9 @@ after copying the path close all widows
 
 and in that path u put these two .bak files 
 
-then again follow the same steps and select the database and say ok ok it will be installed 
+then again follow the same steps and select the database say  ok and then in window select the file path and say ok and again ok 
+
+
 
 
  
