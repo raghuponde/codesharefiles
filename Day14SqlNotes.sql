@@ -503,3 +503,36 @@ FROM students s
 LEFT JOIN studentclass sc 
 ON s.studentid = sc.studentid
 WHERE sc.studentid IS NULL;
+
+
+self join 
+------------------------------------------------------------------------------------------------
+self join means joining the table with itself now here only one table is there okay 
+and in this table only some body is manaager for some body so as per question i had done self join 
+for the same table two objects i created .
+
+
+create table Employee(id int primary key ,
+name varchar(50) not null,
+managerid int );
+
+
+insert into employee values(1,'mike',3),(2,'David',3),(3,'Roger',null),(4,'Marry',2),(5,'Joseph',2),
+(7,'Ben',2);
+
+select * from employee;
+
+
+Q1) give me all the employees with names and their coresspnding manager means display 
+-- employee name and manager name as well 
+
+
+
+
+Q2)-- give me the name of the employee also in the list who is not having manager 
+-- and if he is top manager of the company tell it as top manager like that okay 
+-- hint copy the same above code and for null specify left and use ifnull function over here 
+-- like this u can do it for any column by joining any no of tables eventhough u dont 
+-- have to perfom self join and instead null display temperorlay some value means use ifnull okay 
+
+ 
