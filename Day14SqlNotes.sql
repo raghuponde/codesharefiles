@@ -229,6 +229,23 @@ select deptno from emp1  group by deptno  -- this will give me no of groups
 
 select deptno ,count(ename) as 'noofemployees' from emp1  group by deptno --follow my stament now 
 
- --give me count of employyes working in each job and also calulate min and max and sum of salary in 
+-- give me count of employyes working in each job and also calulate min and max and sum of salary in 
 -- in each job category 
+select job, count(ename) as 'noofemps',max(sal) as 'maxsalary',min(sal) as 'minslary' from emp1 group by job ;
+
+-- give me sum of saalries of employees in each job 
+
+select job from emp1 group by job
+
+select job ,sum(sal) from emp1 group by job 
+
+-- now in this i want sum of slaries which is greater than 5000
+
+select job ,sum(sal) from emp1 group by job having sum(sal)>5000
+
+
+
+
+
+
 
