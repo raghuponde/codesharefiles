@@ -328,3 +328,15 @@ select d1.deptname ,e1.empname from emp3 e1 join dept3 d1 on e1.worksin
 select d1.deptname ,count(e1.empname)  from emp3 e1 join dept3 d1 on e1.worksin
 =d1.deptid group by d1.deptname;
 
+-- joining with the third table 
+ create table Location(locid int primary key ,locname varchar(30),empid int references 
+  emp3(empid));
+
+insert into location values (1001,'delhi',102);
+insert into location values (1002,'bangalore',103);
+insert into location values (1003,'pune',104);
+insert into location values(1004,'chennai',105);
+
+select * from dept3;
+select * from emp3;
+select * from location
