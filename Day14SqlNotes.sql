@@ -477,7 +477,7 @@ create table classes(classid int ,classname varchar(30));
 insert into classes values(1,'art'),(2,'history'),(3,'Maths');
 create table studentclass(studentid int,classid int );
 insert into studentclass values(1,1),(1,2),(3,1),(3,2),(3,3);
-
+ 
 select * from students;
 select * from classes;
 select * from studentclass;
@@ -485,6 +485,21 @@ select * from studentclass;
 Q)what will be best possible join if i want to know all 
 the students u have taken classes ?
 
+select distinct s1.studentname  from Students s1 join StudentClass sc on sc.studentid=s1.studentid
+
 Q) what will be the best possible join if we want to retrive 
 all the students who have 
 not signed for any batches ?
+
+select distinct students.studentname  from 
+students left join studentclass on students.studentid=
+studentclass.studentid left  join classes on classes.classid 
+=studentclass.classid where classes.classid is null; 
+
+or 
+
+SELECT  s.studentname 
+FROM students s 
+LEFT JOIN studentclass sc 
+ON s.studentid = sc.studentid
+WHERE sc.studentid IS NULL;
