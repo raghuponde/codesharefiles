@@ -464,4 +464,27 @@ select e1.ename from emp1 e1 join dept1 d1 on e1.deptno=d1.deptno where e1.job='
 except
 select e1.ename from emp1 e1 join dept1 d1 on e1.deptno=d1.deptno where d1.dname='SALES'
 
+some assingment 
+-----------------
+First create three tables like this one is students and another is classes and another is studentclass 
+so there is many to many  relation ship between two tables so i have here one junction table okay so answer the 
+ below question using junction when junction table is there never join two tables directly use 
+ junction table that is the hint
 
+  create table students(studentid int ,studentname varchar(30));
+insert into students values(1,'john'),(2,'Matt'),(3,'James');
+create table classes(classid int ,classname varchar(30));
+insert into classes values(1,'art'),(2,'history'),(3,'Maths');
+create table studentclass(studentid int,classid int );
+insert into studentclass values(1,1),(1,2),(3,1),(3,2),(3,3);
+
+select * from students;
+select * from classes;
+select * from studentclass;
+
+Q)what will be best possible join if i want to know all 
+the students u have taken classes ?
+
+Q) what will be the best possible join if we want to retrive 
+all the students who have 
+not signed for any batches ?
