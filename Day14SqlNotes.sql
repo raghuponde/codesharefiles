@@ -340,3 +340,31 @@ insert into location values(1004,'chennai',105);
 select * from dept3;
 select * from emp3;
 select * from location
+
+
+
+-- give me all the employees who have got location and also dept 
+select e1.empname,d1.deptname,l1.locname from emp3 e1 join dept3 d1 on e1.worksin=d1.deptid
+join location l1 on e1.empid=l1.empid;
+
+-- give me all the employees who got dept but not locaton 
+select e1.empname,d1.deptname,l1.locname from emp3 e1 join dept3 d1 on e1.worksin=d1.deptid
+left join location l1 on e1.empid=l1.empid;-- to find null values 
+select e1.empname,d1.deptname,l1.locname from emp3 e1 join dept3 d1 on e1.worksin=d1.deptid
+left join location l1 on e1.empid=l1.empid where l1.locname is null;-- after this filtering
+
+select e1.empname from emp3 e1 join dept3 d1 on e1.worksin=d1.deptid
+left join location l1 on e1.empid=l1.empid where l1.locname is null
+
+-- give me all employees who got location but not dept 
+
+select e1.empname,d1.deptname,l1.locname from emp3 e1 left join dept3 d1 on e1.worksin=d1.deptid
+ join location l1 on e1.empid=l1.empid;-- to find null values 
+select e1.empname,d1.deptname,l1.locname from emp3 e1 left join dept3 d1 on e1.worksin=d1.deptid
+ join location l1 on e1.empid=l1.empid where d1.deptname is null;-- after this filtering
+
+select e1.empname from emp3 e1 left join dept3 d1 on e1.worksin=d1.deptid
+ join location l1 on e1.empid=l1.empid where d1.deptname is null
+
+
+
