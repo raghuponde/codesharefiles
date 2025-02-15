@@ -160,9 +160,8 @@ Group By
 ----------
 
 -- whatever columns are there in select clause that should be there in 
----group by clause also if not there then apply aggregate functions to the column of select clause and it is applicable 
- to more than one column only when single column is there u can use as per your wish as only only one column is there 
-
+---group by clause also if not there then apply aggregate functions to the column of select clause 
+ -- but when u dont hav much columns like single column only then u can use aggregate function as per the need of the qeustion 
 -- when ever they are asking for each ,for every apply group by 
 create table id(id int)
 insert into id values(1),(2),(1),(1),(1),(2),(3)
