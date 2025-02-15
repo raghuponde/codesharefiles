@@ -140,6 +140,21 @@ from HumanResources.EmployeeDepartmentHistory where Enddate is not null
 
 select top 50 percent * from HumanResources .EmployeeDepartmentHistory
 
+Aggregate functions 
+---------------------
+1)count:it will give u no of rows in a table 
+eg: select count(*) from HumanResources.EmployeePayHistory
+2)sum:it give u sum of all the values in 
+column having numeric values
+eg:select sum(Rate) from HumanResources.EmployeePayHistory
+3)max: it will give me highest value in column
+eg: select max(Rate) from HumanResources.EmployeePayHistory
+4)min;it will give me the lowest value in column
+eg: select min(Rate) from HumanResources.EmployeePayHistory
+5)avg: it will give the average of column
+ means sum_of_ numbers /total_no_of_values present in a column
+eg: select avg(Rate) from HumanResources.EmployeePayHistory
+
 
 
  
