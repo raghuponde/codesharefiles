@@ -315,5 +315,16 @@ select d1.deptname from emp3 e1 right join
 dept3 d1 on e1.worksin=d1.deptid where e1.empname is null;
 
 
+-- give me count of employees working in each dept but now use both 
+-- the tables so here u have to do group by also and also join also 
+-- deptname --no of employees like this i want 
+-- but like this i dont want means 
+---worksin --no of employees i dont want 
 
+--version 1 to project deptname 
+select d1.deptname ,e1.empname from emp3 e1 join dept3 d1 on e1.worksin
+=d1.deptid  --here deptname is getting repeated  values there apply group by to deptname
+
+select d1.deptname ,count(e1.empname)  from emp3 e1 join dept3 d1 on e1.worksin
+=d1.deptid group by d1.deptname;
 
