@@ -292,6 +292,28 @@ select e1.empname from dept3 d1 right join emp3 e1
 on e1.worksin=d1.deptid where d1.deptname is null
 
 
+-- give me the dept where no employee is working 
+
+-- version 1  to find null 
+
+select d1.deptname,e1.empname from dept3 d1 left join 
+emp3 e1 on e1.worksin=d1.deptid
+
+-- version 2 to filter the dept 
+
+select d1.deptname,e1.empname from dept3 d1 left join 
+emp3 e1 on e1.worksin=d1.deptid where e1.empname is null;
+
+-- he asked only dept 
+select d1.deptname from dept3 d1 left join 
+emp3 e1 on e1.worksin=d1.deptid where e1.empname is null;
+
+or
+
+
+select d1.deptname from emp3 e1 right join 
+dept3 d1 on e1.worksin=d1.deptid where e1.empname is null;
+
 
 
 
