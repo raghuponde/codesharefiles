@@ -1741,6 +1741,163 @@ Last Name:  <INPUT TYPE="text" NAME="last">
 </html>
 
 
+HTML INPUT ELEMENTS:
+--------------------
+The <input> element defines the type and appearance of the control to be displayed on the form,the attributes are the following
+
+1)type:This specifies type of element like text means textbox,password means password type textbox ,checkbox means u can select through tick marks etc
+2)name=This specifies the name of the control by which it is called.
+3)value=This is optional one we can use this with radio buttons to specify some value 
+4)size:it determines the width of the control in case of text box if size=30 it can accomodate maximum of 30 characters.
+5)maxlength=This is used to specify maximum number of characters that can be entered in textbox or password element
+6)checked=This is boolean attribute means it specifes true or false and this is used maximum with radio and checkbox control
+7)src=This is used when we are using an image as an input type ,it identifies the location of an image 
+
+Button:
+------
+<input type=button  value=click  name="b1" >
+
+This creates a button control.,u can use size also here if u want..
+
+Text:
+------
+<input type=text value=" " name="username"  size=20>
+
+This creates a textbox with name username and i am keeping the textbox empty from strating itself 
+
+checkbox:
+---------
+
+when we have to select more than one option then u go for checkboxes
+
+<input type=checkbox name=courses value="check-box1" >C language <br>
+<input type=checkbox name=courses value="check-box2" checked >java
+
+submit :
+--------
+when the user clicks the submit button ,the form is submitted to a location which is specified in action attribute
+<input type="submit"  value="click" name="b1">
+
+Image:
+------
+This actually creates a graphical submit button
+<input type=image src="url" name="blue_bulb">
+reset:
+------
+This makes the values in the form to erase when we click it 
+<input type=reset value="reset" name="b2">
+
+code on the form using post method:
+-----------------------------------
+<html>
+<head>
+<title>sample form demo </title>
+</head>
+<body bgcolor="#ffffcc">
+<table>
+<tr><td>
+<form action="doc1.html" METHOD=post>
+<b><h2 align="left" >Sample Stock recovery </h2></b>
+<p><b>describe ur investment experience </b></p>
+<p>
+<input type="radio" name="result-radio1" value="radio-0">Beginner<br>
+<input type="radio" name="result-radio1" value="radio-1">Intermediate<br>
+<input type="radio" name="result-radio1" value="radio-2">Expert<br>
+</p>
+<p><b>Types of investments u make </b></p>
+<p>
+<input type="checkbox" name="resultcheckbox-1" value="checkbox-0">Individual stocks<br>
+<input type="checkbox" name="resultcheckbox-1" value="checkbox-1">Options<br>
+<input type="checkbox" name="resultcheckbox-1" value="checkbox-2">Mutual funds<br>
+First Name: <INPUT TYPE="text" NAME="first" size=20 ><br>
+Last Name:  <INPUT TYPE="password" NAME="password" size="10" maxlength="15"><br><br><br>
+<INPUT TYPE="submit">&nbsp;<INPUT TYPE="reset"><br>
+</FORM></td></tr></table></body></html>
+
+TextArea Element :
+------------------
+This creates a multiline text input control as compared to single line text box.Here we have to specify the size of the textarea.Also ,we have to specify the rows and columns in the textarea.
+
+<textarea  name="text1" cols=20 rows=5>  </textarea>
+select Element :
+-----------------
+The select element is used to display a list of options for the user.each choice is represented by an OPTION element.A select must contain atleast one OPTION element.The option selected by user is represented by highlighted block.
+
+The optgroup element is used to group the choices of hiearchy 
+
+code for textarea and select element and optgroup:
+--------------------------------------------------
+<html>
+<head>
+<title>Sample Form </title>
+</head>
+<body bgcolor="pink"  >
+<form action="doc1.html" method="post">
+<b><center><h2>Sample stock recovery </h2></center></b>
+<p><b>Investment advice for others </b> </p>
+<textarea  name="result_textarea"  rows="7"  cols="20">
+</textarea><p><!--comment is written like this -->
+<p><b>How do u buy your stocks</b>
+<select name="resultradio-5">
+<option></option>
+<option>1)on-line exam </option>
+<option>2)Touch stone trading</option>
+<option>3)Broken pieces</option>
+<option>4)Other</option>
+</select></p>
+<p><select name="course" multiple>
+<optgroup>
+<option>1)Introduction to html </option>
+<option>2)javascript </option>
+<option selected >3)web designing</option>
+<option selected>4)Other</option>
+</optgroup>
+<optgroup>
+<option>1)c language </option>
+<option>2)C++ language </option>
+<option>3)java language</option>
+<option>4)Other</option>
+</optgroup>
+</select><br><br>
+<button type="submit">
+send <img src="merlin.gif" alt="submit"></button>
+<button type="reset">
+reset <img src="merlin.gif" alt="reset"></button>
+</p></form>
+</body></html>
+
+Label:
+------
+label element is used to attach information to control elements.so let use see a application form developed.
+
+
+<html>
+<head>
+<title>Application  Form </title>
+</head>
+<body >
+<h1><center><font size= 4 color=Forestgreen >Application Form </center></font></h1><hr><br>
+<form action="=" method="post">
+<p>
+<label for="firstname"> Name :  </label>
+<input type="text" id="firstname"><br>
+<p>Area of Interest <br><br>
+<input type=radio name="control1" value="0" checked>web designer
+<input type=radio name="control1" value="1" >Web Administrator
+<input type=radio name="control1" value="2" >web Developer
+<p>Experience
+<select name="control2">
+<option>None</option>
+<option>1 year</option>
+<option>2 years</option>
+<option>4 years</option>
+</select><br>
+<p>Comments<br>
+<textarea name="control3" cols="30" rows="5">Type your comments here</textarea>
+<p><input type="checkbox"  name="control4" checked>send acknowledgement<br>
+<input type=submit value=ok >
+<input type=reset value=rechange >  </form>
+</body></html>
 
 
 
