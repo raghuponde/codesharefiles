@@ -503,7 +503,7 @@ that time i will span -->
 </html>
     
 demo2 of css (internal style)
-    ------------------------
+ ------------------------
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -568,3 +568,69 @@ background-color: blue;color:red;font-size: larger;
     </p>
 </body>
 </html>
+
+Demo 3 of css using classes and ids 
+  ----------------------------------
+Now i want to use classes and ids to provide css features to the tag for a tag i can apply multiple classes 
+or i can apply one id and many classses but for a tag at a time i can apply only one id features 
+so id means # i will use clases means dot . i will use so let us modify the above codes by classes and ids 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .MyClass1
+    {
+        background-color: lightseagreen;
+        font-size: x-large;
+        text-indent : 0.5in;
+        border-radius:20px ;
+        box-shadow: 3px 3px 5px rgb(180, 10, 10)
+    }
+    .MyClass2
+    {
+        color:red;
+         
+    }
+
+    #myid1
+    {
+        background-color: fuchsia;
+    }
+    #myid2
+    {
+        color:yellow;
+    }
+</style>
+<body>
+    <div id="myid2 myid1"> <!-- multuple ids wont work only one will work at a time for a tag-->
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Ipsam architecto blanditiis quos. Odit quas, sed ad suscipit placeat tenetur, 
+        doloremque soluta libero consequuntur nesciunt unde laborum vero asperiores blanditiis possimus, 
+        est rerum sit repellat? Voluptas, sunt! Enim hic sed nam quaerat autem, tenetur repellat reprehenderit necessitatibus est similique. Iure, obcaecati?
+
+    </div>
+    <div id="myid1" class="MyClass2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Ipsam architecto blanditiis quos. Odit quas, sed ad suscipit placeat tenetur,
+        doloremque soluta libero consequuntur nesciunt unde laborum vero asperiores blanditiis possimus,
+        est rerum sit repellat? Voluptas, sunt! Enim hic sed nam quaerat autem, tenetur repellat reprehenderit
+        necessitatibus est similique. Iure, obcaecati?
+    
+    </div>
+    <div class="MyClass1 MyClass2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Ipsam architecto blanditiis quos. Odit quas, sed ad suscipit placeat tenetur,
+        doloremque soluta libero consequuntur nesciunt unde laborum vero asperiores blanditiis possimus,
+        est rerum sit repellat? Voluptas, sunt! Enim hic sed nam quaerat autem, tenetur repellat reprehenderit
+        necessitatibus est similique. Iure, obcaecati?
+    
+    </div>
+</body>
+</html>
+
+    
