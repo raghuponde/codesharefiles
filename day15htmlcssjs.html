@@ -1901,6 +1901,117 @@ label element is used to attach information to control elements.so let use see a
 
 
 
+Demo: Advanced CSS Units (rem, em, vh, vw)
+-------------------------------------------
+This demo will show how rem, em, vh, and vw work in a real webpage. We will create a full-screen section with a responsive heading, buttons, and text sizes.
+
+index.html
+-----------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Units Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="hero-section">
+        <h1>Responsive Headline</h1>
+        <p>This text resizes dynamically using `rem` and `em`.</p>
+        <button class="btn">Click Me</button>
+    </header>
+
+    <section class="content">
+        <h2>Learn About CSS Units</h2>
+        <p class="text">This paragraph is styled using `em` and scales with the parent.</p>
+    </section>
+
+</body>
+</html>
+
+
+styles.css
+-----------
+/* Set base font size for rem calculation */
+html {
+    font-size: 16px; /* 1rem = 16px */
+}
+
+/* Full viewport height section */
+.hero-section {
+    width: 100vw;  /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 2rem; /* Scales with base font size */
+}
+
+/* Heading using rem */
+h1 {
+    font-size: 3rem; /* 3 * 16px = 48px */
+    margin-bottom: 1rem;
+}
+
+/* Paragraph using em (relative to its parent) */
+p {
+    font-size: 1.2em; /* 1.2 times the parent’s font-size */
+}
+
+/* Button using em (scales with its text) */
+.btn {
+    font-size: 1.5em; /* Scales with the parent */
+    padding: 0.5em 1.5em;
+    background-color: white;
+    color: #ff7e5f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #feb47b;
+}
+
+/* Section using vh/vw */
+.content {
+    width: 80vw;  /* 80% of the viewport width */
+    height: 50vh; /* 50% of the viewport height */
+    background-color: #f4f4f4;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Scaled text */
+.text {
+    font-size: 1.2em; /* Scales based on parent */
+}
+
+
+ How This Works
+rem → Used for consistent text sizes (h1, p, .btn).
+em → Used for scaling inside components (button padding and paragraph).
+vh & vw → Used for full-screen layout (.hero-section, .content).
+rem ensures consistent font sizes across elements.
+em helps maintain proportions inside buttons and paragraphs.
+vh/vw creates a responsive layout that adapts to the screen size.
+
+
+ Live Behavior
+Full-screen hero section (100vh height).
+Heading scales with rem (3rem = 48px).
+Button text & padding scale using em (relative to itself).
+Content section resizes dynamically (vh and vw).
 
     
 
