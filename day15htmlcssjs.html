@@ -954,3 +954,90 @@ padding-top:30px;
     
 </body>
 </html>
+change 3 
+ ------
+if i am removing from ul height and widht and keep it in li footeer will overloap with the deisng 
+
+    so i need to use   <div style="clear:both;"></div>  this tag to avoid overlapping of elements 
+
+
+*{
+    margin:0;
+    padding:0;
+}
+body{
+
+   
+}
+header
+{
+width:100%;
+height:90px;
+background: #983030;
+color:white;
+padding-top:30px;
+}
+
+ #container {
+     width: 90%;
+     height: 500px;
+     background: #c373c3;
+     margin: 0 auto;
+ }
+
+ nav ul{
+    background: orange;
+      
+ }
+ nav li {
+    float:left;
+    list-style: none;
+    text-align:center;
+    width:100px;
+    padding:10px 0px;
+    height: 20px;
+    color: white;
+ }
+ nav li:hover{
+    background: orangered;
+    cursor: pointer;
+ }
+
+    htmcode 
+    --------
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Html website created by Wipro</title>
+</head>
+<body>
+    <div id="container">
+    <header><center><h1>The main heading</h1></center></header>
+    <nav>
+     <ul>
+        <li>Home</li>
+        <li>About us</li>
+        <li>Conatct Us</li>
+        <li>Articles</li>
+        <li>Client</li>
+        <div style="clear:both;"></div>
+     </ul>
+
+    </nav>
+    <section>
+        <article></article>
+        <article></article>
+    </section>
+    <aside></aside>
+    <footer>Copyright &copy;:raghutech.net technolgies</footer>
+
+    </div>
+    
+</body>
+</html>
+
+     
+    
