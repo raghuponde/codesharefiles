@@ -894,6 +894,26 @@ Arrays in js
 
         document.getElementById("demo").innerHTML=cars;
 
+        //firsr car 
+        let firstcar=cars[0];
+         document.getElementById("demo").innerHTML = firstcar;
+
+         // no of elements in array
+         let length=cars.length;
+          document.getElementById("demo").innerHTML = length;
+
+          //last elelemt 
+          let lastcar=cars[cars.length-1];
+           document.getElementById("demo").innerHTML = lastcar;
+
+        // loop over the array and put it n the p tag 
+        var str="";
+        for(var i=0;i<cars.length;i++)
+        {
+            str=str +(i+1)+":"+cars[i]+"<br/>";
+        }
+         document.getElementById("demo").innerHTML =str;
+
     </script>
    
    
