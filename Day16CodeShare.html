@@ -956,6 +956,35 @@ Arrays in js
 
             let num3=num1.map(multiply);
              document.getElementById("demo").innerHTML = num3;
+
+             let num4=num1.filter(x=>x>4);
+              document.getElementById("demo").innerHTML = num4;
+
+              //or
+
+              function comp(value)
+              {
+                return value>4;
+              }
+
+              let num5=num1.filter(comp);
+
+    document.getElementById("demo").innerHTML = num5;
+
+               //reduce will reduce the array to single value 
+ 
+             function sum(total,value)
+             {
+                return total+value;
+             }
+
+             let num6=num1.reduce(sum);
+              document.getElementById("demo").innerHTML = num6;
+              //or
+
+              let num7=num1.reduce((total,value)=>total+value);
+
+    document.getElementById("demo").innerHTML = num7;
     </script>
    
    
