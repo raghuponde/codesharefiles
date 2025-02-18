@@ -1023,4 +1023,55 @@ install code runner extension  into vscode and then right click on screen and sa
  observe above how i had used arrow functions in js 
 
  a function if it is written in js it has to be called as you are in js u need to call explcitly
+
+now add one file with the name datetimedemo.html
+ -------------------------------------------------
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click the button to display what day is today </p>
+    <button onclick="myfunction()">Get today day</button>
+    <p id="demo">
+
+    </p>
+    <script>
+        function myfunction()
+        {
+            var x;
+            var d =new Date().getDay();
+            switch(d)
+            {
+                  case 0: x = "Today is Sunday";
+                    break;
+
+                case 1: x = "Today is Monday";
+                    break;
+                case 2: x = "Today is Tuesday";
+                    break;
+
+                case 3: x = "Today is Wednesday";
+                    break;
+
+                case 4: x = "Today is Thursday";
+                    break;
+
+                case 5: x = "Today is Friday";
+                    break;
+                case 6: x = "Today is Saturday";
+                    break;
+            }
+            document.getElementById("demo").innerHTML=x;
+        }
+    </script>
+</body>
+</html>
+
+ 
+
+ 
  
