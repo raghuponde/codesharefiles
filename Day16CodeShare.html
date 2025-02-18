@@ -944,6 +944,18 @@ Arrays in js
 
           // Use map to create an HTML list
             document.getElementById("demo").innerHTML = cars.map(car => `<li>${car}</li>`).join('');
+
+            let num1=[2,3,4,5,6];
+           let num2= num1.map(x=>x*2);
+            document.getElementById("demo").innerHTML=num2;
+            //or
+            function multiply(value)
+            {
+                return value*3;
+            }
+
+            let num3=num1.map(multiply);
+             document.getElementById("demo").innerHTML = num3;
     </script>
    
    
