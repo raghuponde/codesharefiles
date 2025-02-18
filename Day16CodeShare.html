@@ -990,3 +990,37 @@ Arrays in js
    
 </body>
 </html>
+
+-- add one file onlyjsdemo1.js ----
+
+ --and write the code like this 
+
+function test()
+{
+console.log("hello world ");
+}
+test();
+function test2(num1, num2)
+{
+return (num1 + num2);
+}
+let sum = test2(12, 45);
+console.log(sum);
+//so above two functions using arrow is like this
+const testme = () => console.log("hello world ")
+testme();
+const test2me = (n1, n2) => n1 + n2;
+let sum2 = test2me(10, 34);
+console.log(sum2);
+//I can write a function where only single value is passing
+const test3 = (number) => number + 10;
+let sum3 = test3(134);
+console.log(sum3);
+
+install code runner extesnion into vscode and then right click on screen and say run code 
+ you will get the output or u can install node js and write node onlyjsdemo1.js at command prompt 
+
+ observe above how i had used arrow functions in js 
+
+ a function if it is written in js it has to be called as you are in js u need to call explcitly
+ 
