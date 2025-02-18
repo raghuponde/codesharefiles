@@ -856,40 +856,46 @@ Arrays in js
     <title>Document</title>
 </head>
 <body>
-    <p id="demo" style="background:rgb(188, 113, 14);width:90%;height:100px;
-            font-size:large;font-weight:900px ;">
+    <p id="demo" style="background:rgb(177, 113, 35);width:90%;height:100px;
+                font-size:large;font-weight:900px ;">
     
     </p>
-    <script>
-         //difference ebetween var and let variable 
+    <script type="text/javascript">
+        //difference ebetween var and let variable 
 
-          var kk="hai";
-         kk="hai";//can reassing 
+        var kk = "hai";
+        kk = "hai";//can reassing 
 
-         {
-           var  kk="hello";
-         }
+        {
+            var kk = "hello";
+        }
 
-         console.log(kk);
+        console.log(kk);
 
-          let kk1= "hai";  //scope level varibale 
-           kk1="sss";//can reassing 
-            {
-               let  kk1 = "hello";
-               
-            }
-            console.log(kk1);
+        let kk1 = "hai";  //scope level varibale 
+        kk1 = "sss";//can reassing 
+        {
+            let kk1 = "hello";
 
-          const kk2="Hi";
-          kk2="sksk";//error i am getting here as i cannot reassing const type variable
-          
-          {
-            const kk2="hi aagin";
-            
-          }
-         console.log(kk2);
+        }
+        console.log(kk1);
+
+        const kk2 = "Hi";
+       // kk2 = "sksk";//error i am getting here as i cannot reassing const type variable
+
+        {
+            const kk2 = "hi aagin";
+
+        }
+        console.log(kk2);
+
+        let cars = ["BMW","Hyndai","TATA", "SKODA"];
+
+
+        document.getElementById("demo").innerHTML=cars;
 
     </script>
+   
+   
 </body>
 </html>
- 
