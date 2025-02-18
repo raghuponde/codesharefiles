@@ -309,7 +309,7 @@ and add some fies fromm there by downlading and changng name
 </nav>
 <div class="row">
     <div col="col-lg-3" style="background-color: lightblue;">
-    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;"> 
         <div class="card-header">Header</div>
         <div class="card-body">
             <h4 class="card-title">Primary card title</h4>
@@ -550,3 +550,26 @@ jscode2.js
 </body>
 </html>
  
+jsdemo3.html
+-------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='feedback' onClick='goodbye()'
+    style="background-color:yellow  ;color: red;width:100% ;height :100px;">Users without Javascript see this.</div>
+    <script language="Javascript">
+    document.getElementById("feedback").innerHTML="Hello World";
+    function goodbye()
+    {
+           document.getElementById("feedback").innerHTML = "Good bye world";
+    }
+
+
+    </script>
+</body>
+</html>
