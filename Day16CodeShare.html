@@ -1071,7 +1071,143 @@ now add one file with the name datetimedemo.html
 </body>
 </html>
 
- 
+ Table 1: Appointment Time Fixing Rules (If Time Preference Given)
+---------------------------------------------------------------
+Current Time (24hr clock).....Current Time (24hr clock).....Time Preference.....Appointment Time
+----------------------------- ----------------------------- ----------------- ---------------------
+> 8 .......................... < 12 ....................... Morning ........... Current hour
+> 8 .......................... < 12 ....................... Evening ........... Current hour + 7
+> 15 ......................... < 18 ....................... Evening ........... Current hour
+> 15 ......................... < 18 ....................... Morning ........... 10:00 AM next day
 
- 
+
+Table 2: Appointment Time Fixing Rules (If No Time Preference Given)
+--------------------------------------------------------------------
+Patient Age ............ Time Preference .......... Appointment Time
+----------------------- ------------------------ -------------------
+< 50 ................... No Preference .......... 6:30 PM
+> 50 ................... No Preference .......... 12 Noon
+
+
+	            1. Verify if all inputs are available else do not fix the appointment and set appstatus(appointment status) as "Please enter all data to fix the appointment"
+	            2. if all data is available then Verify the phone number (pmobile) for having 10 numerical digits else set appstatus as "please enter valid phone number to fix appointment"
+	            3. If phone number is valid then get the current system hour 
+	            4. Fix the appointment based on the following rules
+	                    if the current hour of day is more than 8 Am and less than 12 Noon and if patient preferred time is
+ Morning then the appointment time is current hour itself 
+	                    set the patime(patient appointment time) to current hour. 
+	                    ex: if the current hour is 9 AM then the patime = 9:00 AM
+	                    Note: Use the getHours() javascript function to get the current hour
+	                    
+	                    follow the  table given in the description for the remaining rules.
+                5. Once the appointment is fixed set the appstatus as below
+                                pname+" your appointment is confirmed on "+padate+" for the speciality "+pspeciality+" at "+patime;
+                6. Return the constructued appointment status (appstatus)
+	    
+	
+ index.html
+ ------------
+ <html>
+<head>
+
+<style>
+h1
+{
+color:#000000;
+font-family:verdana;
+text-align:center;
+}
+
+table{ 
+border-collapse:separate; 
+border-spacing: 0 15px; 
+} 
+th{ 
+background-color: #E9EBE2; 
+color: white; 
+} 
+th,td{ 
+width: 150px; 
+text-align: center; 
+border: 1px solid black; 
+padding: 5px;
+}
+
+tr:hover {background-color: #a1a1a1;}
+
+body
+{
+   background-color:#E9EBE2;
+}
+
+
+</style>
+
+<script src="script.js" lang="text/javascript"></script>
+
+</head>
+
+<body>
+
+<center>
+<h1>ONLINE DOCTOR APPOINTMENT</h1>
+
+<table>
+<tr>
+<td>Patient Name
+<td><input type="text" name="patientname" id="patientname" required  placeholder="Enter the patient name">
+</tr>
+
+<tr>
+<td>Patient Age
+<td><input type="text" name="patientage" id="patientage" required  placeholder="Enter the patient age">
+</tr>
+
+<tr>
+   <td>Mobile Number</td>
+   <td><input type="text" name="mobile" id="mobile" required  placeholder="Enter the patient mobile number"></td>
+</tr>
+
+<tr>
+<td>Appointment Date
+<td><input type="date" name="appointmentdate" id="appointmentdate" required>
+</tr>
+
+<tr>
+<td>Speciality
+<td>
+<select name="speciality" id="speciality" required>
+  <option value="General">General</option>
+  <option value="Pediatrics">Pediatrics</option>
+  <option value="ENT">ENT</option>
+  <option value="Neurology">Neurology</option>
+  <option value="Gastrology">Gastrology</option>
+</select>
+</tr>
+
+<tr>
+<td>Preffered Time
+<td>
+<select name="prefferedtime" id="prefferedtime" required>
+  <option value="Morning">Morning</option>
+  <option value="Evening">Evening</option>
+  <option value="No Preference">No Preference</option>
+</select>
+</tr>
+
+<tr>
+<td><input type="submit" name="submit" value="Submit" onclick="Booking()">
+</tr>
+
+</table>
+
+<div id="result">
+</div>
+
+</center>
+</body>
+</html>
+
+ script.js
+ -----------
  
