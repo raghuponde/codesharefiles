@@ -346,6 +346,7 @@ it is not compulsory for a closure function in JavaScript to return a value. A c
 now real time scenario usage of closure taking a bank application so 
 
 add new file bankclosuredemo.js 
+--------------------------------
 function bankAccount(initialBalance) {
     let balance = initialBalance; // Private variable (not directly accessible)
 
