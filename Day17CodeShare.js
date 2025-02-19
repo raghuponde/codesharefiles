@@ -163,6 +163,23 @@ new code with both examples
      
 </html>
 
+go to this link : https://drive.google.com/drive/folders/1AKrv_IbdPOVkZJsZ9W1ESrUkK5lHnZ7c?usp=sharing
+
+and in day 17 downlaod DomDemo folder and then unzipping it open the index.html file 
+
+you will find some basic design there now in index.html i am having app.js link 
+
+so in that folder only u have to create app.js file and you have to write the logic for add a movie 
+and deleting the movie which is dom manipulation using javascript 
+
+so waht is a DOM (document object model)
+The whole elelemts present in document can be show in the form of inverted tree 
+and if modify those elelemts of dom which may be a paragraph tag or div tag we say that we are doing dom manpulation
+
+so refer image 30 in drive 
+
+
+
 
 
 
