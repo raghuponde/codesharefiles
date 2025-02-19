@@ -384,6 +384,114 @@ myAccount.checkBalance();    // Output: Current Balance: $1300
 console.log(myAccount.balance); // Output: undefined
 
 
-	
+JQUERY :
+________
+
+Here anonmyus nested functions will be there in jquery it will not wait for the browser to load the dom elements 
+it will go  to element of dom like button and there only it will execute the code u can see that in js 
+on click is attached to button but in jquery controls will be free of click events in desing they will be free 
+but in jquery code those buttons will be used so 
+we will take one js program and convert it into jquery  
 
 
+
+
+---------------------------------------------------------------------------
+| Feature         | JavaScript                                    | jQuery  |
+---------------------------------------------------------------------------
+| Definition     | A programming language used to create        | A lightweight JavaScript |
+|               | dynamic content on web pages.                | library that simplifies |
+|               |                                              | DOM manipulation and AJAX. |
+---------------------------------------------------------------------------
+| Type          | Core language used in web development.       | A library built on top of JavaScript. |
+---------------------------------------------------------------------------
+| Syntax       | More complex and requires writing more       | Provides a simpler, shorter |
+| Complexity   | lines of code for common tasks.               | syntax to achieve the same results. |
+---------------------------------------------------------------------------
+| DOM          | Uses `document.getElementById()` and         | Uses `$()` for easy element selection |
+| Manipulation | `document.querySelector()`.                   | and manipulation. |
+---------------------------------------------------------------------------
+| Event        | Uses `addEventListener()` method.            | Uses `.on()`, `.click()`, `.hover()`. |
+| Handling    |                                              |                                    |
+---------------------------------------------------------------------------
+| AJAX         | Uses `fetch()` or `XMLHttpRequest`.          | Uses `.ajax()`, `.get()`, and `.post()` |
+| Requests    |                                              | for simpler AJAX calls. |
+---------------------------------------------------------------------------
+| Performance  | Faster since it's directly executed          | Slightly slower as it requires |
+|              | by the browser.                              | jQuery to be loaded first. |
+---------------------------------------------------------------------------
+| Browser      | Fully supported by all modern browsers.      | jQuery helps manage cross-browser |
+| Support     |                                              | compatibility issues. |
+---------------------------------------------------------------------------
+| Usage       | Can be used for complex applications         | Mostly used for quick web development |
+|             | like game development, animations,           | tasks like form validation, UI effects, |
+|             | and frameworks like React, Angular, Vue.     | and AJAX handling. |
+---------------------------------------------------------------------------
+| File Size   | No extra file needed, just built-in          | Requires downloading and including |
+|             | browser support.                             | the jQuery library (~80KB minified). |
+---------------------------------------------------------------------------
+
+### **When to Use JavaScript?**
+- When performance is a priority.
+- When working on large-scale applications.
+- When using modern frameworks like React, Angular, or Vue.
+
+### **When to Use jQuery?**
+- When you need quick and easy DOM manipulation.
+- When working with older browsers.
+- When you want to simplify AJAX and animations.
+
+
+
+Remeber the named function will look like this 
+function named()
+{ 
+// do some stuff here 
+} 
+An anonymous function can be defined in similar way as a normal 
+function but it would not have any name.A anonymous function can be assigned to a variable or passed to a method as shown below.
+var handler = function ()
+{ 
+// do some stuff here 
+}
+JQuery makes a use of anonymous functions very frequently as 
+follows:
+$(document).ready(function()
+{ 
+// do some stuff here 
+}); 
+so another example is there below u can see it clearly 
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+  $("h1").hide("slow");
+  $("h2").show("fast");
+  $("img").slideUp();
+  });
+});
+</script>
+
+
+Now let us go ahead with some examples because once we do we will come to know 
+
+
+Now in the same folder create first file with the name jquerydemo1.html
+
+jquerydemo1.html
+--------	--
+
+<html>
+
+<head>
+    <title>The jQuery Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" language="javascript">
+     
+    </script>
+</head>
+
+<body>
+    <div id="newdiv"> Click on this to see a dialogue box. </div>
+</body>
+
+</html>
