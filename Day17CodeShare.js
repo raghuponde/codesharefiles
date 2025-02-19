@@ -1064,12 +1064,18 @@ and add one file with any name as typescriptdemo1.ts and write the code
 
 typescriptdemo1.ts
 -------------------
+function sayHello()
+{
+    var message: string = "Hello world";
+    alert(message);
+}
 
+sayHello();
 
 	
 
 run the command 
---->tsc code.ts it will create a js file after conversion in the same folder
+--->tsc typescriptdemo1.ts it will create a .js file after conversion in the same folder
 
 and then add one html page like this
 	
