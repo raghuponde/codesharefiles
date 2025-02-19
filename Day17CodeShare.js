@@ -1257,7 +1257,7 @@ class Person
 
 let p: Person = new Person("Raghavendra", "Ponde", new Date(1982, 7, 7));
 
-p.Show();
+alert(p.Show());
 
 version 3 of program with inheritance :
 ---------------------------------------
@@ -1282,7 +1282,7 @@ class Person
 
 let p: Person = new Person("Raghavendra", "Ponde", new Date(1982, 7, 7));
 
-p.show();
+alert(p.show());
 
 
 class Employee extends Person {
