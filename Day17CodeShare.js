@@ -1125,3 +1125,44 @@ h.FirstName = "Kiran";
 h.LastName = "Kumar";
 alert(h.sayhello());
 	
+
+let us see some types here 
+DataTypes
+--------
+var message: string = "hello world";
+
+var age: number = 45;
+
+var available: boolean = false;
+
+var anytye: any = "23";
+
+var name1: string = "ravi";
+
+var age1: number = 33;
+
+var message1:string = `The person with age ${age1} is having name ${name1}`;
+alert(message1);
+
+// tuple decleration
+
+let x: [number,string] = [10,'kiran'];
+// x=['kiran',10]// error as order is important
+alert(x[0]);
+
+let x1: [number, string] = [29, "Raghu"];
+
+let message3: string = `The name with ${x1[1]} is ${x1[0]} years old `;
+
+alert(message3);
+
+let lst8: string[] = ["A", "B", "C", "D"]
+
+for (let s1 in lst8) {
+    alert(s1 + "-->" + lst8[s1]);
+}
+
+for (let s1 of lst8) {
+    alert(s1);
+}
+
