@@ -512,3 +512,39 @@ jquerydemo1.html
 </body>
 
 </html>
+
+---now let us take a earlier add numbers code of js 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+      function add()
+      {
+        var total;
+        total=parseInt(document.getElementById("text1").value) + parseInt(document.getElementById("text2").value) ;
+        alert(total);
+      }
+
+    </script>
+    <pre>
+   1st Number :<input type="text" id="text1" placeholder="enter 1st number "/>
+    2nd Number :<input type="text" id="text2" placeholder="enter 2nd number " />
+
+    <input type="button" value="sum" onclick="add()" />
+    </pre>
+</body>
+</html>
+
+copy this code in a new file with the name jquerydemo2.html
+
+and changed code is like this 
+
+
+
+
+
