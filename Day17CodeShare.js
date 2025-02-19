@@ -165,7 +165,8 @@ new code with both examples
 
 go to this link : https://drive.google.com/drive/folders/1AKrv_IbdPOVkZJsZ9W1ESrUkK5lHnZ7c?usp=sharing
 
-and in day 17 downlaod DomDemo folder and then unzipping it open the index.html file 
+and in day 17 downlaod DomDemo folder and then unzipping it open the index.html file from vs code means open folder 
+of DomDemo in vscode and run index.html file 
 
 you will find some basic design there now in index.html i am having app.js link 
 
