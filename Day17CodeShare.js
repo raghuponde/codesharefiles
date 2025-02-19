@@ -796,3 +796,40 @@ updated code
 
 </html>
 
+Jquery Ajax :
+-------------
+Asynchonus javascript and xml here it means 
+AJAX = Asynchronous JavaScript and XML. In short; AJAX is about loading data in the background and display it on the webpage, without reloading the whole page. Examples of applications using AJAX: Gmail, Google Maps, Youtube, and Facebook tabs.
+
+The jQuery ajax() method is used to perform asynchronous HTTP requests, allowing you to load data from a server without reloading the webpage. It provides a flexible way to interact with remote servers using GET, POST, or other HTTP methods, supporting various data formats.
+
+create a new file with the name jquerydemo6.html and boiler plate code is below 
+jquerydemo6.html
+-------------------
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery AJAX - Fetch List of Posts</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <button id="fetchData">Fetch Posts</button>
+    <ul id="dataContainer"></ul>
+
+    <script>
+       
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
