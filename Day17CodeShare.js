@@ -588,5 +588,50 @@ and changed code is like this
 
 </html>
 
+now go for third demo 
+
+jquerydemo3.html
+----------------------
+here some set of pargrpahs are i want to read all paragrpahs content using jquery 
+
+<html>
+
+<head>
+    <title>the title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" language="javascript">
+
+        $(document).ready(
+
+          function()
+          {
+
+         var pars=$("p");
+         for(i=0;i<pars.length;i++)
+         {
+            alert("Found paragraph:"+pars[i].innerHTML);
+         }
+
+          }
+
+
+        );
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <p class="myclass">This is a paragraph.</p>
+        <p id="myid">This is second paragraph.</p>
+        <p>This is third paragraph.</p>
+    </div>
+</body>
+
+</html>
+
+
+
+
 
 
