@@ -1197,3 +1197,185 @@ alert(rest1);
 let [, , m3, m4] = [1, 2, 3, 4, 5, 6];
 alert(m3 + " " + m4) // here based on comma value m3 is assigned 3 and m4 as 4 and remaing all frint and last values are ignored 
 
+spreads :
+---------------------
+
+let a1 = [1, 2, 3] 
+let a2 = [4, 5, 6]
+
+let a12 = [0, ...a1, ...a2, 7];
+alert(a12);
+
+above i am spreading the array into another array okay ..to keep three dot syntax has to be used so it is very short cut syntax to join
+	two arrays okay .
+
+Program 4: CLASSES:
+-------------------
+
+version 1 :
+-----------
+class Person
+{
+	FirstName: string
+	LastName: string
+	DateOfBirth: Date
+
+	show()
+	{
+		alert(`${this.FirstName}  ${this.LastName} ${this.DateOfBirth}`);
+	}
+
+
+}
+
+let p: Person = new Person();
+p.FirstName = "Raghavendra";
+p.LastName = "Ponde";
+p.DateOfBirth = new Date(1982, 8, 7);
+p.show();
+
+
+version 2 with constuctor usage 
+--------------------------------
+class Person
+{
+	firstName: string;
+	lastName: string;
+	dateOfBirth: Date;
+	constructor(FirstName: string, LastName: string, DateOfBirth: Date) 
+	{
+		this.firstName = FirstName;
+		this.lastName = LastName;
+		this.dateOfBirth = DateOfBirth;
+	}
+	
+	Show() :string
+	{
+		return (`${this.firstName} ${this.lastName} ${this.dateOfBirth} `)
+	}
+}
+
+let p: Person = new Person("Raghavendra", "Ponde", new Date(1982, 7, 7));
+
+p.Show();
+
+version 3 of program with inheritance :
+---------------------------------------
+class Person
+{
+	FirstName: string
+	LastName: string
+	DateOfBirth: Date
+	constructor(firstName: string, lastName: string, dateofBirth: Date)
+	{
+		this.FirstName = firstName;
+		this.LastName = lastName;
+		this.DateOfBirth = dateofBirth;
+	}
+	show() :string
+	{
+		return `${this.FirstName}  ${this.LastName} ${this.DateOfBirth}`;
+	}
+
+
+}
+
+let p: Person = new Person("Raghavendra", "Ponde", new Date(1982, 7, 7));
+
+p.show();
+
+
+class Employee extends Person {
+	departmentName: string;
+	salary: number;
+	constructor(FirstName: string, LastName: string, DateOfBirth: Date,
+		DepartmentName: string, Salary: number) {
+		super(FirstName, LastName, DateOfBirth)
+		this.departmentName = DepartmentName;
+		this.salary = Salary;
+	}
+
+	Show(): string {
+		let s: string = super.show();
+		s += `${this.departmentName}  ${this.salary}`
+		return s;
+	}
+
+}
+
+let p3: Person = new Employee("Raghavendra", "Ponde", new
+	Date(1982, 7, 7), "Training", 10000);
+
+alert(p3.show());
+
+
+version 4 with absctract classes usage :
+----------------------------------------
+abstract class Figure {
+	protected Dimension: number
+	public abstract Area(): number
+}
+
+class Circle extends Figure {
+	constructor(radius: number) {
+		super();
+		this.Dimension = radius;
+	}
+	public Area(): number {
+		return Math.PI * this.Dimension * this.Dimension;
+	}
+}
+
+class Square extends Figure {
+	constructor(side: number) {
+		super();
+		this.Dimension = side;
+	}
+	public Area(): number {
+		return this.Dimension * this.Dimension;
+	}
+}
+
+var fig: Figure = new Circle(10);
+alert(fig.Area());
+fig = new Square(12);
+alert(fig.Area());
+
+Note : codes extra u can find in deccansoft pdfs where videos are there there only code is available okay ..
+
+
+
+Program 5 : INTERFACES
+-----------------------
+
+interface IPoint {
+	X: number;
+	Y: number;
+	DistanceFromOrigin(): number;
+	DistanceFromPoint(point: IPoint): number;
+}
+
+class Point implements IPoint {
+	X: number;
+	Y: number;
+	constructor(x: number, y: number) {
+		this.X = x;
+		this.Y = y;
+	};
+	DistanceFromOrigin(): number {
+		return Math.sqrt((this.X * this.X) + (this.Y * this.Y));
+	};
+	DistanceFromPoint(point: IPoint): number {
+		return Math.sqrt(((point.X - this.X) * (point.X - this.X)) +
+			((point.Y - this.Y) * (point.Y - this.Y)));
+	};
+
+}
+
+var pt1: Point = new Point(12, 4);
+var pt2: Point = new Point(14, 67);
+
+alert(pt1.DistanceFromOrigin());
+alert(pt1.DistanceFromPoint(pt2));
+
+
