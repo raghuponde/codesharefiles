@@ -6,7 +6,7 @@ In order to work with react or express.js or next.js and all these  first of all
 If  u can run the js outside the browser then u can create desktop applications and you can create servers and u can do what ever  u want 
 
 just have a walk through koirala notes once only intially till page 3 okay 
-
+ 
 What is NPM?
 
 NPM (Node Package Manager) is a tool that comes with Node.js.
