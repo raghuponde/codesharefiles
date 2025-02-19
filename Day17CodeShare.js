@@ -41,7 +41,7 @@ demonstrate both a success and an error case
 
 write a file name with jspromisedemo.html
 ------------------------------------------
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -53,7 +53,7 @@ write a file name with jspromisedemo.html
 
     <h1>Promises with Web API Example</h1>
     <button onclick="fetchData()">Fetch User Data</button>
-    <script>
+    <!-- <script>
         // Function to fetch user data using a manually created Promise
         function fetchData() {
             new Promise((resolve, reject) => {
@@ -89,6 +89,32 @@ write a file name with jspromisedemo.html
                     // This block is executed regardless of success or failure
                     console.log("Fetch operation completed.");
                 });
+        }
+    </script> -->
+
+    <script>
+        //using async and await same above code is written like this for impleeting asynchornus programming
+        async function fetchData()
+        {
+            try{
+
+                  const response = await fetch('https://jsonplaceholder.typicode.com/users');
+                if (!response.ok) {
+                    throw new Error("network response was not ok");
+                }
+
+                const UserData = await response.json();
+                console.log("user data fetched succesfully", UserData);
+
+               }
+               catch(error)
+               {
+                console.error("Error",error)
+               }
+               finally{
+                console.log("fetch operation compeleted succesfully");
+               }
+          
         }
     </script>
 </body>
