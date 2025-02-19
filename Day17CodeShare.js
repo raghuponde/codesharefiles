@@ -633,7 +633,7 @@ here some set of pargrpahs are i want to read all paragrpahs content using jquer
 now i am having a image tag and in tha by default i have uploaded one smiley image and when i clcik the button 
 the image shoudl chnage 
 
-so first take the design and two images which i will keep it in day 17 folder 
+so first take the design and two images of smiley are there which i will keep it in day 17 folder 
 and put those images in your folder where u are writing programs 
 
 so deafult code 
@@ -653,7 +653,47 @@ jquerydemo4.html
 </div> 
 </body> </html> 
 
+updated code 
+-------------
+	<html>
 
+<head>
+    <title>the title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" language="javascript">
+     $(document).ready(
+      function()
+      {
+      $("#button1").click(
+
+       function ()
+       {
+
+         $("#myimg").attr("src", "/smileynormal.png"); 
+
+       }
+
+
+
+      );
+
+      }
+
+
+
+
+     );
+    </script>
+</head>
+
+<body>
+    <div>
+        <img id="myimg" src="/smileyhover.png"  width="130px" height="130px" alt="Sample image" />
+        <input type="button" id="button1" value="changeimage" />
+    </div>
+</body>
+
+</html>
 
 
 
