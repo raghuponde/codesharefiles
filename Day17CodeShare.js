@@ -162,6 +162,51 @@ new code with both examples
 
      
 </html>
+DOM Manipulation using  javascript
+------------------------------
+In web development, one of the main features to enable interactivity is DOM Manipulation. DOM manipulation allows developers to interact and modify the structure, style, and content of web pages dynamically.
+
+The below list contains different methods to manipulate DOM.
+
+When a web page is loaded, the browser creates a Document Object Model of the page.
+
+The HTML DOM model is constructed as a tree of Objects:
+
++----------------+
+|   Document    |
++----------------+
+        |
++-----------------------+
+| Root element: <html> |
++-----------------------+
+        |
+  +------------------+             +------------------+
+  | Element: <head> |             | Element: <body> |
+  +------------------+             +------------------+
+        |                                 |
+  +-------------------+         +------------------+    +------------------+
+  | Element: <title> |         | Element: <a>    |    | Element: <h1>    |
+  +-------------------+         +------------------+    +------------------+
+        |                         |                  |
+  +----------------+      +----------------+   +----------------+
+  | Text: "My title" |      | Attribute: "href" |   | Text: "My header" |
+  +----------------+      +----------------+   +----------------+
+                                  |
+                          +----------------+
+                          | Text: "My link" |
+                          +----------------+
+						  
+						  With the object model, JavaScript gets all the power it needs to create dynamic HTML:
+
+JavaScript can change all the HTML elements in the page
+JavaScript can change all the HTML attributes in the page
+JavaScript can change all the CSS styles in the page
+JavaScript can remove existing HTML elements and attributes
+JavaScript can add new HTML elements and attributes
+JavaScript can react to all existing HTML events in the page
+JavaScript can create new HTML events in the page
+
+
 
 go to this link : https://drive.google.com/drive/folders/1AKrv_IbdPOVkZJsZ9W1ESrUkK5lHnZ7c?usp=sharing
 
@@ -243,3 +288,5 @@ addform.addEventListener('submit', function (e) {
 
 
 
+
+so explain the DOM concept accordingly 
