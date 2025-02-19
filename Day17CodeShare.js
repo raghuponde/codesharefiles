@@ -1097,5 +1097,17 @@ and then add one html page like this
 	and give rerence to the file in html page and then run the live sever
 I will be chnaging the program and updating the versions and taks below in code share have a note 
 and tarck of things 
+version 2
+-----------
+	function sayHello(firstname: string, lastname: string) :void{
+	var message: string = "Hello Mr.";
+	message += firstname + "  " + lastname;
+	alert(message);
+}
+
+sayHello("Raghavendra", "Kumar");
+
+do the same things again build it using tsc wait for it to chnage in js and then call live server of 
+index.html
 
 	
