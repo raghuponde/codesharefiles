@@ -829,6 +829,72 @@ jquerydemo6.html
 
 </html>
 
+updated code
+-----------
+	<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery AJAX - Fetch List of Posts</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <button id="fetchData">Fetch Posts</button>
+    <ul id="dataContainer"></ul>
+
+    <script>
+       $(document).ready(
+       function()
+       {
+        $("#fetchData").click(
+
+       function()
+       {
+
+       $.ajax({
+        url: "https://jsonplaceholder.typicode.com/posts", // Fetch all posts
+        type:"GET",
+        success:function(data)
+        {
+            $("#dataContainer").empty();
+            $.each(data,function(index,post){
+
+                $("#dataContainer").append("<li><h3>"+post.title+"</h3><p>"+post.body+"</p></li>");
+
+            })
+        },
+        error:function()
+        {
+            alert("Error while fetching data");
+        }
+
+
+       })
+
+
+       }
+
+
+
+
+
+
+
+        );
+
+
+
+
+       });
+    </script>
+
+</body>
+
+</html>
 
 
 
