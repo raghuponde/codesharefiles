@@ -179,6 +179,65 @@ and if modify those elelemts of dom which may be a paragraph tag or div tag we s
 
 so refer image 30 in drive 
 
+app.js code 
+-------------
+ document.addEventListener('DOMContentLoaded', function () {
+    
+
+    const list = document.querySelector('#movie-list ul');
+    const forms = document.forms;
+
+    list.addEventListener('click', (e) => {
+        
+        if (e.target.className == "delete")
+        {
+            const li = e.target.parentElement;
+            li.parentNode.removeChild(li);
+        }
+
+
+    })
+
+
+    //adding movie
+
+// add movie 
+
+const addform=forms['add-movie'];
+addform.addEventListener('submit', function (e) {
+
+    e.preventDefault();
+
+
+    //creating elements
+
+    const value = addform.querySelector('input[type="text"]').value;
+    const li = document.createElement('li');
+    const moviename = document.createElement('span');
+    const deletebtn = document.createElement('span');
+
+
+    //add text content 
+
+    moviename.textContent = value;
+    deletebtn.textContent = 'delete';
+
+    // add classes 
+    moviename.classList.add('name');
+    deletebtn.classList.add('delete');
+
+     
+    // append to DOM
+
+    li.appendChild(moviename);
+    li.appendChild(deletebtn);
+    list.appendChild(li);
+
+})
+
+
+})
+
 
 
 
