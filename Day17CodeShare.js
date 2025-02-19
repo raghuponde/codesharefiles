@@ -1173,27 +1173,27 @@ DESTRUCTURING
 version 1:destructing array and regular expressions :
 --------------------------------------------------------
 let input: number[] = [1, 2];
-//let first: number = input[0];
-//let second: number = input[1];
+let first: number = input[0];
+let second: number = input[1];
 
-let [first, second] = input;
-//alert(first + " " + second);
+let [first1, second1] = input;
+alert(first1 + " " + second1);
 
-//let [n1, ...rest] = [1, 2, 3, 4, 5];//i am using inference type on earlier i didnt used 
-//alert(n1);
-//alert(rest);
+let [n1, ...rest] = [1, 2, 3, 4, 5];//i am using inference type on earlier i didnt used 
+alert(n1);
+alert(rest);
 
-//let [n1, n2, ...rest] = [1, 2, 3, 4, 5]
+let [m1, m2, ...rest1] = [1, 2, 3, 4, 5]
 
-//alert(n1);
-//alert(n2);
-//alert(rest);
+alert(m1);
+alert(m2);
+alert(rest1);
 
-	//let [m1] = [1, 2, 3, 4, 5]
+	let [k1] = [1, 2, 3, 4, 5]
 
-	//alert(m1);// here m1 value is assinged ....to 1 and rest is ignored ..
+	alert(k1);// here m1 value is assinged ....to 1 and rest is ignored ..
 
 
-//let [, , m3, m4] = [1, 2, 3, 4, 5, 6];
-//alert(m3 + " " + m4) // here based on comma value m3 is assigned 3 and m4 as 4 and remaing all frint and last values are ignored 
+let [, , m3, m4] = [1, 2, 3, 4, 5, 6];
+alert(m3 + " " + m4) // here based on comma value m3 is assigned 3 and m4 as 4 and remaing all frint and last values are ignored 
 
