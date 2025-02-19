@@ -544,7 +544,49 @@ copy this code in a new file with the name jquerydemo2.html
 
 and changed code is like this 
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" language="javascript">
+       $(document).ready(
+        function()
+        {
+          $("#calculatesum").click(
+
+            function()
+            {
+                var num1=parseInt($("#text1").val());
+                var num2= parseInt($("#text2").val());
+                var total=num1+num2;
+                alert('sum: '+total);
+            }
+
+
+
+          );
+
+
+        }
+       );
+
+    </script>
+    <pre>
+   1st Number :<input type="text" id="text1" placeholder="enter 1st number "/>
+    2nd Number :<input type="text" id="text2" placeholder="enter 2nd number " />
+
+    <input type="button" id="calculatesum" value="sum"  />
+    </pre>
+</body>
+
+</html>
 
 
 
