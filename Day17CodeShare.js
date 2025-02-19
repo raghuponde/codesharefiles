@@ -1109,5 +1109,19 @@ sayHello("Raghavendra", "Kumar");
 
 do the same things again build it using tsc wait for it to chnage in js and then call live server of 
 index.html
+take the code into class 
+class Hello
+{
+    FirstName: string;
+    LastName: string;
+    sayhello=function(): string
+    {
+        return "hello" + this.FirstName + " " + this.LastName;    
+    }
+}
 
+var h: Hello = new Hello();
+h.FirstName = "Kiran";
+h.LastName = "Kumar";
+alert(h.sayhello());
 	
