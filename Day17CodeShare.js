@@ -1008,6 +1008,68 @@ if i change the program like this
 
 means timing change the task 2 is done first so this kind of coding we say deffered exxecution 
 
+TYPESCRIPT
+----------
+---------------------------------------------------------------------------
+                              Introduction
+---------------------------------------------------------------------------
+
+Limitations of JavaScript / ECMAScript 5:
+-----------------------------------------
+1. It's not type safe.
+2. It becomes cumbersome to manage as it becomes larger.
+3. Its interpreted language and not compiled, hence errors 
+   can be identified only when we execute the script.
+
+---------------------------------------------------------------------------
+
+What is TypeScript?
+-------------------
+1. It's not replacement of JavaScript nor it adds any new 
+   feature of JavaScript.
+2. TypeScript = JavaScript + Types = Typed superset of JavaScript
+3. It's not mandatory to strongly type everything when we are 
+   type scripting.
+4. It's compiled to generate JavaScript.
+5. Also, any valid .js file can be renamed to .ts and compiled 
+   with other TypeScript files.
+6. TypeScript generated JavaScript can reuse all of the existing 
+   JavaScript frameworks, tools, and libraries.
+7. Its object oriented and supports core features like interfaces 
+   and classes. As a prerequisite, you are supposed to have good 
+   knowledge on Object Oriented Programming and basic knowledge 
+   on JavaScript.
+8. It was designed by Anders Hejlsberg (founder of C#) at Microsoft. 
+   Its open source and can be used in any place where we would 
+   need JavaScript.
+9. There are almost 40 languages which are superset of JavaScript. 
+   On which they generate .js on compiling. TypeScript is just one 
+   and most popular of these languages.
+
+---------------------------------------------------------------------------
+
+Now create a folder with the name typescriptdemos
+
+in this folder from the terminal install 
+
+npm install -g typescript
+
+and add one file with any name as typescriptdemo1.ts and write the code 
 
 
 
+	
+
+run the command 
+--->tsc code.ts it will create a js file after conversion in the same folder
+
+and then add one html page like this
+	
+	
+	
+	
+	and give rerence to the file in html page and then run the live sever
+I will be chnaging the program and updating the versions and taks below in code share have a note 
+and tarck of things 
+
+	
