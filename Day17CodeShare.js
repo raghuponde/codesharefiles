@@ -1049,7 +1049,7 @@ What is TypeScript?
 ---------------------------------------------------------------------------
 
 Now create a folder with the name typescriptdemos
-
+ 
 in this folder from the terminal install 
 
 npm install -g typescript
