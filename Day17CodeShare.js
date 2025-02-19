@@ -119,3 +119,49 @@ write a file name with jspromisedemo.html
     </script>
 </body>
 </html>
+
+now let us see a progam where we are consuming a web api means online function containing some data 
+synchronusly and asynchonusly also  earleir using promise function i was able to handle asynchonus programming 
+now i am  write the code  without promise but one time synchronusly   also and another time asynchously okay 
+
+new code with both examples 
+----------------------------
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await with Web API Example</title>
+</head>
+
+<body>
+    <h1>Async/Await with Web API Example</h1>
+    <button onclick="consumeWebService()">ConsumeWebService</button>
+    <button onclick="consumeWebServiceAsync()">consumewebserviceAsync</button>
+    <script>
+        function consumeWebService() {
+            fetch("https://jsonplaceholder.typicode.com/todos").then(response=> response.json())
+                .catch(error => alert('something bad just happened:(')).then(json => console.log(json));
+}
+        async function consumeWebServiceAsync() {
+            try {
+                const response = await
+                    fetch("https://jsonplaceholder.typicode.com/todos");
+                const json = await response.json();
+                console.log(json);
+            }
+            catch (ex) {
+                alert('something bad just happened: (');
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
