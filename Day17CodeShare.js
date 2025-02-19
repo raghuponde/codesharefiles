@@ -1047,7 +1047,13 @@ What is TypeScript?
    and most popular of these languages.
 
 ---------------------------------------------------------------------------
+from the internet download nodejs from 
+	https://nodejs.org/en/download
+	just say next next and instaall it after wards  do below  tasks 
 
+	
+	
+	
 Now create a folder with the name typescriptdemos
  
 in this folder from the terminal install 
@@ -1056,6 +1062,8 @@ npm install -g typescript
 
 and add one file with any name as typescriptdemo1.ts and write the code 
 
+typescriptdemo1.ts
+-------------------
 
 
 	
