@@ -695,6 +695,42 @@ updated code
 
 </html>
 
+Now let us take this code default code where i will implelemt animations in jquery 
+give the name to the file as jqueydemo5.html
+jquerydemo5.html
+----------------
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery goes to DOM-ville</title>
+    <style>
+        #change_me {
+            position: absolute;
+            top: 100px;
+            left: 400px;
+            font: 24px arial;
+        }
+
+        #move_up #move_down #color #disappear {
+            padding: 5px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <button id="move_up">Move Up</button>
+    <button id="move_down">Move Down</button>
+    <button id="color">Change Color</button>
+    <button id="disappear">Disappear/Re-appear</button>
+    <div id="change_me">Make Me Do Stuff!</div>
+    <script>
+      
+    </script>
+</body>
+
+</html>
 
 
 
