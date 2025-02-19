@@ -1079,9 +1079,21 @@ run the command
 
 and then add one html page like this
 	
+	index.html and same ! tab one default html page will be created 
 	
-	
-	
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="typescriptdemo1.js" />
+    
+</head>
+<body>
+    
+</body>
+</html>
 	and give rerence to the file in html page and then run the live sever
 I will be chnaging the program and updating the versions and taks below in code share have a note 
 and tarck of things 
