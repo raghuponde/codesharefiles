@@ -896,6 +896,63 @@ updated code
 
 </html>
 
+Deferred Objects (Handling Async Operations)
+---------------------------------------------------
+jQuery Deferred Objects help manage asynchronous operations and their success or failure.
+
+Example: Handling Multiple Asynchronous Tasks
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deferred Object Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <button id="runAsync">Run Async Tasks</button>
+    <div id="status"></div>
+
+    <script>
+        $(document).ready(function () {
+            function asyncTask1() {
+                var deferred = $.Deferred();
+                setTimeout(function () {
+                    $("#status").append("<p>Task 1 Completed</p>");
+                    deferred.resolve(); // Task 1 completed successfully
+                }, 2000);
+                return deferred.promise();
+            }
+
+            function asyncTask2() {
+                var deferred = $.Deferred();
+                setTimeout(function () {
+                    $("#status").append("<p>Task 2 Completed</p>");
+                    deferred.resolve(); // Task 2 completed successfully
+                }, 3000);
+                return deferred.promise();
+            }
+
+            $("#runAsync").click(function () {
+                $.when(asyncTask1(), asyncTask2()).done(function () {
+                    $("#status").append("<p>All Tasks Completed!</p>");
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+Explanation:
+
+asyncTask1 and asyncTask2 return promises that resolve after 2s and 3s.
+$.when ensures both tasks are completed before displaying "All Tasks Completed!".
+
 
 
 
