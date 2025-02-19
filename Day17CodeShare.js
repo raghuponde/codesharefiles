@@ -283,10 +283,105 @@ addform.addEventListener('submit', function (e) {
 
 })
 
-
-
-
-
-
-
 so explain the DOM concept accordingly 
+
+next Closures in javascript 
+----------------------------
+
+What is a Closure in JavaScript?
+A closure is a function that remembers the variables from its outer scope,
+	even after the outer function has finished executing.
+
+📌 Key Concepts
+A closure gives access to an outer function’s variables from an inner function.
+It preserves state even after the outer function has finished execution.
+Used in data encapsulation, private variables, and callbacks.
+
+version 1 of code 
+------------------
+function counterFunction()
+{
+    let count = 0;//private variable
+
+    return function () //closure 
+    {
+        count = count + 1;
+        console.log("Current count:", count);
+        
+    }
+}
+
+const mycounter = counterFunction();
+mycounter();
+mycounter();
+
+How This Works
+createCounter() defines a variable count (which is not directly accessible outside).
+The returned inner function (closure) remembers and modifies count each time it is called.
+Multiple instances (counter1, counter2) maintain separate private count values.
+
+
+version 2 of code 
+--------------------
+function counterFunction()
+{
+    let count = 0;//private variable
+
+     function increment () //closure function will not return now as given name
+    {
+        count = count + 1;
+        console.log("Current count:", count);
+        
+    }
+    increment();// when not retrnign give it a call like this 
+}
+
+counterFunction();
+counterFunction();
+
+here it will not increment here so 
+
+it is not compulsory for a closure function in JavaScript to return a value. A closure is simply a function that retains access to its outer lexical scope even after the outer function has executed. Returning a value is optional and depends on the use case.
+
+now real time scenario usage of closure taking a bank application so 
+
+add new file bankclosuredemo.js 
+function bankAccount(initialBalance) {
+    let balance = initialBalance; // Private variable (not directly accessible)
+
+    return {
+        deposit: function (amount) {
+            if (amount > 0) {
+                balance += amount;
+                console.log(`Deposited: $${amount}, New Balance: $${balance}`);
+            } else {
+                console.log("Deposit amount must be greater than 0.");
+            }
+        },
+        withdraw: function (amount) {
+            if (amount > 0 && amount <= balance) {
+                balance -= amount;
+                console.log(`Withdrawn: $${amount}, Remaining Balance: $${balance}`);
+            } else {
+                console.log("Insufficient funds or invalid amount.");
+            }
+        },
+        checkBalance: function () {
+            console.log(`Current Balance: $${balance}`);
+        }
+    };
+}
+
+// Creating a new bank account with an initial balance of $1000
+const myAccount = bankAccount(1000);
+
+myAccount.deposit(500);      // Output: Deposited: $500, New Balance: $1500
+myAccount.withdraw(200);     // Output: Withdrawn: $200, Remaining Balance: $1300
+myAccount.checkBalance();    // Output: Current Balance: $1300
+
+// Direct access to balance is NOT possible
+console.log(myAccount.balance); // Output: undefined
+
+
+
+
