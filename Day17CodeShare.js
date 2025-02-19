@@ -486,12 +486,29 @@ jquerydemo1.html
     <title>The jQuery Example</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" language="javascript">
-     
+     $(document).ready(
+
+      function()
+      {
+       $("div").click(
+
+        function()
+        {
+            alert("You have clicked me ")
+        }
+
+       );
+
+      }
+
+
+
+     )
     </script>
 </head>
 
 <body>
-    <div id="newdiv"> Click on this to see a dialogue box. </div>
+    <div id="newdiv" style="background-color: yellow;width:90%;height:100px" > Click on this to see a dialogue box. </div>
 </body>
 
 </html>
