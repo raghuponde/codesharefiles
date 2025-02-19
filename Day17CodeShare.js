@@ -981,7 +981,7 @@ if i change the program like this
                     $("#status").append("<p>Task 2 Completed</p>");
                     deferred.resolve(); // Task 2 completed successfully
                 }, 2000);
-                return deferred.promise();
+                return deferred.promise(); 
             }
             function asyncTask1() {
                 var deferred = $.Deferred();
