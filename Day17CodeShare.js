@@ -384,5 +384,6 @@ myAccount.checkBalance();    // Output: Current Balance: $1300
 console.log(myAccount.balance); // Output: undefined
 
 
+	
 
 
