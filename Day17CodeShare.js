@@ -1166,3 +1166,34 @@ for (let s1 of lst8) {
     alert(s1);
 }
 
+
+DESTRUCTURING 
+------------------------
+
+version 1:destructing array and regular expressions :
+--------------------------------------------------------
+let input: number[] = [1, 2];
+//let first: number = input[0];
+//let second: number = input[1];
+
+let [first, second] = input;
+//alert(first + " " + second);
+
+//let [n1, ...rest] = [1, 2, 3, 4, 5];//i am using inference type on earlier i didnt used 
+//alert(n1);
+//alert(rest);
+
+//let [n1, n2, ...rest] = [1, 2, 3, 4, 5]
+
+//alert(n1);
+//alert(n2);
+//alert(rest);
+
+	//let [m1] = [1, 2, 3, 4, 5]
+
+	//alert(m1);// here m1 value is assinged ....to 1 and rest is ignored ..
+
+
+//let [, , m3, m4] = [1, 2, 3, 4, 5, 6];
+//alert(m3 + " " + m4) // here based on comma value m3 is assigned 3 and m4 as 4 and remaing all frint and last values are ignored 
+
