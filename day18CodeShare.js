@@ -396,7 +396,36 @@ and in index.js file write like this
 ReactDOM.render(<p>Hello World from react</p>,
 document.getElementById("root"));
 
+if u run index.html in the root tag data  is coming from js file 
 
+so here in root division tag i will render the paragraph information .Open it in live server so here
+we have to decide what we have to render and where to render that
+
+so recommended approach is like this in js file
+
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(
+<h1>React Course </h1>
+<p>We will learn react in this course </p>
+);
+
+here i will get error if idont put rot <div> tag becasue more elements u are adding use <div> tag
+
+  const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(
+    <div>
+<h1>React Course </h1>
+        <p>We will learn react in this course </p>
+        </div>
+);
+or in compact way also u can write it in js file 
+
+ReactDOM.createRoot(document.getElementById("root")).render(<div>
+<h1>React Course </h1>
+<p>We will learn react in this course </p>
+</div>);
   
 
 
