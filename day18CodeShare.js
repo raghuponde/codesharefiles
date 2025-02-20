@@ -427,5 +427,17 @@ ReactDOM.createRoot(document.getElementById("root")).render(<div>
 <p>We will learn react in this course </p>
 </div>);
   
+so now use react command create a react app now 
+
+
+https://create-react-app.dev/
+
+now check this website above 
+
+npx create-react-app my-app
+
+so go to one folder for me day18 is the folder open that folder in vs code 
+from terminal type this command 
+npx create-react-app reactapp1  (see dont use capital letters it wont work and dont use space etc )
 
 
