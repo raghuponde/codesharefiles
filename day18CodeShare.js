@@ -1030,6 +1030,125 @@ root.render(
 </div>
 );
 
+if u dont want to pass like this explicitly u can use  props proeprty here functions like this and you have to say 
+props.variableame
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import "./CSS/style.css";
+import logo from "./images/logo192.png"
+function MainHeader()
+{
+  return  (
+    <div>
+        <img src={logo} alt="" style={{ height: "35px", verticalAlign: "top" }} />
+       <h2 className='text-primary'> The React Course </h2>
+       <h2 className='heading2'> The React Course2 </h2>
+  </div>
+  );
+}
+const subHeaderStyle =
+{
+color: "blueviolet",
+backgroundColor: "lightgray"
+}
+function SubHeader()
+{
+return (<p style={subHeaderStyle}> The course is very exciting </p>);
+}
+function Header()
+{
+return(
+       <div>
+    <MainHeader/>
+    <SubHeader></SubHeader>
+       </div>
+     )
+}
+function Footer()
+{
+return (
+    <p style={{ color:"gray",backgroundColor:"black" }}> This is footer </p>
+      )
+}
+function MainBody(props)
+{
+  
+  return (
+          <div>
+          <p>In this course we learn react by building {props.variable1} for {props.count} times </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+function Students(props){
+
+return(
+    <div className="container p-4">
+    <div className="row">
+    Students Enrolled
+    </div>
+    <div className="row border">
+    <div className="col-2">
+    <img src={props.headspot}
+    className='w-100'></img>
+    </div>
+    <div className="col-10">
+    {props.fullName}<br/>
+    Programming Experience {props.programmingExp} years </div>
+    </div>
+    </div>
+)
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <div>
+
+    <Header/>
+    <MainBody variable1="taskopedia" count={3}   />
+    <Students fullName="radhakumari" programmingExp={4}  headspot="https://randomuser.me/api/portraits/women/40.jpg"/>
+    <Students  fullName="rajeshkumar" programmingExp={3}  headspot="https://randomuser.me/api/portraits/men/40.jpg"  />
+    <Students  fullName="sanjaana" programmingExp={2}  headspot="https://randomuser.me/api/portraits/women/90.jpg"/>
+    <Footer></Footer>
+  
+</div>
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
