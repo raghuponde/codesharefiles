@@ -27,9 +27,12 @@ Now i have to develop the project using npm so first create one folder with the 
 
 go to that project from vs code terminal type npm init
 
-just keep on sayng enter to go for default settings so down  u can see the sample 
+just keep on sayng enter for all prompts he is asking in cmd  to go for default settings so down  u can see the sample 
 
+if the npm init is not working then type this command and proceed further 
+Set-ExecutionPolicy Unrestricted -Scope CurrentUser 
 
+Set-ExecutionPolicy Unrestricted -Scope CurrentUser
  C:\Users\raghavendra\OneDrive\Desktop\mynpmproject> npm init
 This utility will walk you through creating a package.json file.
 It only covers the most common items, and tries to guess sensible defaults.
