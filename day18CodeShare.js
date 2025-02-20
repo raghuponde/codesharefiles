@@ -1118,6 +1118,151 @@ root.render(
 </div>
 );
 
+Now let us seperate all components into category from this index.js file if we are seperating compoenets we have to export the componets in order 
+to import by some one 
+
+create one folder layouts put there Header and footer components and also main body 
+create one fodler students and put theere students component 
+
+fnal codes passting 
+
+index.js 
+-----------
+  import React from 'react';
+import ReactDOM from 'react-dom/client';
+import "./CSS/style.css";
+import { Header } from './Layouts/Header';
+import Footer from './Layouts/Footer';
+import { Students } from './students/Student';
+import { MainBody } from './Layouts/MainBody';
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <div>
+
+    <Header/>
+    <MainBody variable1="taskopedia" count={3}   />
+    <Students fullName="radhakumari" programmingExp={4}  headspot="https://randomuser.me/api/portraits/women/40.jpg"/>
+    <Students  fullName="rajeshkumar" programmingExp={3}  headspot="https://randomuser.me/api/portraits/men/40.jpg"  />
+    <Students  fullName="sanjaana" programmingExp={2}  headspot="https://randomuser.me/api/portraits/women/90.jpg"/>
+    <Footer></Footer>
+  
+</div>
+);
+
+Header.js
+----------
+  
+import logo from "../images/logo192.png"
+function MainHeader()
+{
+  return  (
+    <div>
+        <img src={logo} alt="" style={{ height: "35px", verticalAlign: "top" }} />
+       <h2 className='text-primary'> The React Course </h2>
+       <h2 className='heading2'> The React Course2 </h2>
+  </div>
+  );
+}
+const subHeaderStyle =
+{
+color: "blueviolet",
+backgroundColor: "lightgray"
+}
+function SubHeader()
+{
+return (<p style={subHeaderStyle}> The course is very exciting </p>);
+}
+function Header()
+{
+return(
+       <div>
+    <MainHeader/>
+    <SubHeader></SubHeader>
+       </div>
+     )
+}
+
+export { Header };
+
+Footer.js
+----------
+  export default function Footer()
+{
+return (
+    <p style={{ color:"gray",backgroundColor:"black" }}> This is footer </p>
+      )
+}
+
+MainBody.js
+----------
+
+function MainBody(props)
+{
+  
+  return (
+          <div>
+          <p>In this course we learn react by building {props.variable1} for {props.count} times </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+
+export {MainBody}
+
+Student.js
+-----------
+export function Students(props){
+
+return(
+    <div className="container p-4">
+    <div className="row">
+    Students Enrolled
+    </div>
+    <div className="row border">
+    <div className="col-2">
+    <img src={props.headspot}
+    className='w-100'></img>
+    </div>
+    <div className="col-10">
+    {props.fullName}<br/>
+    Programming Experience {props.programmingExp} years </div>
+    </div>
+    </div>
+)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
