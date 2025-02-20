@@ -439,5 +439,8 @@ npx create-react-app my-app
 so go to one folder for me day18 is the folder open that folder in vs code 
 from terminal type this command 
 npx create-react-app reactapp1  (see dont use capital letters it wont work and dont use space etc )
+then close the vs code and  from vs code open reactapp1 and 
+run the command npm start from the terminal
+
 
 
