@@ -660,9 +660,41 @@ root.render(
 </div>
 );
 
+JSX Components
+---------------------------
+   • Component Names must be Pascal Casing
+       function Footer() { }    <Footer />
+
+   • Props must be camel casing
+       <input maxLength={5} readOnly="false">
+
+   • Inline style is an object so it must be enclosed in double curly brackets
+       <p style={{ color: "gray", backgroundColor: "black" }}>Happy Coding!</p>
+
+   • Integer in props will go in {} and "" will be string, and bool goes in {}
+       <input maxLength={5} readOnly={false} placeholder="Ben">
+
+   • ‘class’ needs to be replaced with ‘className’
+       <h1 className="heading1">
+---------------------------
+goto this is bootstrap link page and in this
+https://getbootstrap.com/docs/5.3/getting-started/introduction/
+css link
+js link
+in index.html page 
+and I had also added one style.css file in CSS folder of src folder here CSS is a new folder here
+i added okay and put these classes there in style.css
+
+.heading2 {
+color:brown;
+font-size: large;
+}
 
 
+.h2 {
+color: chocolate;
 
+}
 
 
 
