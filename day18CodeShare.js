@@ -1323,6 +1323,173 @@ now i want to convert all functions into arrow functions here arrows functions a
 map and filter and other  functions easily using arrow function and code is also fast anf small in arrow functions 
 so i am converting all my functions into arrow one 
 
+Footer.js
+---------
+
+  const  Footer=()=>
+{
+return (
+    <p style={{ color:"gray",backgroundColor:"black" }}> This is footer </p>
+      )
+}
+
+export default Footer
+
+Header.js
+-------------
+
+import logo from "../images/logo192.png"
+function MainHeader()
+{
+  return  (
+    <div>
+        <img src={logo} alt="" style={{ height: "35px", verticalAlign: "top" }} />
+       <h2 className='text-primary'> The React Course </h2>
+       <h2 className='heading2'> The React Course2 </h2>
+  </div>
+  );
+}
+const subHeaderStyle =
+{
+color: "blueviolet",
+backgroundColor: "lightgray"
+}
+function SubHeader()
+{
+return (<p style={subHeaderStyle}> The course is very exciting </p>);
+}
+const Header=()=>
+{
+return(
+       <div>
+    <MainHeader/>
+    <SubHeader></SubHeader>
+       </div>
+     )
+}
+
+export { Header };
+
+MainBody.js
+----------
+
+
+const MainBody=(props)=>
+{
+  
+  return (
+          <div>
+          <p>In this course we learn react by building {props.variable1} for {props.count} times </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+
+export {MainBody}
+
+Student.js
+-------------
+  const Students=(props)=>{
+    return (
+        <div className="container p-4">
+            <div className="row">
+                Students Enrolled
+            </div>
+            <div className="row border">
+                <div className="col-2">
+                    <img src={props.headspot} className="w-100" alt="student" />
+                </div>
+                <div className="col-8">
+                    {props.fullName}<br />
+                    Programming Experience {props.programmingExp} years
+                </div>
+                <div className="col-2">
+                    {props.children}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export  default Students
+
+StudentReview.js
+------------------
+  import React from "react";
+const  StudentReview=()=>
+{
+return (
+<div className="p-2">
+<i class="bi bi-hand-thumbs-up-fill text-success"></i> &nsbp;
+<i class="bi bi-hand-thumbs-down-fill text-danger"></i>
+</div>
+);
+}
+
+export {StudentReview}
+
+index.js
+----------
+  import React from 'react';
+import ReactDOM from 'react-dom/client';
+import "./CSS/style.css";
+import { Header } from './Layouts/Header';
+import Footer from './Layouts/Footer';
+import  Students  from './students/Student';
+import { MainBody } from './Layouts/MainBody';
+import { StudentReview } from './students/StudentReview';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <div>
+
+    <Header/>
+    <MainBody variable1="taskopedia" count={3}   />
+    <Students fullName="radhakumari" programmingExp={4} headspot="https://randomuser.me/api/portraits/women/40.jpg">
+    <StudentReview/>
+    </Students>
+    
+    <Students  fullName="rajeshkumar" programmingExp={3}  headspot="https://randomuser.me/api/portraits/men/40.jpg"  />
+    <Students  fullName="sanjaana" programmingExp={2}  headspot="https://randomuser.me/api/portraits/women/90.jpg"/>
+    <Footer></Footer>
+  
+</div>
+);
+
+if u want to create a new component and you want a default arrow template then use like this 
+
+rfc react function component presee enter after creating any file with that file name compent will be creard this is coming because of extension 
+rafc react arrow function component 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
