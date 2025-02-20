@@ -541,6 +541,76 @@ root.render(
 );
 
 
+if strict mode is not there use root tag like this 
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+
+function MainBody()
+{
+  return (
+          <div>
+          <p>In this course we learn react by building taskopedia </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <div>
+    <MainBody />
+    <MainBody/>
+  
+</div>
+);
+
+in the same manner creating header and footer commponent and subsitituing 
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function Header()
+{
+return(
+   <h1> The react Course </h1>
+     )
+}
+function Footer()
+{
+return (
+      <h1> This is footer </h1>
+      )
+}
+function MainBody()
+{
+  return (
+          <div>
+          <p>In this course we learn react by building taskopedia </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <div>
+    <Header/>
+    <MainBody />
+    <Footer></Footer>
+  
+</div>
+);
+
+
+
 
 
 
