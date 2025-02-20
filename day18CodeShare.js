@@ -835,6 +835,25 @@ root.render(
 );
 
 
+Inside the components i can add some variables also and i can subsititue like this 
+
+function MainBody()
+{
+  const variable1 = "taskopedia";
+  let count = 3;
+  return (
+          <div>
+          <p>In this course we learn react by building {variable1} for {count} times </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+so i had modified above compoent and you also modify and see the output
+
 
 
 
