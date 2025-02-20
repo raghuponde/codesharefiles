@@ -351,6 +351,13 @@ const people2 = [
 const peoplesinUSA = people2.filter(person => person.country=='USA');
 console.log(peoplesinUSA);
 
+you want names only means 
+
+
+const peoplesinUSA = people2.filter(person => person.country=='USA').map(person=>person.name);
+console.log(peoplesinUSA);
+
+
 
 
 
