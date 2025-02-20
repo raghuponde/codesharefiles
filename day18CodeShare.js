@@ -1239,8 +1239,8 @@ return(
 
 copy this CDN url into index.html file
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrapicons@
-1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 in the head tag u can copy 
 
@@ -1248,7 +1248,8 @@ Add new component now in students folder
 
 StudentReview.js
 -----------------
- export default function StudentReview()
+import React from "react";
+export default function StudentReview()
 {
 return (
 <div className="p-2">
@@ -1260,6 +1261,87 @@ return (
 The above component I want to use it in student component so if i do that then it will be
 available for all the students so for some specific students only i want to make it available say
 first two students okay
+
+
+Student.js
+------------
+  export function Students(props) {
+    return (
+        <div className="container p-4">
+            <div className="row">
+                Students Enrolled
+            </div>
+            <div className="row border">
+                <div className="col-2">
+                    <img src={props.headspot} className="w-100" alt="student" />
+                </div>
+                <div className="col-8">
+                    {props.fullName}<br />
+                    Programming Experience {props.programmingExp} years
+                </div>
+                <div className="col-2">
+                    {props.children}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+thenin index.js file 
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import "./CSS/style.css";
+import { Header } from './Layouts/Header';
+import Footer from './Layouts/Footer';
+import { Students } from './students/Student';
+import { MainBody } from './Layouts/MainBody';
+import StudentReview from './students/StudentReview';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <div>
+
+    <Header/>
+    <MainBody variable1="taskopedia" count={3}   />
+    <Students fullName="radhakumari" programmingExp={4} headspot="https://randomuser.me/api/portraits/women/40.jpg">
+    <StudentReview/>
+    </Students>
+    
+    <Students  fullName="rajeshkumar" programmingExp={3}  headspot="https://randomuser.me/api/portraits/men/40.jpg"  />
+    <Students  fullName="sanjaana" programmingExp={2}  headspot="https://randomuser.me/api/portraits/women/90.jpg"/>
+    <Footer></Footer>
+  
+</div>
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
