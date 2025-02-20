@@ -609,6 +609,57 @@ root.render(
 </div>
 );
 
+i want to create nested components for header two sub headers i will create 
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function MainHeader()
+{
+return (<h1> The react Course </h1>);
+}
+function SubHeader()
+{
+return (<h2> The course is very exciting </h2>);
+}
+function Header()
+{
+return(
+       <div>
+    <MainHeader />
+    <SubHeader></SubHeader>
+       </div>
+     )
+}
+function Footer()
+{
+return (
+      <h1> This is footer </h1>
+      )
+}
+function MainBody()
+{
+  return (
+          <div>
+          <p>In this course we learn react by building taskopedia </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <div>
+    <Header/>
+    <MainBody />
+    <Footer></Footer>
+  
+</div>
+);
+
 
 
 
