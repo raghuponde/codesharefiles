@@ -128,5 +128,180 @@ This is how you initialize an NPM project and start using packages efficiently!
 now let us do file handling now 
 
 
-create a neww fodler which is filedemo folder in this u go 
+create a new folder which is filedemo folder in this u go means go to that folder and type the follwoing command 
+
+npm init -y
+
+
+next create a new file index.js into that folder 
+
+and in that index.js file write like this in that file 
+
+
+const fs = require('fs');
+
+
+require('fs') loads the File System module.
+This allows us to perform file operations.
+
+
+Use fs.writeFileSync() to create and write to a file:
+
+fs.writeFileSync('demo.txt', 'Hello, this is a demo text file.');
+console.log('File created and written successfully.');
+
+
+This creates a file called demo.txt if it doesn’t exist.
+If the file already exists, it overwrites the content.
+The console logs the success message.
+
+Run the code:
+
+node index.js
+
+Check your folder—you'll see demo.txt with the text inside.
+
+
+now in the same file index.js write the below code  to read the file 
+
+const data = fs.readFileSync('demo.txt', 'utf8');
+console.log('File Content:', data);
+
+fs.readFileSync('demo.txt', 'utf8') reads the file.
+The second parameter ('utf8') ensures it returns text instead of raw buffer data.
+
+and the present file with earlier code will look like this 
+
+const fs = require('fs');
+fs.writeFileSync('demo.txt', 'Hello, this is a demo text file.');
+console.log('File created and written successfully.');
+
+const data = fs.readFileSync('demo.txt', 'utf8');
+console.log('File Content:', data);
+
+
+now again run index.js file 
+
+PS C:\Users\raghavendra\OneDrive\Desktop\filedemo> node index.js
+File created and written successfully.
+File Content: Hello, this is a demo text file.
+PS C:\Users\raghavendra\OneDrive\Desktop\filedemo> 
+
+so i am seeing the output like this 
+
+ Appending to a File
+Use fs.appendFileSync() to add more content:
+
+
+fs.appendFileSync('demo.txt', '\nThis is an appended line.');
+console.log('Text appended successfully.');
+
+so overall the file will look like this 
+
+const fs = require('fs');
+fs.writeFileSync('demo.txt', 'Hello, this is a demo text file.');
+console.log('File created and written successfully.');
+
+const data = fs.readFileSync('demo.txt', 'utf8');
+console.log('File Content:', data);
+
+fs.appendFileSync('demo.txt', '\nThis is an appended line.');
+console.log('Text appended successfully.');
+
+
+
+Adds a new line to demo.txt without overwriting existing data.
+
+
+Renaming a File
+
+Use fs.renameSync() to rename a file:
+
+
+fs.renameSync('demo.txt', 'new-demo.txt');
+console.log('File renamed successfully.');
+
+so the file will look like this 
+
+const fs = require('fs');
+fs.writeFileSync('demo.txt', 'Hello, this is a demo text file.');
+console.log('File created and written successfully.');
+
+const data = fs.readFileSync('demo.txt', 'utf8');
+console.log('File Content:', data);
+
+fs.appendFileSync('demo.txt', '\nThis is an appended line.');
+console.log('Text appended successfully.');
+
+
+
+fs.renameSync('demo.txt', 'new-demo.txt');
+console.log('File renamed successfully.');
+
+
+so u can check a new file will be created with the same content but name changed 
+
+
+every time u have to run node index.js file okay any chnage u do in index.js in terms of requirement okay 
+
+
+finally deleting the file
+
+Deleting a File
+Use fs.unlinkSync() to delete a file:
+
+
+fs.unlinkSync('new-demo.txt');
+console.log('File deleted successfully.');
+
+si it works so this all about express.js now what and all i am doing in react in further classes same is done in express also so 
+I am direclty jumping into react .js code now okay .
+
+
+
+ Asynchronous File Operations
+All the above methods were synchronous (blocking).
+For non-blocking operations, use asynchronous methods:
+
+Writing a file (Async)
+
+fs.writeFile('async-demo.txt', 'Async file content.', (err) => {
+    if (err) throw err;
+    console.log('Async file created.');
+});
+
+Reading a file (Async)
+
+fs.readFile('async-demo.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log('Async File Content:', data);
+});
+
+Deleting a file (Async)
+
+fs.unlink('async-demo.txt', (err) => {
+    if (err) throw err;
+    console.log('Async file deleted.');
+});
+These do not block execution and use callbacks for error handling.
+
+🎯 Summary Table
+Operation	Synchronous	Asynchronous
+Write File	fs.writeFileSync('file.txt', 'data')	fs.writeFile('file.txt', 'data', callback)
+Read File	fs.readFileSync('file.txt', 'utf8')	fs.readFile('file.txt', 'utf8', callback)
+Append File	fs.appendFileSync('file.txt', 'data')	fs.appendFile('file.txt', 'data', callback)
+Rename File	fs.renameSync('old.txt', 'new.txt')	fs.rename('old.txt', 'new.txt', callback)
+Delete File	fs.unlinkSync('file.txt')	fs.unlink('file.txt', callback)
+
+
+so here we are doing in parts nothing is available as framework at one place so that if i run any one commmand all packages will be there 
+for each module i need to install and do the coding and have to configure the things 
+
+Now understand here what is back end and front end 
+
+
+back end means for the persistance data base means which dont change for that database u are using .net using web api or  online function u are storing that so that  ucan do it in .net and using desing part which is react and angular u will  design and now they have developed back end softwares or libraries also which will help me to write some functions to store dataabase code  eg express.js and ,next.js and etc and front end for those can be expreess only or next only ...
+
+Now i am jumping to total front end framework which is react 
+
 
