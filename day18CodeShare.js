@@ -372,7 +372,8 @@ https://legacy.reactjs.org/docs/add-react-to-a-website.html
 
 so first i created one folder  reactproject1 and in that folded added index.html and index.js files 
   and the added some online libraries into html page like this
-
+index.html
+-------------
 <html>
 <head>
 <script src="https://unpkg.com/react@18/umd/react.development.js"
