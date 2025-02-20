@@ -703,6 +703,72 @@ font-size: large;
 color: chocolate;
 
 }
+after adding abve 
+index.js file 
+--------------
+  import React from 'react';
+import ReactDOM from 'react-dom/client';
+import "./CSS/style.css";
+
+function MainHeader()
+{
+  return
+  (
+    <div>
+      
+       <h2 className='text-primary'> The React Course </h2>
+       <h2 className='heading2'> The React Course2 </h2>
+  </div>
+  );
+}
+const subHeaderStyle =
+{
+color: "blueviolet",
+backgroundColor: "lightgray"
+}
+function SubHeader()
+{
+return (<p style={subHeaderStyle}> The course is very exciting </p>);
+}
+function Header()
+{
+return(
+       <div>
+    <MainHeader/>
+    <SubHeader></SubHeader>
+       </div>
+     )
+}
+function Footer()
+{
+return (
+    <p style={{ color:"gray",backgroundColor:"black" }}> This is footer </p>
+      )
+}
+function MainBody()
+{
+  return (
+          <div>
+          <p>In this course we learn react by building taskopedia </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <div>
+    <Header/>
+    <MainBody />
+    <Footer></Footer>
+  
+</div>
+);
+
 
 
 
