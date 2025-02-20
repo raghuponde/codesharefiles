@@ -1237,6 +1237,30 @@ return(
 )
 }
 
+copy this CDN url into index.html file
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrapicons@
+1.11.3/font/bootstrap-icons.min.css">
+
+in the head tag u can copy 
+
+Add new component now in students folder 
+
+StudentReview.js
+-----------------
+ export default function StudentReview()
+{
+return (
+<div className="p-2">
+<i class="bi bi-hand-thumbs-up-fill text-success"></i> &nsbp;
+<i class="bi bi-hand-thumbs-down-fill text-danger"></i>
+</div>
+);
+}
+The above component I want to use it in student component so if i do that then it will be
+available for all the students so for some specific students only i want to make it available say
+first two students okay
+
 
 
 
