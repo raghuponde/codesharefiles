@@ -1315,6 +1315,16 @@ root.render(
 </div>
 );
 
+Add this extension 
+
+VS Code ES7+ React/Redux/React-Native/JS snippets into you vscode 
+
+now i want to convert all functions into arrow functions here arrows functions are used becasue we can implement 
+map and filter and other  functions easily using arrow function and code is also fast anf small in arrow functions 
+so i am converting all my functions into arrow one 
+
+
+
 
 
 
