@@ -854,6 +854,124 @@ function MainBody()
 
 so i had modified above compoent and you also modify and see the output
 
+Now i am adding a new component which is studnets compoent 
+
+see the code here how i had added that component 
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import "./CSS/style.css";
+import logo from "./images/logo192.png"
+function MainHeader()
+{
+  return  (
+    <div>
+        <img src={logo} alt="" style={{ height: "35px", verticalAlign: "top" }} />
+       <h2 className='text-primary'> The React Course </h2>
+       <h2 className='heading2'> The React Course2 </h2>
+  </div>
+  );
+}
+const subHeaderStyle =
+{
+color: "blueviolet",
+backgroundColor: "lightgray"
+}
+function SubHeader()
+{
+return (<p style={subHeaderStyle}> The course is very exciting </p>);
+}
+function Header()
+{
+return(
+       <div>
+    <MainHeader/>
+    <SubHeader></SubHeader>
+       </div>
+     )
+}
+function Footer()
+{
+return (
+    <p style={{ color:"gray",backgroundColor:"black" }}> This is footer </p>
+      )
+}
+function MainBody()
+{
+  const variable1 = "taskopedia";
+  let count = 3;
+  return (
+          <div>
+          <p>In this course we learn react by building {variable1} for {count} times </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+function Students(){
+const fullName = "Kris Walley";
+const programmingExp = 2;
+return(
+    <div className="container p-4">
+    <div className="row">
+    Students Enrolled
+    </div>
+    <div className="row border">
+    <div className="col-2">
+    <img src={`https://randomuser.me/api/portraits/women/20.jpg`}
+    className='w-100'></img>
+    </div>
+    <div className="col-10">
+    {fullName}<br/>
+    Programming Experience {programmingExp} years </div>
+    </div>
+    </div>
+)
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <div>
+
+    <Header/>
+    <MainBody />
+    <Students/>
+    <Footer></Footer>
+  
+</div>
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
