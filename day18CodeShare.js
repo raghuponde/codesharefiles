@@ -357,8 +357,43 @@ you want names only means
 const peoplesinUSA = people2.filter(person => person.country=='USA').map(person=>person.name);
 console.log(peoplesinUSA);
 
+What is React?
+---------------------------
+   • React is Front End Javascript Framework
+   • React is Declarative
+   • React is Composable / Component based
+   • React is FAST!
+   • Maintained by META
+   • React is responsible for maintaining/managing the UI Aspect.
+---------------------------
+https://legacy.reactjs.org/docs/react-component.html
+https://legacy.reactjs.org/docs/getting-started.html#try-react
+https://legacy.reactjs.org/docs/add-react-to-a-website.html
 
+so first i created one folder  reactproject1 and in that folded added index.html and index.js files 
+  and the added some online libraries into html page like this
 
+<html>
+<head>
+<script src="https://unpkg.com/react@18/umd/react.development.js"
+crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="index.js" type="text/babel"></script>
+</head>
+<body>
+<h1>Hello World</h1>
+<div id="root">
+</div>
+</body>
+
+</html>
+
+and in index.js file write like this
+--------------------------------------------------
+ReactDOM.render(<p>Hello World from react</p>,
+document.getElementById("root"));
 
 
   
