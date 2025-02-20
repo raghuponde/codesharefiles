@@ -442,5 +442,42 @@ npx create-react-app reactapp1  (see dont use capital letters it wont work and d
 then close the vs code and  from vs code open reactapp1 and 
 run the command npm start from the terminal
 
+now in the public folder delete all files except index.html and two logos 
+
+and in src folder also delete all except index.js file and package json and apckage lock and git ignore 
+anyhow they are outside src
+
+then go to index.js file remove references 
+
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+
+App in strict mode u can remove 
+
+remove down 
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+and write 
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+ <h1> Hello World </h1>
+  </React.StrictMode>
+);
+
+
+
+hellow rold and run the program agan n
+
 
 
