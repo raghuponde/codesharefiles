@@ -304,4 +304,39 @@ back end means for the persistance data base means which dont change for that da
 
 Now i am jumping to total front end framework which is react 
 
+REACT
+------
+formula for map 
+-----------------
+variable.map((element)=>print(element))
+this map function will always return some value 
+
+here variable is always a collection 
+create one folder advjsdemos and add one file reactdemo1.js
+and below code write it and test it 
+
+var arr = [10, 20, 30, 40, 50]
+arr.map((element) => console.log(element))
+
+const numbers = [1, 2, 3, 4, 5];
+const squares = numbers.map(value => value * value);
+console.log(squares);
+
+const people = [
+{ id: 1, name: 'Felipe', country: 'DR' },
+{ id: 2, name: 'Scott', country: 'USA' },
+{ id: 3, name: 'Jennifer', country: 'Canada' },
+]
+const ids = people.map(person => person.id);
+console.log(ids);
+
+
+
+
+
+
+
+
+  
+
 
