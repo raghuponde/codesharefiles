@@ -1465,7 +1465,81 @@ if u want to create a new component and you want a default arrow template then u
 rfc react function component presee enter after creating any file with that file name compent will be creard this is coming because of extension 
 rafc react arrow function component 
 
-  
+In react two types of components are there one is funcitonal based component and another is class based component 
+
+now i will convert some of functional components into class based compoents difference 
+
+Class vs Functional Components
+---------------------------
+
+Class Components
+---------------------------
+   • Less common
+   • render() method is required, which returns an HTML element
+   • Stateful components
+   • Class components have lifecycle methods
+
+Functional Components
+---------------------------
+   • More common
+   • render() method is not present, it directly returns an HTML element or nothing
+   • Stateless components
+   • Class components do have lifecycle methods
+   • Hooks!
+
+---------------------------
+  StudentReview.js
+---------------------
+import React from "react";
+class StudentReview extends React.Component
+{
+    render() {
+        return (
+            <div className="p-2">
+            <i class="bi bi-hand-thumbs-up-fill text-success"></i> &nsbp;
+            <i class="bi bi-hand-thumbs-down-fill text-danger"></i>
+            </div>
+            );
+    }
+
+}
+
+
+export {StudentReview}
+
+Student.js
+----------
+import React from "react";
+
+class Students extends React.Component {
+
+    render()
+    {
+        return (
+                <div className="container p-4">
+                    <div className="row">
+                        Students Enrolled
+                    </div>
+                    <div className="row border">
+                        <div className="col-2">
+                            <img src={this.props.headspot} className="w-100" alt="student" />
+                        </div>
+                        <div className="col-8">
+                            {this.props.fullName}<br />
+                            Programming Experience {this.props.programmingExp} years
+                        </div>
+                        <div className="col-2">
+                            {this.props.children}
+                        </div>
+                    </div>
+                </div>
+            );
+    }
+
+    
+}
+
+export  default Students
 
 
 
