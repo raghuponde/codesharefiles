@@ -481,3 +481,69 @@ hello world  and run the program agan n
 
 
 
+i am showing some data here hello world here so i want to keep that data in a component 
+and i want to show 
+so what is  a component
+
+What is Component?
+---------------------------
+   • A component is a small, reusable piece of code that 
+     defines a part of a user interface.
+   • They can be reused throughout an application, making it 
+     easier to build and maintain large, modular applications.
+   • Components can be nested inside other components to 
+     create complex user interfaces.
+---------------------------
+--This componet is nothing  but a function which will return some design code 
+and in that design code i can embeed variables,constant and functions into it means i can 
+add C# code also here what ever i am returning in the design of component is actually not html code 
+it is jsx code we call it as 
+
+function MainBody()
+{
+return (
+          <div>
+          <p>In this course we learn react by building taskopedia </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+put this in js file and so compete code is here 
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+
+function MainBody()
+{
+  return (
+          <div>
+          <p>In this course we learn react by building taskopedia </p>
+          <ul>
+          <li>Call Ben</li>
+          <li>Go to walmart</li>
+          </ul>
+          </div>
+      )
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <MainBody />
+    <MainBody/>
+  
+  </React.StrictMode>
+);
+
+
+
+
+
+
+
+
