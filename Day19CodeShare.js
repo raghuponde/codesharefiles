@@ -443,6 +443,108 @@ export const App2 = () => {
   )
 }
 
+here above use state can store ananomys class also with proeprties here it can store object also with multiple proeprties 
+
+now thes three usestates i will use in desisng
+App2.js 
+---------
+ import React, { useState } from 'react'
+
+ const App2 = () => {
+
+    const [counterState, setCounterState] = useState(() => { return { counter: 10, title2: "Fun" }; });
+
+    const[titleState, setTitleSate] = useState("Fun");
+
+    const[titleState1, setTitleSate1] = useState(()=>{return {  title1: "Fun" }; });
+
+
+ function incrementCounter()
+    {
+    setCounterState((counterState) => { return { counter:counterState.counter + 1 }; });
+    }
+function decrementCounter()
+    {
+    setCounterState((prevState) => { return { counter: prevState.counter - 1 } });
+    setCounterState((prevState)=>{ return {counter:prevState.counter -1} });
+    }
+return (
+        <div className="col-12 col-md-4 offset-md-4 border text-white">
+        <span className="h2 pt-4 m-2 text-white-50">{titleState}Counter </span><br/>
+        <span className="h2 pt-4 m-2 text-white-50">{titleState1.title1} Counter </span><br/>
+        <span className="h2 pt-4 m-2 text-white-50">{counterState.title2} Counter </span>
+        <br />
+        <button className="btn btn-success m-1" onClick={incrementCounter}>+1</button>
+        <button className="btn btn-danger m-1" onClick={decrementCounter}>-1</button>
+        <br />
+        <span className="h4">
+        Counter: &nbsp;
+        <span className="text-success">{counterState.counter }</span>
+        </span>
+        </div>
+)
+}
+
+export default App2;
+
+Then index.html
+-------------
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>React App</title>
+  </head>
+  <body bgcolor="lavendar">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+   
+  </body>
+</html>
+then in 
+ Index.js 
+----------
+ import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import  App2  from './App2';
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+<div>
+    <App />
+    <App2 />
+    </div>
+  
+);
+
+
+
+
+
 
 
 
