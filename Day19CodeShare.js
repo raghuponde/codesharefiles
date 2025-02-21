@@ -1372,7 +1372,7 @@ return (
 <button className='trigger' onClick={() => setShow(!show)}>{ show ? "Hide Tasks" : "Show Tasks"}</button>
 </div>
 { show && tasks.map((task) => (
-<TaskCard key={task.id} task={task} handleDelete={handleDelete} />
+<Taskcard key={task.id} task={task} handleDelete={handleDelete} />
 )) }
 </ul>
 </section>
