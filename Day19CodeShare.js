@@ -318,6 +318,59 @@ function App() {
 export default App;
 so here at a time 3 values are not updated becasue i had kept sequentially it shoudl give me 3 when i click latest value should be 3 but it is not 
 happeing here 
+means previous value is not remebering here so what is to be done here 
+
+u can write arrow function there like this 
+
+App.js
+---------
+ 
+import { useState } from 'react';
+import './App.css';
+
+
+function App() {
+
+  const [count,setCount] = useState(0);
+
+  function handleAdd()
+  {
+    //count = count + 1;
+    console.log(count);
+    setCount(count=>count + 1);
+    setCount(count=>count + 1);
+     setCount(count=>count + 1);
+  }
+
+  // function handleSub()
+  // {
+  //   setCount(count - 1);
+  // }
+
+  function handleReset()
+  {
+    setCount(0);
+  }
+ 
+
+  return (
+    <div className="App">
+
+      <div className='box'>
+
+        <p>{count}</p>
+        <button onClick={handleAdd} className='add' >ADD</button>
+        <button onClick={()=>setCount(count-1)} className='sub' >SUB</button>
+        <button onClick={handleReset} className='reset' >RESET</button>
+
+
+      </div>
+     
+    </div>
+  );
+}
+
+export default App;
 
 
 
