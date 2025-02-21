@@ -911,6 +911,65 @@ export default function App3() {
   )
 }
 
+Next i want complete true to be border blue and not completted to be border red 
+
+chnage li elemment like this 
+
+  <li key={task.id} className={task.completed ? "completed" : "incomplete"}>
+
+and u can see this effect 
+
+App3.js 
+---------
+ import React from 'react'
+import { useState } from 'react';
+import './App3.css';
+
+export default function App3() {
+
+    const [tasks, setTasks] = useState(
+        [
+        {id: 5271, name: "Record React Lectures", completed: true},
+        {id: 7825, name: "Edit React Lectures", completed: false},
+        { id: 8391, name: "Watch Lectures", completed: false }
+        ] 
+    );
+    
+    const [show, setShow] = useState(true);
+    function handleDelete(id)
+    {
+        setTasks(tasks.filter(task => task.id != id));
+    }
+
+  return (
+      <div className="App">
+          
+     <h1>Task List</h1>
+          <ul>
+               <button className='trigger' onClick={() => setShow(!show)}>Toggle</button>
+         {
+                 
+              
+               show &&   tasks.map((task, index) => (
+                      
+                      
+                     <li key={task.id} className={task.completed ? "completed" : "incomplete"}>
+
+                          
+                          <span>{task.id} -- {task.name}</span>
+                          <button className='delete' onClick={()=>handleDelete(task.id)} >Delete</button>
+                      </li>
+                      
+                      
+                      
+                  ))
+                  
+
+          }
+      </ul>
+   </div>
+  )
+}
 
 
 
