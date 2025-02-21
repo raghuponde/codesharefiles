@@ -424,10 +424,25 @@ function App() {
 
 export default App;
 
-Now add another file with the name App2.js after adding say rafc and press enter 
+Now add another file with the name App2.js after adding say rafc and press enter default code u will get and add the follwing code below
 App2.js 
 ----------
- 
+ import React, { useState } from 'react'
+
+export const App2 = () => {
+
+    const [counterState, setCounterSate] = useState(() => { return { counter: 10, title2: "Fun" }; });
+
+    cons[titleState, setTitleSate] = useState("Fun");
+
+    cons[titleState1, setTitleSate1] = useState(()=>{return {  title1: "Fun" }; });
+
+
+  return (
+    <div>App2</div>
+  )
+}
+
 
 
 
