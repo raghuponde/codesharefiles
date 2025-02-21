@@ -1171,21 +1171,180 @@ Now i want to send some props from index to tasklist which we have seen earleir
 and i want to provide a seperate a seperate compoent page for each task in task list for that i will create Taskcard.js in this
 Task card js i will copy the code of map looping inside element i will copy and import taskCard in Tasklist 
 
+first pass some props from App3.js  to task list .js as task list is in App3 
+App3.js 
+---------
+import React from 'react'
+
+import './App3.css';
+import { Header } from './components/Header';
+import TaskList from './components/TaskList';
+export default function App3() {
+
+    
+    
+   
+  return (
+      <div className="App">
+          <Header/>
+       <TaskList title="Random" subtitle="Test" />
+          
+   </div>
+  )
+}
+
+Then in TaskList.js 
+------------------
+ import React from 'react'
+import { useState } from 'react';
+import Taskcard from './Taskcard';
+export default function TaskList(props) {
+
+  const [tasks, setTasks] = useState(
+          [
+          {id: 5271, name: "Record React Lectures", completed: true},
+          {id: 7825, name: "Edit React Lectures", completed: false},
+          { id: 8391, name: "Watch Lectures", completed: false }
+          ] 
+      );
+
+    const [show, setShow] = useState(true);
+    function handleDelete(id)
+    {
+        setTasks(tasks.filter(task => task.id != id));
+    }
+
+    return (
+      <div>
+        <div>TaskList  {props.title } {props.subtitle}</div>
+      <ul>
+               <button className='trigger' onClick={() => setShow(!show)}>Toggle</button>
+         {
+                 
+              
+               show &&   tasks.map((task, index) => (
+                      
+               <li key={task.id} className={task.completed ? "completed" : "incomplete"}>
+
+                          
+                          <span>{task.id} -- {task.name}</span>
+                          <button className='delete' onClick={()=>handleDelete(task.id)} >Delete</button>
+                      </li>
+                      
+                      
+                  ))
+                  
+
+          }
+            </ul>
+            </div>
+
+
+  )
+}
+
 so now first create TaskCard.js file 
+
+in task lst this part 
+     
+                     <li key={task.id} className={task.completed ? "completed" : "incomplete"}>
+
+                          
+                          <span>{task.id} -- {task.name}</span>
+                          <button className='delete' onClick={()=>handleDelete(task.id)} >Delete</button>
+                      </li>
+
+i have to move to taskcard and after moving it will ask for task which tasklist is sending so i task card send props as task ,
+ key and handlledelete whic needs key 
 
 
 Taskcard.js
 -------------
+without props passing
+----------------------
+import React from 'react'
 
+export default function Taskcard() {
+  return (
+        
+        <li key={task.id} className={task.completed ? "completed" : "incomplete"}>
 
+                          
+                          <span>{task.id} -- {task.name}</span>
+                          <button className='delete' onClick={()=>handleDelete(task.id)} >Delete</button>
+                      </li>         
+                      
+  )
+}
+so it will ask me for task where it is then from the task list i will do lie this 
 
 TaskList.js 
 ----------
+import React from 'react'
+import { useState } from 'react';
+import Taskcard from './Taskcard';
+export default function TaskList(props) {
+
+  const [tasks, setTasks] = useState(
+          [
+          {id: 5271, name: "Record React Lectures", completed: true},
+          {id: 7825, name: "Edit React Lectures", completed: false},
+          { id: 8391, name: "Watch Lectures", completed: false }
+          ] 
+      );
+
+    const [show, setShow] = useState(true);
+    function handleDelete(id)
+    {
+        setTasks(tasks.filter(task => task.id != id));
+    }
+
+    return (
+      <div>
+        <div>TaskList  {props.title } {props.subtitle}</div>
+      <ul>
+               <button className='trigger' onClick={() => setShow(!show)}>Toggle</button>
+         {
+                 
+              
+               show &&   tasks.map((task, index) => (
+                      
+             
+                      <Taskcard  key={task.id} task={task} handleDelete={handleDelete} /> 
+                      
+                  ))
+                  
+
+          }
+            </ul>
+            </div>
 
 
- Index.js 
------------
- 
+  )
+}
+
+now again taskcard with props
+
+Taskcard.js
+-------------
+with props passing
+----------------------
+import React from 'react'
+
+export default function Taskcard(props) {
+  return (
+        
+        <li key={props.task.id} className={props.task.completed ? "completed" : "incomplete"}>
+
+                          
+                          <span>{props.task.id} -- {props.task.name}</span>
+                          <button className='delete' onClick={()=>props.handleDelete(props.task.id)} >Delete</button>
+                      </li>         
+                      
+  )
+}
+
+
 
 
 
