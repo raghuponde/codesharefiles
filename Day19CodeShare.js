@@ -582,7 +582,69 @@ export default function App3() {
   )
 }
 
- 
+ udpated App3.js 
+-----------------
+ import React from 'react'
+import { useState } from 'react';
+import './App.css';
+
+export default function App3() {
+
+    const [tasks, setTasks] = useState(
+        [
+        {id: 5271, name: "Record React Lectures", completed: true},
+        {id: 7825, name: "Edit React Lectures", completed: false},
+        { id: 8391, name: "Watch Lectures", completed: false }
+        ] 
+);
+
+
+  return (
+   <div className="App">
+     <h1>Task List</h1>
+      <ul>
+         {
+         
+                  tasks.map((task, index) => (
+                      
+                      
+                      <li key={index}>
+                          
+                          <span>{task.id} -- {task.name}</span>
+                          <button className='delete'>Delete</button>
+                      </li>
+                      
+                      
+                      
+                  ))
+                  
+
+          }
+      </ul>
+   </div>
+  )
+}
+
+in index.js 
+------------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import  App2  from './App2';
+import App3 from './App3';
+import './App.css'
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+<div>
+    {/* <App />
+    <App2 /> */}
+    <App3/>
+    </div>
+  
+);
+
 
 
 
