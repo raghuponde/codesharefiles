@@ -541,7 +541,25 @@ root.render(
   
 );
 
+now i want to store in useSate hook array also so create a new file App3.js and write rfc there 
 
+App3.js 
+----------
+ import React from 'react'
+
+export default function App3() {
+  return (
+    <div>App3</div>
+  )
+}
+
+
+default code will look like this 
+
+now updated code 
+
+
+ 
 
 
 
