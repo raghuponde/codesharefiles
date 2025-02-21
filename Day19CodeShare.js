@@ -1090,16 +1090,82 @@ root.render(
 Now all the tasks code  which are there in App3.js i want to switch that code into TaskList.js file a new file which i will create it in 
  compoenents fodler rfc and say enter 
 
-let us do that some errors will be there which  i will put and tell and then again will modify below files 
+let us do that in one go all things i had kept proeprly 
 
  TaskList.js 
 ------------
+import React from 'react'
+import { useState } from 'react';
+export default function TaskList() {
+
+  const [tasks, setTasks] = useState(
+          [
+          {id: 5271, name: "Record React Lectures", completed: true},
+          {id: 7825, name: "Edit React Lectures", completed: false},
+          { id: 8391, name: "Watch Lectures", completed: false }
+          ] 
+      );
+
+    const [show, setShow] = useState(true);
+    function handleDelete(id)
+    {
+        setTasks(tasks.filter(task => task.id != id));
+    }
+
+    return (
+      <div>
+      <div>TaskList</div>
+      <ul>
+               <button className='trigger' onClick={() => setShow(!show)}>Toggle</button>
+         {
+                 
+              
+               show &&   tasks.map((task, index) => (
+                      
+                      
+                     <li key={task.id} className={task.completed ? "completed" : "incomplete"}>
+
+                          
+                          <span>{task.id} -- {task.name}</span>
+                          <button className='delete' onClick={()=>handleDelete(task.id)} >Delete</button>
+                      </li>
+                      
+                      
+                      
+                  ))
+                  
+
+          }
+            </ul>
+            </div>
+
+
+  )
+}
 
 
 
 App3.js 
 ----------
 
- 
+ import React from 'react'
+
+import './App3.css';
+import { Header } from './components/Header';
+import TaskList from './components/TaskList';
+export default function App3() {
+
+    
+    
+   
+  return (
+      <div className="App">
+          <Header/>
+       <TaskList />
+          
+   </div>
+  )
+}
+
 
 
