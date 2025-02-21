@@ -12,3 +12,5 @@ create an new app  with the name counterdemo in Day19 folder and close the vscod
 
 npx create=react-app counterdemo
 
+now from the app delete all unwanted files and keep in the folder App.js and App.css and index.html and index.js and index.css files and also 
+keep package.json and package lock json files 
