@@ -1346,12 +1346,12 @@ export default function Taskcard(props) {
 }
 
 
-Now i had added two css files into the src folder and done slight chnage in taskList.js so i am keeping it below you also do this 
+Now i had added two css files into the src folder and taken out the present TaskList.js i am moving it to src folder only 
 
  TaskList.js
 --------------
 import { useState } from 'react';
-import { TaskCard } from './TaskCard';
+import  Taskcard  from './components/Taskcard';
 import "./TaskList.css";
 import "./AddTask.css";
 export const TaskList = () => {
@@ -1378,6 +1378,9 @@ return (
 </section>
 )
 }
+
+export default TaskList
+
 TaskList.css
 -------------
 .tasklist ul{
