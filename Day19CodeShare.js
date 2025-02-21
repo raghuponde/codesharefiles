@@ -117,3 +117,54 @@ function App() {
 }
 
 export default App;
+
+here in console.log it is getting incremented count but in screen it is not happening 
+
+if i put like this onClick={handleAdd()} then also count is zero only so 
+
+what is the solution the solution is using usestate 
+
+so take the variable count and put it in one hook which is usestate and assing some default value 
+
+App.js 
+--------
+ 
+import { useState } from 'react';
+import './App.css';
+
+
+function App() {
+
+  const [count,setCount] = useState(0);
+
+  function handleAdd()
+  {
+    //count = count + 1;
+    console.log(count);
+    setCount(count + 1);
+  }
+ 
+
+  return (
+    <div className="App">
+
+      <div className='box'>
+
+        <p>{count}</p>
+        <button onClick={handleAdd} className='add' >ADD</button>
+        <button className='sub'>SUB</button>
+
+
+      </div>
+     
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
