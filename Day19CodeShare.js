@@ -14,3 +14,16 @@ npx create=react-app counterdemo
 
 now from the app delete all unwanted files and keep in the folder App.js and App.css and index.html and index.js and index.css files and also 
 keep package.json and package lock json files 
+aftter deleting go to index.js and remove deleted refercnes from there like 
+
+import reportWebVitals from './reportWebVitals';
+
+</React.StrictMode>
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+then add one <div> root tag surorind <App/>
