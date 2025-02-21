@@ -424,5 +424,11 @@ function App() {
 
 export default App;
 
+Now add another file with the name App2.js after adding say rafc and press enter 
+App2.js 
+----------
+ 
+
+
 
 
