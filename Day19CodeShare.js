@@ -1087,6 +1087,19 @@ root.render(
   
 );
 
+Now all the tasks which are there in App3.js i want to switch that code into TaskList.js file a new file which i will create it in 
+ compoenents fodler rfc and say enter 
 
+let us do that some errors will be there which  i will put and tell and then again will modify below files 
+
+ TaskList.js 
+------------
+
+
+
+App3.js 
+----------
+
+ 
 
 
