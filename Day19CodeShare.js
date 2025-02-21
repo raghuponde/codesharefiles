@@ -971,6 +971,22 @@ export default function App3() {
   )
 }
 
+Now i want to add headers and in that  i want to add logo which is kept in drive day 19 so in this project which you are doing in src folder create fodler
+assets folder and in that add this logo and then create components folder and add one file Header.js and say put this code which i a goving it to you 
+Header.js 
+-----------
+
+import Logo from "../assets/logo.png"
+export const Header = () => {
+return (
+<header>
+<img src={Logo} alt="" />
+<a href="/">Home</a>
+</header>
+)
+}
+ 
+
 
 
 
