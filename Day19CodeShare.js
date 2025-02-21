@@ -586,7 +586,7 @@ export default function App3() {
 -----------------
  import React from 'react'
 import { useState } from 'react';
-import './App.css';
+import './App3.css';
 
 export default function App3() {
 
@@ -633,7 +633,7 @@ import './index.css';
 import App from './App';
 import  App2  from './App2';
 import App3 from './App3';
-import './App.css'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -646,7 +646,166 @@ root.render(
 );
 
 
+add one file in src folder App3.css 
 
+App3.css
+----------
+ .App {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+h1 {
+    font-size: 28px;
+    text-align: center;
+    margin: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+    border-bottom: 1px solid #d7d7d7;
+    font-size: 18px;
+    padding: 0px 10px;
+}
+
+img {
+    max-width: 40px;
+}
+
+ul {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+li {
+    font: 16px;
+    list-style: none;
+    margin: 20px 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    box-shadow: rgb(62, 150, 0) 0px 1px 4px;
+}
+
+li.incomplete {
+    box-shadow: rgba(135, 20, 0, 0.689) 0px 1px 4px;
+}
+
+button.delete {
+    border: 0px;
+    border-radius: 5px;
+    background-color: #be3434;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button.trigger {
+    border: 0px;
+    border-radius: 5px;
+    background-color: #0F3460;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.box {
+    width: 400px;
+    margin: 20px auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 20px 5px;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.box.success {
+    background-color: #baffbf;
+}
+
+.box.alert {
+    background-color: #ffb4b4;
+}
+
+.box.warning {
+    background-color: #FFDEB4;
+}
+
+.box p {
+    margin: 10px;
+}
+
+.box p.title {
+    font-size: 20px;
+}
+
+.box p.description {
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
+
+App3.js 
+---------
+import React from 'react'
+import { useState } from 'react';
+import './App3.css';
+
+export default function App3() {
+
+    const [tasks, setTasks] = useState(
+        [
+        {id: 5271, name: "Record React Lectures", completed: true},
+        {id: 7825, name: "Edit React Lectures", completed: false},
+        { id: 8391, name: "Watch Lectures", completed: false }
+        ] 
+);
+
+
+  return (
+   <div className="App">
+     <h1>Task List</h1>
+      <ul>
+         {
+         
+                  tasks.map((task, index) => (
+                      
+                      
+                      <li key={index}>
+                          
+                          <span>{task.id} -- {task.name}</span>
+                          <button className='delete'>Delete</button>
+                      </li>
+                      
+                      
+                      
+                  ))
+                  
+
+          }
+      </ul>
+   </div>
+  )
+}
 
 
 
