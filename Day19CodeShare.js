@@ -163,7 +163,161 @@ function App() {
 
 export default App;
 
+changing other functions also based on usesate 
 
+App.js
+----------
+ 
+import { useState } from 'react';
+import './App.css';
+
+
+function App() {
+
+  const [count,setCount] = useState(0);
+
+  function handleAdd()
+  {
+    //count = count + 1;
+    console.log(count);
+    setCount(count + 1);
+  }
+
+  function handleSub()
+  {
+    setCount(count - 1);
+  }
+
+  function handleReset()
+  {
+    setCount(0);
+  }
+ 
+
+  return (
+    <div className="App">
+
+      <div className='box'>
+
+        <p>{count}</p>
+        <button onClick={handleAdd} className='add' >ADD</button>
+        <button onClick={handleSub} className='sub' >SUB</button>
+        <button onClick={handleReset} className='reset' >RESET</button>
+
+
+      </div>
+     
+    </div>
+  );
+}
+
+export default App;
+
+Now u see i can remove handleSub function and  i can write it as inline also like this 
+
+App.js
+---------
+ 
+import { useState } from 'react';
+import './App.css';
+
+
+function App() {
+
+  const [count,setCount] = useState(0);
+
+  function handleAdd()
+  {
+    //count = count + 1;
+    console.log(count);
+    setCount(count + 1);
+  }
+
+  // function handleSub()
+  // {
+  //   setCount(count - 1);
+  // }
+
+  function handleReset()
+  {
+    setCount(0);
+  }
+ 
+
+  return (
+    <div className="App">
+
+      <div className='box'>
+
+        <p>{count}</p>
+        <button onClick={handleAdd} className='add' >ADD</button>
+        <button onClick={()=>setCount(count-1)} className='sub' >SUB</button>
+        <button onClick={handleReset} className='reset' >RESET</button>
+
+
+      </div>
+     
+    </div>
+  );
+}
+
+export default App;
+
+so like this above also will work for me 
+
+Now suppose i have a situation where three times i am incrementing like i below code instead of saying diretly + 3 three times +1 i willdo 
+
+App.js
+-------
+ 
+import { useState } from 'react';
+import './App.css';
+
+
+function App() {
+
+  const [count,setCount] = useState(0);
+
+  function handleAdd()
+  {
+    //count = count + 1;
+    console.log(count);
+    setCount(count + 1);
+    setCount(count + 1);
+     setCount(count + 1);
+  }
+
+  // function handleSub()
+  // {
+  //   setCount(count - 1);
+  // }
+
+  function handleReset()
+  {
+    setCount(0);
+  }
+ 
+
+  return (
+    <div className="App">
+
+      <div className='box'>
+
+        <p>{count}</p>
+        <button onClick={handleAdd} className='add' >ADD</button>
+        <button onClick={()=>setCount(count-1)} className='sub' >SUB</button>
+        <button onClick={handleReset} className='reset' >RESET</button>
+
+
+      </div>
+     
+    </div>
+  );
+}
+
+export default App;
+so here at a time 3 values are not updated becasue i had kept sequentially it shoudl give me 3 when i click latest value should be 3 but it is not 
+happeing here 
 
 
 
