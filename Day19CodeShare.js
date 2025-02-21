@@ -1158,7 +1158,7 @@ export default function App3() {
     
     
    
-  return (
+  return ( 
       <div className="App">
           <Header/>
        <TaskList />
@@ -1166,6 +1166,35 @@ export default function App3() {
    </div>
   )
 }
+Now i want to send some props from index to tasklist which we have seen earleir 
+
+and i want to provide a seperate a seperate compoent page for each task in task list for that i will create Taskcard.js in this
+Task card js i will copy the code of map looping inside element i will copy and import taskCard in Tasklist 
+
+so now first create TaskCard.js file 
+
+
+Taskcard.js
+-------------
+
+
+
+TaskList.js 
+----------
+
+
+ Index.js 
+-----------
+ 
+
+
+
+
+
+
+
+
+
 
 
 
