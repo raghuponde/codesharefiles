@@ -6,7 +6,7 @@ State generally refers to data or properties that need to be tracking in an appl
 We initialize our state by calling useState in our function component.
 useState accepts an initial state and returns two values:
 The current state.
-A function that updates the state.
+A function that updates the state. 
 
 create an new app  with the name counterdemo in Day19 folder and close the vscode and again open that app folder using vscode only 
 
@@ -60,6 +60,7 @@ border-radius: 5px;
 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 padding: 10px;
 }
+
 p{
 margin-top: 20px;
 font-size: 24px;
