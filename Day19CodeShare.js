@@ -986,6 +986,30 @@ return (
 )
 }
  
+and add it in index.js above Tasks component 
+
+index.js
+---------
+ import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import  App2  from './App2';
+import App3 from './App3';
+import './App.css'
+import { Header } from './components/Header';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+<div>
+    {/* <App />
+    <App2 /> */}
+    <Header/>
+    <App3/>
+    </div>
+  
+);
+
 
 
 
