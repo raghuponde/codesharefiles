@@ -859,6 +859,58 @@ export default function App3() {
 so here i am  actually not deleting the list i am filteting the list based on what matching value is there that which is not matching is shown to me
 means which is matching i am not showing in screen so i am using filte operation in the form of delete indirectly 
 
+conditonal display of elelemts i want to do means based on click of button all i wll show or all i will not show 
+
+
+import React from 'react'
+import { useState } from 'react';
+import './App3.css';
+
+export default function App3() {
+
+    const [tasks, setTasks] = useState(
+        [
+        {id: 5271, name: "Record React Lectures", completed: true},
+        {id: 7825, name: "Edit React Lectures", completed: false},
+        { id: 8391, name: "Watch Lectures", completed: false }
+        ] 
+    );
+    
+    const [show, setShow] = useState(true);
+    function handleDelete(id)
+    {
+        setTasks(tasks.filter(task => task.id != id));
+    }
+
+  return (
+      <div className="App">
+          
+     <h1>Task List</h1>
+          <ul>
+               <button className='trigger' onClick={() => setShow(!show)}>Toggle</button>
+         {
+                 
+              
+               show &&   tasks.map((task, index) => (
+                      
+                      
+                      <li key={index}>
+                          
+                          <span>{task.id} -- {task.name}</span>
+                          <button className='delete' onClick={()=>handleDelete(task.id)} >Delete</button>
+                      </li>
+                      
+                      
+                      
+                  ))
+                  
+
+          }
+      </ul>
+   </div>
+  )
+}
+
 
 
 
