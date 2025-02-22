@@ -1107,7 +1107,7 @@ npm i react-router-dom@6.4.3
  
 now all pages are in src folder so 
 
- index.js 
+ Header.js 
  ---------
   
 import React from 'react';
