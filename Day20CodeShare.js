@@ -531,7 +531,11 @@ in app.js remove
         </a>
       </header>
 
-and jst  put there hello world and run 
+and jst  put there hello world and run so this is the intial set up okay 
+
+next 
+
+
 
 
 
