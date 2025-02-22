@@ -535,7 +535,7 @@ and jst  put there hello world and run so this is the intial set up okay
 
 next 
 
-
+npm install -g json-server (open a new terminal and from shopmate only u fire this command ) 
 
 
 
