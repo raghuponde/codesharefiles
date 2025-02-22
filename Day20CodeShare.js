@@ -592,7 +592,13 @@ db.json
         }
    ]
 }
- 
+so you can say this as an end point through which our front end interacts using react okay
+now i have to run json server so from the termnal where u have installed json server from that terminal i will open now
+and will type the following command there 
+
+json-server --watch data/db.json --port 8000
+
+and paste the end points localhost:8000/products to see data in web api  
 
 
 
