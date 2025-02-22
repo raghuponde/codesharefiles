@@ -423,3 +423,16 @@ export const AddTask = ({tasks,setTasks}) => {
 
 so this also is taking tasks and settasks as while adding a new task where it can add we have to provide tasks to him
 and how it can add using setTasks only so it is also taking as props tasks and settasks 
+
+so what task i was doing for add task i can do it using useref hook also just analyze the code you will understand here i am attaching it to the control so it is same as usestate but u cannot show or redner the chnaged values on paage like how u you were doing for <p>{taskvalue}</p>
+
+so  addtask text box will behave same only like earleir but instead of usestate  on that text box i will use useref hook 
+
+
+
+
+
+
+
+
+
