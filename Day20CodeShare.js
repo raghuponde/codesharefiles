@@ -495,6 +495,17 @@ export const AddTask = ({tasks,setTasks}) => {
   )
 }
 
+UseEffect :
+-----------
+ This is also one hook here any function u want to execute may be web api function means how you want to execute it one time u want to execute it 
+or if u do some change in some varible means if any change is happneded in one variable then only the function should execute 
+so how u want to do it will be decided by useEffect hookk
+
+in this i will use fake server which will have some ready made data 
+means i want to use dummy back end or fake back where in some online functions some data is there that data i want to call using some 
+function but based on use effect and its dependencise here dependencse means how i am executing the function in use effect 
+
+
 
 
 
