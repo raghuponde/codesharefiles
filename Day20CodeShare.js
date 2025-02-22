@@ -511,7 +511,7 @@ https://www.npmjs.com/package/json-server
 right now it is looking like this ..later on it can change
 
 create a new app with name shopmate and do intial set up in that remove all files except package two files and let the files of 
-App.js ,App.css and index.js and index.css let it be there 
+App.js ,App.css and index.js and index.css and index.html let it be there 
 configure and once see all are working fine or not 
 
 
