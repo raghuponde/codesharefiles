@@ -221,7 +221,9 @@ again you can update AddTask.css with the below
 
 just paste this css for future referecne 
 
-
+Now i will work on on submit method of form so i am calling a method over there prevent defaults to avoid page refresh and also to remove data after clicking
+submit button i am doing handle reset method and finally i am creating a drop and from there doing selection and data type which i am getting there is string
+that i am converting into Boolean and what is value of progress that i am using it and supplying it value so just analyze the code you will understand it clearly .
 
 
 
