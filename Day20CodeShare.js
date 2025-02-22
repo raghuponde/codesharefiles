@@ -225,6 +225,67 @@ Now i will work on on submit method of form so i am calling a method over there 
 submit button i am doing handle reset method and finally i am creating a drop and from there doing selection and data type which i am getting there is string
 that i am converting into Boolean and what is value of progress that i am using it and supplying it value so just analyze the code you will understand it clearly .
 
+ Modified AddTask.js 
+-----------------------
+ import React from 'react'
+import "./AddTask.css";
+import { useState } from 'react';
+
+export const AddTask = () => {
+
+    const [taskValue, setTaskValue] = useState("");
+    const [progress, setProgress] = useState(false);
+
+    const handleChange = (event) =>
+    {
+
+       setTaskValue(event.target.value)
+    }
+
+    const handleReset = () =>
+    {
+        setTaskValue("");
+    }
+
+    const handleDropdown = (e) =>
+    {
+        setProgress(e.target.value);
+    }
+    const handleSubmit = (event) =>
+    {
+        event.preventDefault();
+        const task =
+        {
+            id : Math.floor(Math.random() * 10000),
+                name :taskValue,
+                completed:Boolean(progress)
+        }
+        console.log(task);
+        handleReset();
+    }
+
+    return (
+      
+        <section className="addtask">
+
+            <form onSubmit={handleSubmit}>
+                
+                <input type="text" onChange={handleChange} name="task" id="task" placeholder='enter task name' autoComplete="off" 
+                    value={taskValue} />
+                <select onChange={handleDropdown} value={progress}>
+                    <option value="false">Pending</option>
+                    <option value="true">Completed</option>
+               </select>
+                        <button type="submit" style={{ background: "blue" }}>Add task</button><br/>
+             
+                <button onClick={handleReset} className='reset' style={{ background: "blue",color:"white" }} >Reset</button>
+          </form>
+          <p> {taskValue}</p>
+        </section>
+   
+  )
+}
+
 
 
 
