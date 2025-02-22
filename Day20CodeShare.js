@@ -600,6 +600,11 @@ json-server --watch data/db.json --port 8000
 
 and paste the end points localhost:8000/products to see data in web api  
 
+for url 
+
+http://localhost:8000/products/10001  ( for single products)
+
+
 
 
 
