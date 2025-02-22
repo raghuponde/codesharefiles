@@ -118,4 +118,54 @@ AddTask.css
 }
 update this your project upto here now 
 
-so 
+so now i want to add a task now in the componenets folder only i want to add tasks 
+add a file in componenets folder AddTask.js say rafc enter 
+
+AddTask.js
+------------
+ import React from 'react'
+import "./AddTask.css";
+import { useState } from 'react';
+
+export const AddTask = () => {
+
+    const [taskValue, setTaskValue] = useState("");
+
+    const handleChange = (event) =>
+    {
+
+       setTaskValue(event.target.value)
+    }
+
+    const handleReset = () =>
+    {
+        setTaskValue("");
+    }
+
+    return (
+      
+        <section className="addtask">
+
+            <form >
+                
+                <input type="text" onChange={handleChange} name="task" id="task" placeholder='enter task name' autoComplete="off" 
+                    value={taskValue} />
+                <button type="submit" style={{ background: "blue" }}>Add task</button><br/>
+             
+                <button onClick={handleReset} className='reset' style={{ background: "blue",color:"white" }} >Reset</button>
+          </form>
+          <p> {taskValue}</p>
+        </section>
+   
+  )
+}
+
+
+
+
+
+
+
+
+
+
