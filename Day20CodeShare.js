@@ -1378,11 +1378,11 @@ root.render(
 );
 
 
-some more pages i am adding like main category is products and under products -->CreateProduct ,ProductDetails,ProductList 
+some more pages i am adding like main category is products and under products -->CreateProduct ,DisplayProduct,ProductList 
  so create one folder with name products in src folder and then add 3 pages and rfce do it 
 
   
- 
+  
 
   
 
