@@ -821,3 +821,17 @@ index.css
       background-color: #065ba0;
     }
 
+
+
+here use effect [] means logic will execute only once now i want to execut the logic when some thing is chnaged 
+
+i will take count variable and put that count variable in [ count] that will dependecny when count chnages logic will execute let us 
+
+see i had modified the code further by keeping All and in stock only to display 
+
+
+
+
+
+
+
