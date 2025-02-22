@@ -291,4 +291,135 @@ i have to add task and using add task component i have to add it TaskList.js so 
  so not possible to do that so in App3.js file only i will
 take the collection of arrays and will work like this for which the code is provided okay .
 
+ so now i am removing the array from taskList to App3 and from App3 tasks and and settaks i am passsing to tasklist and
+also to add task also as props 
 
+App3.js 
+----------
+ import React from 'react'
+import { useState } from 'react';
+import './App3.css';
+import { Header } from './components/Header';
+import TaskList from './components/TaskList';
+import { AddTask } from './components/AddTask';
+export default function App3() {
+
+    const [tasks, setTasks] = useState([
+    {id: 5271, name: "Record React Lectures", completed: true},
+    {id: 7825, name: "Edit React Lectures", completed: false},
+    {id: 8391, name: "Watch Lectures", completed: false}
+    ]);
+    
+   
+  return (
+      <div className="App">
+      <Header />
+      <AddTask tasks={tasks} setTasks={setTasks}/>
+       <TaskList title="Random" subtitle="Test" tasks={tasks} setTasks={setTasks} />
+          
+   </div>
+  )
+}
+
+
+you can see it has taken cutted the array from TaskList.js 
+
+TaskList.js 
+--------------
+ import { useState } from 'react';
+import  Taskcard  from './Taskcard';
+import "./TaskList.css";
+import "./AddTask.css";
+
+export const TaskList = ({tasks,setTasks}) => {
+
+const [show, setShow] = useState(true);
+function handleDelete(id){
+setTasks(tasks.filter(task => task.id !== id));
+}
+return (
+        <section className='tasklist'>
+            <ul>
+                <div className='header'>
+                <h1>TaskList</h1>
+                <button className='trigger' onClick={() => setShow(!show)}>{ show ? "Hide Tasks" : "Show Tasks"}</button>
+                </div>
+                { show && tasks.map((task) => (
+                <Taskcard key={task.id} task={task} handleDelete={handleDelete} />
+                )) }
+            </ul>
+        </section>
+)
+}
+
+export default TaskList
+
+so it is taking as props as it has given it is taking and substituting where is needed the list 
+
+AddTask.js 
+-----------
+ import React from 'react'
+import "./AddTask.css";
+import { useState } from 'react';
+
+export const AddTask = ({tasks,setTasks}) => {
+
+    const [taskValue, setTaskValue] = useState("");
+    const [progress, setProgress] = useState(false);
+
+    const handleChange = (event) =>
+    {
+
+       setTaskValue(event.target.value)
+    }
+
+    const handleReset = () =>
+    {
+        setTaskValue("");
+    }
+
+    const handleDropdown = (event) =>
+    {
+        setProgress(event.target.value);
+    }
+    const handleSubmit = (event) =>
+    {
+        event.preventDefault();
+        const task =
+        {
+            id : Math.floor(Math.random() * 10000),
+                name :taskValue,
+                completed:Boolean(progress)
+        }
+      // console.log(task);
+//setTasks(task) // this will give error as it is list so chnaged like this below
+//setTasks([task])// this will override earlier 3 tasks so finally i will write this we have to follow this rule
+        setTasks([...tasks,task])
+        handleReset();
+    }
+
+    return (
+      
+        <section className="addtask">
+
+            <form onSubmit={handleSubmit}>
+                
+                <input type="text" onChange={handleChange} name="task" id="task" placeholder='enter task name' autoComplete="off" 
+                    value={taskValue} />
+                <select onChange={handleDropdown} value={progress}>
+                    <option value="false">Pending</option>
+                    <option value="true">Completed</option>
+               </select>
+                        <button type="submit" style={{ background: "blue" }}>Add task</button><br/>
+             
+                <button onClick={handleReset} className='reset' style={{ background: "blue",color:"white" }} >Reset</button>
+          </form>
+          <p> {taskValue}</p>
+        </section>
+   
+  )
+}
+
+
+so this also is taking tasks and settasks as while adding a new task where it can add we have to provide tasks to him
+and how it can add using setTasks only so it is also taking as props tasks and settasks 
