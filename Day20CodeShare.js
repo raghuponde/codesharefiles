@@ -844,7 +844,7 @@ export const ProductList = () => {
         fetch(url)
             .then(response => response.json())
             .then(data => setProducts(data));
-    }, [url]);
+    }, [url]); // here also based on url change use effect method will be called 
 
     useEffect(() => {
         console.log(counter);
