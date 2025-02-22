@@ -1031,6 +1031,10 @@ Footer.js
 NotFound.js 
 
 
+first take Header.js okay 
+
+and go to getbootsrap.com and from there search nav bar and put it here 
+
 
 
 
