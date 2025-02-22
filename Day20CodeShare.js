@@ -286,6 +286,9 @@ export const AddTask = () => {
   )
 }
 
-
+Now i need to add the task object into the current 3 array elements as 4th element okay
+i have to add task and using add task component i have to add it TaskList.js so but they both are siblings 
+ so not possible to do that so in App3.js file only i will
+take the collection of arrays and will work like this for which the code is provided okay .
 
 
