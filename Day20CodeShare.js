@@ -1382,7 +1382,127 @@ some more pages i am adding like main category is products and under products --
  so create one folder with name products in src folder and then add 3 pages and rfce do it 
 
   
+  after adding above pages 
+
+ inndex.js 
+ -----------
+  import React from "react";
+import ReactDOM from "react-dom/client";
+import { Header } from "./Header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CryptoGrpahy } from "./CryptoGrpahy";
+import { AboutUs } from "./AboutUs";
+import { Home } from "./Home";
+import { NotFound } from "./NotFound"
+import DisplayProduct from "./products/DisplayProduct";
+import CreateProduct from "./products/CreateProduct";
+import ProductList from "./products/ProductList";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/aboutus" element={<AboutUs />}></Route>
+        <Route path="/cryptography" element={<CryptoGrpahy />}></Route>
+        <Route path="/products/display" element={<DisplayProduct />}></Route>
+        <Route path="/products/create" element={<CreateProduct />}></Route>
+        <Route path="/products/list" element={<ProductList />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
+);
+
+ Now in header .js 
+ ----------------
   
+import React from 'react';
+import { Link } from "react-router-dom";
+
+export const Header = () => {
+  return (
+    <nav className="navbar navbar-expand-lg bg-light">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">Navbar scroll</a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarScroll">
+          <ul
+            className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+            style={{ '--bs-scroll-height': '100px' }} // ✅ React style syntax
+          >
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/aboutus">
+                Aboutus
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/cryptography">
+                Cryptogrpahy
+              </Link>
+            </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+              products
+              </a>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link className="nav-link" to="/products/create">
+                   Createproduct
+                  </Link>
+
+                </li>
+                <li>
+                  <Link className="nav-link" to="/products/list">
+                  ProductList
+               </Link>
+                </li>
+                <li>
+                  <Link className="nav-link" to="/products/display">
+                    Producdisplay
+                  </Link>
+                </li>
+
+              
+              </ul>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link disabled">Link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+
+
+
+
 
   
 
