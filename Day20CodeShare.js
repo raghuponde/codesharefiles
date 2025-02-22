@@ -831,7 +831,7 @@ see i had modified the code further by keeping All and in stock only to display
 
 ProductLst.js 
 ------------------
- import { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 
 export const ProductList = () => {
 
@@ -841,7 +841,7 @@ export const ProductList = () => {
     console.log(products);
     useEffect(() => {
 
-        fetch("http://localhost:8000/products")
+        fetch(url)
             .then(response => response.json())
             .then(data => setProducts(data));
     }, [url]);
@@ -873,9 +873,6 @@ export const ProductList = () => {
         </section>
     )
 }
-
-
-
 
 
 
