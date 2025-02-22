@@ -505,7 +505,14 @@ in this i will use fake server which will have some ready made data
 means i want to use dummy back end or fake back where in some online functions some data is there that data i want to call using some 
 function but based on use effect and its dependencise here dependencse means how i am executing the function in use effect 
 
+Here now i will be creating an api and api is generally created at back end now i don't have to learn back end technology like asp.net core i will use fake server
+means some dummy kind of server here which is json server okay
+https://www.npmjs.com/package/json-server
+right now it is looking like this ..later on it can change
 
+create a new app with name shopmate and do intial set up in that remove all files except package two files and let the files of 
+App.js ,App.css and index.js and index.css let it be there 
+configure and once see all are working fine or not 
 
 
 
