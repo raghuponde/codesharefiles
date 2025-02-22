@@ -538,6 +538,64 @@ next
 npm install -g json-server (open a new terminal and from shopmate only u fire this command ) 
 
 
+PS D:\GreatLearning4\Day20\shopmate> npm install -g json-server
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'milliparsec@4.0.0',
+npm WARN EBADENGINE   required: { node: '>=20' },
+npm WARN EBADENGINE   current: { node: 'v18.19.1', npm: '10.2.4' }
+npm WARN EBADENGINE }
+
+changed 45 packages in 10s
+
+14 packages are looking for funding
+  run `npm fund` for details
+PS D:\GreatLearning4\Day20\shopmate> 
+
+ next create one fodler in shopmate project data and there add one file with extension db.json 
+
+and add this data in that file 
+db.json
+--------
+{
+        "products": 
+    [
+        {
+        "id": 10001,
+        "name": "Basics To Advanced In React",
+        "price": 99,
+        "in_stock": true
+        },
+        {
+        "id": 10002,
+        "name": "Django Framework for Beginners",
+        "price": 49,
+        "in_stock": true
+
+        },
+        {
+        "id": 10003,
+        "name": "The Complete Guide to Backend Development",
+        "price": 49,
+        "in_stock": true
+        },
+        {
+        "id": 10004,
+        "name": "Build a Blockchain from Scratch in Go",
+        "price": 19,
+        "in_stock": false
+        },
+        {
+        "id": 10005,
+        "name": "Build a Blockchain from Scratch in React",
+        "price": 199,
+        "in_stock": false
+        }
+   ]
+}
+ 
+
+
+
 
 
 
