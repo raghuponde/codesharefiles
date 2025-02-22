@@ -604,7 +604,37 @@ for url
 
 http://localhost:8000/products/10001  ( for single products)
 
+now add one file in src ProductList.js 
 
+ProductList.js 
+------------------
+import { useState } from "react"
+export const ProductList = () => {
+
+            const [products, setProducts] = useState([]);
+            fetch("http://localhost:8000/products")
+            .then(response => response.json())
+            .then(data => console.log(data));
+            return (
+            <div>ProductList</div>
+)
+}
+
+
+
+App.js 
+--------
+ import './App.css';
+import { ProductList } from './ProductList';
+function App()
+{
+        return (
+        <div className="App">
+        <ProductList />
+        </div>
+        );
+}
+export default App;
 
 
 
