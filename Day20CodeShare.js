@@ -637,7 +637,28 @@ function App()
 export default App;
 
 
+so above i am not storing in products array so now i will do that 
 
+updated ProductList.js 
+----------------------
+ import { useState } from "react"
 
+export const ProductList = () => {
 
+    
+          const [products, setProducts] = useState([]);
+            console.log(products);
+            fetch("http://localhost:8000/products")
+            .then(response => response.json())
+            .then(data => setProducts(data));
+            return (
+            <div>ProductList</div>
+            )
+}
+
+wheni am trying to set products in products array variable it is going into infinite loop why 
+
+for the above change of code infinite loop is running here every time i am updating the product it is again rendering it and going into infinite loop
+
+To over come this scenario put your code in use effect 
 
