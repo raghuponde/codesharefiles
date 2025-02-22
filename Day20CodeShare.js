@@ -1275,7 +1275,86 @@ export const Header = () => {
 
 now here what u are specifying in index.js same thing pat need to be there in header.js 
  
+the page is refershing every time when i click links in header it should not happen for that 
 
+ in header code is changed like this 
+
+ Header.js 
+ ------------
+
+import React from 'react';
+import { Link } from "react-router-dom";
+
+export const Header = () => {
+  return (
+    <nav className="navbar navbar-expand-lg bg-light">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">Navbar scroll</a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarScroll">
+          <ul
+            className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+            style={{ '--bs-scroll-height': '100px' }} // ✅ React style syntax
+          >
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/aboutus">
+                Aboutus
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/cryptography">
+                Cryptogrpahy
+              </Link>
+            </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Link
+              </a>
+              <ul className="dropdown-menu">
+                <li><a className="dropdown-item" href="#">Action</a></li>
+                <li><a className="dropdown-item" href="#">Another action</a></li>
+                <li><div className="dropdown-divider"></div></li> {/* ✅ Replaced <hr> */}
+                <li><a className="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link disabled">Link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+
+
+
+
+
+
+  
 
 
 
