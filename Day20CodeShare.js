@@ -514,6 +514,25 @@ create a new app with name shopmate and do intial set up in that remove all file
 App.js ,App.css and index.js and index.css and index.html let it be there let the logos also be there 
 configure and once see all are working fine or not 
 
+in app.js remove 
+
+   <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+
+and jst  put there hello world and run 
+
 
 
 
