@@ -966,3 +966,19 @@ button {
     background-color: #065ba0;
   }
 
+Routing in react
+-----------------
+ here some pages will be there based on routing i will jump to that page so first create a app with the name routopedia 
+and do intial set up of files like done earlier and dont delete logos and dont delete index.html,cssand js fies 
+also dont delete App.js and css files and package files 
+
+and then 
+
+
+
+
+
+
+
+
+
