@@ -662,3 +662,34 @@ for the above change of code infinite loop is running here every time i am updat
 
 To over come this scenario put your code in use effect 
 
+useEffect=(()=>{},[]);
+
+[] means dependency here empty square means one time i will execute 
+
+so to overcome that we use useEffect here it takes two parameters one is function and another is when we need to run this function whether we need to run it
+once or we need to run this multiple times or we need to take care of any other dependencies so we need to pass that dependency list into the square bracket
+means for that only i will work or any change happens there then only i will work okay
+so inside the flower bracket i can write any action okay
+when the array is empty the use effect will be called only once
+
+
+import { useState ,useEffect} from "react"
+
+export const ProductList = () => {
+
+    
+          const [products, setProducts] = useState([]);
+         console.log(products);
+        useEffect(()=>{
+
+            fetch("http://localhost:8000/products")
+            .then(response => response.json())
+            .then(data => setProducts(data));
+         }, []);
+
+               return (
+            <div>ProductList</div>
+            )
+}
+
+
