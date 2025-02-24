@@ -63,6 +63,10 @@ when u are doing insert,update or delete then get and post both will come why ??
  delete means deleting the data
 
 
+right now i am a default weatherforcest controller which is havinh  a get method what it does just gives me the values 
+
+here design is not there only console is there so we will concentrate on web api only right now 
+
 
 
 
