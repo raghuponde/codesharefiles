@@ -896,6 +896,124 @@ namespace Webapidemo.Controllers
     }
 }
 
+Micro service demo
+-------------------
+file new project in search type Blank solution 
+
+so create one solution of blank with the name MicroService Example
+
+Now add one new web api project with the name ProductService   
+
+in the same manner add another project OrderService same web api project  only 
+
+
+In the both the projects add folder Models into it and add the following classes in both the projects into their respective models folder 
+
+namespace ProductService.Models
+{
+    public class Product
+    {
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+    }
+}
+
+
+
+namespace OrderService.Models
+{
+    public class Order
+    {
+
+        public int Id { get; set; }
+        public string ProductName { get; set; }
+        public int Quantity { get; set; }
+    }
+}
+
+
+Now add ProductsController and OrdersController into respective seeprate projects both empty controller only and then add the belowc codes which i have given 
+Note API section only go and create not mvc 
+
+
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using ProductService.Models;
+
+namespace ProductService.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductsController : ControllerBase
+    {
+        private static readonly List<Product> Products = new()
+        {
+            new Product { Id = 1, Name = "Product A", Price = 100 },
+            new Product { Id = 2, Name = "Product B", Price = 200 }
+        };
+
+        [HttpGet]
+        public IActionResult GetAllProducts()
+        {
+            return Ok(Products);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetProductById(int id)
+        {
+            var product = Products.FirstOrDefault(p => p.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
+        }
+    }
+}
+
+
+
+
+
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using OrderService.Models;
+
+namespace OrderService.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class OrdersController : ControllerBase
+    {
+        private static readonly List<Order> Orders = new()
+        {
+            new Order { Id = 1, ProductName = "Product A", Quantity = 2 },
+            new Order { Id = 2, ProductName = "Product B", Quantity = 1 }
+        };
+
+        [HttpGet]
+        public IActionResult GetAllOrders()
+        {
+            return Ok(Orders);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetOrderById(int id)
+        {
+            var order = Orders.FirstOrDefault(o => o.Id == id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            return Ok(order);
+        }
+    }
+}
+
 
 
 
