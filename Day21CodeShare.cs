@@ -745,6 +745,10 @@ as per your sql server configuration
 
 so change server name and dataabase name as per your sql server 
 
+now go to dependencies and write install Microsoft.Data.sqlclient  from nugget manage nugget packaes and browse type this 
+
+ 
+
 
 
 
