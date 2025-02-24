@@ -745,7 +745,52 @@ as per your sql server configuration
 
 so change server name and dataabase name as per your sql server 
 
-now go to dependencies and write install Microsoft.Data.sqlclient  from nugget manage nugget packaes and browse type this 
+now go to dependencies and write install Microsoft.Data.sqlclient  from nugget manage nugget packages and browse type this and install 
+
+and then write the first method to get employees from database to web api 
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;  // namespace include 
+namespace Webapidemo.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class Emp2Controller : ControllerBase
+    {
+
+        private readonly string connectionString = "Server=LAPTOP-4G8BHPK9\\SQLEXPRESS;Database=EmployeeDataDb;Trusted_Connection=True;TrustServerCertificate=True;";
+
+        // ✅ GET All Employees
+        [HttpGet]
+        public List<Employee> GetEmployees()
+        {
+            List<Employee> employees = new List<Employee>();
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Employee", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                employees.Add(new Employee
+                {
+                    Id = reader.GetInt32(0),
+                    Name = reader.IsDBNull(1) ? null : reader.GetString(1),
+                    Place = reader.GetString(2)
+                });
+            }
+
+            reader.Close();
+            conn.Close();
+
+            return employees;
+        }
+
+    }
+}
+
 
  
 
