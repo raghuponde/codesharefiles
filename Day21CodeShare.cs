@@ -897,11 +897,13 @@ namespace Webapidemo.Controllers
 }
 
 Micro service demo
--------------------
+------------------- 
 you have to go with a new solution not Day21Projects so go with new solution 
 
 
 file new project in search type Blank solution 
+
+
 
 so create one solution of blank with the name MicroService Example
 
@@ -952,6 +954,7 @@ namespace ProductService.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
+
         private static readonly List<Product> Products = new()
         {
             new Product { Id = 1, Name = "Product A", Price = 100 },
@@ -959,20 +962,20 @@ namespace ProductService.Controllers
         };
 
         [HttpGet]
-        public IActionResult GetAllProducts()
+        public List<Product> GetAllProducts()
         {
-            return Ok(Products);
+            return (Products);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetProductById(int id)
+        public Product GetProductById(int id)
         {
-            var product = Products.FirstOrDefault(p => p.Id == id);
+            var product = Products.Find(x => x.Id == id);
             if (product == null)
             {
-                return NotFound();
+                return new Product { Name = "Product not found ", Price = 0 };
             }
-            return Ok(product);
+            return product;
         }
     }
 }
@@ -992,6 +995,8 @@ namespace OrderService.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
+
+
         private static readonly List<Order> Orders = new()
         {
             new Order { Id = 1, ProductName = "Product A", Quantity = 2 },
@@ -999,20 +1004,20 @@ namespace OrderService.Controllers
         };
 
         [HttpGet]
-        public IActionResult GetAllOrders()
+        public List<Order> GetAllOrders()
         {
-            return Ok(Orders);
+            return Orders;
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetOrderById(int id)
+        public Order GetOrderById(int id)
         {
-            var order = Orders.FirstOrDefault(o => o.Id == id);
+            var order = Orders.Find(x => x.Id == id);
             if (order == null)
             {
-                return NotFound();
+                return new Order { ProductName = "order not found ", Quantity = 0 };
             }
-            return Ok(order);
+            return order;
         }
     }
 }
