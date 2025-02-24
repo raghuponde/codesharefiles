@@ -103,5 +103,9 @@ namespace Webapidemo.Controllers
     }
 }
 
+so i am seeing one contoller it is telling that base url is you have to write api/Emp to get the output of function 
+
+
+
 
 
