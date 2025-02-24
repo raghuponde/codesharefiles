@@ -724,6 +724,23 @@ right click --->add-->controller ---> left side go to api section -->select api 
 you have to give suffix as Controller it is a convention means some rule to follow 
  
 
+go to app settings file and thee after AllowedHosts :"*" put , and write this code 
+
+as per your sql server configuration 
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=LLAPTOP-4G8BHPK9\SQLEXPRESS;Database=EmployeeDataDb;Trusted_Connection=True;TrustServerCertificate=True;"
+  }
+
+}
 
 
 
