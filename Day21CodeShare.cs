@@ -1,6 +1,6 @@
  
 open one visual studio project 2022 C#--- all plarforms-- web 
-
+ 
 select asp.net core web api 
 
 create a project .net 8.0 you can select 
