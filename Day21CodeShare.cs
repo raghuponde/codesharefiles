@@ -185,5 +185,7 @@ namespace Webapidemo.Controllers
     }
 }
 
+if u dont write on the top  [HttpGet] then swagger is unable to identity your function 
+
 
 
