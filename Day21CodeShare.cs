@@ -131,6 +131,8 @@ namespace Webapidemo.Controllers
 }
 
 
+now i had told web api means online function so first generally i will write one function and return some employees from that function 
+
 
 
 
