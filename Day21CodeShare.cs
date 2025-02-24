@@ -84,5 +84,13 @@ the above default method i can chnage like this also means i will write the rout
         }
     }
 
+Now right clikc on controller folder and add new controller how to do it 
+
+
+right click --->add-->controller ---> left side go to api section -->select api empty controller and give name as EmpController and say enter 
+
+you have to give suffix as Controller it is a convention means some rule to follow 
+
+
 
 
