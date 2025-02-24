@@ -1000,7 +1000,7 @@ namespace OrderService.Controllers
         private static readonly List<Order> Orders = new()
         {
             new Order { Id = 1, ProductName = "Product A", Quantity = 2 },
-            new Order { Id = 2, ProductName = "Product B", Quantity = 1 }
+            new Order { Id = 2, ProductName = "Product B", Quantity = 1 } 
         };
 
         [HttpGet]
@@ -1022,6 +1022,96 @@ namespace OrderService.Controllers
     }
 }
 
+Now again create another web api project with the name ApiGateWay 
+
+in this ApigateWay project add dependency from nugget which is Ocelot.  (by Tom Pallister)
+
+Now add one json file into the project means search in new item .json file and give name as Ocelot 
+
+now i am given some default code paste this code in that file 
+
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/products",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7053
+        }
+      ],
+      "UpstreamPathTemplate": "/product-service/products",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/products/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7053
+        }
+      ],
+      "UpstreamPathTemplate": "/product-service/products/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/orders",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7244
+        }
+      ],
+      "UpstreamPathTemplate": "/order-service/orders",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/orders/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7244
+        }
+      ],
+      "UpstreamPathTemplate": "/order-service/orders/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7056"
+  }
+}
+
+now come to Program.cs of apigateway 
+
+and do the following chnages 
+--------------------------------
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+
+
+
+ var builder = WebApplication.CreateBuilder(args);
+
+ builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+ builder.Services.AddOcelot();
+
+ var app = builder.Build();
+
+ // Use Ocelot Middleware
+ app.UseOcelot().Wait();
+
+
+Now go to solution properties and select multuple start up projects say from none to start to all
+
+
+now run 
+
+and through url of webapigateway u will access order and product service 
 
 
 
