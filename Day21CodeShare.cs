@@ -898,6 +898,9 @@ namespace Webapidemo.Controllers
 
 Micro service demo
 -------------------
+you have to go with a new solution not Day21Projects so go with new solution 
+
+
 file new project in search type Blank solution 
 
 so create one solution of blank with the name MicroService Example
