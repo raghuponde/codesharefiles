@@ -236,4 +236,122 @@ namespace Webapidemo.Controllers
     }
 }
 
+now adding post method here and that method is returing empoyee only which i had inserted 
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Webapidemo.Controllers
+{
+
+
+    public class Employee
+    {
+
+        public int? Id { set; get; }
+
+        public string? Name { set; get; }
+
+        public string  Place { set; get; } = string.Empty;
+    }
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+
+        private static List<Employee> emps = new List<Employee>()
+            {
+                new Employee{Id=1,Name="kiran",Place="bangalore"},
+                 new Employee{Id=2,Name="sita",Place="chennai"},
+                  new Employee{Id=3,Name="mohan",Place="Hyderabad"},
+            };
+
+        [HttpGet]
+        public List<Employee> Employees()
+        {
+            
+            return emps;
+        }
+
+        [HttpGet("Emp2")]
+        public List<Employee> Employees2()
+        {
+           
+            return emps;
+        }
+
+        [HttpPost]
+        public Employee AddEmployee(Employee emp1)
+        {
+            emps.Add(emp1);
+            return emp1;
+        }
+
+
+    }
+}
+
+
+now same add method i will write but it will return collectionof emps 
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Webapidemo.Controllers
+{
+
+
+    public class Employee
+    {
+
+        public int? Id { set; get; }
+
+        public string? Name { set; get; }
+
+        public string  Place { set; get; } = string.Empty;
+    }
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+
+        private static List<Employee> emps = new List<Employee>()
+            {
+                new Employee{Id=1,Name="kiran",Place="bangalore"},
+                 new Employee{Id=2,Name="sita",Place="chennai"},
+                  new Employee{Id=3,Name="mohan",Place="Hyderabad"},
+            };
+
+        [HttpGet]
+        public List<Employee> Employees()
+        {
+            
+            return emps;
+        }
+
+        [HttpGet("Emp2")]
+        public List<Employee> Employees2()
+        {
+           
+            return emps;
+        }
+
+        [HttpPost]
+        public Employee AddEmployee(Employee emp1)
+        {
+            emps.Add(emp1);
+            return emp1;
+        }
+
+        [HttpPost("emppost2")]// same add but after adding returning list of employees
+        public List<Employee> AddEmployee2(Employee emp1)
+        {
+            emps.Add(emp1);
+            return emps;
+        }
+    }
+}
+
 
