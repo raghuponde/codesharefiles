@@ -45,3 +45,26 @@ namespace Webapidemo.Controllers
 }
 
 run and see the effect here how the url is changed 
+in web we have some methods like get ,post,put ,delete etc 
+
+when u are doing insert,update or delete then get and post both will come why ???
+
+
+ when you say get form is shown to you imagine when you say yahoo.com login form is shown to you that is get 
+
+ what is post when u fill the form and press login button that is post your details are sent to some home page of any thing 
+
+ post means adding data or inserting will be there 
+
+ names of method will be same but on the top one attribyte wil come that is get and post which differentates one method from other 
+
+ put means modifying the data udating 
+
+ delete means deleting the data
+
+
+
+
+
+
+
