@@ -93,7 +93,7 @@ you have to give suffix as Controller it is a convention means some rule to foll
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+ 
 namespace Webapidemo.Controllers
 {
     [Route("api/[controller]")]
@@ -792,9 +792,29 @@ namespace Webapidemo.Controllers
 }
 
 
+in this namespace   namespace Webapidemo.Controllers only Employee class is there so i am able to use it in Emp2 conteoller as well
  
 
+so post method 
 
+
+        // ✅ POST Add Employee
+        [HttpPost]
+        public Employee AddEmployee(Employee emp)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Employee (Name, Place) VALUES (@Name, @Place); SELECT SCOPE_IDENTITY();", conn);
+            cmd.Parameters.AddWithValue("@Name", emp.Name ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@Place", emp.Place);
+
+            emp.Id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            conn.Close();
+
+            return emp;
+        }
 
 
 
