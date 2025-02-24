@@ -68,7 +68,21 @@ right now i am a default weatherforcest controller which is havinh  a get method
 here design is not there only console is there so we will concentrate on web api only right now 
 
 
+the above default method i can chnage like this also means i will write the route and mehtod in one line only like this 
 
+ 
+        [HttpGet("weather2")]   // route and method both clubbed here 
+        public IEnumerable<WeatherForecast> Get()
+        {
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+            .ToArray();
+        }
+    }
 
 
 
