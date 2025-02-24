@@ -354,4 +354,82 @@ namespace Webapidemo.Controllers
     }
 }
 
+Adding update method 
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Webapidemo.Controllers
+{
+
+
+    public class Employee
+    {
+
+        public int? Id { set; get; }
+
+        public string? Name { set; get; }
+
+        public string  Place { set; get; } = string.Empty;
+    }
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+
+        private static List<Employee> emps = new List<Employee>()
+            {
+                new Employee{Id=1,Name="kiran",Place="bangalore"},
+                 new Employee{Id=2,Name="sita",Place="chennai"},
+                  new Employee{Id=3,Name="mohan",Place="Hyderabad"},
+            };
+
+        [HttpGet]
+        public List<Employee> Employees()
+        {
+            
+            return emps;
+        }
+
+        [HttpGet("Emp2")]
+        public List<Employee> Employees2()
+        {
+           
+            return emps;
+        }
+
+        [HttpPost]
+        public Employee AddEmployee(Employee emp1)
+        {
+            emps.Add(emp1);
+            return emp1;
+        }
+
+        [HttpPost("emppost2")]// same add but after adding returning list of employees
+        public List<Employee> AddEmployee2(Employee emp1)
+        {
+            emps.Add(emp1);
+            return emps;
+        }
+
+        [HttpPut]
+        public Employee UpdateEmployee(Employee emp1)
+        {
+            var employee1=emps.Find(x=>x.Id==emp1.Id);
+            if (employee1 == null)
+            {
+                return new Employee { Name = "Error", Place = "Employee not found" }; // Returning an Employee object with a message
+            }
+            employee1.Name = emp1.Name;
+            employee1.Place=emp1.Place;
+            return employee1;
+                 
+        }
+
+      
+    }
+}
+
+
 
