@@ -883,7 +883,7 @@ namespace Webapidemo.Controllers
           
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-
+ 
             SqlCommand deleteCmd = new SqlCommand("DELETE FROM Employee WHERE Id = @Id", conn);
             deleteCmd.Parameters.AddWithValue("@Id", id);
             deleteCmd.ExecuteNonQuery();
