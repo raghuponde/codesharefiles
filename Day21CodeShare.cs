@@ -1049,7 +1049,7 @@ now i am given some default code paste this code in that file
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "localhost", 
           "Port": 7053
         }
       ],
