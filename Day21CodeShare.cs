@@ -187,5 +187,53 @@ namespace Webapidemo.Controllers
 
 if u dont write on the top  [HttpGet] then swagger is unable to identity your function 
 
+now taking out the employee code collection outside 
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Webapidemo.Controllers
+{
+
+
+    public class Employee
+    {
+
+        public int? Id { set; get; }
+
+        public string? Name { set; get; }
+
+        public string  Place { set; get; } = string.Empty;
+    }
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+
+        private static List<Employee> emps = new List<Employee>()
+            {
+                new Employee{Id=1,Name="kiran",Place="bangalore"},
+                 new Employee{Id=2,Name="sita",Place="chennai"},
+                  new Employee{Id=3,Name="mohan",Place="Hyderabad"},
+            };
+
+        [HttpGet]
+        public List<Employee> Employees()
+        {
+            
+            return emps;
+        }
+
+        [HttpGet("Emp2")]
+        public List<Employee> Employees2()
+        {
+           
+            return emps;
+        }
+
+
+    }
+}
 
 
