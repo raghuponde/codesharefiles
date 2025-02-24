@@ -133,6 +133,57 @@ namespace Webapidemo.Controllers
 
 now i had told web api means online function so first generally i will write one function and return some employees from that function 
 
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Webapidemo.Controllers
+{
+
+
+    public class Employee
+    {
+
+        public int? Id { set; get; }
+
+        public string? Name { set; get; }
+
+        public string  Place { set; get; } = string.Empty;
+    }
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+
+        [HttpGet]
+        public List<Employee> Employees()
+        {
+            var emps = new List<Employee>()
+            {
+                new Employee{Id=1,Name="kiran",Place="bangalore"},
+                 new Employee{Id=2,Name="sita",Place="chennai"},
+                  new Employee{Id=3,Name="mohan",Place="Hyderabad"},
+            };
+
+            return emps;
+        }
+
+        [HttpGet("Emp2")]
+        public List<Employee> Employees2()
+        {
+            var emps = new List<Employee>()
+            {
+                new Employee{Id=1,Name="kiran",Place="bangalore"},
+                 new Employee{Id=2,Name="sita",Place="chennai"},
+                  new Employee{Id=3,Name="mohan",Place="Hyderabad"},
+            };
+
+            return emps;
+        }
+
+
+    }
+}
 
 
 
