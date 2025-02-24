@@ -698,3 +698,30 @@ namespace Webapidemo.Controllers
 }
 
 
+go to sql server  and create one sammple database with the name EmpDatabase
+
+
+create database EmployeeDataDb
+
+use EmployeeDataDb
+
+CREATE TABLE Employee (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Name NVARCHAR(50),
+    Place NVARCHAR(50)
+);
+
+insert into Employee values('sohan','bangalore');
+insert into Employee values('sita','chennai');
+insert into Employee values('suresh','Delhi');
+
+
+select * from Employee
+
+
+
+
+
+
+
+
