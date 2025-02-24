@@ -718,7 +718,11 @@ insert into Employee values('suresh','Delhi');
 
 select * from Employee
 
+ now add new controller into Controllers folder 
+right click --->add-->controller ---> left side go to api section -->select api empty controller and give name as Emp2Controller and add it 
 
+you have to give suffix as Controller it is a convention means some rule to follow 
+ 
 
 
 
