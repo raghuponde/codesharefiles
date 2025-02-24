@@ -743,6 +743,12 @@ as per your sql server configuration
 }
 
 
+so change server name and dataabase name as per your sql server 
+
+
+
+
+
 
 
 
