@@ -104,6 +104,31 @@ namespace Webapidemo.Controllers
 }
 
 so i am seeing one contoller it is telling that base url is you have to write api/Emp to get the output of function 
+insdie the namespace add one class Employee like this 
+
+ using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Webapidemo.Controllers
+{
+
+
+    public class Employee
+    {
+
+        public int? Id { set; get; }
+
+        public string? Name { set; get; }
+
+        public string  Place { set; get; } = string.Empty;
+    }
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+    }
+}
 
 
 
