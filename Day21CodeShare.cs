@@ -1088,6 +1088,11 @@ now i am given some default code paste this code in that file
 
 now come to Program.cs of apigateway 
 
+here base url is api gateway url means go to proeprties and see launch settngs and there https port check it and api gateway port is base url 
+
+then downstream urls are actual urls of poduct service and order servcie so check therr ports and put he downstrram ports and match a your own url as up streampots 
+for example 
+ "DownstreamPathTemplate": "/api/products",  for this url my url in upstrweam is   "UpstreamPathTemplate": "/product-service/products",
 and do the following chnages 
 --------------------------------
 using Ocelot.DependencyInjection;
