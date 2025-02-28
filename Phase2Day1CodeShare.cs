@@ -687,3 +687,40 @@ public class Employee
 
  };
 
+now for the multiobjectpassing view 
+
+-----------------------------------------
+@model  List<MVCDemo1.Models.Employee>;
+@{
+    ViewData["Title"] = "multiobjectpassing";
+}
+
+<h1>multiobjectpassing</h1>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <table border="1" cellpadding="1" cellspacing="1">
+        <tr>
+            <th>EmployeeID </th>
+            <th>EmployeeName </th>
+            <th>EmployeeSalary </th>
+            <th>Employee Image</th>
+        </tr>
+        
+          @foreach(Employee employee in Model)
+            {
+            <tr>
+                <td>@employee.EmployeeID</td>
+                <td>@employee.EmpName</td>
+                <td>@employee.Salary</td>
+                <td><img src="@employee.ImageUrl" alt="empimage" width="100px" height="100px"/> </td>
+            </tr>
+            }
+       
+    </table>
+</body>
+
