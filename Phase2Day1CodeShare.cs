@@ -47,6 +47,29 @@ namespace LinqDemo
             int[] numbers = new int[] { 12, 3, 45, 67, 99, 103, 51, 22, 61 };
 
             string[] names = new string[] { "ravi", "suresh", "sita", "mahesh", "kishore " };
+
+
+            // give me all the number less than 30 in array numbers 
+
+            // using query syntax 
+
+            var lessthan30 = from number in numbers where number < 30 select number;
+
+            Console.WriteLine("priting numbers less than 30 using query syntax  ");
+            foreach(int num1 in lessthan30)
+            {
+                Console.Write($"{num1}  ");
+            }
+
+            // using method syntax 
+
+            var lessthan30_2 = numbers.Where(x => x < 20);//lambda expression
+            Console.WriteLine("\npriting numbers less than 30 using method syntax  ");
+            foreach (int num1 in lessthan30_2)
+            {
+                Console.Write($"{num1}  ");
+            }
+            Console.ReadLine();
         }
     }
 }
