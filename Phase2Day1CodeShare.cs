@@ -194,8 +194,20 @@ namespace LinqDemo
             {
                 Console.WriteLine($"{name}");
             }
+
+            // retrive customer list and dislay full name by concateninating first name and last name
+            var custlist = Customer.Retrive();
+
+            var fullnames=from cust in custlist select cust.FirstName+ " "+cust.LastName;
+            Console.WriteLine("The complete name of customers ");
+            Console.WriteLine("**********************************");
+            foreach(var c in fullnames)
+            {
+                Console.WriteLine($"{c}");
+
+            }
+
             Console.ReadLine();
         }
     }
 }
-
