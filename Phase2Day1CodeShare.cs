@@ -69,6 +69,21 @@ namespace LinqDemo
             {
                 Console.Write($"{num1}  ");
             }
+
+            // give me all the numbers which are odd using method and query syntax 
+
+            var oddnums = numbers.Where(x => x % 2 != 0);
+            var oddnums2=from number in numbers where number % 2 != 0 select number;
+            Console.WriteLine("\ndisplayng odd nums ");
+            foreach (int num1 in oddnums)
+            {
+                Console.Write($"{num1} ");
+            }
+            Console.WriteLine("\ndisplayng odd nums usng query syntax ");
+            foreach (int num1 in oddnums2)
+            {
+                Console.Write($"{num1} ");
+            }
             Console.ReadLine();
         }
     }
