@@ -762,3 +762,23 @@ so add this in the view above like this
        
     </table>
 </body>
+
+
+action method in home controllerfor display 
+-------------------------------------------
+public IActionResult displayemp(int empid)
+{
+    Employee empfound = (from e in emplist where e.EmployeeID == empid select e).FirstOrDefault();
+    if (empfound != null)
+    {
+        return View(empfound);
+    }
+    else
+    {
+        return Content("No employee found");
+    }
+}
+
+
+
+
