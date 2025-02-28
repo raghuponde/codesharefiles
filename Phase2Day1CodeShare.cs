@@ -549,16 +549,16 @@ namespace MVCDemo1.Controllers
             ViewBag.name1 = name;
             return View();
         }
-
+        Employee emp = new Employee()
+        {
+            EmployeeID = 101,
+            EmpName = "sanjay",
+            Salary = 45000
+        };
         public IActionResult singleobjectpassing()
         {
-            Employee emp = new Employee()
-            {
-                EmployeeID=101,
-                EmpName="sanjay",
-                Salary=45000
-            };
-            return View(emp);
+           
+            return View(emp);//single obj of emp passed here 
         }
         List<Employee> emplist = new List<Employee>()
         {
@@ -579,11 +579,7 @@ namespace MVCDemo1.Controllers
         public IActionResult multiobjectpassing()
         {
             
-            return View(emplist);
+            return View(emplist);// colletion of emp object passed 
         }
     }
 }
-
-
-
-
