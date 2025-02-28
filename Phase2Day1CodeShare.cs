@@ -903,7 +903,7 @@ you have to now add one action method like this in Home controller
 also add a view as nornal way add view -->razzor view ---.add 
 
 now go to htmltemplates.net and download template16 from there and from there add images into my images folder all the images 
-and then add css file into my css folder if wwwwroot 
+and then add css file into my css folder in wwwwroot 
 
 
 and then copy the code of index.html into the wesbite.cshtm without deleting the earleir code ..just down paste it
