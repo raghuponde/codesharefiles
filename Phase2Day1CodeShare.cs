@@ -237,7 +237,7 @@ namespace LinqDemo
             //FirstorDefault i wil do it if u dont use frist or default exception wil come 
             Console.WriteLine("enter customer id to find the details of customer using first or default  ");
             int custid2 = Convert.ToInt32(Console.ReadLine());
-            var checkuser2 = from cust in custlist where cust.CustomerID == custid2 select cust;
+            var checkuser2 =custlist.Where(x=>x.CustomerID==custid2);
            Customer  customerfound2 = checkuser2.FirstOrDefault();
             if (customerfound2 != null)
             {
