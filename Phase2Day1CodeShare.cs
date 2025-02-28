@@ -764,7 +764,7 @@ so add this in the view above like this
 </body>
 
 
-action method in home controllerfor display 
+action method in home controllerfor display  
 -------------------------------------------
 public IActionResult displayemp(int empid)
 {
