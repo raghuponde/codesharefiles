@@ -393,7 +393,9 @@ in  Home controller write thes 3 methods like this
        return "The name of the person is: " + name + " is having age :" + age+"  living in : "+loc;
         }
 
-
+https://localhost:7257/Home/sampledemo3?age=23&name=ravi&loc=chennai
+https://localhost:7257/Home/sampledemo2?age=23&name=ravi
+https://localhost:7257/Home/sampledemo
  
 
 
