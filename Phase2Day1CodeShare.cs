@@ -30,6 +30,7 @@ syntax will be like sql way but
  select comes last and from comes first and in between where ,order by and other functionalities can be used .
 
 create one fodler with the name Day1 and create a new console .net core prject with the name linqdemo using visual studio 2022 
+.net 8.0 use it 
 
  same thing in vs code what u have to do 
 
