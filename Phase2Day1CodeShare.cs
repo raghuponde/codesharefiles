@@ -657,5 +657,7 @@ Multi obet view
     </table>
 </body>
 
-
+Create an images folder inside wwwroot.
+Add your employee images (e.g., john.jpg, jane.jpg, michael.jpg)
+The image URLs should be relative, e.g., /images/john.jpg.
 
