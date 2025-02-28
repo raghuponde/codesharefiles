@@ -401,7 +401,23 @@ https://localhost:7257/Home/sampledemo2?age=23&name=ravi
 https://localhost:7257/Home/sampledemo
  
 The methods which i have written above are just returning a string so i am not seeing desing when i say view page source in the web page 
+but when i do this url 
 
+https://localhost:7257/Home/Index
+https://localhost:7257/Home/privacy 
 
+and say view page source i can see the desing because these methods have a return type of IActionResult which says that i will always return a view 
+which is there in mehtods
 
+ public IActionResult Index()
+ {
+     return View();
+ }
+
+ public IActionResult Privacy()
+ {
+     return View();
+ }
+
+for everyIAction method there i a view present in Views fodler ---->Home--->Index, in the same manner Prvacy view will be there 
 
