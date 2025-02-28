@@ -462,4 +462,31 @@ and just say add
 
 and now call the page u can see the output and say view page souce u can see the desing also means in the desinig your data is kept and given to you 
 
+Now let us include models also in the programing 
+
+so in Models folder add Employee and Department classes like this
+
+namespace MVCDemo1.Models
+{
+    public class Employee
+    {
+        public int EmployeeID { get; set; }
+        public string? EmpName { get; set; }
+
+        public int Salary { set; get; }
+    }
+}
+namespace MVCDemo1.Models
+{
+    public class Department
+    {
+        public int Deptid { set; get; }
+        public string? DeptName { set; get; }
+    }
+}
+
+
+
+
+
 
