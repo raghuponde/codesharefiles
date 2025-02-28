@@ -278,12 +278,13 @@ namespace LinqDemo
 }
 
 MVC (Model -View -Controller) 
-
+*******************************
 it is one kind of desing pattern to develop software application we follow some techniques in this pattern which makes us to write by default a very good programming application  in this .
 
-Model : it is set of domain classes which will act as interface to data which is present behind the application so in this model i apply business rules means validation i can provide to classes which we have seen in ef using annotations ,this model can be a DAL (data access layer ) means it acts like that ,it is also called a ORM tool
-means object realtional mapping toool like linq ,entity framwork so i can keep a entity framewok in model so that i s also possible.
-
+Model : it is set of domain classes which will act as interface to data which is present behind the application so in this model i apply business rules means validation i can provide to classes so where ever 
+this class goes in desing or in business logic its validation it will take it along with it .
+so anyting in tables u want to enter through this model class only pass and take values 
+ 
 View: user interface which renders the model in the way the user can interact with .so here for one model there can be many views so multiple views may be associiated with a model this is a presental layer we can say .This view is actually a pure html page there will be no code behind file like windows or asp.net it is pure html means only html controls will be there no asp.net controls and no server controls will be there .
 
 
