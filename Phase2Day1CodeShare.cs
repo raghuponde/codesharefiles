@@ -84,6 +84,23 @@ namespace LinqDemo
             {
                 Console.Write($"{num1} ");
             }
+
+            //sum of elements in a array 
+
+            var sumquery = (from number in numbers select number).Sum();
+            var sumquery2 = numbers.Sum();
+            Console.WriteLine($"\nThe sum is {sumquery} \n with method syntax {sumquery2}");
+
+            // give me all the names starting with s
+
+            var nameswiths = from name in names where name.StartsWith("s") select name;
+            var namewiths_2 = names.Where(x => x.StartsWith("s"));
+
+            Console.WriteLine("Names starting with s are ...");
+            foreach(string name in nameswiths)
+            {
+                Console.WriteLine($"{name}");
+            }
             Console.ReadLine();
         }
     }
