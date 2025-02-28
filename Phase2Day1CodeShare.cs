@@ -727,8 +727,7 @@ now for the multiobjectpassing view
 now i want to put one link saying display information about individal employee 
 
 so add this in the view above like this 
-
-     @model  List<MVCDemo1.Models.Employee>;
+@model  List<MVCDemo1.Models.Employee>;
 @{
     ViewData["Title"] = "multiobjectpassing";
 }
@@ -757,7 +756,7 @@ so add this in the view above like this
                 <td>@employee.EmpName</td>
                 <td>@employee.Salary</td>
                 <td><img src="@employee.ImageUrl" alt="empimage" width="100px" height="100px"/> </td>
-                <td><a href="Home/displayemp">display</a></td>
+                <td><a href="Home/displayemp?empid=@employee.EmployeeID">display</a></td>
             </tr>
             }
        
