@@ -890,3 +890,17 @@ displayemp.cshtml
        
     </table>
 </body>
+
+you have to now add one action method like this in Home controller 
+
+
+       public IActionResult website()
+       {
+           return View(emp);
+       }
+
+
+also add a view as nornal way add view -->razzor view ---.add 
+
+
+ 
