@@ -38,6 +38,18 @@ create one fodler with the name Day1 and create a new console .net core prject w
 
   and then do dotnet build and dotnet run 
 
+namespace LinqDemo
+{
+     class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = new int[] { 12, 3, 45, 67, 99, 103, 51, 22, 61 };
+
+            string[] names = new string[] { "ravi", "suresh", "sita", "mahesh", "kishore " };
+        }
+    }
+}
 
   
 
