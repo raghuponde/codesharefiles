@@ -445,6 +445,21 @@ public IActionResult sampledemo4()
     return View();
 }
 
- 
+now right clikcng on the sampledemo4 create a view now 
+
+right click -->add view --->razor view --->one window will come showing default name as that of function sampledemo4 if u want to ue layout dont uncheck anyhting
+and just say add
+
+
+@{
+    ViewData["Title"] = "sampledemo4";
+}
+
+<h1>sampledemo4</h1>
+
+<h2>@ViewBag.age1</h2>
+<h2>@ViewBag.name1</h2>
+
+and now call the page u can see the output and say view page souce u can see the desing also means in the desinig your data is kept and given to you 
 
 
