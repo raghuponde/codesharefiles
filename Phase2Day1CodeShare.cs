@@ -241,13 +241,37 @@ namespace LinqDemo
            Customer  customerfound2 = checkuser2.FirstOrDefault();
             if (customerfound2 != null)
             {
-                Console.WriteLine(customerfound2.FirstName);
+                Console.WriteLine($"{customerfound2.FirstName}");
             }
             else
             {
                 Console.WriteLine("Customer not found");
             }
 
+            //i want to project not all columns only few columns if all columns mean u say select customer all columns wil come
+            // say first name and city i want to project so in Linq it has some way to write 
+
+            var firstnameAndCity = from cust in custlist
+                                   select new
+                                   {
+                                       cust.FirstName,
+                                       cust.City
+                                   };
+
+            var firstnameAndCity2=custlist.Select(x=>new  { x.FirstName, x.City });
+
+            Console.WriteLine("\nDisplaying frist name and city ...using query syntax");
+
+            foreach(var cust1 in firstnameAndCity)
+            {
+                Console.WriteLine($"{cust1.FirstName}--- {cust1.City}");
+            }
+            Console.WriteLine("\nDisplaying frist name and city ...using method syntax");
+
+            foreach (var cust1 in firstnameAndCity2)
+            {
+                Console.WriteLine($"{cust1.FirstName}--- {cust1.City}");
+            }
             Console.ReadLine();
         }
     }
