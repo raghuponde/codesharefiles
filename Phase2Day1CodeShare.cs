@@ -1053,3 +1053,13 @@ and check css url which i had changed line no 929
 </body>
 </html>
  
+ see here every time default page which is being called is Home/index eventhugh i dont provide path so now website i want to call as default page 
+
+
+ so go to Program.cs file 
+
+ app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=website}/{id?}");
+
+
