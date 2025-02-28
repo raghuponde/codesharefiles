@@ -126,7 +126,7 @@ namespace LinqDemo
                 new Customer { CustomerID = 102, FirstName = "Mahesh", LastName = "naidu", City = "Mysore" },
                 new Customer { CustomerID = 103, FirstName = "Kranthi", LastName = "kumari", City = "Bangalore" },
                 new Customer { CustomerID = 104, FirstName = "Narendra", LastName = "Jha", City = "Delhi" },
-                new Customer { CustomerID = 105, FirstName = "Vithal", LastName = "Kumar", City = "Hyderabad" }
+                new Customer { CustomerID = 101, FirstName = "Vithal", LastName = "Kumar", City = "Hyderabad" }
             };
 
             return custlist;
@@ -214,6 +214,21 @@ namespace LinqDemo
                 Console.WriteLine($"{c}");
 
             }
+            Console.WriteLine("enter customer id to find the details of customer ");
+            int custid=Convert.ToInt32(Console.ReadLine());
+            var checkuser=from cust in custlist where cust.CustomerID == custid select cust;    
+            //imagine two customers are having same id so here chekuser is actually a collection 
+            // from that collection u want to get first matched customer then u will use 
+            //First 
+            // and imagine if u have given wrong id then to implement if else i wil use 
+            //FirstorDefault i wil do it and checkit both now 
+
+          //  Console.WriteLine(checkuser.FirstName) like this i am not getting it as it is collection
+          Customer customerfound=checkuser.First();//but make ids same for two users say vithal nd sureesh
+
+            Console.WriteLine(customerfound.FirstName);
+
+         
 
             Console.ReadLine();
         }
