@@ -346,4 +346,26 @@ I am calling a function of controller using a url and and i am seeing a correspn
 now i will provide a view in that view user will request some thing and based on request the function is called and and its view is executed like that i want to do 
 
 
+now open a visual studio mvc project in Pahse1day1proejts only 
+
+right click on solution --->add new project ---> C #  allprlotform and web ---->asp.net core web (model-view controllr) select this template 
+and give name MVCDemo1 and let it be .net core 8.0 and say create 
+
+
+so some boiler plate code i will get here with default some fodlers like model ,view and controllers 
+
+
+same thing in vs code u want to do means in one folder go an write this command 
+
+dotnet new mvc -n MYCDemo1 --framework net8.0
+
+ and then go to the folder and same commands dotnet build and run u can do 
+
+  u can add some extensions if u want for better readablity in sp.net core mvc 
+
+  
+
+ 
+
+
 
