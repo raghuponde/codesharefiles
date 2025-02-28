@@ -485,6 +485,9 @@ namespace MVCDemo1.Models
     }
 }
 
+now i want to pass single object of employee class and also want to pass multiple objects of employee class 
+
+ so write the action methods like this 
 
 
 
