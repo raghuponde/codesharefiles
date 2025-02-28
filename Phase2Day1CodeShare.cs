@@ -713,7 +713,7 @@ now for the multiobjectpassing view
         
           @foreach(Employee employee in Model)
             {
-            <tr>
+             <tr>
                 <td>@employee.EmployeeID</td>
                 <td>@employee.EmpName</td>
                 <td>@employee.Salary</td>
@@ -724,3 +724,42 @@ now for the multiobjectpassing view
     </table>
 </body>
 
+now i want to put one link saying display information about individal employee 
+
+so add this in the view above like this 
+
+     @model  List<MVCDemo1.Models.Employee>;
+@{
+    ViewData["Title"] = "multiobjectpassing";
+}
+
+<h1>multiobjectpassing</h1>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <table border="1" cellpadding="1" cellspacing="1">
+        <tr>
+            <th>EmployeeID </th>
+            <th>EmployeeName </th>
+            <th>EmployeeSalary </th>
+            <th>Employee Image</th>
+            <th>display emp details </th>
+        </tr>
+        
+          @foreach(Employee employee in Model)
+            {
+            <tr>
+                <td>@employee.EmployeeID</td>
+                <td>@employee.EmpName</td>
+                <td>@employee.Salary</td>
+                <td><img src="@employee.ImageUrl" alt="empimage" width="100px" height="100px"/> </td>
+                <td><a href="Home/displayemp">display</a></td>
+            </tr>
+            }
+       
+    </table>
+</body>
