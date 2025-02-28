@@ -756,7 +756,7 @@ so add this in the view above like this
                 <td>@employee.EmpName</td>
                 <td>@employee.Salary</td>
                 <td><img src="@employee.ImageUrl" alt="empimage" width="100px" height="100px"/> </td>
-                <td><a href="Home/displayemp?empid=@employee.EmployeeID">display</a></td>
+                <td><a href="/Home/displayemp?empid=@employee.EmployeeID">display</a></td>
             </tr>
             }
        
@@ -780,5 +780,72 @@ public IActionResult displayemp(int empid)
 }
 
 
+so add a view as it is how u do normally 
 
+then do this in that displayviw
+
+--------------multiobjectpassing.cshtml---------
+@model  List<MVCDemo1.Models.Employee>;
+@{
+    ViewData["Title"] = "multiobjectpassing";
+}
+
+<h1>multiobjectpassing</h1>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <table border="1" cellpadding="1" cellspacing="1">
+        <tr>
+            <th>EmployeeID </th>
+            <th>EmployeeName </th>
+            <th>EmployeeSalary </th>
+            <th>Employee Image</th>
+            <th>display emp details </th>
+        </tr>
+        
+          @foreach(Employee employee in Model)
+            {
+            <tr>
+                <td>@employee.EmployeeID</td>
+                <td>@employee.EmpName</td>
+                <td>@employee.Salary</td>
+                <td><img src="@employee.ImageUrl" alt="empimage" width="100px" height="100px"/> </td>
+                <td><a href="/Home/displayemp?empid=@employee.EmployeeID">display</a></td>
+            </tr>
+            }
+       
+    </table>
+</body>
+
+displayemp.cshtml
+-------------------
+@model MVCDemo1.Models.Employee
+@{
+    ViewData["Title"] = "displayemp";
+}
+
+<h1>displayemp</h1>
+
+<h1>The @Model.EmpName Details</h1>
+
+<p>
+    <img src="@Model.ImageUrl" alt="empimage" width="200px" height="200px" border="2" />
+</p>
+
+<pre>
+
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+    when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+    It has survived not only five centuries, but also the leap into electronic typesetting, 
+    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
+    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+    like Aldus PageMaker including versions of Lorem Ipsum.
+</pre>
+
+ 
 
