@@ -238,10 +238,10 @@ namespace LinqDemo
             Console.WriteLine("enter customer id to find the details of customer using first or default  ");
             int custid2 = Convert.ToInt32(Console.ReadLine());
             var checkuser2 = from cust in custlist where cust.CustomerID == custid2 select cust;
-            customerfound = checkuser2.FirstOrDefault();
-            if (customerfound != null)
+           Customer  customerfound2 = checkuser2.FirstOrDefault();
+            if (customerfound2 != null)
             {
-                Console.WriteLine(customerfound.FirstName);
+                Console.WriteLine(customerfound2.FirstName);
             }
             else
             {
@@ -252,4 +252,3 @@ namespace LinqDemo
         }
     }
 }
-
