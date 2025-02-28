@@ -1068,3 +1068,22 @@ Then go to layout page in shared folder which is acting as base layout for all c
 and provide follwoinng hyperlinks there use tag helper links only 
 
 
+  <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+      <ul class="navbar-nav flex-grow-1">
+          <li class="nav-item">
+              <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="singleobjectpassing">sigle object</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="multiobjectpassing">multiobject</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="sampledemo4">sampledemo4</a>
+          </li>
+      </ul>
+  </div>
