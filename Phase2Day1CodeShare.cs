@@ -400,6 +400,8 @@ https://localhost:7257/Home/sampledemo3?age=23&name=ravi&loc=chennai
 https://localhost:7257/Home/sampledemo2?age=23&name=ravi
 https://localhost:7257/Home/sampledemo
  
+The methods which i have written above are just returning a string so i am not seeing desing when i say view page source in the web page 
+
 
 
 
