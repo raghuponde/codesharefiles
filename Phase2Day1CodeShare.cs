@@ -852,7 +852,7 @@ displayemp.cshtml
      ---------------------------multiobjectpassing.cshtml--------------------
 
 
-     @model  List<MVCDemo1.Models.Employee>;
+  @model  List<MVCDemo1.Models.Employee>;
 @{
     ViewData["Title"] = "multiobjectpassing";
 }
@@ -883,11 +883,10 @@ displayemp.cshtml
                 <td>@employee.Salary</td>
                 <td><img src="@employee.ImageUrl" alt="empimage" width="100px" height="100px"/> </td>
                 <td><a href="/Home/displayemp?empid=@employee.EmployeeID">display</a></td>
-                <td>@Html.ActionLink("showemp", "displayemp", new { empid = @employee.EmployeeID })</td>
+                <td>@Html.ActionLink("showemp", "displayemp","Home", new { empid = @employee.EmployeeID })</td>
                 <td> <a asp-controller="Home" asp-action="displayemp" asp-route-empid="@employee.EmployeeID">displayemp</a></td>
             </tr>
             }
        
     </table>
 </body>
-
