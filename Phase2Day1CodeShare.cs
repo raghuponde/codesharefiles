@@ -26,8 +26,6 @@ Microsoft’s query language is
 fully integrated and offers easy data access from in-memory objects, databases, XML
 documents, and many more. 
 
-In your syllabus they have given only linq to objects so we will be doing demos only on this 
-
-
-syntax will be like sql way but select comes last and from comes first and in between where ,order by and other functionalities can be used .
+syntax will be like sql way but 
+ select comes last and from comes first and in between where ,order by and other functionalities can be used .
 
