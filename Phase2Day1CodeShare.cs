@@ -220,17 +220,36 @@ namespace LinqDemo
             //imagine two customers are having same id so here chekuser is actually a collection 
             // from that collection u want to get first matched customer then u will use 
             //First 
-            // and imagine if u have given wrong id then to implement if else i wil use 
-            //FirstorDefault i wil do it and checkit both now 
-
+            
           //  Console.WriteLine(checkuser.FirstName) like this i am not getting it as it is collection
           Customer customerfound=checkuser.First();//but make ids same for two users say vithal nd sureesh
+            if (customerfound != null)
+            {
+                Console.WriteLine(customerfound.FirstName);
+            }
+            else
+            {
+                Console.WriteLine("Customer not found");
+            }
+            //  Console.WriteLine(customerfound.FirstName);
 
-            Console.WriteLine(customerfound.FirstName);
-
-         
+            // and imagine if u have given wrong id then to implement if else i wil use 
+            //FirstorDefault i wil do it if u dont use frist or default exception wil come 
+            Console.WriteLine("enter customer id to find the details of customer using first or default  ");
+            int custid2 = Convert.ToInt32(Console.ReadLine());
+            var checkuser2 = from cust in custlist where cust.CustomerID == custid2 select cust;
+            customerfound = checkuser2.FirstOrDefault();
+            if (customerfound != null)
+            {
+                Console.WriteLine(customerfound.FirstName);
+            }
+            else
+            {
+                Console.WriteLine("Customer not found");
+            }
 
             Console.ReadLine();
         }
     }
 }
+
