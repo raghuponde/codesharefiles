@@ -363,7 +363,36 @@ dotnet new mvc -n MYCDemo1 --framework net8.0
 
   u can add some extensions if u want for better readablity in sp.net core mvc 
 
-  
+  Add Required Extensions (Optional)
+To make development easier in VS Code, install these extensions:
+
+C# Dev Kit (for IntelliSense & Debugging)
+C# (for .NET development)
+ASP.NET Helper (for better Razor syntax highlighting)
+
+ now come to visual studio 2022 
+
+ now come to controller 
+
+in  Home controller write thes 3 methods like this  
+
+ public string sampledemo1()
+        {
+            return "My first MVC Application ";
+        }
+        
+        public string sampledemo2(int age ,string name)
+        {
+      
+        return "The name of the person is: " + name + " is having age :" + age;
+        
+        }
+        
+          public string  sampledemo3(int age, string name,string loc)
+        {
+       return "The name of the person is: " + name + " is having age :" + age+"  living in : "+loc;
+        }
+
 
  
 
