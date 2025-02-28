@@ -673,5 +673,17 @@ public class Employee
     public string ImageUrl { get; set; }  // Add this property for image link
 }
 
- 
+ update the code in home contorller this code 
+
+  List<Employee> emplist = new List<Employee>()
+ {
+     new Employee{EmployeeID=101,EmpName="ravi",Salary=23000,ImageUrl="/images/pic1.jpg"},
+
+     new Employee{EmployeeID=102,EmpName="sita",Salary=43000,ImageUrl="/images/pic2.jpg"},
+
+     new Employee{EmployeeID=103,EmpName="mahesh",Salary=53000,ImageUrl="/images/pic1.jpg"},
+
+     new Employee{EmployeeID=104,EmpName="radhika",Salary=22000,ImageUrl="/images/pic2.jpg"},
+
+ };
 
