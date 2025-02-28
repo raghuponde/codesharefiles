@@ -661,3 +661,17 @@ Create an images folder inside wwwroot.
 Add your employee images (e.g., john.jpg, jane.jpg, michael.jpg)
 The image URLs should be relative, e.g., /images/john.jpg.
 
+
+Next update the employee model
+
+
+public class Employee
+{
+    public int EmployeeID { get; set; }
+    public string EmpName { get; set; }
+    public decimal Salary { get; set; }
+    public string ImageUrl { get; set; }  // Add this property for image link
+}
+
+ 
+
