@@ -337,7 +337,7 @@ and u will return some value
 }
 
 right now i am interacting by using a url where i specify controlername /actionmetod /paramter going inside the 
-method 
+method  
 
 i am not providing any link or button to the user so that he can interact with the application 
 
