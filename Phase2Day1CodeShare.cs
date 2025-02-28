@@ -489,6 +489,100 @@ now i want to pass single object of employee class and also want to pass multipl
 
  so write the action methods like this 
 
+now go to home controller 
+
+using Microsoft.AspNetCore.Mvc;
+using MVCDemo1.Models;
+using System.Diagnostics;
+
+namespace MVCDemo1.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        public string sampledemo1()
+        {
+            return "My first MVC Application ";
+        }
+
+        public string sampledemo2(int age, string name)
+        {
+
+            return "The name of the person is: " + name + " is having age :" + age;
+
+        }
+
+        public string sampledemo3(int age, string name, string loc)
+        {
+            return "The name of the person is: " + name + " is having age :" + age + "  living in : " + loc;
+        }
+
+        public IActionResult sampledemo4()
+        {
+            int age = 23;
+            string name = "kiran";
+
+            ViewBag.age1 = age;
+            ViewBag.name1 = name;
+            return View();
+        }
+
+        public IActionResult singleobjectpassing()
+        {
+            Employee emp = new Employee()
+            {
+                EmployeeID=101,
+                EmpName="sanjay",
+                Salary=45000
+            };
+            return View(emp);
+        }
+        List<Employee> emplist = new List<Employee>()
+        {
+            new Employee{EmployeeID=101,EmpName="ravi",Salary=23000},
+
+            new Employee{EmployeeID=102,EmpName="sita",Salary=43000},
+
+            new Employee{EmployeeID=103,EmpName="mahesh",Salary=53000},
+
+            new Employee{EmployeeID=104,EmpName="radhika",Salary=22000},
+
+        };
+    
+
+        
+
+    
+        public IActionResult multiobjectpassing()
+        {
+            
+            return View(emplist);
+        }
+    }
+}
 
 
 
