@@ -583,3 +583,42 @@ namespace MVCDemo1.Controllers
         }
     }
 }
+
+
+now i  need to add views for the two methods
+
+just i will create a view and then includ the coding there 
+
+
+right click on view --->add view --->razor view --->add thats all 
+
+in sinle object view 
+
+----------------------
+
+@model MVCDemo1.Models.Employee
+@{
+    ViewData["Title"] = "singleobjectpassing";
+}
+
+<h1>singleobjectpassing</h1>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <table border="1" cellpadding="1" cellspacing="1" >
+        <tr>
+            <th>EmployeeID </th>
+            <th>EmployeeName </th>
+            <th>EmployeeSalary </th>
+        </tr>
+        <tr>
+            <td>@Model.EmployeeID</td>
+            <td>@Model.EmpName</td>
+            <td>@Model.Salary</td>
+        </tr>
+    </table>
+</body>
