@@ -102,10 +102,102 @@ namespace LinqDemo
                 Console.WriteLine($"{name}");
             }
             Console.ReadLine();
+        } 
+    }
+}
+
+  Now create one class Customer like this in the namespace not inside the class and put the methods here as given below 
+
+  namespace LinqDemo
+{
+
+    public class Customer
+    {
+        public int CustomerID { set; get; }
+        public string FirstName { set; get; }
+        public string LastName { set; get; }
+        public string City { set; get; }
+
+
+        public static List<Customer> Retrive()
+        {
+            List<Customer> custlist = new List<Customer>
+            {
+                new Customer { CustomerID = 101, FirstName = "suresh", LastName = "babu", City = "Hyderabad" },
+                new Customer { CustomerID = 102, FirstName = "Mahesh", LastName = "naidu", City = "Mysore" },
+                new Customer { CustomerID = 103, FirstName = "Kranthi", LastName = "kumari", City = "Bangalore" },
+                new Customer { CustomerID = 104, FirstName = "Narendra", LastName = "Jha", City = "Delhi" },
+                new Customer { CustomerID = 105, FirstName = "Vithal", LastName = "Kumar", City = "Hyderabad" }
+            };
+
+            return custlist;
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = new int[] { 12, 3, 45, 67, 99, 103, 51, 22, 61 };
+
+            string[] names = new string[] { "ravi", "suresh", "sita", "mahesh", "kishore " };
+
+
+            // give me all the number less than 30 in array numbers 
+
+            // using query syntax 
+
+            var lessthan30 = from number in numbers where number < 30 select number;
+
+            Console.WriteLine("priting numbers less than 30 using query syntax  ");
+            foreach(int num1 in lessthan30)
+            {
+                Console.Write($"{num1}  ");
+            }
+
+            // using method syntax 
+
+            var lessthan30_2 = numbers.Where(x => x < 20);//lambda expression
+            Console.WriteLine("\npriting numbers less than 30 using method syntax  ");
+            foreach (int num1 in lessthan30_2)
+            {
+                Console.Write($"{num1}  ");
+            }
+
+            // give me all the numbers which are odd using method and query syntax 
+
+            var oddnums = numbers.Where(x => x % 2 != 0);
+            var oddnums2=from number in numbers where number % 2 != 0 select number;
+            Console.WriteLine("\ndisplayng odd nums ");
+            foreach (int num1 in oddnums)
+            {
+                Console.Write($"{num1} ");
+            }
+            Console.WriteLine("\ndisplayng odd nums usng query syntax ");
+            foreach (int num1 in oddnums2)
+            {
+                Console.Write($"{num1} ");
+            }
+
+            //sum of elements in a array 
+
+            var sumquery = (from number in numbers select number).Sum();
+            var sumquery2 = numbers.Sum();
+            Console.WriteLine($"\nThe sum is {sumquery} \n with method syntax {sumquery2}");
+
+            // give me all the names starting with s
+
+            var nameswiths = from name in names where name.StartsWith("s") select name;
+            var namewiths_2 = names.Where(x => x.StartsWith("s"));
+
+            Console.WriteLine("Names starting with s are ...");
+            foreach(string name in nameswiths)
+            {
+                Console.WriteLine($"{name}");
+            }
+            Console.ReadLine();
         }
     }
 }
 
-  
 
  
