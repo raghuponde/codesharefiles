@@ -206,6 +206,14 @@ namespace LinqDemo
                 Console.WriteLine($"{c}");
 
             }
+            var fullnames2=custlist.Select(x=>x.FirstName+ " "+x.LastName);//method syntax 
+            Console.WriteLine("The complete name of customers ");
+            Console.WriteLine("**********************************");
+            foreach (var c in fullnames2)
+            {
+                Console.WriteLine($"{c}");
+
+            }
 
             Console.ReadLine();
         }
