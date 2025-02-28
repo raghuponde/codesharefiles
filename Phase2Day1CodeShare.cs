@@ -419,5 +419,32 @@ which is there in mehtods
      return View();
  }
 
-for everyIAction method there i a view present in Views fodler ---->Home--->Index, in the same manner Prvacy view will be there 
+for everyIAction method there i a view present in Views fodler ---->Home fodler --->Index, in the same manner Prvacy view will be there 
+
+now write a methd whose return type is IActionresult 
+ public IActionResult sampledemo4()
+ {
+
+     return View();
+ }
+here above if dont write return View()  i will get error so 
+
+we have to write it like that because return type is now IActionResult
+
+Now i want to tranfer some infromation from controller to view view is not create i will create it later on 
+
+so to tranfer some data from contorller to view viewbag is used it is dynamic property or variable which can store
+
+public IActionResult sampledemo4()
+{
+    int age = 23;
+    string name = "kiran";
+
+    ViewBag.age1 = age;
+    ViewBag.name1 = name;
+    return View();
+}
+
+ 
+
 
