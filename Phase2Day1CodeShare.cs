@@ -1063,3 +1063,8 @@ and check css url which i had changed line no 929
     pattern: "{controller=Home}/{action=website}/{id?}");
 
 
+Then go to layout page in shared folder which is acting as base layout for all child pages 
+
+and provide follwoinng hyperlinks there use tag helper links only 
+
+
