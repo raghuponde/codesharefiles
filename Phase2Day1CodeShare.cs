@@ -107,8 +107,7 @@ namespace LinqDemo
 }
 
   Now create one class Customer like this in the namespace not inside the class and put the methods here as given below 
-
-  namespace LinqDemo
+namespace LinqDemo
 {
 
     public class Customer
@@ -131,6 +130,7 @@ namespace LinqDemo
             };
 
             return custlist;
+        }
     }
 
     class Program
@@ -199,5 +199,3 @@ namespace LinqDemo
     }
 }
 
-
- 
