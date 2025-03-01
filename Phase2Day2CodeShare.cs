@@ -1345,7 +1345,7 @@ namespace CRUDusingModel.Controllers
                         break;
                     }
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); 
             }
             catch (Exception)
             {
@@ -1356,5 +1356,6 @@ namespace CRUDusingModel.Controllers
     }
 }
 
+i want to delete directly from index page without going to post metod where i will confirm do u want to delete 
 
  
