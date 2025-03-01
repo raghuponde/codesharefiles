@@ -1640,6 +1640,8 @@ I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="a
 
 </html>
 
+next add two files Header.js and Counter.js into src folder
+
 
 
 
