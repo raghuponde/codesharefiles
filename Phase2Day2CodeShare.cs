@@ -692,7 +692,7 @@ so check program dog on this example ..
 Get and Post methods are there for only insert ,update and delete functionalities
 
 
-
+now open a new application asp.net core give name CRUDusingModel
 
 
 
