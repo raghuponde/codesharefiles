@@ -5,4 +5,6 @@ but i have not used multiple models in the same page of .cshmtl so let us do tha
 
 There will be situation where for generating reports you may need data from multiple models as all data is not present in single model .
 
+  write a actionmethod in Home controller again 
+
   
