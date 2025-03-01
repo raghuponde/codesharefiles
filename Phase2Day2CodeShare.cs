@@ -717,6 +717,12 @@ namespace CRUDusingModel.Models
 }
 
 
+Now add one controlelr with the name DogContoller but dont select MVC empty controller with read and write actions u selct and say add 
 
+
+
+
+
+  
 
   
