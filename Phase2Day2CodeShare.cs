@@ -1926,7 +1926,12 @@ https://drive.google.com/drive/folders/1AKrv_IbdPOVkZJsZ9W1ESrUkK5lHnZ7c?usp=sha
 download and open the foler in vs code and in terminal Type the command npm instal which will instal the load modules folder
 
 
+npm install -g json-server  Type this command in another terminal 
 
+and there only type another command and dont shut the server of json 
+
+
+json-server --watch data/db.json --port 8000
 
 
 
