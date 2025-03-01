@@ -126,7 +126,7 @@ further chnage in the design will be like this
                 <th>EmployeeName </th>
                 <th>EmployeeSalary </th>
             </tr>
-        @if (Model.emp != null)
+        @if (Model.emp != null) 
         {
             <tr>
                 <td>@Model.emp.EmployeeID</td>
