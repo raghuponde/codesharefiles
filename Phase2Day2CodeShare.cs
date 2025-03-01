@@ -979,8 +979,58 @@ Now add a view for index method also means right click on index method and add v
 
  now add a view for this details right click add view--->razor view --->drop down select template as details and model as dog and genrate the view 
 
- which will look like this 
+ which will look like this
+ @model CRUDusingModel.Models.Dog
 
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Dog</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+then 
+
+
+ so first create the dog 
+https://localhost:7069/Dog/details/2
+
+in the index page view 
+
+ <td>
+         @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+     @Html.ActionLink("Details", "Details", new {  id=item.ID }) |
+         @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+ </td>
+
+ uncomment the code which as there and put above code 
  
 
 
