@@ -620,7 +620,63 @@ and code is like this for this
 earlier programtically i was filling the drop down now in desing only i am filling the dropdown 
 
 
-  
+  in the above program i am doing server side validation means after clikcing the register button only red lines or it is validating 
+  now i want to do clent side validation to do client side valdiation add theses links on top of the page 
+
+  @model TagHelperDemo2.Models.UserViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+<h1>Register</h1>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+<form asp-controller="Account" asp-action="Register" method="post">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Country"></label>
+        <select asp-for="Country" class="form-control">
+            <option value="">-- Select Country --</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="IN">India</option>
+        </select>
+        <span asp-validation-for="Country" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+
+    <div asp-validation-summary="All" asp-validation-summary="ModelOnly" class="text-danger"></div>
+</form>
+
+
+
 
 
 
