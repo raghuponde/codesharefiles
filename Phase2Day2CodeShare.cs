@@ -206,7 +206,7 @@ this generates
 5. Validation Message Tag Helper (<span>)
 
 The Validation Message Tag Helper displays validation error messages for a specific model property.
-
+ 
 Example:
 
 <span asp-validation-for="Email" class="text-danger"></span>
@@ -1907,7 +1907,26 @@ export default class Counter extends React.Component {
     }
 }
 
+now you have seen use state function how u used in function in the same way how to use in class based component 
 
+  now another thing is there of useEffect which tells me if i use [] one time it wil execute if i use [count] then when count is 
+    chnaged the the useEffect function will work like that so same kind of things are there in clas based component also 
+
+DidMount()  one time i will execute 
+unMount() removes that event 
+udatemount() when ever it is chanegd then i will be called
+
+
+now what we will do we will open our old useEffect program from drive 
+
+
+
+
+
+
+
+
+    
 
 
 
