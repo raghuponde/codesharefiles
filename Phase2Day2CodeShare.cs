@@ -676,6 +676,9 @@ earlier programtically i was filling the drop down now in desing only i am filli
 </form>
 
 
+so when after doing frist click of register if i write properly and press tab to move it will go no need to press aagin register 
+button because i am doing clinet side valdiation also
+
 
 
 
