@@ -1126,7 +1126,26 @@ public ActionResult Edit(Dog d)
         return View("Edit", d);
     }
 }
-now agian generate view for delet by going to get method of delete which will look like this 
+
+now write the code for delete get method 
+
+ // GET: DogController/Delete/5
+        public ActionResult Delete(int id)
+        {
+
+            Dog d = new Dog();
+            foreach (Dog dog in dogs)
+            {
+                if (dog.ID == id)
+                {
+                    d.ID = dog.ID;
+                    d.Name = dog.Name;
+                    d.Age = dog.Age;
+                }
+            }
+            return View(d);
+        }
+now generate view for delete by going to get method of delete which will look like this 
 
 @model CRUDusingModel.Models.Dog
 
@@ -1166,6 +1185,8 @@ now agian generate view for delet by going to get method of delete which will lo
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
+
+Post method of delete 
 
 
 
