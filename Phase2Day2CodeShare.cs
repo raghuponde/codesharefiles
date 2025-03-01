@@ -1724,7 +1724,37 @@ export default class Counter extends React.Component {
     }
 }
 
+now use state we were using in funciton based component now in clas we have to write like this by creating constructor
 
+  import React from "react";
+export default class Counter extends React.Component {
+
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            count:20
+        }
+    }
+
+    handleAttack()
+    {
+        alert("atatck clciked")
+    }
+    handleDefence()
+    {
+        alert("defend clicked")
+    }
+    render() {
+        return (
+            <div className="row text-white">
+                <h1>Counter:{this.state.count} </h1>
+                <button  onClick={this.handleAttack} style={{ width: "200px" }}>+1</button>
+                <button onClick={this.handleDefence} style={{ width: "200px" }}>-1</button>
+            </div>
+        )
+    }
+}
 
 
 
