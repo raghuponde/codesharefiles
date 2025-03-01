@@ -1923,7 +1923,7 @@ phase 1 --day 20 --downlaod shopmate folder from the drive
 
 https://drive.google.com/drive/folders/1AKrv_IbdPOVkZJsZ9W1ESrUkK5lHnZ7c?usp=sharing
 
-
+download and open the foler in vs code and in terminal Type the command npm instal which will instal the load modules folder
 
 
 
