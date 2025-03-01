@@ -617,6 +617,8 @@ and code is like this for this
 </form>
 
 
+earlier programtically i was filling the drop down now in desing only i am filling the dropdown 
+
 
   
 
