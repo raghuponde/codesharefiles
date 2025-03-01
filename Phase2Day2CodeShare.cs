@@ -1596,11 +1596,15 @@ namespace CRUDusingModel.Models
 Now in react we have seeen use state same thing we want to do in class based component of react how to do 
   for that let us write the code here using counter example only 
 
-so in Day 2 folder i am creating a new app with name counter pedia 
+so in Day 2 folder i am creating a new app with name counterpedia 
 
 npx create-react-app counterpedia
 
+in public folder remove all files except two logos and index.html file 
 
+and in src folder keep App.css and js files and index.css and js files and also keep package file let it be and remvoe others 
+
+and index.js remove depenecnt files etc 
 
 
 
