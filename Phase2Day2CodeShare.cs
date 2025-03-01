@@ -1500,7 +1500,7 @@ namespace CRUDusingModel.Controllers
 
         // GET: DogController/Delete/5
         public ActionResult Delete(int id)
-        {
+        { 
             var dogToDelete = dogs.FirstOrDefault(d => d.ID == id);
             if (dogToDelete != null)
             {
