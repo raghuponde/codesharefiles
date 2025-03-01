@@ -825,7 +825,9 @@ namespace CRUDusingModel.Controllers
         }
 
 
+now go to get create action method and create a view graphically where include template as create and model as dog and generate the design 
 
+and that desing will look like this 
 
   
 
