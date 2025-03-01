@@ -1757,7 +1757,43 @@ export default class Counter extends React.Component {
 }
 
 
+now i want to chnage this count value like how i used to do in funciton using setmethod here also set state is there means keep the variable 
+in state and modify it using set state here i am not incrmenting or decrementing i will do that also but just checking how i can chnage 
+so bind event has to be registed as shown below 
 
+import React from "react";
+export default class Counter extends React.Component {
+
+    constructor(props)
+    {
+        super(props);
+        this.handleAttack = this.handleAttack.bind(this);
+        this.handleDefence = this.handleDefence.bind(this);
+        this.state = {
+            count:20
+        }
+    }
+
+    handleAttack()
+    {
+        alert("atatck clciked")
+        this.setState({count:2})
+    }
+    handleDefence()
+    {
+        alert("defend clicked")
+        this.setState({ count: 1 })
+    }
+    render() {
+        return (
+            <div className="row text-white">
+                <h1>Counter:{this.state.count} </h1>
+                <button  onClick={this.handleAttack} style={{ width: "200px" }}>+1</button>
+                <button onClick={this.handleDefence} style={{ width: "200px" }}>-1</button>
+            </div>
+        )
+    }
+}
 
 
 
