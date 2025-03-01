@@ -1919,6 +1919,10 @@ udatemount() when ever it is chanegd then i will be called
 
 now what we will do we will open our old useEffect program from drive 
 
+phase 1 --day 20 --downlaod shopmate folder from the drive 
+
+https://drive.google.com/drive/folders/1AKrv_IbdPOVkZJsZ9W1ESrUkK5lHnZ7c?usp=sharing
+
 
 
 
