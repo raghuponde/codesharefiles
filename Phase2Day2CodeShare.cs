@@ -147,4 +147,8 @@ further chnage in the design will be like this
 
   https://localhost:7257/Home/EmpDeptViewModelDemo/?empid=101
 
+  Now you can open or create a new proejct in visual studio give solution name as Phase2Day2Projects and project name as TagHelperDemo1 name u can give it 
+
+
+
   
