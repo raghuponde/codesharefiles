@@ -380,4 +380,14 @@ Next add one get method of register like this
 
       return View(model);
   }
+
+now right click and add one razor view for this action metod which will intially will look like this 
+
+  
+  
+  
+
+
+
+
   
