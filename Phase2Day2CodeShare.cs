@@ -805,6 +805,25 @@ namespace CRUDusingModel.Controllers
     }
 }
 
+now one by one i will do chnage in above code 
+
+1st chnage 
+------------
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using CRUDusingModel.Models;
+namespace CRUDusingModel.Controllers
+{
+    public class DogController : Controller
+    {
+
+        static private List<Dog> dogs = new List<Dog>();
+        // GET: DogController
+        public ActionResult Index()
+        {
+            return View();
+        }
+
 
 
 
