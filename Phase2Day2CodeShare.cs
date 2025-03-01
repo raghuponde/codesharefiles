@@ -1644,6 +1644,49 @@ next add two files Header.js and Counter.js into src folder
 
 create one folder in src images and move images into images folder from public 
 
+  Header.js 
+  -----------
+  import logo from "./images/logo512.png";
+function Header() {
+    return (
+        <div className="py-2 pl-2" style={{ borderBottom: "1px solid #777" }}>
+            <img src={logo} alt="" style={{ height: "35px", verticalAlign: "top" }}
+            />
+            <span className="h2 pt-4 m-2 text-white-50">CountOpedia</span>
+        </div>
+    );
+}
+export default Header;
+
+Counter.js 
+-----------
+import React from "react";
+export default class Counter extends React.Component {
+    render() {
+      
+        return <div className="text-white">Counter</div>;
+    }
+}
+
+index.js 
+-----------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Header from './Header';
+import Counter from './Counter';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    {/* <App /> */}
+    <Header />
+    <Counter/>
+  </React.StrictMode>
+);
+
+
   
 
 
