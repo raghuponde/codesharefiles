@@ -873,5 +873,31 @@ and that desing will look like this
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
  
+now fill the post method like this 
+
+// POST: DogController/Create
+[HttpPost]
+[ValidateAntiForgeryToken]
+public ActionResult Create(Dog dog)
+{
+    try
+    {
+        if(ModelState.IsValid)
+        {
+            dogs.Add(dog);
+            return  RedirectToAction("index");
+        }
+        else
+        {
+            return View("Create",dog);
+        }
+    }
+    catch (Exception)
+    {
+
+        return View("Create", dog);
+    }
+}
+
 
   
