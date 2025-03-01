@@ -148,6 +148,138 @@ further chnage in the design will be like this
   https://localhost:7257/Home/EmpDeptViewModelDemo/?empid=101
 
   Now you can open or create a new proejct in visual studio give solution name as Phase2Day2Projects and project name as TagHelperDemo1 name u can give it 
+In ASP.NET Core, Tag Helpers enable server-side code to participate in creating and rendering HTML elements in Razor files. Tag Helpers are designed to make server-side code more maintainable and easier to work with when rendering dynamic content in views.
+
+Here’s a list of some common Tag Helpers used in ASP.NET Core, along with examples:
+
+1. Anchor Tag Helper (<a>)
+
+The Anchor Tag Helper generates hyperlinks. You can use the asp-controller, asp-action, and asp-route attributes to dynamically generate links to different parts of your application.
+
+<a asp-controller="Home" asp-action="Index">Home</a>
+
+This generates 
+
+<a href="/Home/Index">Home</a>
+
+
+2. Form Tag Helper (<form>)
+
+The Form Tag Helper helps to generate a form element that posts data to the specified action.
+
+<form asp-controller="Account" asp-action="Login" method="post">
+    <input asp-for="Username" />
+    <input asp-for="Password" type="password" />
+    <button type="submit">Login</button>
+</form>
+
+and this generates 
+
+<form action="/Account/Login" method="post">
+    <input type="text" id="Username" name="Username">
+    <input type="password" id="Password" name="Password">
+    <button type="submit">Login</button>
+</form>
+
+
+3. Input Tag Helper (<input>)
+
+The Input Tag Helper binds the input field to a model property and handles input validation and value display.
+
+<input asp-for="Email" type="email" class="form-control" />
+
+this generates 
+
+<input type="email" id="Email" name="Email" class="form-control" value="(model value)">
+
+4. Label Tag Helper (<label>)
+
+The Label Tag Helper generates a label element linked to a specific model property.
+
+<label asp-for="Email"></label>
+
+this generates 
+
+<label for="Email">Email</label>
+
+
+5. Validation Message Tag Helper (<span>)
+
+The Validation Message Tag Helper displays validation error messages for a specific model property.
+
+Example:
+
+<span asp-validation-for="Email" class="text-danger"></span>
+
+this generates 
+
+<span class="text-danger">Email is required</span>
+
+
+6. Validation Summary Tag Helper
+The Validation Summary Tag Helper shows a summary of validation errors for the model.
+
+Example:
+
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+This generates:
+
+
+<div class="text-danger">
+    <ul>
+        <li>Email is required</li>
+        <li>Password is required</li>
+    </ul>
+</div>
+
+7. Select Tag Helper (<select>)
+
+The Select Tag Helper is used to generate a select element bound to a model property.
+
+Example:
+
+
+<select asp-for="Country" asp-items="Model.CountryList"></select>
+
+This generates:
+
+<select id="Country" name="Country">
+    <option value="1">United States</option>
+    <option value="2">Canada</option>
+</select>
+
+8. TextArea Tag Helper (<textarea>)
+
+The TextArea Tag Helper is used to bind a multi-line text box to a model property.
+
+Example:
+
+
+<textarea asp-for="Comments" class="form-control"></textarea>
+
+This generates:
+
+<textarea id="Comments" name="Comments" class="form-control"></textarea>
+
+
+-->what  is validation means checking the data which we write inside the input controls of a form it is nothing filtering the user input
+
+-->the valdiation is of two types :
+
+-->server side :means after filling the form i click submit button then they get applied that is server side validation means the code of checking will go the server and its get valdiated the browser will refreseh once whenever i am doing server side validation
+
+-->client side : here without refreshing the page using javascript within the browser i will do it means it is not that much secure any body can hack your code .
+
+-->in this validation we use different attibutes which we place on top of model here attribute means in built available attiributes 
+like required ,maxlength ,minlength,emailaddress etc ..
+
+
+
+
+Now let us go with demo now 
+-------------------------------
 
 
 
