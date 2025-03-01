@@ -1031,7 +1031,7 @@ in the index page view
  </td>
 
  uncomment the code which as there and put above code 
- 
+so that u can jump to details page also through index page also  
 
 
 
