@@ -29,3 +29,48 @@ There will be situation where for generating reports you may need data from mult
 Above i want to send two models one is collection of depts and another is single empooyee based on what i pass empid 
 
 but above code is givng error means i cannot pass multiple object to view from the cotroller so what to do now ????
+
+so you have to create a model which will take other models as proepties into them 
+
+go go to Models folder and add one class with the name EmpDeptViewModel 
+
+  and the class shoudl be liek this 
+
+namespace MVCDemo1.Models
+{
+    public class EmpDeptViewModel
+    {
+
+        public List<Department> deptlist { set; get; }
+
+        public Employee emp { set; get; }
+
+        public DateTime date { set; get; }
+    }
+}
+
+
+and now the action method will be liek this i will send single objet only but that single objec will be other objects in then 
+
+ public IActionResult EmpDeptViewModelDemo(int empid)
+ {
+     var query1 = deptlist.ToList();
+     Employee emp=emplist.Where(x=>x.EmployeeID == empid).FirstOrDefault();
+     var query2 = emp;
+
+     // return View(query1,query2);
+     EmpDeptViewModel empdeptobj = new EmpDeptViewModel()
+     {
+         deptlist = query1,
+         emp=query2,
+         date=DateTime.Now
+     };
+     return View(empdeptobj);
+
+ }
+    
+
+
+
+
+  
