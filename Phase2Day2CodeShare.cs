@@ -369,5 +369,15 @@ namespace TagHelperdemo1.Controllers
 
 Next add one get method of register like this
 --------------------------
+  [HttpGet]
+  public IActionResult Register ()
+  {
+      // Prepopulate the country list
+      var model = new UserViewModel
+      {
+          CountryList = GetCountryList() // Helper method to get the country list
+      };
 
+      return View(model);
+  }
   
