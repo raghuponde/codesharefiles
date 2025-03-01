@@ -1933,7 +1933,11 @@ and there only type another command and dont shut the server of json
 
 json-server --watch data/db.json --port 8000
 
+now from previous termnal npm start so u can see some demo there 
 
+now productList is develped in function based componenet so i want it to be in class based componnet 
+
+  
 
     
 
