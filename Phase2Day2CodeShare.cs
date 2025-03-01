@@ -384,8 +384,126 @@ Next add one get method of register like this
 now right click and add one razor view for this action metod which will intially will look like this 
 
   
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+now i want to add a form here in above view 
+
+Register.cshtml
+------------------
+
+@model TagHelperdemo1.Models.UserViewModel;
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+@if (ViewBag.status == "registration succesfful")
+{
+    <div class="alert alert-success">
+      <h2>@ViewBag.status</h2>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        <h2>@ViewBag.status</h2>
+    </div>
+}
+
+
+<form asp-controller="Account" asp-action="Register" method="post">
+
+    <div class="form-group">
+
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control"/>
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Country"></label>
+        <select asp-for="Country" asp-items="Model.CountryList" class="form-control"></select>
+        <span asp-validation-for="Country" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+
+</form>
   
-  
+  AccountController.cs
+  -----------------------
+  using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using TagHelperdemo1.Models;
+
+namespace TagHelperdemo1.Controllers
+{
+    public class AccountController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Register()
+        {
+            // Prepopulate the country list
+            var model = new UserViewModel
+            {
+                
+                CountryList = GetCountryList() // Helper method to get the country list
+            };
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public IActionResult Register(UserViewModel model)
+        {
+            // Always repopulate the CountryList before returning the view
+           model.CountryList = GetCountryList();
+            ModelState.Remove("CountryList");
+            if(ModelState.IsValid)
+            {
+                ViewBag.status = "registration succesfful";
+            }
+            else
+            {
+                ViewBag.status = "registration not  succesfful";
+            }
+            return View(model);
+
+        }
+        private List<SelectListItem> GetCountryList()
+        {
+            return new List<SelectListItem>
+        {
+            new SelectListItem { Value = "US", Text = "United States" },
+            new SelectListItem { Value = "CA", Text = "Canada" },
+            new SelectListItem { Value = "IN", Text = "India" }
+        };
+        }
+    }
+}
+
 
 
 
