@@ -6,7 +6,7 @@ but i have not used multiple models in the same page of .cshmtl so let us do tha
 There will be situation where for generating reports you may need data from multiple models as all data is not present in single model .
 
   write a actionmethod in Home controller again 
-
+ 
   on top of the action method first deine Deparment collection like this 
   
  List<Department> deptlist = new List<Department>()
@@ -280,7 +280,41 @@ like required ,maxlength ,minlength,emailaddress etc ..
 
 Now let us go with demo now 
 -------------------------------
+now create a new mvc asp.net core project 
 
+now go to Models folder and add this class UserViewModel
+
+
+  using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
+
+namespace TagHelperdemo1.Models
+{
+    public class UserViewModel
+    {
+        [Required(ErrorMessage = "Username is required")]
+        public string Username { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Country is required")]
+        public string Country { get; set; }
+
+
+        public List<SelectListItem> CountryList { get; set; }
+    }
+}
+
+
+
+
+  
 
 
   
