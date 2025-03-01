@@ -1593,3 +1593,30 @@ namespace CRUDusingModel.Models
 }
 
  
+Now in react we have seeen use state same thing we want to do in class based component of react how to do 
+  for that let us write the code here using counter example only 
+
+so in Day 2 folder i am creating a new app with name counter pedia 
+
+npx create-react-app counterpedia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
