@@ -1642,7 +1642,9 @@ I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="a
 
 next add two files Header.js and Counter.js into src folder
 
+create one folder in src images and move images into images folder from public 
 
+  
 
 
 
