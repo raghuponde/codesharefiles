@@ -1536,5 +1536,37 @@ namespace CRUDusingModel.Models
 
 
   Means i will enter in text box Age only even numbers if i enter odd number for that also it sholuld say enter age in even numbers
+Go to the project and in that add one class with the name EvenValidation 
+using System.ComponentModel.DataAnnotations;
+
+namespace CustomvalidationAndmoreTypesinValidation
+{
+    public class EvenValidation : ValidationAttribute
+    {
+
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (value != null)
+            {
+
+                int value1 = Convert.ToInt32(value);
+
+                if (value1 % 2 == 0)
+                {
+                    return ValidationResult.Success;
+                }
+
+
+
+            }
+            return new ValidationResult("Please enter only age of even numbers ");
+
+
+        }
+
+
+
+    }
+}
 
  
