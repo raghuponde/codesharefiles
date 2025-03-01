@@ -1795,6 +1795,10 @@ export default class Counter extends React.Component {
     }
 }
 
+now i will chnage the code again making count to zero and rewrriing the updated incremen and decementn logic 
+
+
+
 
 
 
