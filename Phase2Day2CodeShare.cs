@@ -69,7 +69,9 @@ and now the action method will be liek this i will send single objet only but th
 
  }
     
+Now add a view add view -->razor view -->add 
 
+  and in the razor view put this code like this 
 
 
 
