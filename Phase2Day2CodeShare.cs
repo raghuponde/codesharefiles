@@ -73,6 +73,9 @@ Now add a view add view -->razor view -->add
 
   and in the razor view put this code like this 
 
+  EmpViewModelDemo.cshtml
+  -------------------------
+
 @model MVCDemo1.Models.EmpDeptViewModel;
 @{
     ViewData["Title"] = "EmpDeptViewModelDemo";
@@ -82,6 +85,66 @@ Now add a view add view -->razor view -->add
 
 so it will look like this and on top i had added new model which i just created 
 
+further chnage in the design will be like this 
 
+  @model MVCDemo1.Models.EmpDeptViewModel;
+@{
+    ViewData["Title"] = "EmpDeptViewModelDemo";
+}
+
+<h1>EmpDeptViewModelDemo</h1>
+
+<h2>Good Morning Todays Date :@Model.date </h2>
+<h3>Dept details </h3>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <table border="1" cellpadding="1" cellspacing="1">
+        <tr>
+            <th>DepartmentID </th>
+            <th>DepartmentName </th>
+           
+        </tr>
+        @foreach (Department  dept in Model.deptlist)
+        {
+            <tr>
+                <td>@dept.Deptid</td>
+                <td>@dept.DeptName</td>
+               
+            </tr>
+        }
+    </table>
+
+    
+    
+        <table border="1" cellpadding="1" cellspacing="1">
+            <tr>
+                <th>EmployeeID </th>
+                <th>EmployeeName </th>
+                <th>EmployeeSalary </th>
+            </tr>
+        @if (Model.emp != null)
+        {
+            <tr>
+                <td>@Model.emp.EmployeeID</td>
+                <td>@Model.emp.EmpName</td>
+                <td>@Model.emp.Salary</td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>There is no employee with this id</td>
+            </tr>
+        }
+        </table>
+   
+</body>
+
+
+  https://localhost:7257/Home/EmpDeptViewModelDemo/?empid=101
 
   
