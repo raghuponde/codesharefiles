@@ -1188,7 +1188,29 @@ now generate view for delete by going to get method of delete which will look li
 
 Post method of delete 
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Delete(Dog d)
+    {
+        try
+        {
+            foreach (Dog dog in dogs)
+            {
+                if (dog.ID == d.ID)
+                {
+                    dogs.Remove(dog);
+                    break;
+                }
+            }
+            return RedirectToAction("Index");
+        }
+        catch (Exception)
+        {
 
+            return View();
+        }
+    }
+}
 
 
  
