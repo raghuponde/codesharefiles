@@ -73,6 +73,15 @@ Now add a view add view -->razor view -->add
 
   and in the razor view put this code like this 
 
+@model MVCDemo1.Models.EmpDeptViewModel;
+@{
+    ViewData["Title"] = "EmpDeptViewModelDemo";
+}
+
+<h1>EmpDeptViewModelDemo</h1>
+
+so it will look like this and on top i had added new model which i just created 
+
 
 
   
