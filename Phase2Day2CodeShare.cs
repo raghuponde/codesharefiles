@@ -444,7 +444,9 @@ else
     </div>
 
     <button type="submit" class="btn btn-primary">Register</button>
- <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div asp-validation-summary="All" asp-validation-summary="ModelOnly" class="text-danger"></div>
+
 </form>
   
   AccountController.cs
