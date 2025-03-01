@@ -1093,7 +1093,41 @@ add dog from create and from index clcik edit
 
  you can see the form of dog to edit it 
 
- 
+ so post methd of edit 
+
+ [HttpPost]
+[ValidateAntiForgeryToken]
+public ActionResult Edit(Dog d)
+{
+    try
+    {
+        if (!ModelState.IsValid)
+        {
+            return View("Edit", d);
+
+        }
+        else
+        {
+            foreach (Dog dog in dogs)
+            {
+                if (dog.ID == d.ID)
+                {
+                    dog.Name = d.Name;
+                    dog.Age = d.Age;
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+    }
+    catch (Exception)
+    {
+
+        return View("Edit", d);
+    }
+}
+
+
 
 
  
