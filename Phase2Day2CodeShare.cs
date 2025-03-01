@@ -948,7 +948,7 @@ Now add a view for index method also means right click on index method and add v
             <td>
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
-            <td>
+            <td> 
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
@@ -959,4 +959,30 @@ Now add a view for index method also means right click on index method and add v
 </table>
 
 
-  
+ now i will go the details view 
+
+ // GET: DogController/Details/5
+ public ActionResult Details(int id)
+ {
+     Dog d = new Dog();
+     foreach(Dog dog in dogs)
+     {
+         if(dog.ID==id)
+         {
+             d.ID = dog.ID;
+             d.Name = dog.Name;
+             d.Age = dog.Age;
+         }
+     }
+     return View(d);
+ }
+
+ now add a view for this details right click add view--->razor view --->drop down select template as details and model as dog and genrate the view 
+
+ which will look like this 
+
+ 
+
+
+
+ 
