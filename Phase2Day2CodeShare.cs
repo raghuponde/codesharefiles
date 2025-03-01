@@ -506,6 +506,122 @@ namespace TagHelperdemo1.Controllers
     }
 }
 
+Now open another application wih the name TagHelperDemo2 and now i will change the model like this 
+
+ in models folder 
+
+ using System.ComponentModel.DataAnnotations;
+
+namespace TagHelperDemo2.Models
+{
+    public class UserViewModel
+    {
+
+        [Required(ErrorMessage = "Username is required")]
+        public string Username { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Country is required")]
+        public string Country { get; set; }
+    }
+}
+
+then create Account conttroller again 
+
+using Microsoft.AspNetCore.Mvc;
+using TagHelperDemo2.Models;
+namespace TagHelperDemo2.Controllers
+{
+    public class AccountController : Controller
+    {
+        [HttpGet]
+        public IActionResult Register()
+        {
+            UserViewModel model = new UserViewModel();
+            // Render the form for registration
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Register(UserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["Message"] = "Registration successful!";
+                return RedirectToAction("Register");
+            }
+
+            // Return the view with validation errors
+            return View(model);
+        }
+    }
+}
+and now add a view to register 
+
+and code is like this for this 
+
+  @model TagHelperDemo2.Models.UserViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+<form asp-controller="Account" asp-action="Register" method="post">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Country"></label>
+        <select asp-for="Country" class="form-control">
+            <option value="">-- Select Country --</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="IN">India</option>
+        </select>
+        <span asp-validation-for="Country" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+
+    <div asp-validation-summary="All" asp-validation-summary="ModelOnly" class="text-danger"></div>
+</form>
+
+
+
+  
+
+
+
 
 
 
