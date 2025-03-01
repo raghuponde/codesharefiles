@@ -1091,6 +1091,8 @@ so that u can jump to details page also through index page also
 add dog from create and from index clcik edit 
 
 
+ you can see the form of dog to edit it 
+
  
 
 
