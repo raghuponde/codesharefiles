@@ -312,7 +312,23 @@ namespace TagHelperdemo1.Models
 }
 
 
+Then add one Controller of mvc type not api type witht the AccountController and add it 
 
+using Microsoft.AspNetCore.Mvc;
+
+namespace TagHelperdemo1.Controllers
+{
+    public class AccountController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+
+
+by default it will look like this 
 
   
 
