@@ -1034,7 +1034,16 @@ in the index page view
 so that u can jump to details page also through index page also  
  
  
- now come to edit method of dog controller
+ now come to edit method of dog controller and just genrate a view for it 
+
+ same way sslect template as edit and model as dog 
+
+ but let us fill the code of edit now but for get method of edit no need to write code 
+
+
+ 
+
+ 
 
 
  
