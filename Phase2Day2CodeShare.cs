@@ -1512,4 +1512,29 @@ namespace CRUDusingModel.Controllers
     }
 }
 
+on this model i want to se custom validation 
+
+using System.ComponentModel.DataAnnotations;
+
+namespace CRUDusingModel.Models
+{
+    public class Dog
+    {
+
+        [Required(ErrorMessage = "ID is required")]
+        public int ID { set; get; }
+
+        [Required(ErrorMessage = "Name is required"), MaxLength(222)]
+        public string? Name { set; get; }
+
+        [Required(ErrorMessage = "Age is required"),
+            Range(0, 20, ErrorMessage = "Age should be between 0 to 20 only")]
+        public int Age { set; get; }
+
+    }
+}
+
+
+  Means i will enter in text box Age only even numbers if i enter odd number for that also it sholuld say enter age in even numbers
+
  
