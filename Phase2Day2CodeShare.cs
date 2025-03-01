@@ -6,7 +6,7 @@ but i have not used multiple models in the same page of .cshmtl so let us do tha
 There will be situation where for generating reports you may need data from multiple models as all data is not present in single model .
 
   write a actionmethod in Home controller again 
- 
+  
   on top of the action method first deine Deparment collection like this 
   
  List<Department> deptlist = new List<Department>()
@@ -341,6 +341,33 @@ add one method in controller like ths
         };
     }
   
+so controller code after addding 
+----------------------------------
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
+namespace TagHelperdemo1.Controllers
+{
+    public class AccountController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        private List<SelectListItem> GetCountryList()
+        {
+            return new List<SelectListItem>
+        {
+            new SelectListItem { Value = "US", Text = "United States" },
+            new SelectListItem { Value = "CA", Text = "Canada" },
+            new SelectListItem { Value = "IN", Text = "India" }
+        };
+        }
+    }
+}
+
+Next add one get method of register like this
+--------------------------
 
   
