@@ -329,7 +329,17 @@ namespace TagHelperdemo1.Controllers
 
 
 by default it will look like this 
+add one method in controller like ths 
 
+    private List<SelectListItem> GetCountryList()
+    {
+        return new List<SelectListItem>
+        {
+            new SelectListItem { Value = "US", Text = "United States" },
+            new SelectListItem { Value = "CA", Text = "Canada" },
+            new SelectListItem { Value = "IN", Text = "India" }
+        };
+    }
   
 
 
