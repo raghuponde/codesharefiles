@@ -1032,7 +1032,9 @@ in the index page view
 
  uncomment the code which as there and put above code 
 so that u can jump to details page also through index page also  
-
+ 
+ 
+ now come to edit method of dog controller
 
 
  
