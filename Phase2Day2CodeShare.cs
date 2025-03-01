@@ -899,5 +899,9 @@ public ActionResult Create(Dog dog)
     }
 }
 
+Now add a view for index method also means right click on index method and add view --->razor view -->template as List --->model as Dog 
+--->geerate the view 
+
+
 
   
