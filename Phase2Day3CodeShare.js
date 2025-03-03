@@ -271,7 +271,15 @@ export const counterReducer = counterSlice.reducer;
 
 
 
+so above is the code for counterSlice.js so when you are working on store it is a reducer and now when in slice it is reducers so i am having a counterSlice which is having a name as counter and intialstate as some intialstate and then we are seeing here reducers okay 
 
+reducers are nothing but actions methods on counter which is increment and decrement method in counter .
+
+so reducers will have all of those actions which are related to that particular slide .
+
+here state is the state of slice it is not the state  of redux store .it is the slice state which u have right here inside the slice only 
+
+Here the advantage of redux is that here i can directly modify the state without using prevState which we were doing in use State okay 
 
 
 
