@@ -4,7 +4,7 @@ Redux is a state management library for JavaScript applications, commonly used w
 
 Why Use Redux?
 React’s built-in state management works well for small applications, but as the app grows, managing shared state between multiple components can become complex. Redux provides:
-
+ 
 A single source of truth (centralized state)
 Predictable state updates using pure functions (reducers)
 Easier debugging with tools like Redux DevTools
@@ -155,7 +155,35 @@ export const store = configureStore({
 });
 
 
+// here i am configurig store so for an application i will create one store and 
+//all compoenents will use that store this is like you are using one database kind 
+//for all the components okay 
+ 
 
+Then go to index.js and configure the store means all components should be able to acccess that store for that purpose i am writing liek this 
+
+and this store is mainly wrapped in provider class so index.js file 
+
+index.js 
+---------
+  import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+
+import Header from './components/Header';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+ 
+      <Header />
+   
+    </Provider>
+  </React.StrictMode>
+);
 
 
 
