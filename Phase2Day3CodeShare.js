@@ -339,7 +339,41 @@ in console.log you can see here
 
 here u are testing it in console log now apply your storage to Counter component how to apply let us see 
 
+Next what to do is go to Counter.js
 
+Counter.js 
+------------
+import React from "react";
+import { useSelector } from "react-redux";
+
+function Counter() {
+  const count = useSelector((state) => state.counterStore.count);
+
+  return <div>{count}</div>;
+}
+
+export default Counter;
+
+
+and then call that in index.js file now 
+
+index.js 
+-----------
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Header from "./app/layout/Header";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+import Counter from "./app/components/Counter";
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <div className="text-white">
+    <Provider store={store}>
+      <Header />
+      <Counter />
+    </Provider>
+  </div>
+);
 
 
 
