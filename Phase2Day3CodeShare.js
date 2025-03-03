@@ -214,7 +214,60 @@ Inside redux folder create a new folder which is slice and in that create a file
 here i am slicing my redux store or you can say i am splitting so there will be different components in the project so
 
 
+REDUXOPEDIA
+│── node_modules
+│── public
+│   │── index.html
+│   │── manifest.json
+│── src
+│   │── components
+│   │   │── Counter.js
+│   │   │── Header.js
+│   │── images
+│   │   │── logo192.png
+│   │   │── logo512.png
+│   │── redux
+│   │   │── slice
+│   │   │   │── counterSlice.js
+│   │   │── store.js
+│   │── App.css
+│   │── App.js
+│   │── index.css
+│   │── index.js
+│   │── setupTests.js
+│── package-lock.json
+│── package.json
+│── README.md
 
+
+counterSlice.js
+------------------
+ import { createSlice } from "@reduxjs/toolkit"
+
+const initalSate = { count: 0 }
+
+export const counterSlice = createSlice({
+    name: "counter",
+    initialState: initalSate,
+    
+    reducers:
+    {
+
+        increment: (state) => {
+            state.count + 1;
+        },
+        decrement: (state) =>
+        {
+            state.count - 1;
+        }
+
+    },
+
+
+})
+
+export const { increment, decrement } = counterSlice.actions;
+export const counterReducer = counterSlice.reducer;
 
 
 
