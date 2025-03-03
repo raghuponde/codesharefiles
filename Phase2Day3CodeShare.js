@@ -900,8 +900,67 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+Custom Hook
+***********
+A custom hook in React is a reusable function that contains logic using built-in hooks (useState, useEffect, etc.). Custom hooks allow you to extract reusable logic from components, making them cleaner and more maintainable.
+
+When to Use Custom Hooks?
+When multiple components share the same logic.
+To abstract API calls, authentication, or form handling.
+To separate concerns and keep components cleaner.
 
 
+ in the above program only i will add one js file with the name UserList.js in componenets folder 
 
+ A code without custom hook
 
+UserList.js
+---------------------------
+
+ import React, { useState, useEffect } from "react";
+
+const UserList = () => {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch users");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setUsers(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Loading users...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  return (
+    <div>
+      <h2>User List</h2>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>{user.name} - {user.email}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default UserList;
+
+Problem: The fetching logic is inside the component, making it harder to reuse.
+
+Refactored Code (Using a Custom Hook useFetch)
+Now, we extract the data fetching logic into a separate function called useFetch.
 
