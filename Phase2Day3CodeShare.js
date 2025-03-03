@@ -496,5 +496,6 @@ export default Counter;
               </div>
             </div>
           </div>
+        </div>
 
 
