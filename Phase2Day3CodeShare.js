@@ -304,6 +304,38 @@ store.dispatch({
 
 console.log(store.getState());
 
+Now in the counterSlice i will make the value from 0 to 10 
+
+import { createSlice } from "@reduxjs/toolkit"
+
+const initalSate = { count: 10 }
+
+export const counterSlice = createSlice({
+    name: "counter",
+    initialState: initalSate,
+    
+    reducers:
+    {
+
+        increment: (state) => {
+            state.count =state.count + 1;
+        },
+        decrement: (state) =>
+        {
+            state.count = state.count - 1;
+        }
+
+    },
+
+
+})
+
+export const { increment, decrement } = counterSlice.actions;
+export const counterReducer = counterSlice.reducer;
+
+and again and run and see the effect u will see 10 and then 11 
+
+in console.log
 
 
 
