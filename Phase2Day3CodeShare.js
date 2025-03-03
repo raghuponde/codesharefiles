@@ -131,6 +131,15 @@ root.render(
 );
 
 
+so you can go to these links and get some knowledge theortially and practically from these links about redux 
+
+ https://react-redux.js.org/ 
+https://redux-toolkit.js.org/  
+
+Not that much impotant now what u do in from the terminal means open another terminal and write the below command 
+
+
+npm install @reduxjs/toolkit react-redux
 
 
 
