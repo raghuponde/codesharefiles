@@ -463,6 +463,38 @@ function Counter() {
 
 export default Counter;
 
- 
+ Now after remove button and after another two divisions add  this desing in the Counter.js file 
+
+
+<div className=" p-4 col-12 col-md-6">
+          <div className="border p-4">
+            <h4 className="text-success pb-2">Multiplier Counter</h4>
+            <div className="row">
+              <div className="col-4 p-1">
+                <input
+                  type="text"
+                  placeholder="multipler..."
+                  className="form-control"
+                 
+                />
+              </div>
+              <div className="col-4 p-1">
+                <button
+                  className="btn btn-primary form-control"
+                 
+                >
+                  Add
+                </button>
+              </div>
+              <div className="col-4 p-1">
+                <button
+                  className="btn btn-danger form-control"
+                 
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
 
 
