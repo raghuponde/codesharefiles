@@ -706,9 +706,62 @@ store.dispatch({
 console.log(store.getState());
 
 
+now in componenets folder create DestinationList.js file 
 
+DestinationList.js 
+-------------------
+ import React from "react";
+import { useSelector } from "react-redux";
 
+function DestinationList() {
+  const destinationList = useSelector(
+    (state) => state.destinationStore.destinations
+  );
+  return destinationList.map((destination, index) => {
+    return (
+      <div
+        className="text-center text-white row"
+        style={{ borderBottom: "1px solid #333" }}
+        key={index}
+      >
+        <div className="col-8 col-md-3 offset-md-3 pt-2">
+          {destination.name}
+        </div>
+        <div className="col-4 col-md-2">
+          <button className="btn btn-success form-control m-1">Details</button>
+        </div>
+      </div>
+    );
+  });
+}
 
+export default DestinationList;
+ 
+
+index.js 
+----------
+ 
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+
+import Header from './components/Header';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
+import Counter from './components/Counter';
+import DestinationList from './components/DestinationList';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+ 
+      <Header />
+      <Counter />
+      <DestinationList/>
+    </Provider>
+  </React.StrictMode>
+);
 
 
 
