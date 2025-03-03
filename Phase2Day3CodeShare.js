@@ -186,6 +186,28 @@ root.render(
 );
 
 
+// so header or any other component will use store that is why kept on the top and 
+//also u have to include provider namespace also okay the application will be same
+//as still this store i had not used any where okay ..
+// so here provider is something which will wrap the complete application 
+// through provider u can modify the global store which is store 
+
+
+
+Now i want to work on the store which u created above
+
+now create one compoent Counter.js in components folder 
+
+Counter.js 
+---------
+ import React from "react";
+
+function Counter() {
+    return <div>Counter</div>;
+}
+
+export default Counter;
+
 
 
 
