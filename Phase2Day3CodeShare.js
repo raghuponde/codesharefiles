@@ -519,6 +519,47 @@ export default Counter;
 
 
  so you are getting like this 
-now in the textbox i will enter some value say 12 then counter should be incremnt by 12 andn if clicke remove what ever present value of counter that has to decemented y 12
+now in the textbox i will enter some value say 12 then counter should be incremnt by 12 andn if clicke 
+ remove what ever present value of counter that has to decemented y 12
+now go to counterSlice.js 
+
+and add some methods for taking payload values 
+
+counterSlice.js 
+---------------
+ import { createSlice } from "@reduxjs/toolkit"
+
+const initalSate = { count: 10 }
+
+export const counterSlice = createSlice({
+    name: "counter",
+    initialState: initalSate,
+    
+    reducers:
+    {
+
+        increment: (state) => {
+            state.count =state.count + 1;
+        },
+        decrement: (state) =>
+        {
+            state.count = state.count - 1;
+        },
+        decrementMultiplier: (state, action) => {
+            state.count -= action.payload;
+        },
+        incrementMultiplier: (state, action) => {
+            state.count += Number(action.payload);
+        },
+
+    },
+
+
+})
+
+export const { increment, decrement,decrementMultiplier,incrementMultiplier } = counterSlice.actions;
+export const counterReducer = counterSlice.reducer;
+
+
 
 
