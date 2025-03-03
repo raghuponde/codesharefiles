@@ -102,15 +102,36 @@ Now create one folder components in src folder and add there Header.js file like
 
 Header.js 
 --------------
-  import React from "react";
-import logo from "../../images/logo192.png";
+ import React from "react";
+import logo from "../images/logo192.png";
 function Header() {
-  return (
-    <div className="pt-3 pl-2">
-      <img src={logo} alt="" style={{ height: "35px", verticalAlign: "top" }} />{" "}
-      <span className="h2 pt-4 text-white-50">React Course - ReduxOpedia</span>
-    </div>
-  );
+    return (
+        <div className="pt-3 pl-2">
+            <img src={logo} alt="" style={{ height: "35px", verticalAlign: "top" }} />{" "}
+            <span className="h2 pt-4 text-white-50">React Course - ReduxOpedia</span>
+        </div>
+    );
 }
+export default Header;
+and in index.js 
+-----------------
+  import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Header from './components/Header';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Header />
+   
+    
+  </React.StrictMode>
+);
+
+
+
+
 
 
