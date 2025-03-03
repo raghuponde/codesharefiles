@@ -11,7 +11,7 @@ Easier debugging with tools like Redux DevTools
 Scalability for large applications
 
 
-All of crete a new app in your day 3 folder name reduxopedia and do intial set up means in public copy logo pics into images folder means create folder images in src and move the images 
+All of crete a new app in your day 3 folder name reduxopedia and do intial set up means in public copy logo pics into images folder m eans create folder images in src and move the images 
 over there and keep index.js and css and app.js and css files and package json files keepand remaining all delete it 
 
 so in public folder index.hmtl and manifest file if u want keep it or remove it but in public folder index.html file should be there 
@@ -98,5 +98,19 @@ index.html
 </html>
 
 
+Now create one folder components in src folder and add there Header.js file like this 
+
+Header.js 
+--------------
+  import React from "react";
+import logo from "../../images/logo192.png";
+function Header() {
+  return (
+    <div className="pt-3 pl-2">
+      <img src={logo} alt="" style={{ height: "35px", verticalAlign: "top" }} />{" "}
+      <span className="h2 pt-4 text-white-50">React Course - ReduxOpedia</span>
+    </div>
+  );
+}
 
 
