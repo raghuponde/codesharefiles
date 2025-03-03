@@ -281,7 +281,28 @@ here state is the state of slice it is not the state  of redux store .it is the 
 
 Here the advantage of redux is that here i can directly modify the state without using prevState which we were doing in use State okay 
 
+now come to store.js file 
 
+store.js
+----------
+ import { configureStore } from "@reduxjs/toolkit";
+import { counterReducer } from "./slice/counterSlice";
+
+export const store = configureStore({
+    reducer: {
+
+        counterStore:counterReducer
+
+    },
+});
+
+console.log(store.getState());
+store.dispatch({
+    type: "counter/increment",
+
+})
+
+console.log(store.getState());
 
 
 
