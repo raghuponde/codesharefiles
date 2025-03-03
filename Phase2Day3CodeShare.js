@@ -519,4 +519,6 @@ export default Counter;
 
 
  so you are getting like this 
+now in the textbox i will enter some value say 12 then counter should be incremnt by 12 andn if clicke remove what ever present value of counter that has to decemented y 12
+
 
