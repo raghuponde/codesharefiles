@@ -1025,5 +1025,36 @@ const useFetch = (url) => {
     return { data ,loading,error}
 }
 
+export default useFetch;
  
+Then userlist using custom hook useFetch
 
+UserList.js 
+----------------
+import React, { useState, useEffect } from "react";
+import useFetch from "./useFetch";
+
+const UserList = () => {
+    const { data, loading, error } = useFetch("https://jsonplaceholder.typicode.com/users");
+   
+
+    if (loading) return <p>Loading users...</p>;
+    if (error) return <p>Error: {error}</p>;
+
+    return (
+        <div style={{color:"white"}}>
+            <h2>User List</h2>
+            <ul>
+                {data.map((user) => (
+                    <li key={user.id}>{user.name} - {user.email}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default UserList;
+
+so u can see the function is retuning 3 values if success data if error erro and if not successs and no error then it is loading so all those values  I am destrucrring 
+into tuple varibale and displaying it 
+ 
