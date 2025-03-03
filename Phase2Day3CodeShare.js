@@ -992,5 +992,11 @@ Problem: The fetching logic is inside the component, making it harder to reuse.
 Refactored Code (Using a Custom Hook useFetch)
 Now, we extract the data fetching logic into a separate function called useFetch.
 
+now add another file useFetch.js into compoennts foldr 
 
+and logic for usefecth.js 
+---------------------------
+
+
+ 
 
