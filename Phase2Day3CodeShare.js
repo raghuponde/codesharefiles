@@ -884,7 +884,7 @@ import './index.css';
 import Header from './components/Header';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
-import Counter from './components/Counter';
+import Counter from './components/Counter'; 
 import DestinationList from './components/DestinationList';
 import DestinationFact from './components/DestinationFact';
 
