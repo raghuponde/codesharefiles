@@ -209,10 +209,9 @@ function Counter() {
 export default Counter;
 
 
+Inside redux folder create a new folder which is slice and in that create a file with the name counterSlice.js 
 
-
-
-
+here i am slicing my redux store or you can say i am splitting so there will be different components in the project so
 
 
 
