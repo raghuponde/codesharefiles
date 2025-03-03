@@ -142,6 +142,38 @@ Not that much impotant now what u do in from the terminal means open another ter
 npm install @reduxjs/toolkit react-redux
 
 
+now then inside src create new folder redux and in that folder again file with the name store.js
+
+store.js 
+---------
+  import { configureStore } from "@reduxjs/toolkit";
+
+export const store = configureStore({
+  reducer: {
+   
+  },
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
