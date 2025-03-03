@@ -847,7 +847,60 @@ function DestinationList() {
 
 export default DestinationList;
 
+ now i have to show this value in anoher component so create one component DestinationFact.js in components fodler 
+
+DestinationFact.js 
+-----------------
+import React from "react";
+import { useSelector } from "react-redux";
+
+function DestinationFact() {
+    const selectedDestination = useSelector(
+        (state) => state.destinationStore.destinationSelected
+    );
+    if (selectedDestination == undefined) {
+        return (
+            <div className="text-center pt-4 text-warning">Select a Destination</div>
+        );
+    } else {
+        return (
+            <div className="text-center border p-3 m-3">
+                <h4 className="text-success">{selectedDestination.name}</h4>
+                <span style={{color:"white"}}>   Days Recommened : {selectedDestination.days}</span> <br />
+                <span style={{ color: "white" }}>     Fun Fact : {selectedDestination.fact}</span> <br />
+            </div>
+        );
+    }
+}
+
+export default DestinationFact;
+
+index.js 
+-----------
+ import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+
+import Header from './components/Header';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
+import Counter from './components/Counter';
+import DestinationList from './components/DestinationList';
+import DestinationFact from './components/DestinationFact';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
  
+      <Header />
+      <Counter />
+      <DestinationList />
+      <DestinationFact/>
+    </Provider>
+  </React.StrictMode>
+);
+
 
 
 
