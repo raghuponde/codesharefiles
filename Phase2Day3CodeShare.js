@@ -335,7 +335,12 @@ export const counterReducer = counterSlice.reducer;
 
 and again and run and see the effect u will see 10 and then 11 
 
-in console.log
+in console.log you can see here 
+
+here u are testing it in console log now apply your storage to Counter component how to apply let us see 
+
+
+
 
 
 
