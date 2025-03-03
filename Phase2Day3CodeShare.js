@@ -763,7 +763,9 @@ root.render(
   </React.StrictMode>
 );
 
+Now on click of details button i want to retrieve the values 
 
+so go to destinationSlice.js file and the updated code is 
 
 
 
