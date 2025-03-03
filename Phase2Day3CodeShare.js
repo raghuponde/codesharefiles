@@ -374,6 +374,50 @@ root.render(
 );
 
 
+Now i want to put buttons and want to increment and decrement based on buttons in
+so in Counter.jsx code changed
 
+
+Counter.js 
+----------
+import React from "react";
+import { useSelector} from "react-redux";
+
+function Counter() {
+  const count = useSelector((state) => state.counterStore.count);
+ 
+  return (
+    <div
+      className=" mt-2 pt-3 pl-2 text-center"
+      style={{ borderTop: "1px solid #999" }}
+    >
+      <div className="text-white pb-2 h4">Counter : {count}</div>
+      <div className="row">
+        <div className=" p-4 col-12 col-md-6">
+          <div className="border p-4">
+            <button
+              className="btn btn-primary"
+              
+            >
+              Add
+            </button>{" "}
+            &nbsp;
+            <button
+              className="btn btn-danger"
+             
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Counter;
+
+
+ 
 
 
