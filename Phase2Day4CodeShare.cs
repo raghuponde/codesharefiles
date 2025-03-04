@@ -703,7 +703,30 @@ then now double clik the drop down and in slected chnage event write this code
      cnn.Close();
  }
 
-          
+ now aadd one button and expand  it and say on it courseregister 
+
+ now i am having a value of studentid the value i want to pass to another form which i will create it will be Form2 default name it wil have 
+
+ here i will write two methods one is set method and another is get method when i am in this first form after clicking the courseregister button 
+
+ i will get the value of studentid whatever is there  in textbox1 and that i will set in Form2 let us see now how to do it
+
+ so add one button and one as as Form2.cs which will have design like this 
+
+   Course Form
+--------------------------------
+| courseid       [__________] |
+| coursename     [__________] |
+| Duration       [__________] |
+| whichstudent   [__________▼] |
+--------------------------------
+|  [ Insert ]  [ Update ]  [ Delete ] |
+--------------------------------
+Brackets [__________] represent input fields.
+Dropdown [__________▼] represents the student selection dropdown.
+Buttons [ Insert ] [ Update ] [ Delete ] are at the bottom.
+
+   
 
 
 
