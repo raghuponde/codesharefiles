@@ -653,7 +653,7 @@ namespace Ado.netDemo
 
         private void button5_Click(object sender, EventArgs e)
         {
-            dr.Read();// cursor will now point to first row 
+            dr.Read();//whnever u clck this button cursor will point to next row and while poinitn it is reading also 
             textBox1.Text = dr[0].ToString();
             textBox2.Text = dr[1].ToString();
         }
