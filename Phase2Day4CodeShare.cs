@@ -674,7 +674,34 @@ namespace Ado.netDemo
 
 Note  i had not closed the connection as i want to read next row vale in next button click 
 
+now double click on the form area you will get form load event so in this form load event i want to upload ids of students in drop down 
 
+private void Form1_Load(object sender, EventArgs e)
+{
+    cnn.Open();
+    SqlCommand cmd = new SqlCommand("select studentid from student", cnn);
+    dr = cmd.ExecuteReader();
+    comboBox1.Refresh();
+    while (dr.Read())
+    {
+        this.comboBox1.Items.Add(dr[0].ToString());
+    }
+    cnn.Close();
+}
+
+then now double clik the drop down and in slected chnage event write this code 
+
+ private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+ {
+     cnn.Open();
+     SqlCommand cmd = new SqlCommand("select * from student where studentid="
+         + Convert.ToInt16(comboBox1.Text), cnn);
+     dr = cmd.ExecuteReader();
+     dr.Read();
+     textBox1.Text = dr[0].ToString();
+     textBox2.Text = dr[1].ToString();
+     cnn.Close();
+ }
 
           
 
