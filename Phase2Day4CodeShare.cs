@@ -464,6 +464,39 @@ give name Ado.netDemo as project name .net core 8.0 let it be so start desinging
 
 now click the insert button first 
 
+insert button code along with sqlconnection codes intially
+-----------------------------------------------------------
+
+using System.Data.SqlClient;
+namespace Ado.netDemo
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        SqlConnection cnn = new SqlConnection(@"data source=LAPTOP-4G8BHPK9\SQLEXPRESS;initial catalog=Wipro4;Integrated Security=true;");
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("insert into student values(@studid1,@studname1)", cnn);
+            cmd.Parameters.AddWithValue("@studid1",Convert.ToInt16(textBox1.Text));
+            cmd.Parameters.AddWithValue("@studname1", textBox2.Text);
+           int rowsAffected= cmd.ExecuteNonQuery();
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("studnent inserted ");
+            }
+            else
+            {
+                MessageBox.Show("studnet not inserted");
+            }
+
+        }
+    }
+}
+
 
 
           
