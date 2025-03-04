@@ -236,6 +236,11 @@ go to drive https://drive.google.com/drive/folders/1AKrv_IbdPOVkZJsZ9W1ESrUkK5lH
 
 and in phase 2 day 3 routopedia download the folder from there into local disk and from there copy this folder after extracting into gitdemos fodler 
 
+so afer pasting it in gitdemos folder u though gitbash again try to reach that routopedia folder okay 
+
+after reaching theee through gitbash write the folowinng commadns to upload in github 
+
+
 
 
 
