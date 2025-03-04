@@ -728,7 +728,27 @@ Brackets [__________] represent input fields.
 
 Buttons [ Insert ] [ Update ] [ Delete ] are at the bottom.
 
-   
+Here anybody can do sql injection means he can go to text box and write sql command like select * from table name so to provide security 
+i will not write the commands direclty i will use stored procedure 
+
+stored Procedure may return or may not return a value .
+In store procedure parameters will be passed and will do some logic using those parameters 
+  it acts  a precompiled object when you want to do permanent changes in the database we go for stored procedures
+
+syntax 
+---------
+create proc <procname>(parameters list)
+    as
+    begin 
+
+logic writtne here 
+    end 
+
+call astored procedure 
+
+exec <procname> paarameters list 
+
+so now i am creating a Stored procedure on the table course where I will write a stored procedure for inserting updating and deleting the course table
 
 
 
