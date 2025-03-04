@@ -272,7 +272,26 @@ now i want to upload this folder to github why because my system may crash or fo
 now go to gitgub and create a repsotory with name reduxopedia 
 
 
+ write this command to establsih connection with remote repsoitory 
+ 
+$ git remote add origin https://github.com/raghuponde/reduxopedia.git
+
+To check whether connection has happned or not with the remote origin here origin means that remote url 
+$ git remote -v
+
+then u can see like this 
   
+origin  https://github.com/raghuponde/reduxopedia.git (fetch)
+origin  https://github.com/raghuponde/reduxopedia.git (push)
+
+now write the command to push your code to this online repsototy 
+
+git push -u origin master 
+
+now it will be uploaded and now refresh the browser of github 
+
+
+
 
 
 
