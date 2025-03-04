@@ -819,7 +819,118 @@ Now in button7 of studetn form write liek this code
 
 you can make the textbox4 of Form2 as read onlly so that no body can modify the froeign key 
 
+Now click the insert button and using ado net and using a stored procedure i'll insert values inside the course table
 
+  
+  using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+namespace Ado.netDemo
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        public string setstudentid
+        {
+            set
+            {
+                textBox4.Text = value;
+            }
+        }
+        SqlConnection cnn = new SqlConnection(@"data source=LAPTOP-4G8BHPK9\SQLEXPRESS;initial catalog=Wipro4;Integrated Security=true;");
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cnn.Open();
+            int cid = Convert.ToInt32(textBox1.Text);
+            string cname = textBox2.Text;
+            int duration = Convert.ToInt32(textBox3.Text);
+            int studid = Convert.ToInt32(textBox4.Text);
+            SqlCommand cmd = new SqlCommand("insertcourse", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@cid", cid);
+            cmd.Parameters.AddWithValue("@cname", cname);
+            cmd.Parameters.AddWithValue("@duration", duration);
+            cmd.Parameters.AddWithValue("@sid1", studid);
+            int rowsAffcted = cmd.ExecuteNonQuery();
+            if (rowsAffcted > 0)
+            {
+                MessageBox.Show("course added ");
+            }
+            else
+            {
+                MessageBox.Show("course not added ");
+            }
+            cnn.Close();
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cnn.Open();
+            int cid = Convert.ToInt32(textBox1.Text);
+            string cname = textBox2.Text;
+            int duration = Convert.ToInt32(textBox3.Text);
+            int studid = Convert.ToInt32(textBox4.Text);
+            SqlCommand cmd = new SqlCommand("updatecourse", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@cid", cid);
+            cmd.Parameters.AddWithValue("@cname", cname);
+            cmd.Parameters.AddWithValue("@duration", duration);
+            cmd.Parameters.AddWithValue("@sid1", studid);
+            int rowsAffcted = cmd.ExecuteNonQuery();
+            if (rowsAffcted > 0)
+            {
+                MessageBox.Show("course updated ");
+            }
+            else
+            {
+                MessageBox.Show("course not updated ");
+            }
+            cnn.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            cnn.Open();
+
+            int studid = Convert.ToInt32(textBox4.Text);
+            SqlCommand cmd = new SqlCommand("deletecourse", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@sid1", studid);
+            int rowsAffcted = cmd.ExecuteNonQuery();
+            if (rowsAffcted > 0)
+            {
+                MessageBox.Show("course deleted and cascadingly student also got deleted ");
+            }
+            else
+            {
+                MessageBox.Show("Nothing has been deleted  ");
+            }
+            cnn.Close();
+        }
+    }
+}
+
+update logic 
+-------------
+ what u do the student who has registered the course for that student only jump to course formm and u know course id so on text box1 keep the course id and modify other column details and click 
+   the update button to see the chnages refer db tabels of course
+
+delete logic
+-----------
+here in sp both values of student and course will be deleetd and u have to just select the student id who has taken courses 
   
 
 
