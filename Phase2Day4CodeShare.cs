@@ -1056,7 +1056,18 @@ namespace datasetdemo1
 
 Now i want to traverse the table forward direction and back ward direaction 
 
+openn a new windows appliation of .net core not framework and desing the interfce like this 
 
+  Student Form
+---------------------------------
+| studentid     [__________]    |
+| Studentname   [__________]    |
+---------------------------------
+|  [ << ]  [ > ]  [ < ]  [ >> ]  |
+---------------------------------
+
+
+  
 
 
   
