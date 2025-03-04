@@ -388,7 +388,108 @@ go to that folder u can find git initlized repository
 
 so any chnage u do in local say git add . and git status and check all should be green and do commit and push it to main branch so 
 
+ADO.NET (ACTIVEX DATA OBJECT.NET)
+********************************
 
+In organiztions,bussiness applications need to manage voluminious data .Data is stored in a related database in the form of related tables.retriving and manipulating data directly from database requires knowledge of database commands so overcome this drawback and we need to provide an friendly interface where user can just click the button and everything gets done automatically so we require a technology which is called ado.net means activex data objects .net so it means it is a part of .NET framework architecture .It is a model used by .net applications to communicate with the database for retriving ,accessing and updating data.so ado.net is an interface between client applications and datasources.
+
+A client application can be windows application ,web application or other client applications such as office 
+and data sources can be database ,text files ,xml files and can be webserver also holding some other database or other related information.This model is designed in such a way that a developer can access and write to wide variety of data sources such as Microsoft sql server and xml.By using ADO.NET data can be retrived from one data source and and saved in another.For example data can be retrived from microsoft excel and then saved in xml document.
+
+
+The data residing in a database is retrived through data provider.The data provider is set of components including
+the connection,coomand,datareader and dataadapter objects.It provides data to application and updates database
+with changes made in application.
+
+An application can access data either through dataset or through datareader object.
+The two key componenets of ado.net object model is 
+
+•	Data Provider
+•	Dataset
+
+
+Providers are communicators between front end and back end.providers are implemented using C++ functions.
+
+we have managed providers and unmanaged providers.Managed providers improves application performance.
+
+How many providers are there we can know from UDL: file.
+
+open one notepad and save it as anyname.udl file and then again open that file and check providers over there 
+by selecting the appropriate provider u click to the next file for example i have selected native client provider 
+and told next and then data source name as RAGHU-PC  which my sql server 2005 server name when i log in sql server 2005 software through sql server management studio and as sql server authentication is there for my sql server username is sa and password is sql2005 and intial catalog indicates database name and just fulfill these details and say test connection and then u open the file u can see the corresponding providers and these information will help u to establish connection with the database through providers 
+and information will look like this something when u open it okay ...
+
+[oledb]
+; Everything after this line is an OLE DB initstring
+Provider=SQLNCLI.1;Persist Security Info=False;User ID=sa;Initial Catalog=AdventureWorks;Data Source=RAGHU-PC
+
+so like this we can check the providers present in our systems .
+
+
+ADO.NET having four namespaces...
+
+1.System.data.Oledb: Using this namespace we can integrate with various types of databases using oledb providers.
+
+2. System.Data.odbc:Using this namespace we can integrate with various types of database using odbc drivers.
+
+3.System.data.Sqlclient:Using this namespace we can integrate with only sql server database.without referrring provider name.
+
+4.System.data.Oracleclient: Using this namespace we can integrate with oracle database 
+
+
+ado.net classes :
+-----------------
+1)sqlconnection :This class is used to establish connection between front end and back end it has got two methods 
+one is open() and other is close() as we are working in connection oreiented architecture of the database we need these methods using open() method we can open already established connection and using close() method we can anyhow close the connection.
+so this is for the namespace using System.Data.sqlclient ;
+and if u are using System.Data.Oledb then the class will be oledbconnection class only prefix changes as we are going to do maximum programs in sql server i am using in built provider of sql server 2005 so i am using sql connection class only ...and all terms will come like this only 
+
+
+2)sqlcommand class : This class is used to send sql statements to back end using this class we can execute all sql statements 
+it has got 3 methods 
+
+1)executereader () :This method is used to execute select statement this method gives collection of rows and columns and this method returns sqldatareader class so we have to catch the value in sqldatareader object 
+
+2)executescalar( ): This method executes select statement and returns only one row from  the backend .
+
+3)executenonquery () : This method is used to execute dml statements like insert,update and delete and it has used to execute  procedures,functions etc also .
+
+so maximum we will be using executenonquery() method only here 
+
+3)sqldatareader: Using this class we can store single table it works as forward record set only and i datareader by default the cursor is located before first record and column index starts at 0 and ends at fieldcount- 1
+
+it has got two methods :
+read() : this method is used to change the cursor postion to next record
+close() : using this method we can reset datareader values after getting values from database.
+
+so let us write our first program where i can insert,update ,delete and then select and say next also to move forward records and then i will include one combobox also for selecting values from it to display according to the ids and using this id i will jump to another form of related table and fill or do insert update and delete on child table as well
+
+First go the database and create the following related tables like this 
+
+use WiproOnline
+
+drop table student;
+create table student(studentid int primary key,studentname varchar(30));
+
+create table course(courseid int primary key ,coursename varchar(30),duration  int,
+studentid int foreign key references student(studentid));
+
+select * from student;
+select * from course;
+
+insert into student values(101,'ravi')
+
+open one windows application and design the interface like this 
+
+----------------------------------------------combobox -----------
+
+student id --------------------
+
+student name :---------------------
+
+insert | update | delete | display |next| displayall
+
+------------------------------------------------------------------
 
 
           
