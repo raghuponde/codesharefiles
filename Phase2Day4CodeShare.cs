@@ -817,6 +817,8 @@ Now in button7 of studetn form write liek this code
  }
 
 
+you can make the textbox4 of Form2 as read onlly so that no body can modify the froeign key 
+
 
   
 
