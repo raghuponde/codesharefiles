@@ -1010,7 +1010,7 @@ I will be using northwind db for this
 
 Now create a new project with winforms .net framework 
 
-put one data grid by going to all winform --->choose items--->.net framework components -->data grid of winforms 
+put one data grid by going to all winform --->choose items--->.net framework components -->data grid of winforms u have to select 
 
 
       
