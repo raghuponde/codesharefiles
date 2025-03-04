@@ -1012,7 +1012,12 @@ Now create a new project with winforms .net framework
 
 put one data grid by going to all winform --->choose items--->.net framework components -->data grid of winforms u have to select 
 
+now double click the form not the grid form so that in form load i can write the code 
 
+
+
+
+  
       
 
 
