@@ -467,6 +467,7 @@ now click the insert button first
 insert button code along with sqlconnection codes intially
 -----------------------------------------------------------
 
+
 using System.Data.SqlClient;
 namespace Ado.netDemo
 {
@@ -492,10 +493,12 @@ namespace Ado.netDemo
             {
                 MessageBox.Show("studnet not inserted");
             }
+            cnn.Close();
 
         }
     }
 }
+
 
 
 
