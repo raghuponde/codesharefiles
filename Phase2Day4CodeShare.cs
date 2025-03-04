@@ -757,6 +757,25 @@ So go to Sql Server and write a store procedure on insert course like this
 
 Being in Wipro4 database only 
 
+create proc insertcourse (@cid int ,@cname varchar(40),@duration int,@sid1 int)
+as
+begin
+insert into course values(@cid,@cname,@duration,@sid1)
+end
+
+create proc updatecourse (@cid int ,@cname varchar(40),@duration int,@sid1 int)
+as
+begin
+update  course set coursename=@cname,duration=@duration ,studentid=@sid1
+where courseid=@cid;
+end
+
+create proc deletecourse(@sid1 int)
+as
+begin
+delete from course where studentid=@sid1;
+delete from student where studentid=@sid1
+end
 
 
 
