@@ -738,11 +738,14 @@ In store procedure parameters will be passed and will do some logic using those 
 syntax 
 ---------
 create proc <procname>(parameters list)
-    as
-    begin 
+ as
+ begin 
+
 
 logic writtne here 
-    end 
+
+
+end 
 
 call astored procedure 
 
