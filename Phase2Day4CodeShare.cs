@@ -290,7 +290,9 @@ git push -u origin master
 
 now it will be uploaded and now refresh the browser of github 
 
+now this uploaded folder or this online repsoitory i want to clone it or copy it in another fodler say d drive copyproject folder i want to copy 
 
+Note when u copy the fodler from repository no need to put git init there as anyhting which is there in github it is already git intilized only 
 
 
 
