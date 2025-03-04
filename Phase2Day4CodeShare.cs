@@ -269,6 +269,8 @@ to see when i had done commit and what is the message
 now i want to upload this folder to github why because my system may crash or for safety reasons i want to uplaod 
 
 
+now go to gitgub and create a repsotory with name reduxopedia 
+
 
   
 
