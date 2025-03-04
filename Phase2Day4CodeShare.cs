@@ -219,7 +219,7 @@ Why Use Context API?
 ✔ Simplifies state management without Redux.
 ✔ Great for global states like authentication, themes, and language settings.
 
-
+ 
 
 
 
