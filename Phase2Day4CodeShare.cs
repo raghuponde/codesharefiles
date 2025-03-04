@@ -931,7 +931,7 @@ update logic
 delete logic
 -----------
 here in sp both values of student and course will be deleetd and u have to just select the student id who has taken courses 
-  
+   
 Disconnected architecture of  ADO.NET
 ----------------------------------------
 DATASET TECHNOLOGY :
