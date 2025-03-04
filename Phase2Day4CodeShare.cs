@@ -1010,7 +1010,12 @@ I will be using northwind db for this
 
 Now create a new project with winforms .net framework 
 
-put one data grid by going to all winform --->choose items--->.net framework components -->data grid of winforms u have to select 
+put one data grid by going to all winform --->choose items--->.net framework components -->data grid of winforms u have to select and put it on form the data grid 
+
+
+add Dependency again using Nugget package Add the package using system.data.sql client
+Right click on the references manage nugget packages because this is net framework windows application
+
 
 now double click the form not the grid form so that in form load i can write the code 
 
