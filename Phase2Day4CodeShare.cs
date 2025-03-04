@@ -1054,6 +1054,9 @@ namespace datasetdemo1
     }
 }
 
+Now i want to traverse the table forward direction and back ward direaction 
+
+
 
 
   
