@@ -750,6 +750,15 @@ exec <procname> paarameters list
 
 so now i am creating a Stored procedure on the table course where I will write a stored procedure for inserting updating and deleting the course table
 
+So go to Sql Server and write a store procedure on insert course like this
 
+Being in Wipro4 database only 
+
+
+
+
+
+
+  
 
 
