@@ -720,12 +720,12 @@ then now double clik the drop down and in slected chnage event write this code
 | courseid       [__________] |
 | coursename     [__________] |
 | Duration       [__________] |
-| whichstudent   [__________▼] |
+| whichstudent   [__________] |
 --------------------------------
 |  [ Insert ]  [ Update ]  [ Delete ] |
 --------------------------------
 Brackets [__________] represent input fields.
-Dropdown [__________▼] represents the student selection dropdown.
+
 Buttons [ Insert ] [ Update ] [ Delete ] are at the bottom.
 
    
