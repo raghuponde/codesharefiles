@@ -713,6 +713,8 @@ then now double clik the drop down and in slected chnage event write this code
 
  so add one button and one as as Form2.cs which will have design like this 
 
+   right click on project --->add--->Form(windows form) -->default name be Form2.cs
+
    Course Form
 --------------------------------
 | courseid       [__________] |
