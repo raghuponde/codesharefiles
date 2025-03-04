@@ -347,6 +347,21 @@ Date:   Tue Mar 4 10:19:07 2025 +0530
 
     firt uplaod
 
+now this project i want to uplaod in reduxopedia 
+
+git remote -v 
+
+see the origin so connection is still there 
+
+so now i had deeted the images now if upload i will overrite earlier repository and i cannot see images which i have deleted 
+
+git push -u origin master 
+
+this will uplaod latest and refesh the page of respsiotry again 
+
+
+
+
 
           
 
