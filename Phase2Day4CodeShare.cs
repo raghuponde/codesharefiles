@@ -360,6 +360,34 @@ git push -u origin master
 this will uplaod latest and refesh the page of respsiotry again 
 
 
+All commands at one place for git hub upload 
+----------------------------------------------
+git init 
+git status 
+git add .
+git status
+git commit -m " some message "
+
+
+here create a repository in github with the name of your local folder 
+  
+git remote -v  (if u dont see the remote connection)
+$ git remote add origin https://github.com/raghuponde/reduxopedia.git
+git remote -v (now u can see the remote connection from local git )
+git push -u origin master 
+refresh the page
+
+for cloning 
+----------
+from any folder 
+
+git clone url 
+
+go to that folder u can find git initlized repository 
+
+
+so any chnage u do in local say git add . and git status and check all should be green and do commit and push it to main branch so 
+
 
 
 
