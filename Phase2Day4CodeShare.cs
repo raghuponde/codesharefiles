@@ -657,8 +657,22 @@ namespace Ado.netDemo
             textBox1.Text = dr[0].ToString();
             textBox2.Text = dr[1].ToString();
         }
+
+         private void button6_Click(object sender, EventArgs e)
+        {
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("select * from student", cnn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                MessageBox.Show("Studentid:" + dr[0].ToString() + "\n studentname:" + dr[1].ToString());
+            }
+        }
+        
     }
 }
+
+Note  i had not closed the connection as i want to read next row vale in next button click 
 
 
 
