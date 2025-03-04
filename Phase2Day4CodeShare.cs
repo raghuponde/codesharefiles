@@ -1015,6 +1015,7 @@ put one data grid by going to all winform --->choose items--->.net framework com
 
 add Dependency again using Nugget package Add the package using system.data.sql client
 Right click on the references manage nugget packages because this is net framework windows application
+so it is framework so use 4.6.1 versin of system.data.sqlclient 
 
 
 now double click the form not the grid form so that in form load i can write the code 
