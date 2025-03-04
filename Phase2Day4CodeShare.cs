@@ -570,6 +570,95 @@ namespace Ado.netDemo
 
 see here u have to put osme value in textbox1 in ordeer to update and delete as for which u want to update and delete it shoudl be known
 
+now furthe code for display and next 
+
+
+using System.Data.SqlClient;
+namespace Ado.netDemo
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        SqlConnection cnn = new SqlConnection(@"data source=LAPTOP-4G8BHPK9\SQLEXPRESS;initial catalog=Wipro4;Integrated Security=true;");
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("insert into student values(@studid1,@studname1)", cnn);
+            cmd.Parameters.AddWithValue("@studid1", Convert.ToInt16(textBox1.Text));
+            cmd.Parameters.AddWithValue("@studname1", textBox2.Text);
+            int rowsAffected = cmd.ExecuteNonQuery();
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("studnent inserted ");
+            }
+            else
+            {
+                MessageBox.Show("studnet not inserted");
+            }
+            cnn.Close();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("update student set studentname=@studentname1 where studentid=@studentid1", cnn);
+            cmd.Parameters.AddWithValue("@studentname1", textBox2.Text);
+            cmd.Parameters.AddWithValue("@studentid1", Convert.ToInt16(textBox1.Text));
+            int rowsAffected = cmd.ExecuteNonQuery();
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("student updated ");
+
+            }
+            else
+            {
+                MessageBox.Show("student not updated");
+            }
+            cnn.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("delete from student where studentid=@studentid1", cnn);
+            cmd.Parameters.AddWithValue("@studentid1", Convert.ToInt32(textBox1.Text));
+            int rowsAffeceted = cmd.ExecuteNonQuery();
+            if (rowsAffeceted > 0)
+            {
+                MessageBox.Show("student deleted  ");
+
+            }
+            else
+            {
+                MessageBox.Show("student not deleted");
+            }
+            cnn.Close();
+        }
+        SqlDataReader dr;
+        private void button4_Click(object sender, EventArgs e)
+        {
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("select * from student", cnn);
+            dr = cmd.ExecuteReader();//now this reader is pointing to table so first row u want to read 
+            dr.Read();// cursor will now point to first row 
+            textBox1.Text = dr[0].ToString();
+            textBox2.Text = dr[1].ToString();
+            //note here dont close the connection because in next button next row i will read 
+            // u can see first row only 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dr.Read();// cursor will now point to first row 
+            textBox1.Text = dr[0].ToString();
+            textBox2.Text = dr[1].ToString();
+        }
+    }
+}
 
 
 
