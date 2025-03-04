@@ -401,41 +401,8 @@ The data residing in a database is retrived through data provider.The data provi
 the connection,coomand,datareader and dataadapter objects.It provides data to application and updates database
 with changes made in application.
 
-An application can access data either through dataset or through datareader object.
-The two key componenets of ado.net object model is 
-
-•	Data Provider
-•	Dataset
-
-
-Providers are communicators between front end and back end.providers are implemented using C++ functions.
-
-we have managed providers and unmanaged providers.Managed providers improves application performance.
-
-How many providers are there we can know from UDL: file.
-
-open one notepad and save it as anyname.udl file and then again open that file and check providers over there 
-by selecting the appropriate provider u click to the next file for example i have selected native client provider 
-and told next and then data source name as RAGHU-PC  which my sql server 2005 server name when i log in sql server 2005 software through sql server management studio and as sql server authentication is there for my sql server username is sa and password is sql2005 and intial catalog indicates database name and just fulfill these details and say test connection and then u open the file u can see the corresponding providers and these information will help u to establish connection with the database through providers 
-and information will look like this something when u open it okay ...
-
-[oledb]
-; Everything after this line is an OLE DB initstring
-Provider=SQLNCLI.1;Persist Security Info=False;User ID=sa;Initial Catalog=AdventureWorks;Data Source=RAGHU-PC
-
-so like this we can check the providers present in our systems .
-
-
-ADO.NET having four namespaces...
-
-1.System.data.Oledb: Using this namespace we can integrate with various types of databases using oledb providers.
-
-2. System.Data.odbc:Using this namespace we can integrate with various types of database using odbc drivers.
-
-3.System.data.Sqlclient:Using this namespace we can integrate with only sql server database.without referrring provider name.
-
-4.System.data.Oracleclient: Using this namespace we can integrate with oracle database 
-
+add dependency System.Data.sqlclinet from mange nugget packages 
+now i am showing demo on connected architecture which is data reader class 
 
 ado.net classes :
 -----------------
@@ -494,6 +461,8 @@ insert | update | delete | display |next| displayall
 open this application in normal windows only not in .net framework winforms so c# all plotform desktop drops down u need to selct 
 
 give name Ado.netDemo as project name .net core 8.0 let it be so start desinging it as per above 
+
+now click the insert button first 
 
 
 
