@@ -245,6 +245,11 @@ git init
 
 to make the folder initlized with git it will keep an aye on the fodler which u have created 
 
+then type git status 
+
+it will tell that u have not commited yet means u have not tranferred thses files to any online repository he is sayinng 
+
+
 
 
 
