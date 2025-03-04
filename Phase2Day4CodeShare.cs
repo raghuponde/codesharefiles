@@ -221,6 +221,14 @@ Why Use Context API?
 
  
 
+Git Basics 
+***********
+All of you install git in your laptop 
+
+https://git-scm.com/downloads
+
+go to above link and download local git into your laptop 
+
 
 
 
