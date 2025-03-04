@@ -662,7 +662,7 @@ namespace Ado.netDemo
         {
             cnn.Open();
             SqlCommand cmd = new SqlCommand("select * from student", cnn);
-            dr = cmd.ExecuteReader();
+            dr = cmd.ExecuteReader(); 
             while (dr.Read())
             {
                 MessageBox.Show("Studentid:" + dr[0].ToString() + "\n studentname:" + dr[1].ToString());
