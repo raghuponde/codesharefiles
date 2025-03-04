@@ -1067,7 +1067,9 @@ openn a new windows appliation of .net core not framework and desing the interfc
 ---------------------------------
 
 
-  
+now clik the buton of << and start writing the whole code which i provide here also add depencies of latest .net core of system.data.sqlclient 
+
+
 
 
   
