@@ -379,7 +379,7 @@ refresh the page
 
 for cloning 
 ----------
-from any folder 
+from any folder  
 
 git clone url 
 
