@@ -491,6 +491,11 @@ insert | update | delete | display |next| displayall
 
 ------------------------------------------------------------------
 
+open this application in normal windows only not in .net framework winforms so c# all plotform desktop drops down u need to selct 
+
+give name Ado.netDemo as project name .net core 8.0 let it be so start desinging it as per above 
+
+
 
           
 
