@@ -466,7 +466,7 @@ so let us write our first program where i can insert,update ,delete and then sel
 
 First go the database and create the following related tables like this 
 
-use WiproOnline
+use Wipro4
 
 drop table student;
 create table student(studentid int primary key,studentname varchar(30));
