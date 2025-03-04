@@ -778,6 +778,43 @@ delete from student where studentid=@sid1
 end
 
 
+Now i have to jump from student form to course form means what ever the primary key of student should be there as foriegn key in course form 
+
+so what i will do i will create a get property in student form  and i will create set proeprty in course form form 
+
+add one button in student form which is course register 
+
+now go to code.cs file of student means right click on the form and say view code 
+
+ public string getstudentid
+ {
+     get
+     {
+         return textBox1.Text;
+     }
+ }
+ 
+ above ia a get proeprty 
+ 
+ and now goto form2 whihc is course there also right clik on the form and say view code and write like this anywhere on top of any button clcik event 
+ 
+  public string setstudentid
+ {
+     set
+     {
+         textBox4.Text = value;
+     }
+ }
+
+
+
+Now in button7 of studetn form write liek this code
+ private void button7_Click(object sender, EventArgs e)
+ {
+     Form2 f2=new Form2();
+     f2.setstudentid = getstudentid;
+     f2.Show();
+ }
 
 
 
