@@ -820,6 +820,7 @@ Now in button7 of studetn form write liek this code
 you can make the textbox4 of Form2 as read onlly so that no body can modify the froeign key 
 
 Now click the insert button and using ado net and using a stored procedure i'll insert values inside the course table
+  also written code for update and delete plase check it 
 
   
   using System;
@@ -925,8 +926,7 @@ namespace Ado.netDemo
 
 update logic 
 -------------
- what u do the student who has registered the course for that student only jump to course formm and u know course id so on text box1 keep the course id and modify other column details and click 
-   the update button to see the chnages refer db tabels of course
+ what u do the student who has registered the course for that student only jump to course formm and u know course id so on text box1 keep the course id and modify other column details and click    the update button to see the chnages refer db tabels of course
 
 delete logic
 -----------
