@@ -249,6 +249,29 @@ then type git status
 
 it will tell that u have not commited yet means u have not tranferred thses files to any online repository he is sayinng 
 
+so before commiting any files here commit means saving till today like that before commitingn i need to send them to staging state staging state means before getting commited 
+that state is called staging state 
+
+git add . this wwill send all files to staging state means before comminting i am sending them to this stage 
+
+now again do 
+
+git status   all will be shown in grren symbol means they are ready to be commited or saved 
+
+git commit -m "first uplaod "
+
+now again git status 
+
+and then say git log 
+
+to see when i had done commit and what is the message 
+
+now i want to upload this folder to github why because my system may crash or for safety reasons i want to uplaod 
+
+
+
+  
+
 
 
 
