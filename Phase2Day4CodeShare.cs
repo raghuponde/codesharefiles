@@ -3,7 +3,7 @@ When to Use Context API?
 
 When you only need global state for themes, authentication, or simple data.
 When Redux is overkill for your application.
-When you want to avoid prop drilling.
+When you want to avoid prop drilling. 
 
 
 This example demonstrates how to use Context API and the useContext hook to manage a global authentication state in a React application.
