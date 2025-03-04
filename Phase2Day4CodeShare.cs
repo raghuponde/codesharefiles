@@ -241,7 +241,9 @@ so afer pasting it in gitdemos folder u though gitbash again try to reach that r
 after reaching theee through gitbash write the folowinng commadns to upload in github 
 
 
+git init 
 
+to make the folder initlized with git it will keep an aye on the fodler which u have created 
 
 
 
