@@ -466,8 +466,6 @@ now click the insert button first
 
 insert button code along with sqlconnection codes intially
 -----------------------------------------------------------
-
-
 using System.Data.SqlClient;
 namespace Ado.netDemo
 {
@@ -498,6 +496,9 @@ namespace Ado.netDemo
         }
     }
 }
+
+now i will put at  a time update and delete logic also in this below code
+
 
 
 
