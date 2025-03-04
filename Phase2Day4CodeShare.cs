@@ -295,7 +295,60 @@ now this uploaded folder or this online repsoitory i want to clone it or copy it
 Note when u copy the fodler from repository no need to put git init there as anyhting which is there in github it is already git intilized only 
 
 
+$ git clone https://github.com/raghuponde/reduxopedia.git
 
+
+so here the url u will get it from  clicking code and https url 
+
+now if u go to reduxopedia it is already intilized with git 
+
+now i  delete images in images folder of copied reduxopedia 
+
+then git status 
+
+raghavendra@LAPTOP-4G8BHPK9 MINGW64 /d/copyproject/reduxopedia (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    src/images/logo192.png
+        deleted:    src/images/logo512.png
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+raghavendra@LAPTOP-4G8BHPK9 MINGW64 /d/copyproject/reduxopedia (master)
+$
+
+Telling me that i ha ddeleted two images 
+
+now say git add .
+
+then git stauts  showing green about to be commited 
+
+git commit -m "two images deledt "
+
+
+then git log 
+
+raghavendra@LAPTOP-4G8BHPK9 MINGW64 /d/copyproject/reduxopedia (master)
+$ git log
+commit de0d68a720ed34ee9171bc1a8b3bed6b62012fa9 (HEAD -> master)
+Author: raghu <raghu070882@gmail.com>
+Date:   Tue Mar 4 10:41:38 2025 +0530
+
+    two files deleted
+
+commit 50c4ad9301ee4e623a436bb496a7954f081a43c7 (origin/master, origin/HEAD)
+Author: raghu <raghu070882@gmail.com>
+Date:   Tue Mar 4 10:19:07 2025 +0530
+
+    firt uplaod
+
+
+          
 
 
 
