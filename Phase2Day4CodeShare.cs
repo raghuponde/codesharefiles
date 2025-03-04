@@ -234,7 +234,7 @@ open gitbash
 
 go to drive https://drive.google.com/drive/folders/1AKrv_IbdPOVkZJsZ9W1ESrUkK5lHnZ7c?usp=sharing
 
-and in phase 2 day 3 routopedia download the folder from there into local disk and from there copy this folder after extracting into gitdemos fodler 
+and in phase 2 day 3 reduxopedia download the folder from there into local disk and from there copy this folder after extracting into gitdemos fodler 
 
 so afer pasting it in gitdemos folder u though gitbash again try to reach that routopedia folder okay 
 
