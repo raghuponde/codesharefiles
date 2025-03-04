@@ -932,5 +932,88 @@ delete logic
 -----------
 here in sp both values of student and course will be deleetd and u have to just select the student id who has taken courses 
   
+Disconnected architecture of  ADO.NET
+----------------------------------------
+DATASET TECHNOLOGY :
+--------------------
+All features in backend are present in dataset ,so if we want all the  ado.net features we can get it  from dataset.The Dataset is having collection of datatables,so dataset is connectionless database management system,Dataset is having collection of data relations,in dataset we can create dataviews, using dataset we can integrate with xml,so dataset improves the application performance ,In dataset we can generate sql statements automatically.
+
+when using connectionless we use xml file ,so we store dataset values into xml .Many subclasses are provided in dataset.
+
+         DB
+         |
+     ----------------
+     |   Dataset   |
+     ----------------
+         |
+     ----------------
+     | DataTables  |
+     ----------------
+         |
+     ----------------
+     |  DataTable  |
+     ----------------
+         |
+   --------------------------------
+   |                              |
+----------------        -------------------
+|  DataRows  |        |   Data Column   |
+----------------        -------------------
+   |                              |
+----------------        -------------------
+|   DataRow   |        |   Data Column   |
+----------------        -------------------
+                                  |
+                          -------------------
+                          |  Data Relation  |
+                          -------------------
+
+so dataset is collection of tables so which is nothing but DataTables class and in which each table is represented by DataTable class and each DataTable class is having set of rows and columns which are represnted by DataRows for set of rows to retrive and DataColumns  which will have collection of columns. 
+
+under set of rows each row is represnted by a DataRow class and under set of columns each column is represnted by DataColumn class and DataRelation class as we cannot show relationship in rows but when column comes datarelation class comes into picture like this we are having these many classes in dataset and each one has its own use and properties defined for it .
 
 
+so this is brief history of dataset architecture .
+
+we should remeber the following commands which we will be using while connecting and retriving values from dataset technology .
+
+1)DataTable=ds.Tables["emp"]
+
+if u have given a dataset if u want to retrive one table into DataTable class use above formula and generally what ever u want to retrive create their classes with objects in global section class and use it which we will be seeing in the programming part.above here emp is the employee table name okay 
+
+so in the DataTable class i can store one table from the dataset 
+
+2)DataRow=dt.Rows[0];  or DataRow=ds.tables["emp"].rows[0];
+            
+so In DataRow class we can store one row from the datatable as well as from the DataSet;
+as mentioned above 
+
+3)DataColumn=ds.tables["emp"].columns["eno"]; or DataColumn=dt.Columns["empno"];
+
+There is one class which is called DataAdapter class and it is communicator between DataSet and Back End using single dataadapter class we can store one table in dataset so using multiple dataadapter classes we can store multiple tables in dataset.
+
+DataGrid :It is a  databound control , we can display datasource form dataset and from datatable in this datagrid control. 
+
+   
+There ar some drawabacks in connected architecture 
+
+--->I need to be always connected to the database server I need to open and close the connection based on the requirement 
+
+---->I can work with only one table at  a time means i cannot work with multiple tables
+
+---->I can move forwared direction only in data reader class or in connected architecute i cannot navifate fully ...
+
+
+Now let us go with demo 
+
+I will be using northwind db for this 
+
+Now create a new project with winforms .net framework 
+
+put one data grid by going to all winform --->choose items--->.net framework components -->data grid of winforms 
+
+
+      
+
+
+  
