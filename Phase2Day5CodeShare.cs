@@ -258,7 +258,7 @@ and after geenrating view it will look like this i had added ids also as it was 
     </tbody>
 </table>
 
-
+Now u say port/NorthWind/spainCustomers u will get some data in view
 
 
   
