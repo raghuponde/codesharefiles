@@ -126,6 +126,36 @@ Country='Spain'
 
 in front end 
 ---------------
+using Microsoft.AspNetCore.Mvc;
+using EntityFrameworkDemo1.Models;
+
+namespace EntityFrameworkDemo1.Controllers
+{
+    public class NorthWindController : Controller
+    {
+
+        NorthwndContext cnt=new NorthwndContext();
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult spainCustomers()
+        {
+            var spaincustomers = from cust in cnt.Customers
+                                 where cust.Country == "Spain"
+                                 select new
+                                 {
+                                     cust.CustomerId,
+                                     cust.ContactName,
+                                     cust.CompanyName
+                                 };
+            return View(spaincustomers);
+        }
+    }
+}
+
 
   
 
