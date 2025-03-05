@@ -613,7 +613,9 @@ After this I can see that I had created a post class in the Models folder using 
 
 now I will add now a post controller in which I will perform crud operation on the post table using post class using db first approach
 
+Add this postcontroller with read and write actions
 
+Where a boilerplate code will come and I will modify by going inside that boilerplate code
 
 
 
