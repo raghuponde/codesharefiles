@@ -431,12 +431,18 @@ else
 
 In DB
 ----------
+-- give  me all the customers who have ordered more than 10 orders 
+
+
 select * from Orders;
 
 select * from Orders where CustomerID='HANAR'
 
-  
 --customerID ---countoforders
+
+select CustomerID from orders group by CustomerID  -- will give me the groups 
+select CustomerID,count(OrderID) from orders group by CustomerID  --coun i got 
+select CustomerID,count(OrderID) from orders group by CustomerID having count(OrderID) > 10
 
 
 
