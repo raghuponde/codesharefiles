@@ -158,6 +158,8 @@ namespace EntityFrameworkDemo1.Controllers
 
 now i have to genrate view for this collection of spain customers
 
+right click on the action mehod and add view --->razor view --->template as list --->which  model Customers and add the view 
+
 
 
   
