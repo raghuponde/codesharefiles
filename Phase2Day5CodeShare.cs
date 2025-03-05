@@ -998,7 +998,20 @@ view (ws not shwoing id so added postid also manually in desing)
 </div>
 
 
+just go to index page and clck details link it will show 
 
+now delete action method and its view 
+-------------------------------------
+here i am not creting a view for delete because from the index only using get method i am deleting it no post is there it was there 
+but i removed it 
+
+  public ActionResult Delete(int id)
+  {
+      Post post = cnt.Posts.Find(id);
+      cnt.Posts.Remove(post);
+      cnt.SaveChanges();
+      return RedirectToAction("Index");
+  }
 
 
 
