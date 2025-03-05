@@ -270,7 +270,7 @@ now again in Db
 select CustomerID,CompanyName ,ContactName from [dbo].[Customers] where 
 ContactName='yang Wang'
 
-  in the fron end 
+  in the front end 
   --------------
 public IActionResult SearchCustomer(string contactname)
 {
@@ -290,8 +290,23 @@ public IActionResult SearchCustomer(string contactname)
 add view -->razor view--->template as details --->which  model Customers and conext u have to select  NorthwndContext
 
 
-   type below url   
+  type below url   
   https://localhost:7133/NorthWind/SearchCustomer/?contactname=yang wang
   
+in Db 
+------
+
+select * from categories 
+select * from Products;
+
+select p1.ProductName,c1.CategoryName from Products p1 join Categories c1
+on p1.CategoryID=c1.CategoryID where c1.CategoryName='Beverages'
+
+
+
+
+
+
+
 
 
