@@ -93,7 +93,21 @@ Scaffold-DbContext 'Data Source=SUPRAJA\SQLEXPRESS;Initial Catalog=NORTHWND;Inte
 
 
 so next thing  is 
+Now create  an contoller of mvc type  with the name NorthWindController emoty only create it 
 
+
+and do this 
+
+in db :
+----------
+-- give me all the customers who are living in spain Country
+
+select CustomerID,CompanyName ,ContactName from [dbo].[Customers] where 
+Country='Spain'
+
+
+in front end 
+---------------
 
   
 
