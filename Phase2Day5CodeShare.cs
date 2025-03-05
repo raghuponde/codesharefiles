@@ -94,6 +94,24 @@ Scaffold-DbContext 'Data Source=SUPRAJA\SQLEXPRESS;Initial Catalog=NORTHWND;Inte
 
 so next thing  is 
 Now create  an contoller of mvc type  with the name NorthWindController emoty only create it 
+which will look like this 
+
+
+  using Microsoft.AspNetCore.Mvc;
+
+namespace EntityFrameworkDemo1.Controllers
+{
+    public class NorthWindController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+
+
+
 
 
 and do this 
