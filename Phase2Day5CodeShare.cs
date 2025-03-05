@@ -33,6 +33,8 @@ Scaffold-DbContext 'Data Source=LAPTOP-4G8BHPK9\SQLEXPRESS;initial catalog=NORTH
 data source keep your sql server name so now what i am doing is what and all tables are there in Nothwind dataabse For all those tables I'm creating classes in the
  models folder using this command
 
+keep your sql server open also now 
+
 
 
 
