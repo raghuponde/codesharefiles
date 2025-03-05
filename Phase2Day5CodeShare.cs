@@ -303,6 +303,26 @@ select p1.ProductName,c1.CategoryName from Products p1 join Categories c1
 on p1.CategoryID=c1.CategoryID where c1.CategoryName='Beverages'
 
 
+in the front end 
+------------------
+
+As in the  screen I will be displaying productname and the categoryname that type of table is not there 
+so I will create a class with those properties in the models folder and that only I will display in the view of this below action method
+
+create a class in Models folder which will hold the valeus of join operation 
+
+prodCat u give the name
+
+namespace EntityFrameworkDemo1.Models
+{
+    public class ProdCat
+    {
+        public string prodname { get; set; }
+        public string catname { get; set; }
+    }
+}
+
+next in action method added like tis 
 
 
 
