@@ -4,12 +4,49 @@ https://www.tutorialspoint.com/entity_framework/index.htm
 
 https://www.entityframeworktutorial.net/entityframework6/what-is-entityframework.aspx
 
-Also refer slides fodler as well 
 
 from the above two links only take theoretical knowledge And understand the concepts and its architecture of entity framework
 
+next refer slides folder in Day5 of drive link where some slides are given in that information is there about entity framework
+
+What is Entity Framework (EF)?
+Entity Framework (EF) is an Object-Relational Mapping (ORM) framework for .NET applications. It allows developers to interact with a database using C# objects instead of SQL queries, making data access simpler and more efficient.
+
+EF automates the process of mapping database tables to C# classes and provides a higher-level abstraction for database operations.
+
+
+- Object means classes in the front end and relational means tables in the backend.
+- It is a tool that will join tables with classes, so some reverse engineering will happen, 
+  and some classes will be created in the front end.
+
+- Database First:
+  - First, the database will be there.
+  - For that database, I will create classes.
+
+- Code First:
+  - Here, first, I will write a set of classes.
+  - Using these classes, I will generate a database in SQL Server.
+  - Here, each table is a class, and each column is a property of the class.
+  - If a relation exists between two tables, then an association is formed between classes:
+    - One class will have an attribute of another class.
+    - The master class will have a collection property.
+
+
+      
+
 DBFirst apprach i am doing it 
 ---------------------------------
+Database First Approach
+_________________________
+
+EF generates C# entity classes and DbContext based on the existing database schema.
+Uses reverse engineering (Scaffold-DbContext) to create models from tables.
+      
+When to use?
+
+When the database already exists.
+When working with a legacy database.
+
 
 now open visual studi 2022 and add new asp.net core mvc project here let it be .net core 8.0 version only 
   
