@@ -590,7 +590,21 @@ else
 
 } 
 
+CRUD using DBFIRST
+------------------
+Now i want to do crud using dbfirst approach of EF on one single table so one single table i have to add in db as we are doing db frist meeans db will be there i have to 
+add classes later on using that db table till  now we have done that only means Northwind available tables i did reverse enigneering and got classes for them 
+so create one table in northwind only 
 
+CREATE TABLE [dbo].[Post](
+	[PostId] [int] primary key ,
+	[DatePublished] [datetime] NULL,
+	[body] [varchar](100) NULL,
+	[Title] [varchar](20) NULL
+  )
+  
+  after that command used for adding fresh table is using force u command we will do it 
+  
 
 
 
