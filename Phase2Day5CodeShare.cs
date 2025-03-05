@@ -4,6 +4,7 @@ https://www.tutorialspoint.com/entity_framework/index.htm
 
 https://www.entityframeworktutorial.net/entityframework6/what-is-entityframework.aspx
 
+Also refer slides fodler as well 
 
 from the above two links only take theoretical knowledge And understand the concepts and its architecture of entity framework
 
