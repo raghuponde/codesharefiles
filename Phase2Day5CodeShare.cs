@@ -28,7 +28,7 @@ Tools--->Nugget package manager--->package manager console
 
 so below command u have to type here 
 
-Scaffold-DbContext 'Data Source=LAPTOP-4G8BHPK9\SQLEXPRESS;initial catalog=NORTHWND;Integrated Security=true;' Microsoft.EntityFrameWorkCore.SqlServer -OutputDir Models
+Scaffold-DbContext 'Data Source=LAPTOP-4G8BHPK9\SQLEXPRESS;Initial Catalog=NORTHWND;Integrated Security=True;TrustServerCertificate=True;' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
 
 data source keep your sql server name so now what i am doing is what and all tables are there in Nothwind dataabse For all those tables I'm creating classes in the
  models folder using this command
