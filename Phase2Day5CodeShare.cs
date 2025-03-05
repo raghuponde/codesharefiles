@@ -80,6 +80,9 @@ EntityFrameworkDemo1
 │   │── SalesByCategory.cs
 
 
+so something like this will be genenated in Models folder of project in solution explorere
+
+
 
 
 
