@@ -82,10 +82,19 @@ EntityFrameworkDemo1
 
 so something like this will be genenated in Models folder of project in solution explorere
 
+so below commands are for just exta knowledge dont use it 
+
+In the models folder if u want to generate only single table so belwo command is used 
+Scaffold-DbContext 'Data Source=DESKTOP-IIH2P8R\SQLEXPRESS;Initial Catalog=NORTHWND;Integrated Security=true;TrustServerCertificate=true;' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables [dbo].[Customers]
+
+If u want to genrate with force if it is not getting genrated u can use below command 
+Scaffold-DbContext 'Data Source=SUPRAJA\SQLEXPRESS;Initial Catalog=NORTHWND;Integrated Security=true;TrustServerCertificate=true;' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables [dbo].[Products] -Force
 
 
 
+so next thing  is 
 
 
+  
 
 
