@@ -36,6 +36,9 @@ data source keep your sql server name so now what i am doing is what and all tab
 keep your sql server open also now 
 
 
+so you can see in my Models folder by doing reverse enineering i can see all the classes generated for all the tables in northwind database 
+
+
 
 
 
