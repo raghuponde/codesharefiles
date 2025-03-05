@@ -156,6 +156,9 @@ namespace EntityFrameworkDemo1.Controllers
     }
 }
 
+now i have to genrate view for this collection of spain customers
+
+
 
   
 
