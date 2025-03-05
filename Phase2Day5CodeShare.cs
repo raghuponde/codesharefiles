@@ -435,6 +435,8 @@ select * from Orders;
 
 select * from Orders where CustomerID='HANAR'
 
+  
+
 
 
 
