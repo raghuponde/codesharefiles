@@ -940,7 +940,62 @@ next edit view
 </div>
 
 
+details action and its view 
+---------------------
+        public ActionResult Details(int id)
+        {
+            Post post = cnt.Posts.Find(id);
+            if (post == null)
+            {
+                return Content("post not found");
+            }
+            return View();
+        }
+view (ws not shwoing id so added postid also manually in desing)
+----
+@model EntityFrameworkDemo1.Models.Post
 
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PostId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PostId)
+        </dd>
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DatePublished)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DatePublished)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.PostId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
 
 
 
