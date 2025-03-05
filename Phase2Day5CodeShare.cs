@@ -705,7 +705,29 @@ namespace EntityFrameworkDemo1.Controllers
 
 now Updated PostContoller 
 ---------------------------
+intially the code for Post controller in the begining 
 
+
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using EntityFrameworkDemo1.Models;(added)
+
+
+namespace EntityFrameworkDemo1.Controllers
+{
+    public class PostController : Controller
+    {
+        NorthwndContext cnt=new NorthwndContext();(added)
+
+        // GET: PostController
+        public ActionResult Index()
+        {
+            return View(cnt.Posts.ToList());(added)
+        }
+
+ 
+Next go to PostContoller create get method and add view for it and before that once build the application 
 
 
 
