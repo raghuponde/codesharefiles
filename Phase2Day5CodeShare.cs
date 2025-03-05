@@ -20,7 +20,7 @@ i can use latest only
 
 Microsoft.EntityFrameworkCore  
 Microsoft.EntityFrameworkCore.SqlServer
-Microsoft.EntityFrameworkCore.Tools
+Microsoft.EntityFrameworkCore.Tools 
 
 and then in package manager console fire this command 
 
