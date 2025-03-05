@@ -427,6 +427,13 @@ else
     </div>
 }
 
+-- give  me all the customers who have ordered more than 10 orders 
+
+In DB
+----------
+select * from Orders;
+
+select * from Orders where CustomerID='HANAR'
 
 
 
