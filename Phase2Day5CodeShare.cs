@@ -866,6 +866,82 @@ public ActionResult Create(Post post)
 and now see by running the application with url port/post/Create 
 and go to index and check and also check in db also 
 
+now edit methods let us try 
+
+in Post controller
+
+// GET: PostController/Edit/5
+public ActionResult Edit(int id)
+{
+    Post post = cnt.Posts.Find(id);
+    if(post==null)
+    {
+        return Content("Post Not found");
+    }
+    return View(post);
+}
+
+// POST: PostController/Edit/5
+[HttpPost]
+[ValidateAntiForgeryToken]
+public ActionResult Edit(Post post)
+{
+    if (ModelState.IsValid)
+    {
+        cnt.Entry(post).State =
+            Microsoft.EntityFrameworkCore.EntityState.Modified;
+        cnt.SaveChanges(true);
+        return RedirectToAction("Index");
+    }
+    return View(post);
+}
+
+next edit view 
+----------------
+@model EntityFrameworkDemo1.Models.Post
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Post</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PostId" />
+            <div class="form-group">
+                <label asp-for="DatePublished" class="control-label"></label>
+                <input asp-for="DatePublished" class="form-control" />
+                <span asp-validation-for="DatePublished" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Body" class="control-label"></label>
+                <input asp-for="Body" class="form-control" />
+                <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
 
 
 
