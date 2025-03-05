@@ -927,7 +927,7 @@ next edit view
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
+            </div> 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -949,7 +949,7 @@ details action and its view
             {
                 return Content("post not found");
             }
-            return View();
+            return View(post);
         }
 view (ws not shwoing id so added postid also manually in desing)
 ----
