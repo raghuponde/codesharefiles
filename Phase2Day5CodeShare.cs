@@ -272,7 +272,26 @@ ContactName='yang Wang'
 
   in the fron end 
   --------------
-  
+public IActionResult SearchCustomer(string contactname)
+{
+    var searchcustomer = from cust in cnt.Customers
+                         where cust.ContactName == contactname
+                         select new Customer
+                         {
+                             CustomerId = cust.CustomerId,
+                             ContactName = cust.ContactName,
+                             CompanyName = cust.CompanyName
+                         };
+
+    var query1 = searchcustomer.Single();
+    return View(query1);
+}
+
+add view -->razor view--->template as details --->which  model Customers and conext u have to select  NorthwndContext
+
+
+   type below url   
+  https://localhost:7133/NorthWind/SearchCustomer/?contactname=yang wang
   
 
 
