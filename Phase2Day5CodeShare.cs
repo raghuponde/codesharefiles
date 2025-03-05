@@ -444,6 +444,34 @@ select CustomerID from orders group by CustomerID  -- will give me the groups
 select CustomerID,count(OrderID) from orders group by CustomerID  --coun i got 
 select CustomerID,count(OrderID) from orders group by CustomerID having count(OrderID) > 10
 
+Front End 
+------------
+
+Earlier I have used child referecne  navigation property in products table through which I navigated to categories table now I am having a master table which is Customers
+so from customers i will use orders collection navigation paroperty to find the solution for above sql query in linq
+
+Note here that a master class will always have a collection property to its child class  and a child class will always have a reference navigation property to its master class
+
+Now again add one class in Models folder with the name CustomerRange 
+
+
+namespace EntityFrameworkDemo1.Models
+{
+    public class CustomerRange
+    {
+        public string CustomerId { get; set; }
+        public string ContactName { get; set; } = string.Empty;
+
+        public int? orderscount { get; set; }
+
+    }
+}
+
+now in the action method 
+
+
+
+
 
 
 
