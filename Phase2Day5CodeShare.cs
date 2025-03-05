@@ -324,7 +324,22 @@ namespace EntityFrameworkDemo1.Models
 
 next in action method added like tis 
 
+  public IActionResult ProductsInCategory(string categoryname)
+  {
+      var productsincategory = from prod in cnt.Products
+                               where prod.Category.CategoryName == categoryname
+                               select new ProdCat
+                               {
+                                   prodname=prod.ProductName,
+                                   catname=prod.Category.CategoryName
+                               };
 
+  return View(productsincategory); 
+  }
+
+now i cannot create a view graphically so manually i will add empty view like this 
+
+  and then will update the design there 
 
 
 
