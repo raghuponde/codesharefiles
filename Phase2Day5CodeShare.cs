@@ -145,12 +145,12 @@ namespace EntityFrameworkDemo1.Controllers
         {
             var spaincustomers = from cust in cnt.Customers
                                  where cust.Country == "Spain"
-                                 select new
-                                 {
-                                     cust.CustomerId,
-                                     cust.ContactName,
-                                     cust.CompanyName
-                                 };
+                                 select new Customer
+                                   {
+                                      CustomerId= cust.CustomerId,
+                                     ContactName=  cust.ContactName,
+                                     CompanyName=  cust.CompanyName
+                                   };
             return View(spaincustomers);
         }
     }
@@ -158,7 +158,106 @@ namespace EntityFrameworkDemo1.Controllers
 
 now i have to genrate view for this collection of spain customers
 
-right click on the action mehod and add view --->razor view --->template as list --->which  model Customers and add the view 
+right click on the action mehod and add view --->razor view --->template as list --->which  model Customers and conext u have to select  NorthwndContext
+
+and after geenrating view it will look like this i had added ids also as it was not showing in screen 
+
+  @model IEnumerable<EntityFrameworkDemo1.Models.Customer>
+
+@{
+    ViewData["Title"] = "spainCustomers";
+}
+
+<h1>spainCustomers</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fax)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerId)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fax)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
 
 
 
