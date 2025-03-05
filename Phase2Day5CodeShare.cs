@@ -606,6 +606,10 @@ CREATE TABLE [dbo].[Post](
   after that command used for adding fresh table is using force u command we will do it 
   
 
+Then in program console 
+type this command 
+
+Scaffold-DbContext 'Data Source=LAPTOP-4G8BHPK9\SQLEXPRESS;Initial Catalog=NORTHWND;Integrated Security=true;TrustServerCertificate=True;' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Post -Force
 
 
 
