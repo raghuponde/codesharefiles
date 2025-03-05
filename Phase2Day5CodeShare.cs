@@ -731,13 +731,84 @@ namespace EntityFrameworkDemo1.Controllers
             return View(cnt.Posts.ToList());(added)
         }
 
+Add a view for index You know that index will take  list as template and like that add a view for index
  
 Next go to PostContoller create get method and add view for it and before that once build the application I am gettig error as other tables reference
-has gone due to above command so time being i am commenting all code in northwindcontroller as I want to focus on post controller
+has gone due to above earlier command so time being i am commenting all code in northwindcontroller as I want to focus on post controller
 
 now build the solution 
 
 and then try to add view on create method of get 
+
+While creating a create view template should be create only
+
+Create.cshtml
+--------------
+
+@model EntityFrameworkDemo1.Models.Post
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Post</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PostId" class="control-label"></label>
+                <input asp-for="PostId" class="form-control" />
+                <span asp-validation-for="PostId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatePublished" class="control-label"></label>
+                <input asp-for="DatePublished" class="form-control" />
+                <span asp-validation-for="DatePublished" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Body" class="control-label"></label>
+                <input asp-for="Body" class="form-control" />
+                <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+desing is like this 
+
+next post method of create 
+---------------------------
+[HttpPost]
+[ValidateAntiForgeryToken]
+public ActionResult Create(Post post)
+{
+   if(ModelState.IsValid)
+    {
+        cnt.Posts.Add(post);
+        cnt.SaveChanges();
+        return RedirectToAction("Index");   
+    }
+   return View(post);
+}
+
+and now see by running the application with url port/post/Create 
+and go to index and check and also check in db also 
 
 
 
