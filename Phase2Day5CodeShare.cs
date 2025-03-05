@@ -609,7 +609,12 @@ CREATE TABLE [dbo].[Post](
 Then in program console 
 type this command 
 Scaffold-DbContext 'Data Source=LAPTOP-4G8BHPK9\SQLEXPRESS;Initial Catalog=NORTHWND;Integrated Security=true;TrustServerCertificate=True;' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Post -Force
+
 After this I can see that I had created a post class in the Models folder using above command 
+
+but due to above command i had lost connectivty in NorthwindContext.cs for other tables eventhough tables are there in Models they 
+are not there in NorthwindContext class so for time being 
+i will comment all the code in NorthWindController to avoid errors .
 
 now I will add now a post controller in which I will perform crud operation on the post table using post class using db first approach
 
