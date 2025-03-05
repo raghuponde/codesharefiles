@@ -908,7 +908,7 @@ next edit view
 
 <h4>Post</h4>
 <hr />
-<div class="row">
+<div class="row"> 
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
