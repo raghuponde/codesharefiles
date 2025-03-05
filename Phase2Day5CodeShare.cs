@@ -37,6 +37,47 @@ keep your sql server open also now
 
 
 so you can see in my Models folder by doing reverse enineering i can see all the classes generated for all the tables in northwind database 
+EntityFrameworkDemo1
+│── Connected Services
+│── Dependencies
+│   │── Analyzers
+│   │── Frameworks
+│   │   │── Packages
+│   │   │   │── Microsoft.EntityFrameworkCore (9.0.2)
+│   │   │   │── Microsoft.EntityFrameworkCore.SqlServer (9.0.2)
+│   │   │   │── Microsoft.EntityFrameworkCore.Tools (9.0.2)
+│── Properties
+│── wwwroot
+│── Controllers
+│   │── HomeController.cs
+│── Models
+│   │── AlphabeticalListOfProduct.cs
+│   │── Category.cs
+│   │── CategorySalesFor1997.cs
+│   │── Course.cs
+│   │── CurrentProductList.cs
+│   │── Customer.cs
+│   │── CustomerAndSuppliersByCity.cs
+│   │── CustomerDemographic.cs
+│   │── Customerordersview.cs
+│   │── Employee.cs
+│   │── ErrorViewModel.cs
+│   │── Hi.cs
+│   │── Invoice.cs
+│   │── NorthwndContext.cs
+│   │── Order.cs
+│   │── OrderDetail.cs
+│   │── OrderDetailsExtended.cs
+│   │── OrdersQry.cs
+│   │── OrderSubtotal.cs
+│   │── Post.cs
+│   │── Product.cs
+│   │── ProductsAboveAveragePrice.cs
+│   │── ProductSalesFor1997.cs
+│   │── ProductsByCategory.cs
+│   │── QuarterlyOrder.cs
+│   │── Region.cs
+│   │── SalesByCategory.cs
 
 
 
