@@ -732,7 +732,14 @@ namespace EntityFrameworkDemo1.Controllers
         }
 
  
-Next go to PostContoller create get method and add view for it and before that once build the application 
+Next go to PostContoller create get method and add view for it and before that once build the application I am gettig error as other tables reference
+has gone due to above command so time being i am commenting all code in northwindcontroller as I want to focus on post controller
+
+now build the solution 
+
+and then try to add view on create method of get 
+
+
 
 
 
