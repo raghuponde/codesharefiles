@@ -260,7 +260,19 @@ and after geenrating view it will look like this i had added ids also as it was 
 
 Now u say port/NorthWind/spainCustomers u will get some data in view
 
+now Write and action method to search customer based on contact name where again I need customer table only
 
+now again in Db 
+--------------
+
+--searching customer 
+
+select CustomerID,CompanyName ,ContactName from [dbo].[Customers] where 
+ContactName='yang Wang'
+
+  in the fron end 
+  --------------
+  
   
 
 
