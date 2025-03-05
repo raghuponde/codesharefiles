@@ -339,7 +339,21 @@ next in action method added like tis
 
 now i cannot create a view graphically so manually i will add empty view like this 
 
-  and then will update the design there 
+  here empty means add view-->razor view -->empty without model which will look like this 
+
+  ProductsInCategory.cshtml 
+  ---------------------
+@{
+    ViewData["Title"] = "ProductsInCategory";
+}
+
+<h1>ProductsInCategory</h1>
+
+
+
+  and then will update the design there lke this 
+
+  
 
 
 
