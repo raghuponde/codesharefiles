@@ -609,7 +609,17 @@ CREATE TABLE [dbo].[Post](
 Then in program console 
 type this command 
 
-Scaffold-DbContext 'Data Source=LAPTOP-4G8BHPK9\SQLEXPRESS;Initial Catalog=NORTHWND;Integrated Security=true;TrustServerCertificate=True;' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Post -Force
+After this I can see that I had created a post class in the Models folder using above command 
+
+now I will add now a post controller in which I will perform crud operation on the post table using post class using db first approach
+
+
+
+
+
+
+
+
 
 
 
