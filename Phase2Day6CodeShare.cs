@@ -12,4 +12,8 @@ Uses Migrations to update the database schema.
 
   you will only generate the database from the front end into the database server 
   means you will follow some steps to do that 
+
+  Create a new application with the name codefirstentityframeworkdemo in day 6 folder It is aasp.net core mvc application
+  use .net core 8.0 version as usual 
+
   
