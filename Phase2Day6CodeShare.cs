@@ -374,7 +374,13 @@ now afte this again run migrations like this in package manager console
 add-migration 'threetablesadded'
 update-database 
 
-
+Now i want to use fluent api and do the work which was done by data annotations and also i need to seed the data into some table by default
+ by usinng fluent api so let us add some tables and provide relationship and include annotaions using fluent api 
+ 
+ 
+ 
+ Now add 3 classes liek this Author2 ,Course2 and UserDetail2 and in that add previous proepties only 
+ but remove all annotoations from top of proeprties 
 
 
 
