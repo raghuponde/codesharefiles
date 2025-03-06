@@ -107,6 +107,8 @@ namespace codefirstentityframeworkdemo.Models
 
 so now step 3 i need to do 
 
+  note here in classes when i give Id then idnentity columns wil be generated for primary keys in tables 
+
   
 
 
