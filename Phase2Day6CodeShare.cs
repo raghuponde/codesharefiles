@@ -1166,7 +1166,7 @@ delete view
 
 
 So here everywhere I had added ID so that in the design I can see the ids also for
-proper understanding scaff folding is not generating the id but I had included it wanted
+proper understanding scaff folding is not generating the id but I had included it wanted 
   
 SECUIRTY IN ASP.NET CORE MVC APPLICATION 
 ---------------------------------------
