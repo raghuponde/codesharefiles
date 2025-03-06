@@ -1575,7 +1575,7 @@ updated login view
 
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
-
+now run the application and register and do login and see whether users are created or not 
 
 
 
