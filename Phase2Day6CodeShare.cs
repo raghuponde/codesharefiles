@@ -150,7 +150,30 @@ namespace codefirstentityframeworkdemo.Models
     }
 }
 
+When you are working with DB first approach the classes were created automatically along with this context class but here as
+you are in code first approach you need to create the classes and also you need to create the context class here where u register other classes 
 
+I'm in step three only now I will configure the database in app settings file and
+  in programme cs file I will inject  the context file which I have created of event context
+
+  appsetting code 
+  -------------
+ go to app settings and put comma and then paste this code and modify as per your system settinggs
+
+ "ConnectionStrings": {
+   "constring": "Data Source=LAPTOP-4G8BHPK9\SQLEXPRESS;initial catalog=EventDatabase;Integrated Security=true;TrustServerCertificate=True;"
+ }
+ 
+ Now go to program.cs file 
+ 
+ and inject the connection string name after add controllers with views 
+ 
+ 
+ 
+ 
+ builder.Services.AddDbContext<EventContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("constring")));
+
+ 
 
 
   
