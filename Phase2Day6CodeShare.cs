@@ -633,6 +633,7 @@ now once Build the applciation and then run the migrations
 add-migration '3moretablesaddedwithfleuntvalidation'
 update-database
 
+If you have done some mistake like data type data types wrongly entered for some properties then you can do the modification in those classes and then again run the migration and update the database if you are not satisfied with the migrations you can delete the migration folder itself and again you can generate the migration folder by writing again the migration command it is not necessary that you have to step by step do changes and add migrations many times all the things you can do at one time and in 1 go you can write the 1 migration also that is also ok
 
 
 
