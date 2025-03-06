@@ -1680,7 +1680,7 @@ so Here privacy can only be used by admin but index can be used both by admin an
 so let us try that by logging in with those users who are having some specific roles which you know already as per the programming
 
 	 
- 
+Her first login as Gopinath and tried to click privacy button in home controller which is not possible then again close the application and log in as Raghavendra and try to click the privacy button you will be able to access it because Raghavendra is admin here and on the method I have told that only admin can access 
     
 
 
