@@ -1172,7 +1172,7 @@ SECUIRTY IN ASP.NET CORE MVC APPLICATION
 ---------------------------------------
 
 
-Implement secure input validation and role-based authentication in an ASP.NET Core MVC application.
+Implement secure input validation and role-based authentication in an ASP.NET Core MVC application of .net core 8.0 
 
 --->open  a new application of mvc 
 
