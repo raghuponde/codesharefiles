@@ -1188,6 +1188,23 @@ Now create a class insdie a fodler Data which  u have to create in project and i
 ApplicationDbContext and u can give any name but i am using this
 
 	
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace SecureAppDemo.Data
+{
+    public class ApplicationDbContext:IdentityDbContext<IdentityUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+           : base(options)
+        {
+        }
+    }
+}
+
+Earlier in DB first approach and code first approach any context class which I am creating it was inheriting from db context but right now I want to implement security so I am going with identity db context for that already I have included that needed dll files
+
 
 
 
