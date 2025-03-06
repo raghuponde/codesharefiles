@@ -47,13 +47,13 @@ now as per step 2 :
 
 add some classes with the name Author ,Course and Student class and include the properties like this 
 
-Here Author and Course are having between them many to many realtionship means both side both collecction property will be there when both sides 
+Here Student and Course are having between them many to many realtionship means both side both collecction property will be there when both sides 
 collection proeprty is there then in database junction table will be created which we will see later 
 
-and there is one to many relationship between Student and course means one student can do many courses and that course belong to one student 
-means here student is master table and course is child table of student 
+and there is one to many relationship between Author and course means one author can write many  courses but that  course belong to 
+one author who has written means here Author is master table and course is child table of Author and it is having refercne navigation to Author table
 
-and there is no Relationship between author and student 
+and there is no Relationship between Author and student 
 
 so remember here master table will have collection navigation proeprty and child table will have reference navigation property 
 
@@ -93,7 +93,7 @@ namespace codefirstentityframeworkdemo.Models
     }
 }
 
-
+ 
 namespace codefirstentityframeworkdemo.Models
 {
     public class Student
