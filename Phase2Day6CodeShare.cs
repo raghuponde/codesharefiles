@@ -199,6 +199,7 @@ now i am going to step 4
 
 Now go to step 5 and add below commands in package manager console 
 
+tools--->Nugget package manager --->package manager console 
 
 add-migration 'initaldbcreated'
 update-database 
