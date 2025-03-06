@@ -1317,3 +1317,10 @@ namespace SecureAppDemo
         }
     }
 }
+
+next build the solutions and
+
+then run the migrations 
+add-migration 'initaldbcreated'
+update-database 
+
