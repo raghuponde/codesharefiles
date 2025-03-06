@@ -1356,4 +1356,57 @@ so we can see like this when i do select * from AspNetRoles
 1CF0DC74-8C26-4565-873F-06B5F8FFCA2A	User	USER	803AA3C5-4072-479F-A663-962D0EBEF28F
 9421928C-F80B-41B8-9A67-F1157883C541	Admin	ADMIN	9EBAA022-75D7-415A-8B0E-8A403B00A625
 
+In Models folder add UserInputModel class and also add LoginInputModel classes and put the code below into that dont add namspace 
+
+-----------------------
+using System.ComponentModel.DataAnnotations;
+
+namespace WebApplication4.Models
+{
+    public class UserInputModel
+    {
+
+        [Required(ErrorMessage = "Username is required")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Username must be between 3 and 50 characters.")]
+        public string Username { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [StringLength(100, MinimumLength = 8, ErrorMessage = "Password must be at least 8 characters.")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$", ErrorMessage = "Password must contain at least one uppercase letter, one lowercase letter, and one digit.")]
+        public string Password { get; set; }
+    }
+}
+
+
+using System.ComponentModel.DataAnnotations;
+
+namespace WebApplication4.Models
+{
+    public class LoginInputModel
+    {
+
+        [Required(ErrorMessage = "Username is required")]
+        public string Username { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [Display(Name = "Remember me")]
+        public bool RememberMe { get; set; }
+    }
+}
+
+and then   add one account controller and then put the code which is given down  and use empty controller 
+
+
+
+
+
+
+
 
