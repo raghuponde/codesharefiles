@@ -913,7 +913,9 @@ namespace codefirstentityframeworkdemo.Controllers
     }
 }
 
+now genrate the views for this 
 
+  
 
   
 
