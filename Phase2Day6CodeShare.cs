@@ -796,6 +796,8 @@ after the EventContext of buider u add this below line
 
 builder.Services.AddScoped<IPost,PostRepository>();  
 
+now add PostController and it shoud be empty mvc Post controller and in that add this code 
+so namespaces Respsootoreis and Models is must heree 
 
 Post Contoller 
 -------------
