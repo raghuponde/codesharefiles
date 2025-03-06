@@ -1176,12 +1176,21 @@ Implement secure input validation and role-based authentication in an ASP.NET Co
 
 --->open  a new application of mvc 
 
---->Add following dependencies (8.0.13) use this version for identiy as this is only compatible
+--->Add following dependencies (8.0.13) use this version for identity and other also as this is only compatible right now with .net core 8.0
 
     Microsoft.AspNetCore.Identity.EntityFrameworkCore  
 	Microsoft.EntityFrameworkCore
 	Microsoft.EntityFrameworkCore.SqlServer
 	Microsoft.EntityFrameworkCore.Tools
+
+Now create a class insdie a fodler Data which  u have to create in project and insdie data a class you should add with the name 
+
+ApplicationDbContext and u can give any name but i am using this
+
+	
+
+
+
 	
   
   
