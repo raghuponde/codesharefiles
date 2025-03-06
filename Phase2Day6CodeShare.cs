@@ -163,7 +163,26 @@ I'm in step three only now I will configure the database in app settings file an
  "ConnectionStrings": {
    "constring": "Data Source=LAPTOP-4G8BHPK9\SQLEXPRESS;initial catalog=EventDatabase;Integrated Security=true;TrustServerCertificate=True;"
  }
- 
+
+
+so will look like this my appsetting file 
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "constring": "Data Source=LAPTOP-4G8BHPK9\\SQLEXPRESS;initial catalog=EventDatabase;Integrated Security=true;TrustServerCertificate=True;"
+  }
+
+}
+
+
+
  Now go to program.cs file 
  
  and inject the connection string name after add controllers with views 
