@@ -700,16 +700,57 @@ namespace codefirstentityframeworkdemo.Repositories
     }
 }
 
+and got to PostRepsoitry class and implement interface like this right click and say implement interface some boiler plate code comes like this 
 
+  using codefirstentityframeworkdemo.Models;
 
-
-using CodeFirstEntityFrameworkDemo.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace CodeFirstEntityFrameworkDemo.Repositories
+namespace codefirstentityframeworkdemo.Repositories
 {
     public class PostRepository : IPost
     {
+        public void DeletePost(int postid)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Post GetPostByID(int postid)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Post> GetPosts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertPost(Post post)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void save()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdatePost(Post post)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+now Updated code of above 
+----------------------------
+
+using codefirstentityframeworkdemo.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace codefirstentityframeworkdemo.Repositories
+{
+    public class PostRepository : IPost
+    {
+
         private EventContext context;
 
         public PostRepository(EventContext cnt)
@@ -721,11 +762,12 @@ namespace CodeFirstEntityFrameworkDemo.Repositories
             Post post = context.posts.Find(postid);
             context.posts.Remove(post);
         }
+
         public Post GetPostByID(int postid)
         {
             return context.posts.Find(postid);
-
         }
+
         public List<Post> GetPosts()
         {
             return context.posts.ToList();
@@ -733,7 +775,7 @@ namespace CodeFirstEntityFrameworkDemo.Repositories
 
         public void InsertPost(Post post)
         {
-            context.posts.Add(post);
+           context.posts.Add(post);
         }
 
         public void save()
@@ -744,8 +786,6 @@ namespace CodeFirstEntityFrameworkDemo.Repositories
         public void UpdatePost(Post post)
         {
             context.Entry(post).State = EntityState.Modified;
-
-
         }
     }
 }
