@@ -105,11 +105,52 @@ namespace codefirstentityframeworkdemo.Models
 }
 
 
-so now step 3 i need to do 
-
   note here in classes when i give Id then idnentity columns wil be generated for primary keys in tables 
 
+
+so now step 3 i need to do 
   
+  Now add another class which is EventContext which is ef class which will hold all other classes 
+
+using Microsoft.EntityFrameworkCore;
+
+namespace codefirstentityframeworkdemo.Models
+{
+    public class EventContext:DbContext
+    {
+    }
+}
+
+and this  class will inherit DbContext class i am in step 3 only 
+next add or register the classes which u have created in EventContext class 
+
+  using Microsoft.EntityFrameworkCore;
+
+namespace codefirstentityframeworkdemo.Models
+{
+    public class EventContext:DbContext
+    {
+        public EventContext()
+        {
+
+        }
+
+        public EventContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
+        {
+
+        }
+
+        public DbSet<Author> authors { get; set; }
+
+        public DbSet<Course> courses { get; set; }
+
+        public DbSet<Student> students { get; set; }
+
+
+    }
+}
+
+
 
 
   
