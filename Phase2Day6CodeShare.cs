@@ -12,6 +12,8 @@ Uses Migrations to update the database schema.
 
   you will only generate the database from the front end into the database server 
   means you will follow some steps to do that 
+
+  
 code first approach steps :
 ---------------------------
 1)Installing packages core package ,tools,sql server 9.0.2 version install these dependencies 
@@ -38,4 +40,28 @@ so now let us open one new application and start the code first approach
   Create a new application with the name codefirstentityframeworkdemo in day 6 folder It is aasp.net core mvc application
   use .net core 8.0 version as usual 
 
+
+step 1 i done now 
+
+now as per step 2 :
+
+add some classes with the name Author ,Course and Student class and include the properties like this 
+
+Here Author and Course are having between them many to many realtionship means both side both collecction property will be there when both sides 
+collection proeprty is there then in database junction table will be created which we will see later 
+
+and there is one to many relationship between Student and course means one student can do many courses and that course belong to one student 
+means here student is master table and course is child table of student 
+
+so remember here master table will have collection navigation proeprty and child table will have reference navigation property 
+
+it is not compuslory to provide collection property in the master class it is understood for our understanding and for the system to understand 
+
+i am proovding navigation properties in both master and child class so that sytem can see and properly genrate the database with proper related tables
+
+
+  
+
+
+  
   
