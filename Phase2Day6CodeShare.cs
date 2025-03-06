@@ -201,8 +201,9 @@ Now go to step 5 and add below commands in package manager console
 
 tools--->Nugget package manager --->package manager console 
 
-add-migration 'initaldbcreated'
+add-migration 'initaldbcreated'    (after this command a migration folder will be created telling how it is going to create db tables ) 
 update-database 
+
 
  
 
