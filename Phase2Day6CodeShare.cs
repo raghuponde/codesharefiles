@@ -53,6 +53,8 @@ collection proeprty is there then in database junction table will be created whi
 and there is one to many relationship between Student and course means one student can do many courses and that course belong to one student 
 means here student is master table and course is child table of student 
 
+and there is no Relationship between author and student 
+
 so remember here master table will have collection navigation proeprty and child table will have reference navigation property 
 
 it is not compuslory to provide collection property in the master class it is understood for our understanding and for the system to understand 
