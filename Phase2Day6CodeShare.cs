@@ -1331,6 +1331,25 @@ so after running the above commands go to database and see Tables over there
 
 So I can see some 8 tables here and all these tables are empty only because no registration is there no login is there so I need to create certain model classes with action methods to provide login and registration into this identity package tables
 
+Manually Adding Roles in Database via SQL Query
+
+- If you want to insert roles directly into the Identity database, 
+  run this SQL query in SQL Server Management Studio (SSMS):
+
+INSERT INTO AspNetRoles (Id, Name, NormalizedName, ConcurrencyStamp) 
+VALUES 
+(NEWID(), 'Admin', 'ADMIN', NEWID()),
+(NEWID(), 'User', 'USER', NEWID()),
+
+
+- Explanation:
+- Id:
+  - Uses `NEWID()` to generate a unique identifier.
+- NormalizedName:
+  - Must be in uppercase.
+- ConcurrencyStamp:
+  - Uses `NEWID()` for unique identity tracking.
+
 
 
 
