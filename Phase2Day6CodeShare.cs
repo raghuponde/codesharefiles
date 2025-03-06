@@ -314,7 +314,7 @@ namespace codefirstentityframeworkdemo.Models
 
         [Required(ErrorMessage = "Email is Required")]
         [EmailAddress(ErrorMessage = "Please enter valid Email Id")]
-        public string? Email { get; set; }
+        public string? Email { get; set; } 
 
         [Required(ErrorMessage = "Postal Code is Required")]
         [Range(100, 1000, ErrorMessage = "Must be between 100 and 1000")]
@@ -330,7 +330,59 @@ namespace codefirstentityframeworkdemo.Models
     }
 }
 
+now register new classes  in eventcontext class like this 
 
+  using Microsoft.EntityFrameworkCore;
+
+namespace codefirstentityframeworkdemo.Models
+{
+    public class EventContext:DbContext
+    {
+        public EventContext()
+        {
+
+        }
+
+        public EventContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
+        {
+
+        }
+
+        public DbSet<Author> authors { get; set; }
+
+        public DbSet<Course> courses { get; set; }
+
+        public DbSet<Student> students { get; set; }
+
+        public DbSet<UserDetail> userdetails { get; set; }
+
+        public DbSet<Employee> employees { get; set; }
+
+        public DbSet<Author1> authors1 { get; set; }
+
+        public DbSet<Course1> courses1 { get; set; }
+
+
+    }
+}
+
+now afte this again run migrations like this in package manager console 
+
+
+add-migration 'threetablesadded'
+update-database 
+
+
+
+
+
+
+
+
+
+
+
+  
 
   
   
