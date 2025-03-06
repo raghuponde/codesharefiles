@@ -1320,6 +1320,9 @@ namespace SecureAppDemo
 
 next build the solutions and
 
+-- remember while running migrations from console in drop down select the Defaultproject as SecureAppDemo as it will having default earlir project 
+so u need to run migrations for the current project okay 
+
 then run the migrations 
 add-migration 'initaldbcreated'
 update-database 
