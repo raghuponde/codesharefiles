@@ -1616,6 +1616,30 @@ so till now i Had implemented authentication not authorization the authorization
 now what u do is take the ids of both the users which are created now and also take the ids of both the roles which are created earleir 
  
  and go to the table which is Aspnetuserroles and there assing roles to users manually do it 
+
+ userids
+
+ Raghavendra ->1ae88794-7b16-4bae-acfb-16532856efeb
+ Gopinath --->1cd84d49-7abf-41b5-a0db-7fafb81cd786
+
+
+Role ids 
+
+Admin --->9421928C-F80B-41B8-9A67-F1157883C541
+user ---->1CF0DC74-8C26-4565-873F-06B5F8FFCA2A
+
+now i want to make Raghavendra as Admin and Gopinath as user 
+
+Userid                                                        Roleid 
+1ae88794-7b16-4bae-acfb-16532856efeb                          9421928C-F80B-41B8-9A67-F1157883C541
+1cd84d49-7abf-41b5-a0db-7fafb81cd786                          1CF0DC74-8C26-4565-873F-06B5F8FFCA2A
+
+so do it grpahically like edit the table 
+
+
+	 
+
+	 
  
     
 
