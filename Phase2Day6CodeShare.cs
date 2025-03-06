@@ -1361,11 +1361,10 @@ In Models folder add UserInputModel class and also add LoginInputModel classes a
 -----------------------
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication4.Models
+namespace SecureAppDemo.Models
 {
     public class UserInputModel
     {
-
         [Required(ErrorMessage = "Username is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Username must be between 3 and 50 characters.")]
         public string Username { get; set; }
@@ -1384,11 +1383,10 @@ namespace WebApplication4.Models
 
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication4.Models
+namespace SecureAppDemo.Models
 {
     public class LoginInputModel
     {
-
         [Required(ErrorMessage = "Username is required")]
         public string Username { get; set; }
 
@@ -1400,13 +1398,3 @@ namespace WebApplication4.Models
         public bool RememberMe { get; set; }
     }
 }
-
-and then   add one account controller and then put the code which is given down  and use empty controller 
-
-
-
-
-
-
-
-
