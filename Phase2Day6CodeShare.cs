@@ -1500,4 +1500,84 @@ namespace SecureAppDemo.Controllers
 }
 
 
+here first create view  two views one is register view and another Login view grpahically only create it but dont use model paste the code which is given down 
+
+login view 
+---------
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+
+register view 
+-------------
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+so they wil look like this update there like this 
+
+register updated view 
+-----------------------
+@model SecureAppDemo.Models.UserInputModel
+@{
+    ViewData["Title"] = "Register";
+}
+<form asp-action="Register" method="post">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+
+updated login view 
+---------------------
+@model SecureAppDemo.Models.LoginInputModel
+@{
+    ViewData["Title"] = "Login";
+}
+<form asp-action="Login" method="post">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group form-check">
+        <input asp-for="RememberMe" class="form-check-input" />
+        <label asp-for="RememberMe" class="form-check-label"></label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+
+
+
+
 
