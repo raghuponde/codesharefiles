@@ -1398,3 +1398,14 @@ namespace SecureAppDemo.Models
         public bool RememberMe { get; set; }
     }
 }
+
+
+and then   add one account controller and then put the code which is given down  and use empty controller 
+
+AccountController
+---------------
+
+
+
+
+
