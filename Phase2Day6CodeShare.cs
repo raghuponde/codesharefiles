@@ -1205,6 +1205,21 @@ namespace SecureAppDemo.Data
 
 Earlier in DB first approach and code first approach any context class which I am creating it was inheriting from db context but right now I want to implement security so I am going with identity db context for that already I have included that needed dll files
 
+---->Then in appsettings 
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=LAPTOP-4G8BHPK9\SQLEXPRESS;Database=SecureDbApp;Trusted_Connection=True;TrustServerCertificate=True;"
+  }
+}
 
 
 
