@@ -1246,7 +1246,17 @@ Earlier in DB first approach and code first approach any context class which I a
 	
 	 using Microsoft.AspNetCore.Identity;
      using Microsoft.EntityFrameworkCore;
-	 
+
+---->Then again in Program.cs file 
+
+
+  // add the below after  var builder = WebApplication.CreateBuilder(args); but above identity ..code which u have written okay 
+
+    // Add services to the container.
+ builder.Services.AddDbContext<ApplicationDbContext>(options =>
+     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
 	 
 so my program.cs lookslike this
 
@@ -1263,6 +1273,8 @@ namespace SecureAppDemo
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Add Identity services to the container
             builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -1305,6 +1317,3 @@ namespace SecureAppDemo
         }
     }
 }
-
-  
-  
