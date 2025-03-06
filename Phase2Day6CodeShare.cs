@@ -1611,9 +1611,12 @@ and will go to Home controller index method through a url as it is showing first
 Home/index wont allow 
 what will happen now is that it will throw me back to login as i am tocuhinng home controller without login so if i Remove authorised attribute then I can touch home controller without login
 
-so till now i Had implemented authentication not authorization the authorization will be implemented when when for already available authenticated users I will provide rules then authorization is implemented which I will do it now
+so till now i Had implemented authentication not authorization the authorization will be implemented when when for already available authenticated users I will provide Roles then authorization is implemented which I will do it now
 
-
+now what u do is take the ids of both the users which are created now and also take the ids of both the roles which are created earleir 
+ 
+ and go to the table which is Aspnetuserroles and there assing roles to users manually do it 
+ 
     
 
 
