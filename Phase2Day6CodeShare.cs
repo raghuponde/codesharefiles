@@ -1599,7 +1599,7 @@ then in login adding hyperlink
   }
 
 so check now everything is working fine or not so i had created two users rember the passwords dontforget 
-
+ 
 my two users are Raghavendra and Gopinath in AspNetUsers table
 
 okay 
