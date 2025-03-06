@@ -1215,7 +1215,7 @@ Earlier in DB first approach and code first approach any context class which I a
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "DefaultConnection": "Server=LAPTOP-4G8BHPK9\\SQLEXPRESS;Database=SecureDatabaseApp;Trusted_Connection=True;TrustServerCertificate=True;"
+    "DefaultConnection": "Server=LAPTOP-4G8BHPK9\SQLEXPRESS;Database=SecureDatabaseApp;Trusted_Connection=True;TrustServerCertificate=True;"
   }
 }
 
