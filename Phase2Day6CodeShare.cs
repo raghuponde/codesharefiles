@@ -1637,7 +1637,47 @@ Userid                                                        Roleid
 so do it grpahically like edit the table 
 
 
-	 
+after this add roles in HomeController 
+
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SecureAppDemo.Models;
+using System.Diagnostics;
+
+namespace SecureAppDemo.Controllers
+{
+ 
+    [Authorize]
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
+        [Authorize(Roles = "User, Admin")]
+        public IActionResult Index()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}
+
+so Here privacy can only be used by admin but index can be used both by admin and user also 
+so let us try that by logging in with those users who are having some specific roles which you know already as per the programming
 
 	 
  
