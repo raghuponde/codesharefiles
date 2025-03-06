@@ -1329,7 +1329,7 @@ update-database
 
 so after running the above commands go to database and see Tables over there 
 
-
+So I can see some 8 tables here and all these tables are empty only because no registration is there no login is there so I need to create certain model classes with action methods to provide login and registration into this identity package tables
 
 
 
