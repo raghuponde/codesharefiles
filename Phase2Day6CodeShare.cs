@@ -680,13 +680,12 @@ create one folder Repositories in the Project u create
 in that add one inetface IPost and and one class PostRepository
 
 
-using CodeFirstEntityFrameworkDemo.Models;
+using codefirstentityframeworkdemo.Models;
 
-namespace CodeFirstEntityFrameworkDemo.Repositories
+namespace codefirstentityframeworkdemo.Repositories
 {
     public interface IPost
     {
-
         List<Post> GetPosts();
 
         Post GetPostByID(int postid);
@@ -700,6 +699,7 @@ namespace CodeFirstEntityFrameworkDemo.Repositories
         void save();
     }
 }
+
 
 
 
