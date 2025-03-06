@@ -1210,7 +1210,7 @@ Earlier in DB first approach and code first approach any context class which I a
   "Logging": {
     "LogLevel": {
       "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
+      "Microsoft.AspNetCore": "Warning" 
     }
   },
   "AllowedHosts": "*",
