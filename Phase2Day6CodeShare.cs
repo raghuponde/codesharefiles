@@ -675,7 +675,7 @@ add migrations
 
 see the table in db it will be there 
 
-create one folder Repositories 
+create one folder Repositories in the Project u create 
 
 in that add one inetface IPost and and one class PostRepository
 
