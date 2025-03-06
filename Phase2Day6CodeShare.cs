@@ -192,6 +192,17 @@ so will look like this my appsetting file
  
  builder.Services.AddDbContext<EventContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("constring")));
 
+now i am going to step 4 
+
+  Build the application 
+
+
+Now go to step 5 and add below commands in package manager console 
+
+
+add-migration 'initaldbcreated'
+update-database 
+
  
 
 
