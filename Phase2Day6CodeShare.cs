@@ -801,11 +801,11 @@ so namespaces Respsootoreis and Models is must heree
 
 Post Contoller 
 -------------
-using CodeFirstEntityFrameworkDemo.Models;
-using CodeFirstEntityFrameworkDemo.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using codefirstentityframeworkdemo.Models;
+using codefirstentityframeworkdemo.Repositories;
 
-namespace CodeFirstEntityFrameworkDemo.Controllers
+namespace codefirstentityframeworkdemo.Controllers
 {
     public class PostController : Controller
     {
@@ -816,7 +816,6 @@ namespace CodeFirstEntityFrameworkDemo.Controllers
             _postRepository = postRepository;
         }
 
-        // GET: Post
         public IActionResult Index()
         {
             var posts = _postRepository.GetPosts();
@@ -911,9 +910,8 @@ namespace CodeFirstEntityFrameworkDemo.Controllers
             _postRepository.save();
             return RedirectToAction(nameof(Index));
         }
-    } 
+    }
 }
-
 
 
 
