@@ -366,6 +366,8 @@ namespace codefirstentityframeworkdemo.Models
     }
 }
 
+
+build the solution agin now 
 now afte this again run migrations like this in package manager console 
 
 
