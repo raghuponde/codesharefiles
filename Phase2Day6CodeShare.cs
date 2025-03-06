@@ -1176,7 +1176,7 @@ Implement secure input validation and role-based authentication in an ASP.NET Co
 
 --->open  a new application of mvc 
 
---->Add following dependencies (8.0.13) 
+--->Add following dependencies (8.0.13) use this version for identiy as this is only compatible
 
     Microsoft.AspNetCore.Identity.EntityFrameworkCore  
 	Microsoft.EntityFrameworkCore
