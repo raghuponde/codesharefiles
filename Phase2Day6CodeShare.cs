@@ -1219,7 +1219,35 @@ Earlier in DB first approach and code first approach any context class which I a
   }
 }
 
+---->In Program.cs, configure Identity and authentication services:
 
+
+
+
+       // add the below after  var builder = WebApplication.CreateBuilder(args);
+    // Add Identity services to the container
+    builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+    {
+        // Configure password settings
+        options.Password.RequireDigit = true;
+        options.Password.RequireLowercase = true;
+        options.Password.RequireUppercase = true;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequiredLength = 8;
+    })
+        .AddEntityFrameworkStores<ApplicationDbContext>() // Use your ApplicationDbContext here
+        .AddDefaultTokenProviders();
+
+   also add 
+   
+      app.UseAuthentication();  (after app.useRouting())
+	  
+	on the top of program  namespaces are 
+	
+	 using Microsoft.AspNetCore.Identity;
+     using Microsoft.EntityFrameworkCore;
+	 
+	 
 	
   
   
