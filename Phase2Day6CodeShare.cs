@@ -98,7 +98,7 @@ namespace codefirstentityframeworkdemo.Models
 {
     public class Student
     {
-        public int Id { get; set; }
+        public int Id { get; set; } 
 
         public List<Course> Courses { get; set; }
     }
@@ -1577,6 +1577,31 @@ updated login view
 </form>
 now run the application and register and do login and see whether users are created or not 
 
+some changes in 
+----------------
+In program .cs 
+ app.MapControllerRoute(
+     name: "default",
+     pattern: "{controller=Account}/{action=Login}/{id?}");
+then in login adding hyperlink 
+
+
+    <button type="submit" class="btn btn-primary">Login</button>
+    in the form at the last 
+
+    then in account controller the logic of register post 
+
+    make it jump to 
+    login 
+      if (result.Succeeded)
+  {
+      return RedirectToAction("Login", "Account");
+  }
+
+
+
+
+    
 
 
 
