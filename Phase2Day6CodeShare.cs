@@ -383,7 +383,112 @@ Now i want to use fluent api and do the work which was done by data annotations 
  but remove all annotoations from top of proeprties 
 
 
+namespace codefirstentityframeworkdemo.Models
+{
+    public class Author2
+    {
+        public int Id { set; get; }
+        public string Name { set; get; }
+        public IList<Course2> Courses { set; get; }
+    }
+}
 
+namespace codefirstentityframeworkdemo.Models
+{
+    public class Course2
+    {
+        public int Id { set; get; }// not an identity column 
+
+
+        public string Title { set; get; }
+
+
+        public string Description { set; get; }
+
+
+        public float fullprice { set; get; }
+
+
+        public int Author2Id { set; get; }
+
+        public Author2 Author { set; get; }
+    }
+}
+
+
+namespace codefirstentityframeworkdemo.Models
+{
+    public class UserDetail2
+    {
+        public int Id { get; set; }
+
+        public string? UserName { get; set; }
+
+        public string? NewPassword { get; set; }
+
+
+        public string? ConfirmPassword { get; set; }
+
+
+        public DateTime DateOfBirth { get; set; }
+
+
+        public string? Email { get; set; }
+
+
+        public int PostalCode { get; set; }
+
+
+        public int PhoneNo { get; set; }
+
+
+        public string Profile { get; set; }
+    }
+}
+
+Again register in EventConext like this 
+
+  using Microsoft.EntityFrameworkCore;
+
+namespace codefirstentityframeworkdemo.Models
+{
+    public class EventContext:DbContext
+    {
+        public EventContext()
+        {
+
+        }
+
+        public EventContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
+        {
+
+        }
+
+        public DbSet<Author> authors { get; set; }
+
+        public DbSet<Course> courses { get; set; }
+
+        public DbSet<Student> students { get; set; }
+
+        public DbSet<UserDetail> userdetails { get; set; }
+
+        public DbSet<Employee> employees { get; set; }
+
+        public DbSet<Author1> authors1 { get; set; }
+
+        public DbSet<Course1> courses1 { get; set; }
+
+        public DbSet<Course2> courses2 { get; set; }
+
+        public DbSet<Author2> authors2 { get; set; }
+
+        public DbSet<UserDetail2> userdetails2 { get; set; }
+
+
+    }
+}
+
+Now  in event context only i will wreite flent api for doing validations 
 
 
 
