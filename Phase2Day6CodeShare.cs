@@ -1168,6 +1168,20 @@ delete view
 So here everywhere I had added ID so that in the design I can see the ids also for
 proper understanding scaff folding is not generating the id but I had included it wanted
   
+SECUIRTY IN ASP.NET CORE MVC APPLICATION 
+---------------------------------------
 
+
+Implement secure input validation and role-based authentication in an ASP.NET Core MVC application.
+
+--->open  a new application of mvc 
+
+--->Add following dependencies (9.0.2) 
+
+    Microsoft.AspNetCore.Identity.EntityFrameworkCore  
+	Microsoft.EntityFrameworkCore
+	Microsoft.EntityFrameworkCore.SqlServer
+	Microsoft.EntityFrameworkCore.Tools
+	
   
   
