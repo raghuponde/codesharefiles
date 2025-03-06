@@ -1608,7 +1608,7 @@ Now i have users two user and they are authenicated user registered users
 
 so if i go to Home controller and on top of Home controller i will keep [Authorize] attribute
 and will go to Home controller index method through a url as it is showing first login i will go to home controller through a url 
-what will happen now is that it will throw me back to login as i am tocuhinng home controller without login 
+what will happen now is that it will throw me back to login as i am tocuhinng home controller without login so if i Remove authorised attribute then I can touch home controller without login
 
 
 
