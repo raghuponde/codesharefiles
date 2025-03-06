@@ -8,7 +8,7 @@ Uses Migrations to update the database schema.
   When to use?
 
 ---->When you want full control over your database structure.
----->When starting a new project from scratch.
+---->When starting a new project from scratch. 
 
   you will only generate the database from the front end into the database server 
   means you will follow some steps to do that 
@@ -57,7 +57,7 @@ so remember here master table will have collection navigation proeprty and child
 
 it is not compuslory to provide collection property in the master class it is understood for our understanding and for the system to understand 
 
-i am proovding navigation properties in both master and child class so that sytem can see and properly genrate the database with proper related tables
+i am providing navigation properties in both master and child class so that sytem can see and properly genrate the database with proper related tables
 
 
   
