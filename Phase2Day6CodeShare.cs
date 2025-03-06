@@ -1327,3 +1327,11 @@ then run the migrations
 add-migration 'initaldbcreated'
 update-database 
 
+so after running the above commands go to database and see Tables over there 
+
+
+
+
+
+
+
