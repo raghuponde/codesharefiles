@@ -488,7 +488,9 @@ namespace codefirstentityframeworkdemo.Models
     }
 }
 
-Now  in event context only i will wreite flent api for doing validations 
+Now  in event context only i will wreite fluent api for doing validations 
+
+
 
 
 
