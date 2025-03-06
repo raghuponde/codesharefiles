@@ -62,6 +62,51 @@ it is not compuslory to provide collection property in the master class it is un
 i am providing navigation properties in both master and child class so that sytem can see and properly genrate the database with proper related tables
 
 
+  namespace codefirstentityframeworkdemo.Models
+{
+    public class Author
+    {
+        public int Id { get; set; } // it will create identity column
+        public string? AuthorName { set; get; }
+
+        public IList<Course> Courses { get; set; }
+    }
+}
+
+
+namespace codefirstentityframeworkdemo.Models
+{
+    public class Course
+    {
+        public int Id { get; set; }
+
+        public string? Title { get; set; }
+
+        public string? CourseDescription { get; set; }
+
+        public float? fullprice { get; set; }
+
+        public Author? Author { get; set; }
+
+        public List<Student> Students { get; set; }
+
+    }
+}
+
+
+namespace codefirstentityframeworkdemo.Models
+{
+    public class Student
+    {
+        public int Id { get; set; }
+
+        public List<Course> Courses { get; set; }
+    }
+}
+
+
+so now step 3 i need to do 
+
   
 
 
