@@ -626,7 +626,7 @@ namespace codefirstentityframeworkdemo.Models
 
 
     }
-}
+} 
 
 now once Build the applciation and then run the migrations 
 
@@ -636,6 +636,229 @@ update-database
 If you have done some mistake like data type data types wrongly entered for some properties then you can do the modification in those classes and then again run the migration and update the database if you are not satisfied with the migrations you can delete the migration folder itself and again you can generate the migration folder by writing again the migration command it is not necessary that you have to step by step do changes and add migrations many times all the things you can do at one time and in 1 go you can write the 1 migration also that is also ok
 
 check whetther seeded values are there in Author2 and Course 2 are there or not 
+
+CRUD using code first and also will use repository pattern 
+--------------------------------------------------------------
+here one interface we define methods and and one class will implment that interface and that class will be used by a contoller which is nothing but repsoitory pattern 
+
+
+Add one class Post like this on Models folder 
+
+public class Post
+{
+
+	public int Id { set; get; }
+	public DateTime DatePublished { set; get; }
+	public string Title { set; get; }
+	public string Body { set; get; }
+}
+
+add in EventContext the the DBSet 
+
+public DbSet<Post> posts { get; set; }
+
+build the solution 
+
+add migrations 
+
+see the table in db it will be there 
+
+create one folder Repositories 
+
+in that add one inetface IPost and and one class PostRepository
+
+
+using CodeFirstEntityFrameworkDemo.Models;
+
+namespace CodeFirstEntityFrameworkDemo.Repositories
+{
+    public interface IPost
+    {
+
+        List<Post> GetPosts();
+
+        Post GetPostByID(int postid);
+
+        void InsertPost(Post post);
+
+        void DeletePost(int postid);
+
+        void UpdatePost(Post post);
+
+        void save();
+    }
+}
+
+
+
+using CodeFirstEntityFrameworkDemo.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace CodeFirstEntityFrameworkDemo.Repositories
+{
+    public class PostRepository : IPost
+    {
+        private EventContext context;
+
+        public PostRepository(EventContext cnt)
+        {
+            this.context = cnt;
+        }
+        public void DeletePost(int postid)
+        {
+            Post post = context.posts.Find(postid);
+            context.posts.Remove(post);
+        }
+        public Post GetPostByID(int postid)
+        {
+            return context.posts.Find(postid);
+
+        }
+        public List<Post> GetPosts()
+        {
+            return context.posts.ToList();
+        }
+
+        public void InsertPost(Post post)
+        {
+            context.posts.Add(post);
+        }
+
+        public void save()
+        {
+            context.SaveChanges();
+        }
+
+        public void UpdatePost(Post post)
+        {
+            context.Entry(post).State = EntityState.Modified;
+
+
+        }
+    }
+}
+
+register this in Program.cs file 
+----------------------------------
+after the EventContext of buider u add this below line 
+
+builder.Services.AddScoped<IPost,PostRepository>();  
+
+
+Post Contoller 
+-------------
+using CodeFirstEntityFrameworkDemo.Models;
+using CodeFirstEntityFrameworkDemo.Repositories;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CodeFirstEntityFrameworkDemo.Controllers
+{
+    public class PostController : Controller
+    {
+        private readonly IPost _postRepository;
+
+        public PostController(IPost postRepository)
+        {
+            _postRepository = postRepository;
+        }
+
+        // GET: Post
+        public IActionResult Index()
+        {
+            var posts = _postRepository.GetPosts();
+            return View(posts);
+        }
+
+        // GET: Post/Details/5
+        public IActionResult Details(int id)
+        {
+            var post = _postRepository.GetPostByID(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return View(post);
+        }
+
+        // GET: Post/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Post/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                _postRepository.InsertPost(post);
+                _postRepository.save();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(post);
+        }
+
+        // GET: Post/Edit/5
+        public IActionResult Edit(int id)
+        {
+            var post = _postRepository.GetPostByID(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return View(post);
+        }
+
+        // POST: Post/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Post post)
+        {
+            if (id != post.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _postRepository.UpdatePost(post);
+                    _postRepository.save();
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(post);
+        }
+
+        // GET: Post/Delete/5
+        public IActionResult Delete(int id)
+        {
+            var post = _postRepository.GetPostByID(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return View(post);
+        }
+
+        // POST: Post/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            _postRepository.DeletePost(id);
+            _postRepository.save();
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}
 
 
 
