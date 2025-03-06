@@ -644,14 +644,26 @@ here one interface we define methods and and one class will implment that interf
 
 Add one class Post like this on Models folder 
 
-public class Post
-{
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-	public int Id { set; get; }
-	public DateTime DatePublished { set; get; }
-	public string Title { set; get; }
-	public string Body { set; get; }
+namespace codefirstentityframeworkdemo.Models
+{
+    public class Post
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Id { set; get; }
+        [Required]
+        public DateTime DatePublished { set; get; }
+        [Required]
+        public string Title { set; get; }
+        [Required]
+        public string Body { set; get; }
+    }
 }
+
+
 
 add in EventContext the the DBSet 
 
