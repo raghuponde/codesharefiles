@@ -523,6 +523,8 @@ wont retun view but they retrun json data and view we will generate using react 
 
 Now Open a new webpi aplication with the name WebApiDemo in Day7 fodler and give name Day7Projects for soltuion
 
+select template AP.net core web api now not asp.net core mvc we now moving to web api concepts 
+
 
  
 
