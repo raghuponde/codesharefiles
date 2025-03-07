@@ -879,6 +879,8 @@ check the database now
 
 now identity will be there in the table what ever i am writing earlier was going in collection now whatver i write will go in table database 
 
+now go to web api which is using collection so i will commment collection code and put EF code here there
+
 
 
 
