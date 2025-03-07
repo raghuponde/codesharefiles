@@ -838,12 +838,11 @@ Now go to app settins
 
 
 updated EmpContext class accoring to your namespace 
-
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeWepApiExample.Data
+namespace WebApiDemo.Data
 {
-    public class EmpContext : DbContext
+    public class EmpContext:DbContext
     {
         public EmpContext(DbContextOptions<EmpContext> options) : base(options)
 
@@ -852,7 +851,7 @@ namespace EmployeeWepApiExample.Data
         }
 
         public DbSet<Employee> Employees { get; set; }
+
     }
 }
-
 
