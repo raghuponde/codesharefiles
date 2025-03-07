@@ -586,5 +586,6 @@ namespace WebApiDemo.Controllers
     }
 }
 
+Right now this is also like a normal method only add with an attribute http get but will convert this method into async with the return type IActionresult
 
 
