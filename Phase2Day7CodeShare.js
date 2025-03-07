@@ -782,7 +782,7 @@ namespace WebApiDemo.Controllers
         }
         [HttpDelete("del2/{id}")] 
         public async Task<ActionResult<List<Employee>>> DeleteEmployee2(int id)
-        {
+        { 
             var employee1 = emps.Find(x => x.Id == id);
             if (employee1 == null)
             {
@@ -796,4 +796,12 @@ namespace WebApiDemo.Controllers
     }
 }
 
-  
+ Now i want to use Entity Framework so add one Data folder in the project and add one class EmpContext which will look like this 
+
+namespace EmployeeWepApiExample.Data
+{
+    public class EmpContext
+    {
+    }
+}
+and give the attributes which are provided below
