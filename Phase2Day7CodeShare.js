@@ -648,5 +648,32 @@ namespace WebApiDemo.Controllers
 
     }
 }
+Take the employees outside
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace WebApiDemo.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+        public static List<Employee> emps = new List<Employee>()
+            {
+                new Employee{Id=1,Name="kiran",place="Bangalore"},
+                new Employee{Id=2,Name="mahesh",place="chennai"},
+                new Employee{Id=3,Name="santosh",place="Delhi"},
+            };
+        [HttpGet]
+        public async Task< ActionResult< List<Employee>>> GetEmployees()
+        {
+          
+            return Ok(emps);
+        }
+         
+
+    }
+}
 
   
