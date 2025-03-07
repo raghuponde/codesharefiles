@@ -544,5 +544,47 @@ namespace WebApiDemo
 
  now add one API controller empty one by going into section API give name as EmpContoller 
 
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace WebApiDemo.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+    }
+}
+
+Will look like this boilerplate code
+
+add code like this in the conroller 
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace WebApiDemo.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+
+        [HttpGet]
+        public List<Employee> GetEmployees()
+        {
+            var emps = new List<Employee>()
+            {
+                new Employee{Id=1,Name="kiran",place="Bangalore"},
+                new Employee{Id=2,Name="mahesh",place="chennai"},
+                new Employee{Id=3,Name="santosh",place="Delhi"},
+            };
+            return emps;
+        }
+         
+
+    }
+}
+
 
 
