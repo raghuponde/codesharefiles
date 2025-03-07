@@ -780,7 +780,7 @@ namespace WebApiDemo.Controllers
             emps.Remove(employee1);
             return Ok(employee1);
         }
-        [HttpDelete("del2/{id}")]
+        [HttpDelete("del2/{id}")] 
         public async Task<ActionResult<List<Employee>>> DeleteEmployee2(int id)
         {
             var employee1 = emps.Find(x => x.Id == id);
