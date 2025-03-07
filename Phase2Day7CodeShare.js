@@ -855,3 +855,30 @@ namespace WebApiDemo.Data
     }
 }
 
+then in Program.cs file 
+builder.Services.AddControllers();// this is already there mean after this put it 
+ builder.Services.AddDbContext<EmpContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("constring")));
+
+
+once build the solution 
+
+Now add migrations 
+
+PM> add-migration 'initiempdb'
+Build started...
+Build succeeded.
+Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.33 initialized 'EmpContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.33' with options: None
+To undo this action, use Remove-Migration.
+PM> update-database 
+
+PM> 
+
+
+check the database now 
+
+now identity will be there in the table what ever i am writing earlier was going in collection now whatver i write will go in table database 
+
+
+
+
