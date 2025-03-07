@@ -525,6 +525,8 @@ Now Open a new webpi aplication with the name WebApiDemo in Day7 fodler and give
 
 select template AP.net core web api now not asp.net core mvc we now moving to web api concepts 
 
+Csharp--allplatforms--web  and .net core 8.0 you have to select
+
 
  
 
