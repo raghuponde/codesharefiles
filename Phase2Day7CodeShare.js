@@ -529,6 +529,18 @@ Csharp--allplatforms--web  and .net core 8.0 you have to select
 
 Now add Employee class in the project i am not using any models here as it is web api 
 
+namespace WebApiDemo
+{
+    public class Employee
+    {
+        public int? Id { set; get; }
+
+        public string? Name { set; get; }
+
+        public string place { set; get; } = string.Empty;
+
+    }
+}
 
  
 
