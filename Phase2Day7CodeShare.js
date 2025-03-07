@@ -798,10 +798,61 @@ namespace WebApiDemo.Controllers
 
  Now i want to use Entity Framework so add one Data folder in the project and add one class EmpContext which will look like this 
 
-namespace EmployeeWepApiExample.Data
+namespace WebApiDemo.Data
 {
     public class EmpContext
     {
     }
 }
-and give the attributes which are provided below
+
+so ths is class which will be modified before that add dependencies add it verson  8.0.13
+
+
+Microsoft.EntityFrameworkCore  
+Microsoft.EntityFrameworkCore.SqlServer and also 
+Microsoft.EntityFrameworkCore.Tools 
+
+
+
+Now go to app settins 
+
+ "ConnectionStrings": {
+    "constring": "Data Source=LAPTOP-4G8BHPK9\\SQLEXPRESS;initial catalog=EmpDb;Integrated Security=true;"
+  }
+  
+  
+  so the code will be like this i mean to say total code 
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "constring": "Data Source=LAPTOP-4G8BHPK9\\SQLEXPRESS;initial catalog=EmployeeDb;Integrated Security=true;"
+  }
+
+}
+
+
+updated EmpContext class accoring to your namespace 
+
+using Microsoft.EntityFrameworkCore;
+
+namespace EmployeeWepApiExample.Data
+{
+    public class EmpContext : DbContext
+    {
+        public EmpContext(DbContextOptions<EmpContext> options) : base(options)
+
+        {
+
+        }
+
+        public DbSet<Employee> Employees { get; set; }
+    }
+}
+
+
