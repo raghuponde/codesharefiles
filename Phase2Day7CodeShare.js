@@ -588,4 +588,65 @@ namespace WebApiDemo.Controllers
 
 Right now this is also like a normal method only add with an attribute http get but will convert this method into async with the return type IActionresult
 
+I want to change the above function in asynchronous format so I have converted the above function in this manner
 
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace WebApiDemo.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+
+        [HttpGet]
+        public async Task<List<Employee>> GetEmployees()
+        {
+            var emps = new List<Employee>()
+            {
+                new Employee{Id=1,Name="kiran",place="Bangalore"},
+                new Employee{Id=2,Name="mahesh",place="chennai"},
+                new Employee{Id=3,Name="santosh",place="Delhi"},
+            };
+            return emps;
+        }
+         
+
+    }
+}
+
+but it showing greeen line means it is not totally asynchrnus it is partially asynhornus i will make it fully Asynchronus when i use EF i will make it fully async   right now let it be like that only 
+
+
+nexxt Along with the result I want to send status  also like OK Or bad reauest file not found then again keep the in Actionresult the function 
+Now along with data returning i want to return status of data also means succes or not found etc success means ok means 200 status 
+  
+  
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace WebApiDemo.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmpController : ControllerBase
+    {
+
+        [HttpGet]
+        public async Task< ActionResult< List<Employee>>> GetEmployees()
+        {
+            var emps = new List<Employee>()
+            {
+                new Employee{Id=1,Name="kiran",place="Bangalore"},
+                new Employee{Id=2,Name="mahesh",place="chennai"},
+                new Employee{Id=3,Name="santosh",place="Delhi"},
+            };
+            return Ok(emps);
+        }
+         
+
+    }
+}
+
+  
