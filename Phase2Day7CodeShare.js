@@ -831,7 +831,7 @@ Now go to app settins
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "constring": "Data Source=LAPTOP-4G8BHPK9\\SQLEXPRESS;initial catalog=EmployeeDb;Integrated Security=true;"
+    "constring": "Data Source=LAPTOP-4G8BHPK9\\SQLEXPRESS;initial catalog=EmployeeDb;Integrated Security=true;TrustServerCertificate=True;"
   }
 
 }
