@@ -374,9 +374,13 @@ In layout just put the the code in ul list
 </body>
 </html>
 
+This is how you can make an app secure using identity package of asp.net core
 
+Now let us move to Web Api concepts 
+open one web api project now till now we have seen earlier web api but that web api was not having return type as IActionResult it was normal methods 
 
-
+now we have written some action methods in asp.net core but those will defnetley will return view but in web api the same action methods 
+wont retun view but they retrun json data and view we will generate using react later by taking web api 
  
 
 
