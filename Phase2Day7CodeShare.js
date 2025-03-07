@@ -527,6 +527,8 @@ select template AP.net core web api now not asp.net core mvc we now moving to we
 
 Csharp--allplatforms--web  and .net core 8.0 you have to select
 
+Now add Employee class in the project i am not using any models here as it is web api 
+
 
  
 
