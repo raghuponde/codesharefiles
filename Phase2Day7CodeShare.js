@@ -1025,5 +1025,5 @@ namespace WebApiDemo.Controllers
     }
 }
 
-
+run the web api and see that u are able to insert,update and delete and seelct emp table note dont enter id valeus as they are identity 
 
