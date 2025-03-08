@@ -216,3 +216,14 @@ export const AddTask = () => {
     )
 }
 
+Now Let us understand the concept of use reducer I can use Use state also instead of Use reduer but Use reducer is dynamic
+ I didn't have to write multiple times use state and it has dynamically I can transfer the values transition is good in use reducer
+
+Now create an app now give name as CounterAppwithUseSate in Folder Day 8 only create 
+
+
+
+
+
+
+
