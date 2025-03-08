@@ -405,4 +405,11 @@ function App1() {
 
 export default App1;
 
-
+Here in the above code I am I am making a text box as a controlled 
+ component means whenever I am changing anything in the text box 
+  using Use state whatever value I write in the text box will go inside the inputvalue of Use state
+now in In dispatch method I am passing a payload value of the text box only from the text box 
+ whatever is changed is kept in the input value and as a payload that input value is sent
+In the earlier code I was hard coding the value of state using one or minus one but right 
+ now it is now plus payload or minus payload
+Use payload whenever you're using a form or you're using some input controls to pass inside the reducer
