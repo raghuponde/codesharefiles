@@ -413,3 +413,15 @@ now in In dispatch method I am passing a payload value of the text box only from
 In the earlier code I was hard coding the value of state using one or minus one but right 
  now it is now plus payload or minus payload
 Use payload whenever you're using a form or you're using some input controls to pass inside the reducer
+
+IDENTITY_DEMO_WITH_JWTTOKEN 
+***************************
+
+
+
+
+
+
+
+ 
+
