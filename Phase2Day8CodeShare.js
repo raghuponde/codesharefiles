@@ -133,3 +133,6 @@ export const TaskList = () => {
 
 export default TaskList
  
+Now to to TaskCard.js 
+---------------------
+ 
