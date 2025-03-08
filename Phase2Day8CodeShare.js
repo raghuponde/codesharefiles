@@ -221,7 +221,68 @@ Now Let us understand the concept of use reducer I can use Use state also instea
 
 Now create an app now give name as counterappwithusestate in Folder Day 8 only create 
 
+do inital set up means remove some file in public and some in src 
 
+now first add one file App1.js in src folder and write the below code like this of counter logic 
+
+App1.js 
+-------
+import { useState } from 'react';
+import './App.css';
+
+
+function App1() {
+
+    const [count, setCount] = useState(0);
+
+    function handleAdd() {
+        //count = count + 1;
+        console.log(count);
+        setCount(count + 1);
+    }
+
+    function handleSub() {
+        setCount(count - 1);
+    }
+
+    function handleReset() {
+        setCount(0);
+    }
+
+
+    return (
+        <div className="App">
+
+            <div className='box'>
+
+                <p>{count}</p>
+                <button onClick={handleAdd} className='add' >ADD</button>
+                <button onClick={handleSub} className='sub' >SUB</button>
+                <button onClick={handleReset} className='reset' >RESET</button>
+
+
+            </div>
+
+        </div>
+    );
+}
+
+export default App1;
+
+index.js 
+--------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App1 from './App1';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App1 />
+  </React.StrictMode>
+);
 
 
 
