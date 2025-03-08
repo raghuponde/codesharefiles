@@ -284,7 +284,20 @@ root.render(
   </React.StrictMode>
 );
 
+Explanation:
+useReducer instead of useState:
 
+useReducer takes a reducer function (countReducer) and an initial state ({ count: 0 }).
+It returns [state, dispatch], where:
+state holds the current state.
+dispatch is used to trigger state updates.
+Reducer Function (countReducer):
+
+This function determines how the state should change based on the action type (increment, decrement, or reset).
+Dispatching Actions:
+
+The dispatch function is used to send action objects { type: 'increment' }, { type: 'decrement' }, or { type: 'reset' }.
+This approach makes state management more structured and scalable, especially useful for complex state logic
 
 
 
