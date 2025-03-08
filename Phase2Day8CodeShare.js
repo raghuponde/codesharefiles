@@ -32,8 +32,10 @@ Now go to drive phase 2 Day 8 fodler and download demowithprops folder and do np
 
 so what I am Do is that this programme which is written in props I will convert into context usage
 
+so you can see here i am sending values in the form of props from App.js to TaskList.js and AddTask.js and from TaskList.js 
+to TaskCard as well 
 
-
+so i want to do this using createContext and useContext i dont want to use props here 
 
 
 
