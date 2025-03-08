@@ -37,6 +37,8 @@ to TaskCard as well
 
 so i want to do this using createContext and useContext i dont want to use props here 
 
+Now in the components folder add TaskContext.js file 
+
 
 
 
