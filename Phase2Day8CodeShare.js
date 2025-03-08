@@ -30,7 +30,7 @@ so will take the proeprties and and display
 
 Now go to drive phase 2 Day 8 fodler and download demowithprops folder and do npm install and then just open the application and let us understand
 
-
+so what I am Do is that this programme which is written in props I will convert into context usage
 
 
 
