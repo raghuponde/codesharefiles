@@ -314,13 +314,7 @@ function App1() {
 
     const [state,dispatch] = useReducer(countReducer,{ count: 0});
 
-   
-    
-
-    
-
-
-    return (
+       return (
         <div className="App">
 
             <div className='box'>
