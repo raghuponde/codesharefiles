@@ -77,7 +77,7 @@ export const TaskProvider = ({ children }) => {
     )
 
 }
-
+next thing is App.js i have to configure this context on top so that all can use my features 
 
 
 
