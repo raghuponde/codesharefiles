@@ -284,6 +284,61 @@ root.render(
   </React.StrictMode>
 );
 
+now i will use useReducer instead of usestaate 
+
+updated App1.js 
+-------------
+ import { useReducer } from 'react';
+import './App.css';
+
+function countReducer(state,action)
+{
+    switch (action.type)
+    {
+        case 'increment':
+            return {
+                count: state.count + 1,
+               
+             };
+        case 'decrement':
+            return { count: state.count - 1 };
+        case 'reset':
+            return { count: 0 };
+        default:
+            return state;
+
+    }
+}
+
+function App1() {
+
+    const [state,dispatch] = useReducer(countReducer,{ count: 0});
+
+   
+    
+
+    
+
+
+    return (
+        <div className="App">
+
+            <div className='box'>
+
+                <p>{state.count}</p>
+                <button onClick={()=>dispatch({type:'increment'})} className='add' >ADD</button>
+                <button onClick={() => dispatch({ type: 'decrement' })} className='sub' >SUB</button>
+                <button onClick={() => dispatch({ type: 'reset' }) } className='reset' >RESET</button>
+
+
+            </div>
+
+        </div>
+    );
+}
+
+export default App1;
+
 Explanation:
 useReducer instead of useState:
 
