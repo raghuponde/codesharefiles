@@ -28,7 +28,9 @@ and will use useContext(<anyname>Context)
 
 so will take the proeprties and and display 
 
-Now create  one react app with the name propusagedemo 
+Now go to drive phase 2 Day 8 fodler and download demowithprops folder and do npm install and then just open the application and let us understand
+
+
 
 
 
