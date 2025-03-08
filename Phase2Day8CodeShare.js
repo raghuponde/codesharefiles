@@ -57,9 +57,8 @@ export const TaskProvider = ({ children }) => {
       ]);
     
     // function to add a new task
-    const addTask = (task) =>
-    {
-        setTasks([...tasks, task]);
+    const addTask = (task) =>    {
+        setTasks([...tasks,task]);
     }
 
     // funtion to delete a task
@@ -72,7 +71,7 @@ export const TaskProvider = ({ children }) => {
     return (
 
         <TaskContext.Provider value={{ tasks, addTask, deleteTask }}>
-            children
+            {children}
         </TaskContext.Provider>
     )
 
@@ -82,6 +81,7 @@ next thing is App.js i have to configure this context on top so that all can use
 App.js 
 ----------
  
+
 import React from 'react'
 import { useState } from 'react';
 import TaskList from './components/TaskList';
@@ -101,7 +101,6 @@ export default function App() {
     </TaskProvider>
   )
 }
-
 Next we have TaskList.js go there use useConext and change the code like this 
 
 TaskList.js 
@@ -114,7 +113,7 @@ import { TaskContext } from './TaskContext';
 export const TaskList = () => {
 
     const [show, setShow] = useState(true);
-       const { tasks }=  useContext(TaskContext)
+       const {tasks}=  useContext(TaskContext)
    
     return (
         <section className='tasklist'>
@@ -132,14 +131,13 @@ export const TaskList = () => {
 }
 
 export default TaskList
- 
 Now to to TaskCard.js 
 ---------------------
  
 import React, { useContext } from 'react'
 import { TaskContext } from './TaskContext'
 
-export default function TaskCard(task) {
+export default function TaskCard({ task }) {
    const { deleteTask}= useContext(TaskContext);
     return (
 
@@ -153,9 +151,10 @@ export default function TaskCard(task) {
     )
 }
 
+
 Now go to AddTask.js 
 ----------------------
- import React from 'react'
+import React from 'react'
 
 import { useState, useContext } from 'react';
 
@@ -166,7 +165,7 @@ export const AddTask = () => {
     const [taskValue, setTaskValue] = useState("");
     const [progress, setProgress] = useState(false);
 
-    const { AddTask } = useContext(TaskContext);
+    const { addTask } = useContext(TaskContext);
 
     const handleChange = (event) => {
 
@@ -191,7 +190,7 @@ export const AddTask = () => {
         // console.log(task);
         //setTasks(task) // this will give error as it is list so chnaged like this below
         //setTasks([task])// this will override earlier 3 tasks so finally i will write this we have to follow this rule
-        AddTask(task)
+        addTask(task)
         handleReset();
     }
 
@@ -216,3 +215,4 @@ export const AddTask = () => {
 
     )
 }
+
