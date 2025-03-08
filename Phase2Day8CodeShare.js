@@ -79,6 +79,27 @@ export const TaskProvider = ({ children }) => {
 }
 next thing is App.js i have to configure this context on top so that all can use my features 
 
+App.js 
+----------
+ 
+import React from 'react'
+import { useState } from 'react';
+import TaskList from './components/TaskList';
+import { AddTask } from './components/AddTask';
+import { TaskProvider } from './components/TaskContext';
 
+export default function App() {
+
+  return (  
+    <TaskProvider>
+    <div className="App">
+ 
+      <AddTask  />
+      <TaskList  />
+
+      </div>
+    </TaskProvider>
+  )
+}
 
  
