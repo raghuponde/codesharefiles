@@ -189,7 +189,19 @@ namespace IdentityDemowithTokeninCore.Models
 }
 so roles are added now next users i have to create and login i have to do 
 
+and add one class into the Models folder with the name Response.cs
 
+namespace IdentityDemowithTokeninCore.Models
+{
+    public class Response
+    {
+        public string? Status { get; set; }
+        public string? Message { get; set; }
+
+    }
+}
+
+next add AuthController in controller folder of empty of api type only add it 
 
 
 
