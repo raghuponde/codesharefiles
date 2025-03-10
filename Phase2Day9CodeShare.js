@@ -739,8 +739,33 @@ namespace IdentityDemowithTokeninCore.Controllers
     }
 }
 now again dont  login first frist try to toucn Admin controller or try to call admincontroller get method it will give 401 error 
-    unauthorized so i have to login and then send the token to authorize section and then i can touuch 
+  unauthorized so i have to login and then send the token to authorize section and then i can touuch 
         AdminController and i am having one user only who is admin
+Now another user I will create who is HR as a role now I will change the controller by providing role as admin
 
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
+namespace IdentityDemowithTokeninCore.Controllers
+{
+    
+    [Route("api/[controller]")]
+    [ApiController]
+    [Authorize(Roles ="Admin")]
+    public class AdminController : ControllerBase
+    {
+        [HttpGet("employees")]
+        public IEnumerable<string> Get()
+        {
+            return new List<string> { "santosh", "Ali", "sita" };
+        }
+    }
+}
 
+now When I log in with HR role some token will be created for that HR role using that if you try to assess admin controller it 
+    will give 403 error that is role based error it will say that I want the token of admin user only  token only I want
+
+Try to add users with different roles try to login with different tokens and
+    see how this one tokens were based upon roles for authentication 401 error 
+        without token for roles 403 error token but with not the valid role token 
