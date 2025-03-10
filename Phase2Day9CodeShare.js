@@ -590,14 +590,16 @@ app.UseAuthentication();
 so you are seeing some comment in program.cs file afte tat comment and after one line add tis code then my program.cs will look like this 
 
 
-
 using IdentityDemowithTokeninCore.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Configuration;
+using System.Text;
 namespace IdentityDemowithTokeninCore
 {
     public class Program
@@ -606,17 +608,19 @@ namespace IdentityDemowithTokeninCore
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-            builder.Services.AddDbContext<ApplicationDbContext>
-                (options =>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            // For Identity
+            // For Entity Framework
+            var configuration = builder.Configuration;
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             // For Identity
             builder.Services.AddIdentity<IdentityUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
+
+            // Add services to the container.
+
+            builder.Services.AddControllers();
             // adding basic authentication
             builder.Services.AddAuthentication(options =>
             {
@@ -624,10 +628,20 @@ namespace IdentityDemowithTokeninCore
                 JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            });
+            }).AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = configuration["JWT:ValidAudience"],
+                    ValidIssuer = configuration["JWT:ValidIssuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+                };
+            }); ;
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-
-
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(option =>
             {
@@ -642,21 +656,20 @@ namespace IdentityDemowithTokeninCore
                     Scheme = "Bearer"
                 });
                 option.AddSecurityRequirement(new OpenApiSecurityRequirement
-{
     {
-        new OpenApiSecurityScheme
         {
-            Reference = new OpenApiReference
+            new OpenApiSecurityScheme
             {
-                Type=ReferenceType.SecurityScheme,
-                Id="Bearer"
-            }
-        },
-        new string[]{}
-    }
-});
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
             });
-
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
@@ -669,7 +682,7 @@ namespace IdentityDemowithTokeninCore
             }
 
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
@@ -679,6 +692,8 @@ namespace IdentityDemowithTokeninCore
         }
     }
 }
+
+
 
 next add one contorller with name AdminController which will return just some string values of employes 
 
