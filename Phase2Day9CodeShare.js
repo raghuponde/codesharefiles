@@ -93,6 +93,26 @@ go to app settings and add the configuration like this
   }
 }
 
+add a new class in Models folder in ApplicationDbContext
+
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
+namespace IdentityDemowithTokeninCore.Models
+{
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext>
+        options) : base(options)
+        {
+        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+    }
+}
 
 
 
