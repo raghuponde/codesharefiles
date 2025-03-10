@@ -187,6 +187,9 @@ namespace IdentityDemowithTokeninCore.Models
         }
     }
 }
+so roles are added now next users i have to create and login i have to do 
+
+
 
 
 
