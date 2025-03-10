@@ -114,6 +114,25 @@ namespace IdentityDemowithTokeninCore.Models
     }
 }
 
+in progam cs file 
+-------------------
+    // For Entity Framework
+var configuration = builder.Configuration;
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
+// For Identity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
+// adding basic authentication
+builder.Services.AddAuthentication(options =>
+{
+options.DefaultAuthenticateScheme =
+JwtBearerDefaults.AuthenticationScheme;
+options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+
 
 
 
