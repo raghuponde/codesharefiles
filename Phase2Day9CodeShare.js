@@ -19,4 +19,13 @@ IdentityDemoWithTokens in web api
 -------------------------------------
 Now Open one asp.net core  web api application of net core of 8.0 version
 
+Add these depencies of version 8.0.13 
+
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+Microsoft.AspNetCore.Identity.EntityFrameworkCore
+Microsoft.AspNetCore.Authentication.JwtBearer
+
+
+
 
