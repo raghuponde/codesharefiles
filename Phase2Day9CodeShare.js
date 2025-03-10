@@ -6,3 +6,4 @@ so copy the downloads of milsteonquestionssample of the folder boilerplatecode a
 in chatgpt fodler just copy the contents 
 
 and now one folder is left out which is passed code so in day8 Milestonesolution folder content put it by donwlaodng 
+open all folders in vscode and everywhere type npm install 
