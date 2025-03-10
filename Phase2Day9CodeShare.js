@@ -699,5 +699,31 @@ namespace IdentityDemowithTokeninCore.Controllers
     }
 }
 
+Now we can test the application 
+
+I tried to log in from web API swagger a token was generated so using this token I can touch admin employees controller but I have not kept
+ authorised attribute on top of admin controller So anybody can touch admin controller which is having some set of employees it is
+     written now I will make it authorised
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+
+namespace IdentityDemowithTokeninCore.Controllers
+{
+    [Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AdminController : ControllerBase
+    {
+        [HttpGet("employees")]
+        public IEnumerable<string> Get()
+        {
+            return new List<string> { "santosh", "Ali", "sita" };
+        }
+    }
+}
+now again login and i am having one user only who is admin
+
 
 
