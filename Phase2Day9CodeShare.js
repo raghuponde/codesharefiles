@@ -6,3 +6,6 @@ so copy the downloads of milsteonquestionssample of the folder boilerplatecode a
 in chatgpt fodler and passedccodeinlocal2 copy it 
 
 now do npm install in local2 and chatgpt folder
+
+now copy the content of boiler plate App.test.js into both chatgpt and also locla2 fodler and run npm test 
+
