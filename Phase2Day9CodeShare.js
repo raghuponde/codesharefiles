@@ -375,3 +375,35 @@ namespace IdentityDemowithTokeninCore.Models.Authentication.Login
 }
 
 
+and then go to app settings and write the JWT ..code here
+
+"JWT": {
+  "ValidAudience": "https://localhost:3000",
+  "ValidIssuer": "https://localhost:7277",   
+  "Secret": "JWTAuthenticationHIGHsecuredPasswordVVVp1OHsssssdddasd7Xzyrsss"
+}
+
+
+will look like tis my port is 7277
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=LAPTOP-4G8BHPK9\\SQLEXPRESS;Database=UserMgDB;Trusted_Connection=True;TrustServerCertificate=True;"
+  },
+  "JWT": {
+    "ValidAudience": "https://localhost:3000",
+    "ValidIssuer": "https://localhost:7277",
+    "Secret": "JWTAuthenticationHIGHsecuredPasswordVVVp1OHsssssdddasd7Xzyrsss"
+  }
+
+}
+
+
+
