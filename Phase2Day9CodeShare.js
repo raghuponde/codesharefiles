@@ -135,7 +135,7 @@ in progam cs file
 
 Now run the migrations 
 
-
+build the solution once then run migration 
 add-migration 'intiasetup'
 update-database 
 
