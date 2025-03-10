@@ -355,7 +355,9 @@ namespace IdentityDemowithTokeninCore.Controllers
     }
 }
 
-
+once build the solution and then
+Run the web api an insert one value of the user
+Now i need to work on login method
 
 
 
