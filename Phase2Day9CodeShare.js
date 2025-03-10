@@ -680,6 +680,24 @@ namespace IdentityDemowithTokeninCore
     }
 }
 
+next add one contorller with name AdminController which will return just some string values of employes 
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace IdentityDemowithTokeninCore.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AdminController : ControllerBase
+    {
+        [HttpGet("employees")]
+        public IEnumerable<string> Get()
+        {
+            return new List<string> { "santosh", "Ali", "sita" };
+        }
+    }
+}
 
 
 
