@@ -78,5 +78,22 @@ namespace IdentityDemowithTokeninCore.Models.Authentication.SignUp
     }
 }
 
+go to app settings and add the configuration like this 
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=LAPTOP-4G8BHPK9\\SQLEXPRESS;Database=UserMgDB;Trusted_Connection=True;TrustServerCertificate=True;"
+  }
+}
+
+
+
 
 
