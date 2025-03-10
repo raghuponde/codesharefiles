@@ -133,4 +133,11 @@ in progam cs file
      options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
  });
 
+Now run the migrations 
+
+
+add-migration 'intiasetup'
+update-database 
+
+
 
