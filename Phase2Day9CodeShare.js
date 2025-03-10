@@ -359,5 +359,19 @@ once build the solution and then
 Run the web api an insert one value of the user
 Now i need to work on login method
 
+now add this model into login folder 
+
+using System.ComponentModel.DataAnnotations;
+
+namespace IdentityDemowithTokeninCore.Models.Authentication.Login
+{
+    public class LoginModel
+    {
+        [Required(ErrorMessage = "User Name is required")]
+        public string? Username { get; set; }
+        [Required(ErrorMessage = "Password is required")]
+        public string? Password { get; set; }
+    }
+}
 
 
