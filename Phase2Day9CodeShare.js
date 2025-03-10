@@ -723,7 +723,9 @@ namespace IdentityDemowithTokeninCore.Controllers
         }
     }
 }
-now again login and i am having one user only who is admin
+now again dont  login first frist try to toucn Admin controller or try to call admincontroller get method it will give 401 error 
+    unauthorized so i have to login and then send the token to authorize section and then i can touuch 
+        AdminController and i am having one user only who is admin
 
 
 
