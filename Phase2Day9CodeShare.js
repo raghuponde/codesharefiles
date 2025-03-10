@@ -139,5 +139,59 @@ build the solution once then run migration
 add-migration 'intiasetup'
 update-database 
 
+so like this some empty  identity tables will be created
+
+now in ApplicationDbContext add roles and agin run migration and update database to see the roles in aspnetroles table okay 
+
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
+namespace IdentityDemowithTokeninCore.Models
+{
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext>
+        options) : base(options)
+        {
+        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            SeedRoles(builder);
+        }
+
+        private static void SeedRoles(ModelBuilder builder)
+        {
+            builder.Entity<IdentityRole>().HasData
+            (
+            new IdentityRole()
+            {
+                Name = "Admin",
+                ConcurrencyStamp = "1",
+                NormalizedName = "Admin"
+            },
+            new IdentityRole()
+            {
+                Name = "User",
+                ConcurrencyStamp = "2",
+                NormalizedName = "User"
+            },
+            new IdentityRole()
+            {
+                Name = "HR",
+                ConcurrencyStamp = "3",
+                NormalizedName = "HR"
+            }
+            );
+        }
+    }
+}
+
+
+
+
+
+
 
 
