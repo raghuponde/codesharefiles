@@ -1141,7 +1141,7 @@ const StudentList = ({ setEditMode, setSelectedStudent, refreshStudents }) => {
             <div className="row">
                 {students.map((student) => (
                     <div className="col-md-4 mb-3" key={student.id}>
-                        <div className="card h-100">
+                        <div className="card h-100"> 
                             <img
                                 src={student.imageUrl ? `https://localhost:7272${student.imageUrl}` : ''}
                                 className="card-img-top"
