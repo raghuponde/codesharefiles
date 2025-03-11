@@ -576,7 +576,71 @@ export default StudentForm;
 upto this check the basic functionality is working or not 
 
 
+StudentList.js 
+----------------
+  import React, { useState, useEffect } from 'react';
+import StudentService from '../services/StudentService';
 
+const StudentList = ({ setSelectedStudent, setEditMode, refreshStudents }) => {
+
+    const [students, setStudents] = useState([]);
+
+    useEffect(() => {
+
+        StudentService.getAllStudents().then((response) => {
+
+            setStudents(response.data)
+        })
+
+    }, [])
+    
+ 
+
+    const handleDelete = (id) =>
+    {
+        if (window.confirm("Are you sure you want to delete this student?"))
+        {
+            StudentService.deleteStudent(id).then(() => {
+
+                alert("student deleted succesfully");
+                refreshStudents();//refershe the list after deletion 
+                
+            })
+        }
+    }
+    const handleEdit = (student) =>
+    {
+        setSelectedStudent(student);
+        setEditMode(true)//enable edit mode to true 
+
+    }
+    return (
+        <div>
+            <h2>Students List</h2>
+            <ul>
+                {
+                    students.map((student) => (
+
+                        <li key={student.id} >
+                            {student.name}--{student.email}--{student.address}
+                            <button onClick={() => handleEdit(student)}>Edit</button>
+                            <button onClick={() => handleDelete(student)}>Delete</button>
+                        </li>
+
+                    ))
+
+
+                }
+
+            </ul>
+        </div>
+
+
+    )
+
+}
+
+export default StudentList;
 
 
 
