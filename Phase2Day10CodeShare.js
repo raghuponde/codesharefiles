@@ -269,6 +269,44 @@ export default new StudentService();
 
 Now create one folder in src which is components and in that add StudentForm.js and also add StudentList.js files 
 
+now go to StudentForm .js and write the below code 
+import React, { useState } from "react";
+import StudentService from '../services/StudentService';
+
+
+const StudentForm = () => {
+
+    const [student, setStudent] = useState({ name: "", email: "", address: "" });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setStudent({ ...student, [name]: value });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        StudentService.createStudent(student).then(() => {
+            alert("Student added succesfully");
+
+        })
+    }
+    return (
+        <form onSubmit={handleSubmit}>
+
+            <input name="name" placeholder="Name" onChange={handleInputChange} />
+            <input name="email" placeholder="Email" onChange={handleInputChange} />
+            <input name="address" placeholder="Address" onChange={handleInputChange} />
+
+            <input type="submit" >Submit</input>
+        </form>
+
+
+    )
+
+
+}
+
+export default StudentForm;
 
 
 
