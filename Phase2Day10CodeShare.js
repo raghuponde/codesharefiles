@@ -374,9 +374,37 @@ export default App;
 
 web api should be running otherwise you cannot insert and see the list here okay 
 
+Well I want to edit and delete the student so from App.js I will pass them properties or functions to the child components
 
+so something is there in Student Form which is submit which is adding that i want to chnage as edit 
 
+so App.js 
+-----------
 
+import { useState } from 'react';
+import './App.css';
+import StudentForm from './components/StudentForm';
+import StudentList from './components/StudentList';
+function App() {
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const refreshStudents=()=>
+  {
+    selectedStudent(null);
+    setEditMode(false);
+  }
+
+  return (
+  
+    <>
+      <h1>Student portal form </h1>
+      <StudentForm selectedStudent={selectedStudent} setEditMode={setEditMode} refreshStudents={refreshStudents} />
+      <StudentList selectedStudent={selectedStudent} setEditMode={setEditMode} refreshStudents={refreshStudents} />
+    </>
+  );
+}
+
+export default App;
 
 
 
