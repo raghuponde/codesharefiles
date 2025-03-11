@@ -270,13 +270,14 @@ export default new StudentService();
 Now create one folder in src which is components and in that add StudentForm.js and also add StudentList.js files 
 
 now go to StudentForm .js and write the below code 
+
 import React, { useState } from "react";
 import StudentService from '../services/StudentService';
 
 
 const StudentForm = () => {
 
-    const [student, setStudent] = useState({ name: "", email: "", address: "" });
+    const [student, setStudent] = useState({ name: '', email: '', address: '' });
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -285,7 +286,7 @@ const StudentForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        StudentService.createStudent(student).then(() => { 
+        StudentService.createStudent(student).then(() => {
             alert("Student added succesfully");
 
         })
@@ -293,11 +294,11 @@ const StudentForm = () => {
     return (
         <form onSubmit={handleSubmit}>
 
-            <input name="name" placeholder="Name" onChange={handleInputChange} />
-            <input name="email" placeholder="Email" onChange={handleInputChange} />
-            <input name="address" placeholder="Address" onChange={handleInputChange} />
+            <input name="name" type="text"  placeholder="Name" onChange={handleInputChange} /> <br/>
+            <input name="email" type="email" placeholder="Email" onChange={handleInputChange} /> <br/>
+            <input name="address"  type="text" placeholder="Address" onChange={handleInputChange} /><br/>
 
-            <input type="submit" >Submit</input>
+            <button type="submit" >Submit </button>
         </form>
 
 
@@ -308,8 +309,66 @@ const StudentForm = () => {
 
 export default StudentForm;
 
+StudentList.js 
+-----------------
+  import React, { useState, useEffect } from 'react';
+import StudentService from '../services/StudentService';
+
+const StudentList = () => {
+
+    const [students, setStudents] = useState([]);
+
+    useEffect(() => {
+
+        StudentService.getAllStudents().then((response) => {
+
+            setStudents(response.data)
+        })
+
+    }, [])
+
+    return (
+        <div>
+            <h2>Students List</h2>
+            <ul>
+                {
+                    students.map((student) => (
+
+                        <li key={student.id} >
+                            {student.name}--{student.email}
+                        </li>
+
+                    ))
 
 
+                }
+
+            </ul>
+        </div>
 
 
+    )
+
+}
+
+export default StudentList;
+
+App.js 
+---------
+  
+import './App.css';
+import StudentForm from './components/StudentForm';
+import StudentList from './components/StudentList';
+function App() {
+  return (
+  
+    <>
+      <h1>Student portal form </h1>
+        <StudentForm />
+        <StudentList/>
+    </>
+  );
+}
+
+export default App;
 
