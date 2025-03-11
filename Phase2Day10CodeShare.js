@@ -58,11 +58,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
     
     
-    
+once build the application 
     
 addd migrations 
 
-Add-Migration InitialCreate
+Add-Migration "InitialCreate"
 Update-Database
 
 Now create a StudentsController and below code is presented use empty api contoller only 
