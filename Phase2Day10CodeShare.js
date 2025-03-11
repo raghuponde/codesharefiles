@@ -1,6 +1,6 @@
 Integratng .net core WebApi with react Demo
 *********************************************
-  create a new project with the name StudentReactWebApIDemo in Day 10 folder  it is an web api project which we are doing 
+  create a new project with the name StudentReactWebApIDemo in Day 10 folder  it is an web api project which we are doing use .net core 8.0 version 
 and include below namespaces 8.0.13 version you have to use 
 
  Microsoft.EntityFrameworkCore
