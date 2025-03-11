@@ -766,4 +766,52 @@ update Studentscontroller like this mainly Post and Put methods of it
  }
 
 
+In Program.cs, enable the server to serve static files like images:
+
+app.UseStaticFiles(); (befoe app.UseHttpsRedirection();)
+
+
+Now coome to react and copy this updated StudentService.js and then StudentForm.js and StudentList.js
+
+in studnet list also change port 
+
+
+import axios from 'axios';
+
+const API_URL = 'https://localhost:7273/api/students/';
+
+class StudentService {
+  getAllStudents() {
+    return axios.get(API_URL);
+  }
+
+  getStudentById(id) {
+    return axios.get(API_URL + id);
+  }
+
+  createStudent(formData) {
+    return axios.post(API_URL, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  }
+
+  updateStudent(id, formData) {
+    return axios.put(API_URL + id, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  }
+
+  deleteStudent(id) {
+    return axios.delete(API_URL + id);
+  }
+}
+
+export default new StudentService();
+
+
+
 
