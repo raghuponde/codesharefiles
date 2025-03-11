@@ -891,4 +891,80 @@ const StudentForm = ({ selectedStudent, setEditMode, refreshStudents }) => {
 }
 
 export default StudentForm;
+now come to StudentList.js 
+-----------------------------
+  import React, { useState, useEffect } from 'react';
+import StudentService from '../services/StudentService';
+
+const StudentList = ({ setSelectedStudent, setEditMode, refreshStudents }) => {
+
+    const [students, setStudents] = useState([]);
+
+    useEffect(() => {
+        refreshStudentList();
+    }, []);
+
+    const refreshStudentList = () => {
+        StudentService.getAllStudents().then((response) => {
+            setStudents(response.data);
+        });
+    };
+
+ 
+
+    const handleDelete = (id) =>
+    {
+        if (window.confirm("Are you sure you want to delete this student?"))
+        {
+            StudentService.deleteStudent(id).then(() => {
+
+                alert("student deleted succesfully");
+                refreshStudentList();//refershe the list after deletion 
+                
+            })
+        }
+    }
+    const handleEdit = (student) =>
+    {
+        setSelectedStudent(student);
+        setEditMode(true)//enable edit mode to true 
+
+    }
+    return (
+        <div>
+            <h2>Students List</h2>
+            <ul>
+                {
+                    students.map((student) => (
+
+                        <li key={student.id} >
+                         <img src={student.imageUrl?`https://localhost:7272${student.imageUrl}` :``}
+                                alt="student"
+                                width="100"
+                                height="100"
+                            />
+
+<br/>
+                            {student.name}--{student.email}--{student.address}
+                            <button onClick={() => handleEdit(student)}>Edit</button>
+                            <button onClick={() => handleDelete(student.id)}>Delete</button>
+                        </li>
+
+                    ))
+
+
+                }
+
+            </ul>
+        </div>
+
+
+    )
+
+}
+
+export default StudentList;
+
+
+
 
