@@ -672,5 +672,95 @@ function App() {
 
 export default App;
 
+To add image upload functionality to each student, we need to update both the ASP.NET Core Web API and the React frontend to handle file uploads 
+(specifically images). Here's how to modify the code:
+
+Part 1: Update ASP.NET Core Web API
+Step 1: Add a Property for Image URL in the Student Model
+Add an ImageUrl property to the Student model to store the path of the uploaded image:
+
+go to web api add one proeprty like this 
+
+public class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public string Address { get; set; }
+    public string ImageUrl { get; set; } // New property for storing image URL
+}
+
+
+
+and then run migrations once and se whether extra column came into db or not 
+
+
+Now add one class in Models folder with the name StudentDto 
+
+public class StudentDto
+{
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public string Address { get; set; }
+    public IFormFile ImageFile { get; set; } // Handles file uploads
+}
+
+in the project create one folder wwwroot and in that add another folder images here when i type wwwwroot globe symbol will come which is also a folder 
+
+
+update Studentscontroller like this mainly Post and Put methods of it 
+
+ [HttpPost]
+ public async Task<ActionResult<Student>> PostStudent([FromForm] StudentDto studentDto)
+ {
+     var student = new Student
+     {
+         Name = studentDto.Name,
+         Email = studentDto.Email,
+         Address = studentDto.Address
+     };
+
+     if (studentDto.ImageFile != null)
+     {
+         var filePath = Path.Combine("wwwroot/images", Guid.NewGuid() + Path.GetExtension(studentDto.ImageFile.FileName));
+         using (var stream = new FileStream(filePath, FileMode.Create))
+         {
+             await studentDto.ImageFile.CopyToAsync(stream);
+         }
+         student.ImageUrl = filePath.Replace("wwwroot", "");
+     }
+
+     _context.Students.Add(student);
+     await _context.SaveChangesAsync();
+     return CreatedAtAction("GetStudent", new { id = student.Id }, student);
+ }
+
+ [HttpPut("{id}")]
+ public async Task<IActionResult> PutStudent(int id, [FromForm] StudentDto studentDto)
+ {
+     var student = await _context.Students.FindAsync(id);
+     if (student == null)
+     {
+         return NotFound();
+     }
+
+     student.Name = studentDto.Name;
+     student.Email = studentDto.Email;
+     student.Address = studentDto.Address;
+
+     if (studentDto.ImageFile != null)
+     {
+         var filePath = Path.Combine("wwwroot/images", Guid.NewGuid() + Path.GetExtension(studentDto.ImageFile.FileName));
+         using (var stream = new FileStream(filePath, FileMode.Create))
+         {
+             await studentDto.ImageFile.CopyToAsync(stream);
+         }
+         student.ImageUrl = filePath.Replace("wwwroot", "");
+     }
+
+     await _context.SaveChangesAsync();
+     return NoContent();
+ }
+
 
 
