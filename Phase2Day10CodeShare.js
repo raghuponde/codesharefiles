@@ -704,7 +704,10 @@ public class StudentDto
     public string Address { get; set; }
     public IFormFile ImageFile { get; set; } // Handles file uploads
 }
+why i am using this  class is because i directly dont want to add or update  in student table through this class StudentDto only i want to add or update
+  to externalclient i dont want to expose my model so dto mean data tranfer object i am using it 
 
+  
 in the project create one folder wwwroot and in that add another folder images here when i type wwwwroot globe symbol will come which is also a folder 
 
 
