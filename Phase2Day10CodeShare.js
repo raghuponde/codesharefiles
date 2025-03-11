@@ -19,12 +19,11 @@ public class Student
 
 Now add one folder Data in project and add class AppDbConext which is like this below
 
- using Microsoft.EntityFrameworkCore;
-    using StudentReactWebApIDemo.Models;
+using Microsoft.EntityFrameworkCore;
+using StudentReactWebApIDemo.Models;
+
 namespace StudentReactWebApIDemo.Data
 {
-   
-
     public class AppDbContext : DbContext
     {
         public DbSet<Student> Students { get; set; }
@@ -33,7 +32,6 @@ namespace StudentReactWebApIDemo.Data
         {
         }
     }
-
 }
 
 
