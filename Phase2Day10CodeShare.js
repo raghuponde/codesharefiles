@@ -399,7 +399,7 @@ function App() {
     <>
       <h1>Student portal form </h1>
       <StudentForm selectedStudent={selectedStudent} setEditMode={setEditMode} refreshStudents={refreshStudents} />
-      <StudentList selectedStudent={selectedStudent} setEditMode={setEditMode} refreshStudents={refreshStudents} />
+      <StudentList setSelectedStudent={setSelectedStudent} setEditMode={setEditMode} refreshStudents={refreshStudents} />
     </>
   );
 }
@@ -408,7 +408,99 @@ export default App;
 
 now go to StudentForm.js 
 ---------------------------
+and first change submit button liek this 
 
+import React, { useState } from "react";
+import StudentService from '../services/StudentService';
+
+
+const StudentForm = ({selectedStudent,setEditMode,refreshStudents}) => {
+
+    const [student, setStudent] = useState({ name: '', email: '', address: '' });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setStudent({ ...student, [name]: value });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        StudentService.createStudent(student).then(() => {
+            alert("Student added succesfully");
+
+        })
+    }
+    return (
+        <form onSubmit={handleSubmit}>
+
+            <input name="name" type="text"  placeholder="Name" onChange={handleInputChange} /> <br/>
+            <input name="email" type="email" placeholder="Email" onChange={handleInputChange} /> <br/>
+            <input name="address"  type="text" placeholder="Address" onChange={handleInputChange} /><br/>
+
+            <button type="submit" >
+                {selectedStudent?'UpdateStudent':'Add Student'}
+            </button>
+        </form>
+
+
+    )
+
+
+}
+
+export default StudentForm;
+
+now go to StudentList.js 
+-----------------------
+  from here u have to show that effect 
+
+import React, { useState, useEffect } from 'react';
+import StudentService from '../services/StudentService';
+
+const StudentList = ({ setSelectedStudent, setEditMode, refreshStudents }) => {
+
+    const [students, setStudents] = useState([]);
+
+    useEffect(() => {
+
+        StudentService.getAllStudents().then((response) => {
+
+            setStudents(response.data)
+        })
+
+    }, [])
+
+    const handleEdit = (student) =>
+    {
+        setSelectedStudent(student);
+
+    }
+    return (
+        <div>
+            <h2>Students List</h2>
+            <ul>
+                {
+                    students.map((student) => (
+
+                        <li key={student.id} >
+                            {student.name}--{student.email}
+                            <button onClick={()=>handleEdit(student)}>Edit</button>
+                        </li>
+
+                    ))
+
+
+                }
+
+            </ul>
+        </div>
+
+
+    )
+
+}
+
+export default StudentList;
   
 
 
