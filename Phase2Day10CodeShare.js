@@ -971,7 +971,7 @@ simple design for your Student Portal.
 
 npm install bootstrap
 
-npm install bootstrap-icons
+npm install bootstrap-icons 
 
 add index.css file in src folder 
 
