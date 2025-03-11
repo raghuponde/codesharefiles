@@ -224,6 +224,8 @@ namespace StudentReactWebApIDemo
 }
 so this is all about back end later on again i will add images also but first let us finish basic coding
 
+so now front end we have to go in Day10 folder only create a new react app with name studentapp 
+
 
 
 
