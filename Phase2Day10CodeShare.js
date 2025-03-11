@@ -226,6 +226,48 @@ so this is all about back end later on again i will add images also but first le
 
 so now front end we have to go in Day10 folder only create a new react app with name studentapp 
 
+do intial set up which we do 
+
+You’ll use Axios to communicate with the API:
+
+npm install axios
+
+
+in the src folder create one folder with the name services and in that add one class StudentService.js 
+
+and chnage the port number as per your web api go to proerties and in that launch settings and in the profiles and use https port here 
+
+import axios from 'axios';
+
+const API_URL = 'https://localhost:7273/api/students/';
+
+class StudentService {
+  getAllStudents() {
+    return axios.get(API_URL);
+  }
+
+  getStudentById(id) {
+    return axios.get(API_URL + id);
+  }
+
+  createStudent(student) {
+    return axios.post(API_URL, student);
+  }
+
+  updateStudent(id, student) {
+    return axios.put(API_URL + id, student);
+  }
+
+  deleteStudent(id) {
+    return axios.delete(API_URL + id);
+  }
+}
+
+export default new StudentService();
+
+
+
+Now create one folder in src which is components and in that add StudentForm.js and also add StudentList.js files 
 
 
 
