@@ -814,5 +814,81 @@ export default new StudentService();
 
 now let us studentForm.js 
 ----------------------------
+import React, { useEffect, useState } from "react";
+import StudentService from '../services/StudentService';
 
+
+const StudentForm = ({ selectedStudent, setEditMode, refreshStudents }) => {
+
+    const [student, setStudent] = useState({ name: '', email: '', address: '' });
+    const [imageFile, setImageFile] = useState(null);//satate for image file
+
+    useEffect(() => {
+
+        if (selectedStudent) {
+            setStudent(selectedStudent);
+        }
+
+    }, [selectedStudent])
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setStudent({ ...student, [name]: value });
+    }
+    const handleImageChange = (e) =>
+    {
+        setImageFile(e.target.files[0]);//stores the image file 
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('name', student.name);
+        formData.append('email', student.email);
+        formData.append('address', student.address);
+        if (imageFile) {
+            formData.append('imageFile', imageFile); // Append the image file to the form data
+        }
+        if (selectedStudent) {
+            //udpate exsisting student 
+            StudentService.updateStudent(selectedStudent.id,formData).then(() => {
+                alert("student updated stuccesfully");
+                refreshStudents();
+                setEditMode(false);//exiting edit mode
+
+            }
+            )
+        }
+        else {
+            StudentService.createStudent(formData).then(() => {
+                alert("Student added succesfully");
+                refreshStudents();
+
+            })
+        }
+        setStudent({ name: '', email: '', address: '' }) //after add or update empty textboxes 
+        setImageFile(null);
+    }
+    return (
+        <form onSubmit={handleSubmit}>
+
+            <input name="name" type="text" value={student.name} placeholder="Name" onChange={handleInputChange} /> <br />
+            <input name="email" type="email" value={student.email} placeholder="Email" onChange={handleInputChange} /> <br />
+            <input name="address" type="text" value={student.address} placeholder="Address" onChange={handleInputChange} /><br />
+            <input type="file" onChange={handleImageChange}/>
+            <button type="submit" >
+                {selectedStudent ? 'UpdateStudent' : 'Add Student'}
+            </button>
+            {selectedStudent &&
+                (
+                    <button type="button" onClick={() => setEditMode(false)}>Cancel</button>
+                )}
+        </form>
+
+
+    )
+
+
+}
+
+export default StudentForm;
 
