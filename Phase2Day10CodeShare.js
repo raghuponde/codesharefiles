@@ -32,7 +32,7 @@ namespace StudentReactWebApIDemo.Data
         {
         }
     }
-}
+} 
 
 
 in ap settings configure database 
@@ -502,7 +502,85 @@ const StudentList = ({ setSelectedStudent, setEditMode, refreshStudents }) => {
 
 export default StudentList;
   
+now again come to studentForm.js when it is updated student u have to use axios of update methd 
 
+StudentForm.js 
+-----------------
+import React, { useEffect, useState } from "react";
+import StudentService from '../services/StudentService';
+
+
+const StudentForm = ({ selectedStudent, setEditMode, refreshStudents }) => {
+
+    const [student, setStudent] = useState({ name: '', email: '', address: '' });
+
+    useEffect(() => {
+
+        if (selectedStudent) {
+            setStudent(selectedStudent);
+        }
+
+    }, [selectedStudent])
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setStudent({ ...student, [name]: value });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (selectedStudent) {
+            //udpate exsisting student 
+            StudentService.updateStudent(selectedStudent.id, student).then(() => {
+                alert("student updated stuccesfully");
+                refreshStudents();
+                setEditMode(false);//exiting edit mode
+
+            }
+            )
+        }
+        else {
+            StudentService.createStudent(student).then(() => {
+                alert("Student added succesfully");
+                refreshStudents();
+
+            })
+        }
+        setStudent({ name: '', email: '', address: '' }) //after add or update empty textboxes 
+    }
+    return (
+        <form onSubmit={handleSubmit}>
+
+            <input name="name" type="text" value={student.name} placeholder="Name" onChange={handleInputChange} /> <br />
+            <input name="email" type="email" value={student.email} placeholder="Email" onChange={handleInputChange} /> <br />
+            <input name="address" type="text" value={student.address} placeholder="Address" onChange={handleInputChange} /><br />
+
+            <button type="submit" >
+                {selectedStudent ? 'UpdateStudent' : 'Add Student'}
+            </button>
+            {selectedStudent &&
+                (
+                    <button type="button" onClick={() => setEditMode(false)}>Cancel</button>
+                )}
+        </form>
+
+
+    )
+
+
+}
+
+export default StudentForm;
+
+upto this check the basic functionality is working or not 
+
+
+
+
+
+
+  
 
 
 
