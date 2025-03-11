@@ -1,13 +1,13 @@
 Integratng .net core WebApi with react Demo
 *********************************************
-  create a new project with the name StudentReactWebApIDemo it is an web api project which we are doing 
-and include below namespaces 6.0.33 version you have to use 
+  create a new project with the name StudentReactWebApIDemo in Day 10 folder  it is an web api project which we are doing 
+and include below namespaces 8.0.13 version you have to use 
 
  Microsoft.EntityFrameworkCore
  Microsoft.EntityFrameworkCore.SqlServer
  Microsoft.EntityFrameworkCore.Tools
 
-Add one class in Models folders so create one foldr Models 
+Add one class in Models folders so create one folder Models 
 
 public class Student
 {
@@ -48,7 +48,7 @@ in ap settings configure database
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "DefaultConnection": "Server=LAPTOP-4G8BHPK9\\SQLEXPRESS;Database=StudentCRUDDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+    "DefaultConnection": "Server=LAPTOP-4G8BHPK9\\SQLEXPRESS;Database=StudentCRUDDatabase;Trusted_Connection=True;MultipleActiveResultSets=true"
   }
 
 
