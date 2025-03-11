@@ -46,10 +46,8 @@ in ap settings configure database
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "DefaultConnection": "Server=LAPTOP-4G8BHPK9\\SQLEXPRESS;Database=StudentCRUDDatabase;Trusted_Connection=True;MultipleActiveResultSets=true"
+    "DefaultConnection": "Server=LAPTOP-4G8BHPK9\\SQLEXPRESS;Database=StudentCRUDDatabase;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;"
   }
-
-
 }
 
 udate in program.cs 
@@ -219,4 +217,11 @@ namespace StudentReactWebApIDemo
     }
 }
 so this is all about back end later on again i will add images also but first let us finish basic coding
+
+
+
+
+
+
+
 
