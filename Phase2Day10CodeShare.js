@@ -578,7 +578,7 @@ upto this check the basic functionality is working or not
 
 StudentList.js 
 ----------------
-  import React, { useState, useEffect } from 'react';
+ import React, { useState, useEffect } from 'react';
 import StudentService from '../services/StudentService';
 
 const StudentList = ({ setSelectedStudent, setEditMode, refreshStudents }) => {
@@ -586,14 +586,15 @@ const StudentList = ({ setSelectedStudent, setEditMode, refreshStudents }) => {
     const [students, setStudents] = useState([]);
 
     useEffect(() => {
+        refreshStudentList();
+    }, []);
 
+    const refreshStudentList = () => {
         StudentService.getAllStudents().then((response) => {
+            setStudents(response.data);
+        });
+    };
 
-            setStudents(response.data)
-        })
-
-    }, [])
-    
  
 
     const handleDelete = (id) =>
@@ -603,7 +604,7 @@ const StudentList = ({ setSelectedStudent, setEditMode, refreshStudents }) => {
             StudentService.deleteStudent(id).then(() => {
 
                 alert("student deleted succesfully");
-                refreshStudents();//refershe the list after deletion 
+                refreshStudentList();//refershe the list after deletion 
                 
             })
         }
@@ -624,7 +625,7 @@ const StudentList = ({ setSelectedStudent, setEditMode, refreshStudents }) => {
                         <li key={student.id} >
                             {student.name}--{student.email}--{student.address}
                             <button onClick={() => handleEdit(student)}>Edit</button>
-                            <button onClick={() => handleDelete(student)}>Delete</button>
+                            <button onClick={() => handleDelete(student.id)}>Delete</button>
                         </li>
 
                     ))
@@ -642,9 +643,34 @@ const StudentList = ({ setSelectedStudent, setEditMode, refreshStudents }) => {
 
 export default StudentList;
 
-
-
   
+App.js code 
+----------------
+  
+import { useState } from 'react';
+import './App.css';
+import StudentForm from './components/StudentForm';
+import StudentList from './components/StudentList';
+function App() {
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const refreshStudents=()=>
+  {
+    setSelectedStudent(null);
+    setEditMode(false);
+  }
+
+  return (
+  
+    <>
+      <h1>Student portal form </h1>
+      <StudentForm selectedStudent={selectedStudent} setEditMode={setEditMode} refreshStudents={refreshStudents} />
+      <StudentList setSelectedStudent={setSelectedStudent} setEditMode={setEditMode} refreshStudents={refreshStudents} />
+    </>
+  );
+}
+
+export default App;
 
 
 
