@@ -155,6 +155,12 @@ builder.Services.AddCors(options =>
 
 app.UseCors("AllowAllOrigins");(this after app.UseHttpsRedirection();)
 
+so above coding i had done in program.cs because any external resouce or application wants to consume my web api writing this code means 
+i am giving permission to use my web api a seperate project is trying to use my back end web api if i dont keeep this then CORS error 
+i will get when i go and check in inspect of browser so CORS full form is 
+
+Cross-origin resource sharing (CORS) is a mechanism for integrating applications. CORS defines a way for client web applications that are loaded in one domain to interact with resources in a different domain.
+
 so my program.cs file in total will look like this 
 
 program.cs
@@ -210,7 +216,7 @@ namespace StudentReactWebApIDemo
             app.UseAuthorization();
 
 
-            app.MapControllers();
+            app.MapControllers(); 
 
             app.Run();
         }
