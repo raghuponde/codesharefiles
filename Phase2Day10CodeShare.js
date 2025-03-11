@@ -965,6 +965,212 @@ const StudentList = ({ setSelectedStudent, setEditMode, refreshStudents }) => {
 
 export default StudentList;
 
+To enhance your React application with Bootstrap for styling and Bootstrap Icons for attractive visuals, 
+follow these steps. I'll guide you through integrating Bootstrap and making your site look more visually appealing with a 
+simple design for your Student Portal.
+
+npm install bootstrap
+
+npm install bootstrap-icons
+
+add index.css file in src folder 
+
+and code is like this 
+
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 960px;
+    margin-top: 30px;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+thenin index.js on the top 
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import './index.css'; // If you have any custom CSS
+
+
+
+now updated studnt form and studnet list
+
+import React, { useState, useEffect } from 'react';
+import StudentService from '../services/StudentService';
+
+const StudentForm = ({ selectedStudent, setEditMode, refreshStudents }) => {
+  const [student, setStudent] = useState({ name: '', email: '', address: '' });
+  const [imageFile, setImageFile] = useState(null);
+
+  useEffect(() => {
+    if (selectedStudent) {
+      setStudent(selectedStudent);
+    }
+  }, [selectedStudent]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setStudent({ ...student, [name]: value });
+  };
+
+  const handleImageChange = (e) => {
+    setImageFile(e.target.files[0]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('name', student.name);
+    formData.append('email', student.email);
+    formData.append('address', student.address);
+    if (imageFile) {
+      formData.append('imageFile', imageFile);
+    }
+
+    if (selectedStudent) {
+      StudentService.updateStudent(selectedStudent.id, formData).then(() => {
+        alert('Student updated successfully!');
+        refreshStudents();
+        setEditMode(false);
+      });
+    } else {
+      StudentService.createStudent(formData).then(() => {
+        alert('Student created successfully!');
+        refreshStudents();
+      });
+    }
+
+    setStudent({ name: '', email: '', address: '' });
+    setImageFile(null);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="container mt-4 p-4 border rounded bg-light">
+      <h2>{selectedStudent ? 'Edit Student' : 'Add Student'}</h2>
+      <div className="form-group mb-3">
+        <label>Name</label>
+        <input
+          type="text"
+          name="name"
+          className="form-control"
+          value={student.name}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="form-group mb-3">
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          className="form-control"
+          value={student.email}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="form-group mb-3">
+        <label>Address</label>
+        <input
+          type="text"
+          name="address"
+          className="form-control"
+          value={student.address}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="form-group mb-3">
+        <label>Image</label>
+        <input type="file" className="form-control" onChange={handleImageChange} />
+      </div>
+      <button type="submit" className="btn btn-primary">
+        {selectedStudent ? 'Update Student' : 'Add Student'}{' '}
+        <i className="bi bi-person-plus"></i>
+      </button>
+      {selectedStudent && (
+        <button type="button" className="btn btn-secondary ms-3" onClick={() => setEditMode(false)}>
+          Cancel
+        </button>
+      )}
+    </form>
+  );
+};
+
+export default StudentForm;
+
+
+import React, { useEffect, useState } from 'react';
+import StudentService from '../services/StudentService';
+
+const StudentList = ({ setEditMode, setSelectedStudent, refreshStudents }) => {
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    refreshStudentList();
+  }, []);
+
+  const refreshStudentList = () => {
+    StudentService.getAllStudents().then((response) => {
+      setStudents(response.data);
+    });
+  };
+
+  const handleDelete = (id) => {
+    if (window.confirm('Are you sure you want to delete this student?')) {
+      StudentService.deleteStudent(id).then(() => {
+        alert('Student deleted successfully!');
+        refreshStudentList();
+      });
+    }
+  };
+
+  const handleEdit = (student) => {
+    setSelectedStudent(student);
+    setEditMode(true);
+  };
+
+  return (
+    <div className="container mt-4">
+      <h2>Student List</h2>
+      <div className="row">
+        {students.map((student) => (
+          <div className="col-md-4 mb-3" key={student.id}>
+            <div className="card h-100">
+              <img
+                src={student.imageUrl ? `https://localhost:7273${student.imageUrl}` : 'https://via.placeholder.com/150'}
+                className="card-img-top"
+                alt="Student"
+                style={{ height: '200px', objectFit: 'cover' }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{student.name}</h5>
+                <p className="card-text">{student.email}</p>
+                <p className="card-text">{student.address}</p>
+              </div>
+              <div className="card-footer d-flex justify-content-between">
+                <button className="btn btn-warning" onClick={() => handleEdit(student)}>
+                  Edit <i className="bi bi-pencil-square"></i>
+                </button>
+                <button className="btn btn-danger" onClick={() => handleDelete(student.id)}>
+                  Delete <i className="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default StudentList;
 
 
 
