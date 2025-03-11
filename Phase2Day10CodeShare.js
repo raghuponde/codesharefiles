@@ -285,7 +285,7 @@ const StudentForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        StudentService.createStudent(student).then(() => {
+        StudentService.createStudent(student).then(() => { 
             alert("Student added succesfully");
 
         })
