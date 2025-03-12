@@ -564,7 +564,7 @@ const TaskInput = ({ existingTask, onEditComplete }) => {
 
       <button type="submit">
         {existingTask ? "Edit Task" : "Add Task"}
-      </button>
+      </button> 
    </form>
 
   )
