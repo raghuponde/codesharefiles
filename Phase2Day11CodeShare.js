@@ -386,6 +386,191 @@ function App() {
 
 export default App;
 
+Right now I'm sending some value from the dashboard to task input which is edit task
+  it is null only so null value is passed and kept in each of the controls you can see in task input
+So who will make the Existing task has some value so null is there every where how that props will not be null
+
+if i send exisistintask="hello" from dashboard and first title use state  i  const [title, setTitle] = useState(existingTask ? existingTask : '');
+
+instead of title then hello will be shown as it not null so i am keeping it null and and sending to taskinput my question is who will make
+the existingtask from null to some value 
+
+And now from dashboard it is sending one  function as props onEdit to TaskList where i am calling a fuction to make task from null to some task 
+by taking paramter as task 
+ <TaskList onEdit={handleEdit}
+
+ const [editingTask, setEditingTask] = useState(null);
+
+    const handleEdit = (task) => {
+        setEditingTask(task);
+    };
+
+now that tasklist will take this as props 
+TaskList = ({ onEdit })
+
+so i will do the desing only list in tasklist and put one delete button and will call the onEdit function 
+  as i am in list one by one it will take one object only which u clicke that is passed 
+
+
+and apply it to edit buttonn and will call there in this way existingtask will be some object task 
+
+  and dashboard is also having tasks from use tasks and if tasks.length > 0 means if tasks are there if u click on anyone task
+    of edit i will take task object here by taking that taskobject i am setting the exisitingtask to some object from null
+    
+chnages in code 
+---------------
+Dashboard.js
+-------------
+import React  from 'react';
+import { useTasks } from '../services/TaskService';
+import { useCategories } from '../services/CategoryService';
+import TaskInput from './TaskInput';
+import TaskList from './TaskList';
+import CategoryList from './CategoryList';
+import { useState } from 'react';
+
+const Dashboard = () => {
+  const { tasks } = useTasks();
+  const { categories } = useCategories();
+  const [editingTask, setEditingTask] = useState(null);
+  
+  const handleEdit=(task)=>
+  {
+    setEditingTask(task);
+  }
+
+  return (
+    <div>
+
+      <h1>To-Do List Dashboard</h1>
+      <div>
+        <CategoryList   />
+      </div>
+      <div>
+        <TaskInput existingTask={editingTask} />
+      </div>
+      <div>
+        <h2>Task List</h2>
+        {tasks.length > 0 ? (
+          <TaskList onEdit={handleEdit} />
+        ) : (
+          <p>No tasks available. Add a task to get started!</p>
+        )}
+      </div>
+    </div>
+
+  );
+};
+
+export default Dashboard;
+
+  then go to TaskList it is also taking tasks as from use tasks 
+
+  TaskList.js 
+  ------------
+import React from 'react';
+import { useTasks } from '../services/TaskService';
+import { useCategories } from '../services/CategoryService';
+
+const TaskList = ( { onEdit }) => {
+    const { tasks, editTask, deleteTask, toggleTaskStatus } = useTasks();
+    const { categories } = useCategories();
+
+  return (
+      
+    <ul>
+      {tasks.map((task) => (
+        <li key={task.id}>
+          <strong>{task.title}</strong> - {task.description} - {task.category} -{" "}
+          {task.dueDate} - {task.priority}
+        
+          <button onClick={() => onEdit(task)}>Edit Task</button>
+          <button onClick={() => deleteTask(task.id)}>Delete</button>
+        </li>
+      ))}
+    </ul>
+
+  );
+};
+
+export default TaskList;
+
+TaskInput.js 
+-----------
+  import React, { useState,useEffect } from 'react';
+import { useTasks } from '../services/TaskService';
+import { useCategories } from '../services/CategoryService';
+
+const TaskInput = ({ existingTask, onEditComplete }) => {
+    const { addTask, editTask } = useTasks();
+    const { categories } = useCategories();
+
+    const [title, setTitle] = useState(existingTask ? existingTask.title : '');
+    const [description, setDescription] = useState(existingTask ? existingTask.description : '');
+    const [dueDate, setDueDate] = useState(existingTask ? existingTask.dueDate : '');
+    const [priority, setPriority] = useState(existingTask ? existingTask.priority : 'Medium');
+  const [category, setCategory] = useState(existingTask ? existingTask.category : categories[0]?.name || '');
+  
+
+  useEffect(() => {
+    if (existingTask) {
+      setTitle(existingTask.title);
+      setDescription(existingTask.description);
+      setDueDate(existingTask.dueDate);
+      setPriority(existingTask.priority);
+      setCategory(existingTask.category);
+    } else {
+      setTitle("");
+      setDescription("");
+      setDueDate("");
+      setPriority("Medium");
+      setCategory(categories[0]?.name || "");
+    }
+  }, [existingTask, categories]);
+
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const taskData = { title, description, dueDate, priority, category }
+
+      if (existingTask) {
+        editTask(existingTask.id, taskData);
+        
+      } else {
+        addTask({ id: Date.now(), ...taskData, completed: false });
+      }
+      
+    };
+
+  return (
+      
+    <form onSubmit={handleSubmit}>
+      
+      <input type="text" placeholder='Task Title' value={title} onChange={(e) => setTitle(e.target.value)} required />
+      <input type="text" placeholder='Task Description' value={description} onChange={(e) => setDescription(e.target.value)}  />
+      <input type="date" placeholder='Due Date' value={dueDate} onChange={(e) => setDueDate(e.target.value)}  required/>
+      <label>Priority</label>
+      <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+      <label>category</label>
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+       
+      </select>
+
+      <button type="submit">
+        {existingTask ? "Edit Task" : "Add Task"}
+      </button>
+   </form>
+
+  )
+};
+
+export default TaskInput;
 
 
 
