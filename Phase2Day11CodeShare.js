@@ -282,6 +282,109 @@ export const useTasks = () => {
 
 next see what it is exporting who is using which component is using and what using 
 
+TaskInput.js 
+------------
+  import React, { useState } from 'react';
+import { useTasks } from '../services/TaskService';
+import { useCategories } from '../services/CategoryService';
+
+const TaskInput = ({ existingTask, onEditComplete }) => {
+    const { addTask, editTask } = useTasks();
+    const { categories } = useCategories();
+
+    const [title, setTitle] = useState(existingTask ? existingTask.title : '');
+    const [description, setDescription] = useState(existingTask ? existingTask.description : '');
+    const [dueDate, setDueDate] = useState(existingTask ? existingTask.dueDate : '');
+    const [priority, setPriority] = useState(existingTask ? existingTask.priority : 'Medium');
+    const [category, setCategory] = useState(existingTask ? existingTask.category : categories[0]?.name || '');
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const taskData = { title, description, dueDate, priority, category }
+      addTask({ id:Date.now(),...taskData,completed: false })
+      console.log(taskData.title);
+    };
+
+  return (
+      
+    <form onSubmit={handleSubmit}>
+      
+      <input type="text" placeholder='Task Title' value={title} onChange={(e) => setTitle(e.target.value)} required />
+      <input type="text" placeholder='Task Description' value={description} onChange={(e) => setDescription(e.target.value)}  />
+      <input type="date" placeholder='Due Date' value={dueDate} onChange={(e) => setDueDate(e.target.value)}  required/>
+      <label>Priority</label>
+      <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+      <label>category</label>
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+       
+      </select>
+
+      <button type="submit">Add Task</button>
+       
+   </form>
+
+  )
+};
+
+export default TaskInput;
+
+Dashboard.js 
+----------------
+  import React from 'react';
+import { useTasks } from '../services/TaskService';
+import { useCategories } from '../services/CategoryService';
+import TaskInput from './TaskInput';
+import TaskList from './TaskList';
+import CategoryList from './CategoryList';
+
+const Dashboard = () => {
+  const { tasks } = useTasks();
+   const { categories } = useCategories();
+
+  return (
+    <div>
+
+      <h1>To-Do List Dashboard</h1>
+      <div>
+        <CategoryList   />
+      </div>
+      <div>
+        <TaskInput />
+       </div>
+    </div>
+
+  );
+};
+
+export default Dashboard;
+
+App.js
+---------
+  import logo from './logo.svg';
+import './App.css';
+import Dashboard from './components/Dashboard';
+import { CategoryProvider } from './services/CategoryService';
+import CategoryList from './components/CategoryList';
+import { TaskProvider } from './services/TaskService';
+
+function App() {
+  return (
+    <TaskProvider>
+  <CategoryProvider>
+      <Dashboard />
+  </CategoryProvider>
+    </TaskProvider>
+    
+  );
+}
+
+export default App;
 
 
 
