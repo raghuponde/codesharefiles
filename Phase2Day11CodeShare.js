@@ -30,7 +30,7 @@ you should know how to toggle the design  using useState and it done using terna
 but when it is null value in useState it is reverse means if   ? true means not null so firt will be displayed otherwise second will be desilayed 
 
 
-go to day 9 and download boilerplatecodeinlocal and say npm install now 
+go to day 9 and in folder solvingmilestone folder  and download boilerplatecodeinlocal and say npm install now 
 
 
 
