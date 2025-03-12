@@ -33,4 +33,166 @@ but when it is null value in useState it is reverse means if   ? true means not 
 go to day 9 and in folder solvingmilestone folder  and download boilerplatecodeinlocal and say npm install now 
 
 
+CategoryService.js 
+------------------
+  import { createContext, useContext, useReducer } from 'react';
 
+// Category actions
+const ADD_CATEGORY = 'ADD_CATEGORY';
+const DELETE_CATEGORY = 'DELETE_CATEGORY';
+
+// Initial state
+const initialState = {
+    categories: [],
+};
+
+// Category reducer
+const categoryReducer = (state, action) => {
+
+    switch (action.type)
+    {
+        case ADD_CATEGORY:
+
+            return { ...state, categories: [...state.categories, action.payload] };
+        
+        case DELETE_CATEGORY:
+
+            return { ...state, categories: state.categories.filter((category) => category.id !== action.payload) }
+        
+        default: return state;
+
+
+    }
+
+
+};
+
+// Create context
+const CategoryContext = createContext();
+
+// Category Provider
+export const CategoryProvider = ({ children }) => {
+
+    const [state, dispatch] = useReducer(categoryReducer, initialState);
+
+    const addCategory = (category) => {
+        dispatch({ type: ADD_CATEGORY ,payload:category})
+    }
+
+    const deleteCategory = (categoryid) => {
+        dispatch({ type: DELETE_CATEGORY,payload:categoryid })        
+
+    }
+
+    return (
+
+        <CategoryContext.Provider value={{ categories: state.categories, addCategory, deleteCategory }}>
+            
+            {children}
+
+        </CategoryContext.Provider>
+    )
+
+};
+
+// Custom hook to use category context
+export const useCategories = () => {
+    return useContext(categoryContext);
+};
+
+
+categoryList.js 
+------------------
+import React, { useState } from 'react';
+import { useCategories } from '../services/CategoryService';
+
+const CategoryList = () => {
+    const { categories, addCategory, deleteCategory } = useCategories();
+    const [newCategory, setNewCategory] = useState('');
+
+    const handleAddCategory = () => {
+        if (newCategory.trim()) {
+            addCategory({ id: Date.now(), name: newCategory });
+            setNewCategory('');
+        }
+    };
+
+    const DeleteCategory = (id) => {
+
+        deleteCategory(id);
+
+    }
+
+    return (
+        <div>
+            <h2>Categories</h2>
+            <input type="text" value={newCategory} placeholder='New Category' onChange={(e) => setNewCategory(e.target.value)} />
+            <button onClick={handleAddCategory}>Add  Category</button>
+            <ul>
+                {
+                    categories.map((category) => (
+
+                        <li key={category.id}>
+                            {category.name}
+                            <button onClick={()=>DeleteCategory(category.id)}>Remove Category</button>
+                        </li>
+
+                    ))
+                }
+            </ul>
+        </div>
+    );
+};
+
+export default CategoryList;
+
+Dashboard
+--------------
+  import React from 'react';
+import { useTasks } from '../services/TaskService';
+import { useCategories } from '../services/CategoryService';
+import TaskInput from './TaskInput';
+import TaskList from './TaskList';
+import CategoryList from './CategoryList';
+
+const Dashboard = () => {
+  // const { tasks } = useTasks();
+   const { categories } = useCategories();
+
+  return (
+    <div>
+      <CategoryList />
+    </div>
+
+  );
+};
+
+export default Dashboard;
+
+App.js 
+--------
+  import logo from './logo.svg';
+import './App.css';
+import Dashboard from './components/Dashboard';
+import { CategoryProvider } from './services/CategoryService';
+import CategoryList from './components/CategoryList';
+
+function App() {
+  return (
+  <CategoryProvider>
+      <Dashboard />
+  </CategoryProvider>
+   
+    
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+  
