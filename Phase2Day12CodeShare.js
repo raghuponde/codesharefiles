@@ -167,5 +167,66 @@ now chek in your database identity tables will be created okay
 
 StudentCRUDDatabase will have identity tables along with studnets table here okay 
 
+now in AppDbContext add roles and agin run migration and update database to see the roles in aspnetroles table okay 
+
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using StudentReactWebApIDemo.Models;
+
+namespace StudentReactWebApIDemo.Data
+{
+    public class AppDbContext : IdentityDbContext<IdentityUser>
+    {
+        public DbSet<Student> Students { get; set; }
+
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            SeedRoles(builder);
+        }
+
+        private static void SeedRoles(ModelBuilder builder)
+        {
+            builder.Entity<IdentityRole>().HasData
+            (
+            new IdentityRole()
+            {
+                Name = "Admin",
+                ConcurrencyStamp = "1",
+                NormalizedName = "Admin"
+            },
+            new IdentityRole()
+            {
+                Name = "User",
+                ConcurrencyStamp = "2",
+                NormalizedName = "User"
+            },
+            new IdentityRole()
+            {
+                Name = "HR",
+                ConcurrencyStamp = "3",
+                NormalizedName = "HR"
+            }
+            );
+        }
+    }
+}
+
+Then first build the application and do migrations 
+
+    add-migration 'addedroles'
+
+    update-database
+
+
+
+
+
+
+
 
 
