@@ -8,35 +8,16 @@ Microsoft.AspNetCore.Identity.EntityFrameworkCore
 Microsoft.AspNetCore.Authentication.JwtBearer
 
 
-after installing this once build the project once
-add one folder into the project with the name Models in that add Authentication folder and in
-that add one Login and SignUp folder again
+once build the project and now in Models folder which is already there just add these classes into it 
 
-Solution 'User.Management.API' (2 of 2 projects)
-└── User.Management.API
-    ├── Connected Services
-    ├── Dependencies
-    ├── Properties
-    ├── Controllers
-    ├── Migrations
-    ├── Models
-    │   ├── Authentication
-    │   │   ├── Login
-    │   │   │   └── LoginModel.cs
-    │   │   ├── SignUp
-    │   │   │   └── RegisterUser.cs
-    │   ├── ApplicationDbContext.cs
-    │   ├── Response.cs
-    ├── .editorconfig
-    ├── appsettings.json
-    ├── GlobalSuppressions.cs
-    ├── Program.cs
-└── User.Management.Service
-    ├── Dependencies
-    ├── Models
-    │   ├── EmailConfiguration.cs
-    │   ├── Message.cs
-    ├── Services
-    │   ├── GlobalSuppressions.cs
+public class RegisterUser
+    {
 
-
+        [Required(ErrorMessage = "User Name is required")]
+        public string? Username { get; set; }
+        [EmailAddress]
+        [Required(ErrorMessage = "Email is required")]
+        public string? Email { get; set; }
+        [Required(ErrorMessage = "Password is required")]
+        public string? Password { get; set; }
+    }
