@@ -25,3 +25,28 @@ namespace StudentReactWebApIDemo.Models
         public string? Password { get; set; }
     }
 }
+
+now change the AppDbContext like this 
+
+
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using StudentReactWebApIDemo.Models;
+
+namespace StudentReactWebApIDemo.Data
+{
+    public class AppDbContext : IdentityDbContext<IdentityUser>
+    {
+        public DbSet<Student> Students { get; set; }
+
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+    }
+}
+
