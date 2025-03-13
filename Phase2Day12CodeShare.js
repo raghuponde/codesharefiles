@@ -395,6 +395,15 @@ once build the solution and then
 Run the web api an insert one value of the user
 Now i need to work on login method
 
+add this class in Models folder 
+
+ public class LoginModel
+    {
+        [Required(ErrorMessage = "User Name is required")]
+        public string? Username { get; set; }
+        [Required(ErrorMessage = "Password is required")]
+        public string? Password { get; set; }
+    }
 
 
 
