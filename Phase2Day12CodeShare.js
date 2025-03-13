@@ -690,5 +690,9 @@ namespace StudentReactWebApIDemo
 
 
 now put authorize attibute on Students Controller and try to call studnet controller it will not allow and then after calling login it will work let us 
-see this 
+see this so i am getting 401 error as without login i am trying to access the studentscontroller which is having Authorize attribute okay 
+
+so now login and then try it will generate token and validate that token in above button and then login 
+
+
 
