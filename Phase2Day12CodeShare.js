@@ -695,6 +695,17 @@ see this so i am getting 401 error as without login i am trying to access the st
 so now login and then try it will generate token and validate that token in the above button and then try to touch students controller get method it 
 will give me access and now 401 error is not coming like earlier okay 
 
+Now waht  i will do is in students controller who will access means any valid registered user only can access 
+
+now create some more users with role as HR and User so totally three users are there now 
+
+Raghavendra Raghu#123  Admin
+
+Suresh   Suresh#123  User 
+
+Sita   Sita#123     HR 
+
+
 
 
 
