@@ -415,18 +415,16 @@ Now in the controller i have to add login method and before that jwt token metho
 
 check the wanted code from complete code 
 
-using IdentityDemowithTokeninCore.Models.Authentication.SignUp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using IdentityDemowithTokeninCore.Models;
-using IdentityDemowithTokeninCore.Models.Authentication.Login;
 using Microsoft.IdentityModel.Tokens;
+using StudentReactWebApIDemo.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace IdentityDemowithTokeninCore.Controllers
+namespace StudentReactWebApIDemo.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -550,13 +548,5 @@ namespace IdentityDemowithTokeninCore.Controllers
         }
 
 
-
-
     }
 }
-
-
-
-
-
-
