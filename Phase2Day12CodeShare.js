@@ -156,7 +156,16 @@ namespace StudentReactWebApIDemo
 
 so this much you do it 
 
-next is 
+next is build the solution and run the migration now 
+
+add-migration 'iniitsetup'
+
+update-database 
+
+
+now chek in your database identity tables will be created okay 
+
+StudentCRUDDatabase 
 
 
 
