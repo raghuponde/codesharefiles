@@ -9,8 +9,11 @@ Microsoft.AspNetCore.Authentication.JwtBearer
 
 
 once build the project and now in Models folder which is already there just add these classes into it 
+using System.ComponentModel.DataAnnotations;
 
-public class RegisterUser
+namespace StudentReactWebApIDemo.Models
+{
+    public class RegisterUser
     {
 
         [Required(ErrorMessage = "User Name is required")]
@@ -21,3 +24,4 @@ public class RegisterUser
         [Required(ErrorMessage = "Password is required")]
         public string? Password { get; set; }
     }
+}
