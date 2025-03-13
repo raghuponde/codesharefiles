@@ -226,10 +226,12 @@ so roles are added now next users i have to create and login i have to do
 
 and add one class into the Models folder with the name Response.cs
 
-namespace IdentityDemowithTokeninCore.Models
+namespace StudentReactWebApIDemo.Models
 {
     public class Response
     {
+
+
         public string? Status { get; set; }
         public string? Message { get; set; }
 
@@ -307,13 +309,12 @@ next add AuthController in controller folder of empty of api type only add it
 
 so righ now AuthControllr will look like tis complete code 
 
-using IdentityDemowithTokeninCore.Models.Authentication.SignUp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using IdentityDemowithTokeninCore.Models;
+using StudentReactWebApIDemo.Models;
 
-namespace IdentityDemowithTokeninCore.Controllers
+namespace StudentReactWebApIDemo.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -386,9 +387,9 @@ namespace IdentityDemowithTokeninCore.Controllers
 
         }
 
-
     }
 }
+
 
 once build the solution and then
 Run the web api an insert one value of the user
