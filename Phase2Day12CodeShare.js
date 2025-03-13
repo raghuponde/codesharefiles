@@ -830,7 +830,7 @@ his own token and HR also his own like that it goes
 
 you will get 403 error when as a HR u are touching update or post or delete method of students controller okay 
 
-
+ 
 
 
 
