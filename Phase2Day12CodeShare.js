@@ -165,7 +165,7 @@ update-database
 
 now chek in your database identity tables will be created okay 
 
-StudentCRUDDatabase 
+StudentCRUDDatabase will have identity tables along with studnets table here okay 
 
 
 
