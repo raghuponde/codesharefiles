@@ -689,5 +689,6 @@ namespace StudentReactWebApIDemo
 }
 
 
-
+now put authorize attibute on Students Controller and try to call studnet controller it will not allow and then after calling login it will work let us 
+see this 
 
