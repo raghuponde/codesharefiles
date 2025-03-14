@@ -45,6 +45,30 @@ so now i am putting that code one by one and i will explain that code
 
 so u can see i cannot touch web api I am getting 401 error what to do let us start 
 
+Now i had opened my studentapp react and as u know i had done changes in web api of student so AuthController is added
+so any one who wants to use my web api whether through a swagger or through a a react interface it will give 401 error 
+means u have to be authenticated user otherwise u cannot access me as i had kept an atrribute [Authorize] on top of the 
+students controller he has to first login and provide the token 
+
+now when i am accessing it through a react i am getting error of 401 so in react also i need to write some service 
+for AuthController 
+
+npm i react-router-dom@6.4.3   also install this package 
+
+
+
+
+so let us proceed with the changes and steps to follow 
+
+
+
+
+
+1)Create an Authentication Service for handling login, registration, and storing JWT tokens.
+2)Modify the Student Service to include JWT in API requests.
+3)Create Login and Register components.
+4)Modify the App component to handle authentication state.
+5)Protect the Student Management Pages to be accessed only by authenticated users.
 
 
 
