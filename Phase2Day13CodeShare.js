@@ -106,6 +106,271 @@ class AuthService {
 
 export default new AuthService();
 
+Modify the Student Service to Include JWT Authentication
+Modify src/services/StudentService.js to include JWT token in API requests.
+
+2)StudentService.js 
+-----------------------
+import axios from 'axios';
+import AuthService from './AuthService';
+
+const API_URL = 'https://localhost:7272/api/Students/';
+
+class StudentService {
+    getAuthHeader() {
+        const user = AuthService.getCurrentUser();
+        if (user && user.token) {
+            return { Authorization: 'Bearer ' + user.token };
+        } else {
+            return {};
+        }
+    }
+
+    getAllStudents() {
+        return axios.get(API_URL, { headers: this.getAuthHeader() });
+    }
+
+    getStudentById(id) {
+        return axios.get(API_URL + id, { headers: this.getAuthHeader() });
+    }
+
+    createStudent(formData) {
+        return axios.post(API_URL, formData, {
+            headers: {
+                ...this.getAuthHeader(),
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    updateStudent(id, formData) {
+        return axios.put(API_URL + id, formData, {
+            headers: {
+                ...this.getAuthHeader(),
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    deleteStudent(id) {
+        return axios.delete(API_URL + id, { headers: this.getAuthHeader() });
+    }
+}
+
+export default new StudentService();
+
+
+3)Create Login Component
+Create src/components/Login.js
+
+Login.js 
+----------
+import React, { useState } from 'react';
+import AuthService from '../services/AuthService';
+import { useNavigate } from 'react-router-dom';
+
+const Login = ({ setAuthUser }) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        AuthService.login({ username, password }) // Use `username` instead of `email`
+            .then(response => {
+                setAuthUser(AuthService.getCurrentUser());
+                alert('Login successful!');
+                navigate('/students');
+            })
+            .catch(error => {
+                alert('Invalid credentials');
+            });
+    };
+
+    return (
+        <div className="container mt-4 p-4 border rounded bg-light">
+            <h2>Login</h2>
+            <form onSubmit={handleLogin}>
+                <div className="form-group mb-3">
+                    <label>Username</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group mb-3">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary">Login</button>
+            </form>
+        </div>
+    );
+};
+
+export default Login;
+
+
+create Register component 
+Create src/components/Register.js
+
+Register.js 
+------------
+import React, { useState } from 'react';
+import AuthService from '../services/AuthService';
+import { useNavigate } from 'react-router-dom';
+
+const Register = () => {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [role, setRole] = useState('User'); // Default role is "User"
+    const navigate = useNavigate();
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const userData = {
+            username,
+            email,
+            password,
+            role  // Role is included here
+        };
+
+        AuthService.register(userData)
+            .then(response => {
+                alert(`User registered successfully as ${role}! Please login.`);
+                navigate('/login');
+            })
+            .catch(error => {
+                alert(error.response?.data?.message || 'Registration failed. Please try again.');
+            });
+    };
+
+    return (
+        <div className="container mt-4 p-4 border rounded bg-light">
+            <h2>Register</h2>
+            <form onSubmit={handleRegister}>
+                <div className="form-group mb-3">
+                    <label>Username</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group mb-3">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        className="form-control"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group mb-3">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group mb-3">
+                    <label>Role</label>
+                    <select
+                        className="form-control"
+                        value={role}
+                        onChange={(e) => setRole(e.target.value)}
+                    >
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                        <option value="HR">HR</option>
+                    </select>
+                </div>
+                <button type="submit" className="btn btn-primary">Register</button>
+            </form>
+        </div>
+    );
+};
+
+export default Register;
+
+4)Now modify App.js to handle authentication 
+
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
+import StudentForm from './components/StudentForm';
+import StudentList from './components/StudentList';
+import Login from './components/Login';
+import Register from './components/Register';
+import AuthService from './services/AuthService';
+
+function App() {
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const [authUser, setAuthUser] = useState(AuthService.getCurrentUser());
+
+  const refreshStudents = () => {
+    setSelectedStudent(null);
+    setEditMode(false);
+  };
+
+  const handleLogout = () => {
+    AuthService.logout();
+    setAuthUser(null);
+  };
+
+  return (
+    <Router>
+      <div className="container">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <Link className="navbar-brand" to="/">Student Portal</Link>
+          <div className="navbar-nav ml-auto">
+            {!authUser ? (
+              <>
+                <Link className="nav-item nav-link" to="/login">Login</Link>
+                <Link className="nav-item nav-link" to="/register">Register</Link>
+              </>
+            ) : (
+              <>
+                <Link className="nav-item nav-link" to="/students">Students</Link>
+                <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+              </>
+            )}
+          </div>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<Login setAuthUser={setAuthUser} />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/students" element={authUser ? (
+            <>
+              <StudentForm selectedStudent={selectedStudent} setEditMode={setEditMode} refreshStudents={refreshStudents} />
+              <StudentList setSelectedStudent={setSelectedStudent} setEditMode={setEditMode} refreshStudents={refreshStudents} />
+            </>
+          ) : <Navigate to="/login" />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
 
 
 
