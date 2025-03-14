@@ -371,8 +371,260 @@ function App() {
 
 export default App;
 
+Steps to convert the studentapp to use redux 
+********************************************
+Install Redux Packages
+
+--->npm install @reduxjs/toolkit react-redux
+
+--->Set up Redux Store and Slices
+
+/src
+ ├── /redux
+ │    ├── store.js
+ │    ├── /slices
+ │    │    ├── authSlice.js
+ │    │    ├── studentSlice.js
+ ├── /services
+ ├── /components
+ ├── App.js
 
 
+--->Modify Components to Use Redux State and Dispatch Actions
+
+1. Create Redux Store (store.js)
+-----------------------------------
+Create the Redux store and combine all slices.
+
+import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "./slices/authSlice";
+import studentReducer from "./slices/studentSlice";
+
+const store = configureStore({
+  reducer: {
+    auth: authReducer,
+    student: studentReducer,
+  },
+});
+
+export default store;
+
+2. Create Auth Slice (authSlice.js)
+-----------------------------------
+Manages user authentication and token storage.
+
+import { createSlice } from "@reduxjs/toolkit";
+import AuthService from "../../services/AuthService";
+
+const initialState = {
+  user: JSON.parse(localStorage.getItem("user")) || null,
+};
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    loginSuccess: (state, action) => {
+      state.user = action.payload;
+      localStorage.setItem("user", JSON.stringify(action.payload));
+    },
+    logout: (state) => {
+      state.user = null;
+      localStorage.removeItem("user");
+    },
+  },
+});
+
+export const { loginSuccess, logout } = authSlice.actions;
+
+export const loginUser = (userData) => async (dispatch) => {
+  try {
+    const response = await AuthService.login(userData);
+    dispatch(loginSuccess(response));
+  } catch (error) {
+    alert("Login failed! Check credentials.");
+  }
+};
+
+export const logoutUser = () => (dispatch) => {
+  AuthService.logout();
+  dispatch(logout());
+};
+
+export default authSlice.reducer;
+
+
+3. Create Student Slice (studentSlice.js)
+------------------------------------------
+Handles CRUD operations for students.
+
+
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import StudentService from "../../services/StudentService";
+
+// Async actions
+export const fetchStudents = createAsyncThunk("students/fetchAll", async () => {
+    const response = await StudentService.getAllStudents();
+    return response.data;
+});
+
+export const addStudent = createAsyncThunk("students/add", async (formData) => {
+    await StudentService.createStudent(formData);
+    return formData;
+});
+
+export const updateStudent = createAsyncThunk("students/update", async ({ id, formData }) => {
+    await StudentService.updateStudent(id, formData);
+    return { id, formData };
+});
+
+export const deleteStudent = createAsyncThunk("students/delete", async (id) => {
+    await StudentService.deleteStudent(id);
+    return id;
+});
+
+// Student slice
+const studentSlice = createSlice({
+    name: "students",
+    initialState: { students: [], loading: false },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchStudents.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(fetchStudents.fulfilled, (state, action) => {
+                state.loading = false;
+                state.students = action.payload;
+            })
+            .addCase(addStudent.fulfilled, (state, action) => {
+                state.students.push(action.payload);
+            })
+            .addCase(updateStudent.fulfilled, (state, action) => {
+                const index = state.students.findIndex((s) => s.id === action.payload.id);
+                if (index !== -1) {
+                    state.students[index] = action.payload.formData;
+                }
+            })
+            .addCase(deleteStudent.fulfilled, (state, action) => {
+                state.students = state.students.filter((s) => s.id !== action.payload);
+            });
+    },
+});
+
+export default studentSlice.reducer;
+
+4. Update Components to Use Redux
+-------------------------------------
+Modify Login.js to use Redux.
+
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../redux/slices/authSlice";
+import { useNavigate } from "react-router-dom";
+
+const Login = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        dispatch(loginUser({ username, password }));
+        navigate("/students");
+    };
+
+    return (
+        <div className="container mt-4 p-4 border rounded bg-light">
+            <h2>Login</h2>
+            <form onSubmit={handleLogin}>
+                <input type="text" className="form-control mb-3" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                <input type="password" className="form-control mb-3" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <button type="submit" className="btn btn-primary">Login</button>
+            </form>
+        </div>
+    );
+};
+
+export default Login;
+
+StudentList.js 
+-----------------
+
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchStudents, deleteStudent } from "../redux/slices/studentSlice";
+
+const StudentList = ({ setEditMode, setSelectedStudent }) => {
+  const dispatch = useDispatch();
+  const { students, loading } = useSelector((state) => state.student);
+
+  useEffect(() => {
+    dispatch(fetchStudents());
+  }, [dispatch]);
+
+  if (loading) return <p>Loading students...</p>;
+
+  return (
+    <div className="container mt-4">
+      <h2>Student List</h2>
+      <div className="row">
+        {students.map((student) => (
+          <div className="col-md-4 mb-3" key={student.id}>
+            <div className="card h-100">
+              <img src={student.imageUrl ? `https://localhost:7272${student.imageUrl}` : ''} className="card-img-top" alt="Student" style={{ height: "200px", objectFit: "cover" }} />
+              <div className="card-body">
+                <h5 className="card-title">{student.name}</h5>
+                <p className="card-text">{student.email}</p>
+                <p className="card-text">{student.address}</p>
+              </div>
+              <div className="card-footer d-flex justify-content-between">
+                <button className="btn btn-warning" onClick={() => { setSelectedStudent(student); setEditMode(true); }}>Edit</button>
+                <button className="btn btn-danger" onClick={() => dispatch(deleteStudent(student.id))}>Delete</button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default StudentList;
+
+App.js (Modify App.js to wrap the app with the Redux Provider.)
+------------------------------------------------------------------
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { Provider, useSelector, useDispatch } from "react-redux";
+import store from "./redux/store";
+import StudentList from "./components/StudentList";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import { logoutUser } from "./redux/slices/authSlice";
+
+const AppContent = () => {
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/students" element={user ? <StudentList /> : <Navigate to="/login" />} />
+      </Routes>
+      {user && <button onClick={() => dispatch(logoutUser())}>Logout</button>}
+    </Router>
+  );
+};
+
+const App = () => (
+  <Provider store={store}>
+    <AppContent />
+  </Provider>
+);
+
+export default App;
 
 
 
